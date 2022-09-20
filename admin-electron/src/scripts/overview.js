@@ -3,7 +3,7 @@
  * Grid 1:
  *  - Display monthly revenue
  */
-const data = {
+const grid1Data = {
     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
     datasets: [{
         label: "Monthly revenue",
@@ -16,7 +16,7 @@ const data = {
     }]
 };
 
-const options = {
+const grid1Options = {
     maintainAspectRatio: false,
     responsive: true,
     scales: {
@@ -43,6 +43,6 @@ const options = {
 
 new Chart('chart', {
     type: 'bar',
-    options: options,
-    data: data
+    options: grid1Options,
+    data: grid1Data
 });
