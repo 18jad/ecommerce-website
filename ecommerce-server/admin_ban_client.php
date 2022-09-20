@@ -8,15 +8,23 @@ $userName = $_POST["userName"];
 
 // Functions
 
-$query = $mysql -> prepare(
-    "DELETE FROM users 
-    WHERE username = '$userName'"
-);
+function deleteUser($user) {
+    $query = $mysql -> prepare(
+        "DELETE FROM users 
+        WHERE username = '$user'"
+    );
 
-if ($query === false) {
-    die(json_encode("error: " . $mysql -> error));
+    if ($query === false) {
+        die(json_encode("error: " . $mysql -> error));
+    };
+
+    $query -> execute();
+
+    return true
 };
 
-$query -> execute();
+// Main
+
+echo json_encode(deleteUser($userName));
 
 ?>
