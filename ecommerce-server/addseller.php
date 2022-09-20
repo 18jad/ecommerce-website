@@ -1,6 +1,6 @@
 <?php
 
-// the headers
+// include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
@@ -35,7 +35,7 @@ if ($response) {
 
 //if false prepare the query insert
 $query = $mysql -> prepare(
-    "INSERT INTO sellers(username, name,`password`, description, money,date_joined) VALUE (?, ?, ?, '$password', ?, ?)");
+    "INSERT INTO sellers(username, name,password, description, money,date_joined) VALUE (?, ?,'$password', ?, ?, ?)");
 
 if ($query === false) {
     die(json_encode("error: " . $mysql -> error));
