@@ -83,3 +83,8 @@
     text-decoration: none;
     text-align: center;
 }
+
+#chart,
+#chart2 {
+    height: calc(100% - 40px) !important;
+}
