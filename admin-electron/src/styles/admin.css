@@ -12,10 +12,11 @@
 }
 
 .grid {
-    background: red;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 350px;
     width: 36vw;
+    border: 1px solid var(--turquoise);
+    border-radius: 10px;
 }
