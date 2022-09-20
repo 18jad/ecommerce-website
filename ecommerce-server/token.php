@@ -13,11 +13,14 @@ $tokenHeader = json_encode($myObj);
 
 //Creates Payload of Token
 function payloadCreate($user, $userType) {
+    $currentTime = time();
+    $expiryTime = $currentTime + 10800; //3 hours expiry
     $myPayloadObj = new stdClass();
-    $myPayloadObj -> username = $user;
-    $myPayloadObj -> type = $userType;
-    $myPayloadObj -> iat = time();
-    $myPayloadObj -> exp = time() + 10800; //3 hours expiry
+
+    $myPayloadObj -> username = "$user";
+    $myPayloadObj -> type = "$userType";
+    $myPayloadObj -> iat = "$currentTime";
+    $myPayloadObj -> exp = "$expiryTime";
 
     return $myPayloadObj;
 };
