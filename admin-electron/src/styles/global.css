@@ -1,0 +1,14 @@
+@import url("./fonts.css");
+
+:root {
+    --white: #ededed;
+    --turquoise: #00ADB5;
+    --black: #393E46;
+}
+
+*:not(i) {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'M PLUS 1p', sans-serif;
+}
