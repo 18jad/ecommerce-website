@@ -1,3 +1,7 @@
+<!-- Bans Unbans Clients
+Returns true When Completed 
+POST userName of Client to be Banned -->
+
 <?php
 
 include("connection.php");
