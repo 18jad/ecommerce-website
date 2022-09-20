@@ -2,7 +2,7 @@
 
 // Init Variables
 
-$SECRETKEY = "CDr9tr&Rk1c50ealZRrxcX#4";
+$SECRETKEY = "f6kL*Ur^7r!vugmU2LIg6Dmw";
 
 $myObj = new stdClass();
 $myObj -> alg = "HS256";
@@ -29,10 +29,6 @@ function tokenDecode($token) {
     return base64_decode($payload[1]);
 };
 
-function tokenUser($token) {
-    tokenDecode($token);
-};
-
 function tokenAlive($token, $key){
     if(! verifySignature($token, $key)) {
         return false;
@@ -49,7 +45,7 @@ function tokenAlive($token, $key){
     return true;
 };
 
-//Check if user is allowed to manipulate his own data
+//Check if user is allowed to manipulate his own data 
 function isAuthorized($user, $token, $key) {
     if (! tokenAlive($token, $key)) {
         return false;
