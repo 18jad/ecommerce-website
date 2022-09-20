@@ -9,7 +9,7 @@ const closeBarBtn = document.getElementById('closeNav'),
     linkTexts = document.querySelectorAll('.link-text'),
     links = document.querySelectorAll('.link'),
     logo = document.querySelector('.logo'),
-    overviewBtn = document.querySelector('.overreview'),
+    overviewBtn = document.querySelector('.overeview'),
     signOutBtn = document.getElementById('signOutBtn'),
     footerText = document.querySelector('.panelFooter');
 

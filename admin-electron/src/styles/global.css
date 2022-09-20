@@ -86,7 +86,7 @@ main {
     width: 100%;
 }
 
-.overreview {
+.overeview {
     padding: 10px 50px;
     background: var(--white);
     color: var(--black);
@@ -98,7 +98,7 @@ main {
     margin-bottom: 30px;
 }
 
-.overreview:hover {
+.overeview:hover {
     opacity: 0.8;
 }
 
