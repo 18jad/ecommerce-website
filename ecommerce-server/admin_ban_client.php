@@ -8,9 +8,9 @@ $userName = $_POST["userName"];
 
 // Functions
 
-function banUser($user) {
+function banUser($user, $mysql) {
     $query = $mysql -> prepare(
-        "INSERT INTO users(is_banned) VALUE (1)
+        "UPDATE users SET is_banned = 1
         WHERE username = '$user'"
     );
 
@@ -20,12 +20,12 @@ function banUser($user) {
 
     $query -> execute();
 
-    return true
+    return true;
 };
 
-function unbanUser($user) {
+function unbanUser($user, $mysql) {
     $query = $mysql -> prepare(
-        "INSERT INTO users(is_banned) VALUE (0)
+        "UPDATE users SET is_banned = 0
         WHERE username = '$user'"
     );
 
@@ -35,12 +35,34 @@ function unbanUser($user) {
 
     $query -> execute();
 
-    return true
+    return true;
+};
+
+function checkUserStatus($user, $mysql) {
+    $query = $mysql -> prepare(
+        "SELECT is_banned FROM users
+        WHERE username = '$user'"
+    );
+
+    if ($query === false) {
+        die(json_encode("error: " . $mysql -> error));
+    };
+
+    $query -> execute();
+    $array = $query -> get_result();
+
+    $response = [];
+    $response[] = $array -> fetch_assoc();
+
+    return $response;
 };
 
 // Main
 
-echo json_encode(unbanUser($userName));
-//echo json_encode(banUser($userName));
+if(checkUserStatus($userName, $mysql) == 1) {
+    echo json(unbanUser($userName, $mysql));
+} else {
+    echo json(banUser($userName, $mysql));
+};
 
 ?>
