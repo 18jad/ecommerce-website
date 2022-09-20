@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/admin.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
+        integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./scripts/global.js" defer></script>
+    <script src="./scripts/overview.js" defer></script>
+    <title>Admin panel</title>
+</head>
+
+<body>
+    <div class="nav-header">
+        <div class="side-nav">
+            <div class="nav-top">
+                <div class="logo-container">
+                    <img src="./assets/logo.svg" alt="logo" class="logo">
+                </div>
+                <a href="./admin.html"><button class="overeview">Overview</button></a>
+                <div class="link-list">
+                    <a href="./clients.html" class="link active">
+                        <i class="fa-solid fa-users"></i>
+                        <span class="link-text">Clients</span>
+                    </a>
+                    <a href="" class="link">
+                        <i class="fa-solid fa-user-tag"></i>
+                        <span class="link-text">Sellers</span>
+                    </a>
+                    <a href="" class="link">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="link-text">Stats ‎ ‎</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <hr>
+                <button id="signOutBtn">Sign out <i class="fa-solid fa-right-from-bracket"></i></button>
+                <p class="panelFooter">Admin panel</p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="header">
+            <i class="fa-solid fa-angles-left" id="closeNav"></i>
+            <p id="pageName">Overview</p>
+            <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
+        </div>
+        <section class="page-content">
+
+        </section>
+    </main>
+
+
+</body>
+
+</html>
