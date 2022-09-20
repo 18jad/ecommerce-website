@@ -40,7 +40,7 @@ function unbanUser($user, $mysql) {
 
 function checkUserStatus($user, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT is_banned FROM users
+        "SELECT is_banned AS ban FROM users
         WHERE username = '$user'"
     );
 
@@ -54,15 +54,15 @@ function checkUserStatus($user, $mysql) {
     $response = [];
     $response[] = $array -> fetch_assoc();
 
-    return $response;
+    return $response[0]["ban"];
 };
 
 // Main
 
 if(checkUserStatus($userName, $mysql) == 1) {
-    echo json(unbanUser($userName, $mysql));
+    echo json_encode(unbanUser($userName, $mysql));
 } else {
-    echo json(banUser($userName, $mysql));
+    echo json_encode(banUser($userName, $mysql));
 };
 
 ?>
