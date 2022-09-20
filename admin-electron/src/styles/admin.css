@@ -2,6 +2,8 @@
 
 body {
     overflow: hidden;
+    display: flex;
+    justify-content: center;
 }
 
 main {
@@ -12,6 +14,13 @@ main {
     display: flex;
     align-items: flex-start;
     justify-content: flex-start;
+    height: 100vh;
+    width: 260px;
+    transition: width 400ms ease-in-out;
+}
+
+.shrinked-nav {
+    width: 100px;
 }
 
 
@@ -48,11 +57,11 @@ main {
     justify-content: space-between;
     flex-direction: column;
     background: url("../assets/background.svg") no-repeat center;
-    height: 100vh;
-    width: 270px;
+    width: 100%;
     box-shadow: 2px 0 5px #0004;
     z-index: 10;
     overflow: hidden;
+    height: 100%;
 }
 
 .nav-top {
@@ -72,12 +81,16 @@ main {
     border: none;
     font-weight: 800;
     cursor: pointer;
-    transition: opacity 150ms ease-in-out;
+    transition: all 400ms ease-in-out, opacity 150ms ease-in-out;
     margin-bottom: 30px;
 }
 
 .overreview:hover {
     opacity: 0.8;
+}
+
+.link-text {
+    transition: all 400ms ease-in-out;
 }
 
 .logo-container {
@@ -90,6 +103,8 @@ main {
 
 .logo {
     height: 55px;
+    transition: all 400ms ease-in-out;
+    ;
 }
 
 .link-list {
@@ -110,6 +125,8 @@ main {
     font-size: 20px;
     width: 100%;
     padding: 10px 30px;
+    transition: all 400ms ease-in-out;
+    white-space: nowrap;
 }
 
 .link:hover {
@@ -153,7 +170,7 @@ hr {
     justify-content: center;
     gap: 10px;
     white-space: nowrap;
-    transition: opacity 150ms ease-in-out;
+    transition: all 400ms ease-in-out, opacity 150ms ease-in-out;
 }
 
 #signOutBtn:hover {
@@ -162,6 +179,32 @@ hr {
 
 #closeNav {
     cursor: pointer;
+}
+
+.panelFooter {
+    transition: all 400ms ease-in-out;
+}
+
+.shrinked-link {
+    gap: 0 !important;
+    padding: 10px 36px 10px 38px !important;
+    justify-content: unset !important;
+}
+
+.hide-text {
+    transform: translateX(300px) !important;
+}
+
+.shrinked-logo {
+    height: 20px !important;
+}
+
+.shrinked-btn {
+    padding: 8px 5px !important;
+}
+
+.shrinked-text {
+    font-size: 10px;
 }
 
 section {
