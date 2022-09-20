@@ -16,15 +16,11 @@ $money =$_POST["money"];
 $date_joined = date("d M Y @ " . "H" . ":i");
 
 //select the username from the database to check if exist
-$check_seller = $mysql -> prepare(
-    "SELECT username FROM sellers
-    WHERE username = '$username'"
-);
+$check_seller = $mysql -> prepare("SELECT username FROM sellers WHERE username = '$username'");
 
 //execute the select query
 $check_seller -> execute();
 $array = $check_seller -> get_result();
-
 $response = [];
 
 //put the data in the array
@@ -39,8 +35,7 @@ if ($response) {
 
 //if false prepare the query insert
 $query = $mysql -> prepare(
-    "INSERT INTO sellers(username, name,`password`, description, money,date_joined)
-    VALUE (?, ?, ?, '$password', ?, ?)");
+    "INSERT INTO sellers(username, name,`password`, description, money,date_joined) VALUE (?, ?, ?, '$password', ?, ?)");
 
 if ($query === false) {
     die(json_encode("error: " . $mysql -> error));
