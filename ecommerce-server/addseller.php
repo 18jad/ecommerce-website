@@ -26,3 +26,13 @@ $check_seller -> execute();
 $array = $check_seller -> get_result();
 
 $response = [];
+
+//put the data in the array
+while($info  = $array -> fetch_assoc()){
+    $response[] = $info;
+};
+
+// check if response have data, if true send an error message
+if ($response) {
+    die(json_encode("error: username already in use."));
+};
