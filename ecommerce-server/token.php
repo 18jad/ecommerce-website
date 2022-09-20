@@ -4,12 +4,23 @@
 
 $SECRETKEY = "f6kL*Ur^7r!vugmU2LIg6Dmw";
 
-$myObj = new stdClass();
-$myObj -> alg = "HS256";
-$myObj -> typ = "JWT";
+$myHeaderObj = new stdClass();
+$myHeaderObj -> alg = "HS256";
+$myHeaderObj -> typ = "JWT";
 $tokenHeader = json_encode($myObj);
 
 // Functions
+
+//Creates Payload of Token
+function payloadCreate($user, $userType) {
+    $myPayloadObj = new stdClass();
+    $myPayloadObj -> username = $user;
+    $myPayloadObj -> type = $userType;
+    $myPayloadObj -> iat = time();
+    $myPayloadObj -> exp = time() + 10800; //3 hours expiry
+
+    return $myPayloadObj;
+};
 
 //Encodes and Creates the Full Token
 function tokenEncode($header, $payload, $key) {
