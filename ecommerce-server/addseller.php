@@ -36,3 +36,20 @@ while($info  = $array -> fetch_assoc()){
 if ($response) {
     die(json_encode("error: username already in use."));
 };
+
+//if false prepare the query insert
+$query = $mysql -> prepare(
+    "INSERT INTO sellers(username, name,`password`, description, money,date_joined)
+    VALUE (?, ?, ?, '$password', ?, ?)");
+
+if ($query === false) {
+    die(json_encode("error: " . $mysql -> error));
+};
+//execute the query
+$query -> bind_param("sssss", $username, $name, $description, $money,$date_joined);
+$query -> execute();
+
+// send the resposne with succces message
+echo json_encode("success");
+
+?>
