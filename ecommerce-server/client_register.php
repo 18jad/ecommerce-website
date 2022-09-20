@@ -39,10 +39,10 @@ function checkExists($user, $email, $mysql) {
     return true;
 };
 
-function registerClient() {
+function registerClient($name, $user, $email, $date, $password, $banned, $money, $mysql) {
     $query = $mysql -> prepare(
         "INSERT INTO users(`name`, username, `password`, email, date_joined, `money`, banned)
-        VALUE (?, ?, '$password', ?, '$dateJoined', '$money', '$banned')");
+        VALUE (?, ?, '$password', ?, '$date', '$money', '$banned')");
 
     if ($query === false) {
         die(json_encode("error: " . $mysql -> error));
@@ -52,6 +52,15 @@ function registerClient() {
     $query -> execute();
 
     return true;
+};
+
+// Main
+
+if(checkExists($userName, $email, $mysql)) {
+    die(json_encode("Username / Email Already In Use!"));
+} else {
+    registerClient($name, $userName, $email, $dateJoined, $password, $banned, $money, $mysql);
+    echo json_encode(true);
 };
 
 ?>
