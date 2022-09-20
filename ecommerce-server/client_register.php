@@ -1,3 +1,7 @@
+<!-- Takes in: userName / name / email / password
+Returns true if success
+otherwise returns username/email already in use -->
+
 <?php
 
 header("Access-Control-Allow-Origin: *");
