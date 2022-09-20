@@ -33,8 +33,23 @@ function checkExists($user, $email, $mysql) {
     };
 
     if ($response) {
-        die(json_encode("error: username / email already in use."));
+        return false;
     };
+
+    return true;
+};
+
+function registerClient() {
+    $query = $mysql -> prepare(
+        "INSERT INTO users(`name`, username, `password`, email, date_joined, `money`, banned)
+        VALUE (?, ?, '$password', ?, '$dateJoined', '$money', '$banned')");
+
+    if ($query === false) {
+        die(json_encode("error: " . $mysql -> error));
+    };
+
+    $query -> bind_param("sss", $name, $user, $email);
+    $query -> execute();
 
     return true;
 };
