@@ -33,15 +33,15 @@ function checkExists($user, $email, $mysql) {
     };
 
     if ($response) {
-        return false;
+        return true;
     };
 
-    return true;
+    return false;
 };
 
 function registerClient($name, $user, $email, $date, $password, $banned, $money, $mysql) {
     $query = $mysql -> prepare(
-        "INSERT INTO users(`name`, username, `password`, email, date_joined, `money`, banned)
+        "INSERT INTO users(`name`, username, `password`, email, date_joined, `money`, is_banned)
         VALUE (?, ?, '$password', ?, '$date', '$money', '$banned')");
 
     if ($query === false) {
