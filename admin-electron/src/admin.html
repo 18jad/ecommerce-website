@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/admin.css">
+    <script src="./scripts/sidebar.js" defer></script>
     <title>Admin panel</title>
 </head>
 
@@ -36,20 +37,20 @@
             <div class="nav-bottom">
                 <hr>
                 <button id="signOutBtn">Sign out <i class="fa-solid fa-right-from-bracket"></i></button>
-                <p>Admin panel</p>
+                <p class="panelFooter">Admin panel</p>
             </div>
         </div>
-        <main>
-            <div class="header">
-                <i class="fa-solid fa-angles-left" id="closeNav"></i>
-                <p id="pageName">Overview</p>
-                <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
-            </div>
-            <section class="page-content">
-                test
-            </section>
-        </main>
     </div>
+    <main>
+        <div class="header">
+            <i class="fa-solid fa-angles-left" id="closeNav"></i>
+            <p id="pageName">Overview</p>
+            <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
+        </div>
+        <section class="page-content">
+            test
+        </section>
+    </main>
 
 
 </body>
