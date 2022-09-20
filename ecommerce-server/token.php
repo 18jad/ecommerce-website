@@ -22,7 +22,7 @@ function payloadCreate($user, $userType) {
     $myPayloadObj -> iat = "$currentTime";
     $myPayloadObj -> exp = "$expiryTime";
 
-    return $myPayloadObj;
+    return json_encode($myPayloadObj);
 };
 
 //Encodes and Creates the Full Token
