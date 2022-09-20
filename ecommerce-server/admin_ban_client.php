@@ -8,9 +8,24 @@ $userName = $_POST["userName"];
 
 // Functions
 
-function deleteUser($user) {
+function banUser($user) {
     $query = $mysql -> prepare(
-        "DELETE FROM users 
+        "INSERT INTO users(is_banned) VALUE (1)
+        WHERE username = '$user'"
+    );
+
+    if ($query === false) {
+        die(json_encode("error: " . $mysql -> error));
+    };
+
+    $query -> execute();
+
+    return true
+};
+
+function unbanUser($user) {
+    $query = $mysql -> prepare(
+        "INSERT INTO users(is_banned) VALUE (0)
         WHERE username = '$user'"
     );
 
@@ -25,6 +40,7 @@ function deleteUser($user) {
 
 // Main
 
-echo json_encode(deleteUser($userName));
+echo json_encode(unbanUser($userName));
+//echo json_encode(banUser($userName));
 
 ?>
