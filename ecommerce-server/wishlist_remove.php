@@ -11,4 +11,11 @@ include("connection.php");
 $user_id = $_POST["user_id"];
 $product_id = $_POST["product_id"];
 
+//select the username from the database to check if exist
+$remove_wishlist = $mysql -> prepare("DELETE from wishlists where user_id=$user_id and product_id=$product_id");
+
+if ($remove_wishlist=== false) {
+    die(json_encode("error: " . $mysql -> error));
+};
+
 ?>
