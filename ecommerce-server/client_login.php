@@ -2,7 +2,7 @@
 
 // Takes in: userName and password
 // Returns: "Username Not Found!" or "Incorrect Password!" if failed
-// Returns token if success
+// Returns id, username, token if success
 
 // example:
 
@@ -28,7 +28,7 @@ $password = $_POST["password"];
 
 // Functions
 
-function retrieveDate($user, $mysql) {
+function retrieveData($user, $mysql) {
     $query = $mysql -> prepare(
         "SELECT date_joined AS dj, id FROM users
         WHERE username = '$user'"
@@ -73,7 +73,7 @@ function checkPassword($user, $pass, $date, $mysql) {
 
 // Main
 
-$data = retrieveDate($userName, $mysql);
+$data = retrieveData($userName, $mysql);
 $id = $data[0]["id"];
 $dateJoined = $data[0]["dj"];
 

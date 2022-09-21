@@ -2,7 +2,18 @@
 
 // Takes in: userName and password
 // Returns: "Username Not Found!" or "Incorrect Password!" if failed
-// Returns token if success
+// Returns id, username, token if success
+
+// example:
+
+// {
+//     "id": 6,
+//     "userName": "bach_1",
+//     "token": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.ey
+//     J1c2VybmFtZSI6ImJhY2hfMSIsInR5cGUiOiJzZWxsZXIiLCJp
+//     YXQiOiIxNjYzNzk2OTUxIiwiZXhwIjoiMTY2MzgwNzc1MSJ9.96
+//     34305abc616fcfe9f55f0eec6ac59257864af528c407ae8bb9e784ed8ac829"
+// }
 
 include("connection.php");
 include("token.php");
@@ -14,9 +25,9 @@ $password = $_POST["password"];
 
 // Functions
 
-function retrieveDate($user, $mysql) {
+function retrieveData($user, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT date_joined AS dj FROM sellers
+        "SELECT date_joined AS dj, id FROM sellers
         WHERE username = '$user'"
     );
 
@@ -24,13 +35,16 @@ function retrieveDate($user, $mysql) {
     $array = $query -> get_result();
 
     $response = [];
-    $response[] = $array -> fetch_assoc();
 
-    if($response[0] == null) {
+    while($i = $array -> fetch_assoc()) {
+        $response[] = $i;
+    };
+
+    if($response == null) {
         die(json_encode("Username Not Found!"));
-    }
+    };
 
-    return $response[0]["dj"];
+    return $response;
 };
 
 function checkPassword($user, $pass, $date, $mysql) {
@@ -56,13 +70,20 @@ function checkPassword($user, $pass, $date, $mysql) {
 
 // Main
 
-$dateJoined = retrieveDate($userName, $mysql);
+$data = retrieveData($userName, $mysql);
+$id = $data[0]["id"];
+$dateJoined = $data[0]["dj"];
 
-if($dateJoined) {
-    if(checkPassword($userName, $password, $dateJoined, $mysql)) {
-        $tokenPayload = payloadCreate($userName, "seller");
-        echo json_encode(tokenEncode($tokenHeader, $tokenPayload, $SECRETKEY));
-    };
+if(checkPassword($userName, $password, $dateJoined, $mysql)) {
+    $tokenPayload = payloadCreate($userName, "seller");
+    $token = tokenEncode($tokenHeader, $tokenPayload, $SECRETKEY);
+
+    $json = new stdClass();
+    $json -> id = $id;
+    $json -> userName = $userName;
+    $json -> token = $token;
+
+    die(json_encode($json));
 };
 
 ?>
