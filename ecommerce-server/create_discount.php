@@ -1,5 +1,9 @@
 <?php
 
+//Takes in: seller_id
+//Returns succes message if insert query true
+//otherwise returns error message
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -20,11 +24,10 @@ if ($add_discount=== false) {
 };
 
 //execute the query
-$add_discount -> bind_param("ss", $seller_id,$percentage,$code);
+$add_discount -> bind_param("sss", $seller_id,$percentage,$code);
 $add_discount -> execute();
 
 // send the resposne with succces message
-echo json_encode("product added to favorites");
-
+echo json_encode("discount has been added");
 
 ?>
