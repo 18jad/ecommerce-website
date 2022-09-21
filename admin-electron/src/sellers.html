@@ -61,7 +61,7 @@
                         <form id="addNewUserForm">
                             <div class="inputs-container">
                                 <div class="input-container">
-                                    <input type="text" name="seller" id="sellerInput" class="seller-input"
+                                    <input type="text" name="seller" id="nameInput" class="seller-input"
                                         placeholder="Enter new seller name">
                                     <label for="seller">Seller name</label>
                                 </div>
@@ -83,7 +83,7 @@
                                 <div class="profile-container">
                                     <input type="file" name="profile" id="sellerProfile" hidden>
                                     <button id="profileUploadBtn" type="button">Upload profile picture</button>
-                                    <span id="profileName">Image134.png</span>
+                                    <span id="profileName"></span>
                                 </div>
                             </div>
                             <button type="submit" id="sellerFormSubmit">Add seller</button>
@@ -127,6 +127,65 @@
                             <i class="fa-solid fa-pen"></i>
                         </button>
                     </div>
+                </div>
+                <div class="client">
+                    <p class="client-id">#1</p>
+                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
+                        alt="profile" class="client-image">
+                    <p class="client-name">Jad Yahya2</p>
+                    <p class="client-date-joined">19-01-2022</p>
+                    <div class="action">
+                        <button class="deleteBtn">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                        <button class="editBtn">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+                <div class="client">
+                    <p class="client-id">#1</p>
+                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
+                        alt="profile" class="client-image">
+                    <p class="client-name">Jad Yahya3</p>
+                    <p class="client-date-joined">19-01-2022</p>
+                    <div class="action">
+                        <button class="deleteBtn">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                        <button class="editBtn">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Edit modal -->
+            <div class="edit-modal-container">
+                <div class="edit-modal">
+                    <header class="edit-modal-header">
+                        <i class="fa-solid fa-xmark close-edit-modal"></i>
+                        <h1>
+                            Edit <span id="sellerNameHeader">seller</span> details
+                        </h1>
+                    </header>
+                    <form class="edit-modal-content">
+                        <div class="input-container">
+                            <input type="text" name="sellerOldName" id="oldSellerName" class="seller-input"
+                                placeholder="Enter a new name">
+                            <label for="oldSellerName">Seller name</label>
+                        </div>
+                        <div class="input-container">
+                            <input type="text" name="password" id="oldPasswordInput" class="seller-input"
+                                placeholder="Enter a new seller password">
+                            <label for="oldPasswordInput">New password</label>
+                        </div>
+                        <div class="input-container">
+                            <textarea type="text" name="description" id="oldDescriptionInput" class="seller-input"
+                                placeholder="Enter new seller description"></textarea>
+                            <label for="oldDescriptionInput">Description</label>
+                        </div>
+                        <button type="submit" class="submitEdit">Update</button>
+                    </form>
                 </div>
             </div>
         </section>
