@@ -142,3 +142,18 @@ button{
     color: white;
     border-radius: 10px;
 }
+
+.ads{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);    
+    gap: 2rem; 
+    height: 500px; 
+}
+
+.ads div{
+    background-color: gray;
+}
+
+.ads-left{
+    grid-row: 1 /3;
+}
