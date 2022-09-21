@@ -7,10 +7,35 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Product page</title>
     <link rel="stylesheet" href="css/productpage.css">
+    <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
 </head>
 
 <body>
+    <div class="left-section">
+        <div class="carousel carousel-main" data-flickity='{"wrapAround": true}'>
+            <div class="carousel-cell">
+                <img class="img" src="./assets/photo-1505740420928-5e560c06d30e.jpeg" alt="">
+            </div>
+            <div class="carousel-cell">
+                <img src="./assets/photo-1505740420928-5e560c06d30e.jpeg" alt="">
+            </div>
+            <div class="carousel-cell">
+                <img src="./assets/photo-1505740420928-5e560c06d30e.jpeg" alt="">
+            </div>
+        </div>
 
+        <div class="carousel carousel-nav"
+            data-flickity='{ "asNavFor": ".carousel-main", "contain": true, "pageDots": false }'>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+            <div class="carousel-cell"></div>
+        </div>
+    </div>
+
+    <script src="/path/to/flickity.pkgd.min.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+    <script src="script/script.js"></script>
 </body>
 
 </html>

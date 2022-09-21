@@ -10,3 +10,44 @@ html {
     font-size: 62.5%;
     font-family: 'Roboto', sans-serif;
 }
+
+.left-section{
+    width: 50%;
+}
+
+.carousel {
+    background: #FAFAFA;
+    margin-bottom: 40px;
+}
+
+.carousel-cell {
+    width: 100%;
+    height: 50vh;
+    margin-right: 10px;
+    border-radius: 5px;
+    counter-increment: carousel-cell;
+  }
+  
+  .carousel-cell:before {
+    display: block;
+    text-align: center;
+    line-height: 200px;
+    font-size: 80px;
+  }
+  
+  .carousel-nav .carousel-cell {
+    height: 80px;
+    width: 100px;
+    background-image: url("../assets/photo-1505740420928-5e560c06d30e.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+  }
+  
+  .carousel-nav .carousel-cell:before {
+    font-size: 50px;
+    line-height: 80px;
+  }
+  
+  .carousel-nav .carousel-cell.is-nav-selected {
+    opacity: 0.8;
+  }
