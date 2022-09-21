@@ -230,6 +230,50 @@ section {
     justify-content: center;
 }
 
+.search-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.search-input {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: row-reverse;
+    box-shadow: 0 2px 5px #3333;
+}
+
+.id-search {
+    padding: 8px 14px;
+    outline: 2px solid transparent;
+    border: 1px solid var(--dark-blue);
+    border-left: none;
+    overflow: hidden;
+    transition: outline 150ms ease-in-out;
+}
+
+.id-search:focus,
+.id-search:focus+.tick {
+    outline: 2px solid var(--turquoise);
+    outline-style: double;
+}
+
+.tick {
+    top: 89px;
+    left: 280px;
+    background: #e3ebf1;
+    padding: 6px 14px;
+    outline: 2px solid transparent;
+    border: 1px solid var(--dark-blue);
+    border-right: none;
+    transition: outline 150ms ease-in-out;
+    user-select: none;
+}
+
+/* Modal */
+
 .modal {
     position: absolute;
     height: 100vh;

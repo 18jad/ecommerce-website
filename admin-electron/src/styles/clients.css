@@ -51,41 +51,6 @@
     margin-bottom: 20px;
 }
 
-.search-container {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-}
-
-.search-input {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
-
-.id-search {
-    padding: 8px 14px;
-    padding-left: 45px;
-    outline: 2px solid transparent;
-    border: 1px solid var(--dark-blue);
-    overflow: hidden;
-    box-shadow: 0 2px 5px #3333;
-    transition: outline 150ms ease-in-out;
-}
-
-.id-search:focus {
-    outline: 2px solid var(--turquoise);
-}
-
-.tick {
-    position: absolute;
-    top: 89px;
-    left: 280px;
-    background: #e3ebf1;
-    padding: 6px 14px;
-}
-
 #banById {
     padding: 8px 20px;
     border: 1px solid var(--turquoise);
