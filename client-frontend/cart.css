@@ -92,22 +92,36 @@
     margin-left: -8px;
   }
 
-.button {
+.button-red {
     width: 23vh;
     height: 5vh;
     color: white;
     font-weight:300;
     border-radius: 6px;
     border-style: none;
-
-}
-
-.red {
     background-color: #F6416C;
     border-color: #F6416C;
+
 }
 
-.button:hover {
+.button-green {
+    width: 23vh;
+    height: 5vh;
+    color: white;
+    font-weight:300;
+    border-radius: 6px;
+    border-style: none;
+    background-color: #84B77C;
+    border-color: #84B77C;
+
+}
+
+
+.button-red:hover {
     background-color: #f45e81;
+}
+
+.button-green:hover {
+    background-color: #9ec598;
 }
   
