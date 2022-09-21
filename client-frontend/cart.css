@@ -7,7 +7,8 @@
     box-sizing: border-box;
     font-family: 'Roboto', sans-serif;
   }
-  body{
+
+  body {
     background: #f2f2f2;
   }
   
@@ -125,7 +126,19 @@
     margin-left: -8px;
   }
 
-  
+  nav .menu-icon,
+  nav .cancel-icon,
+  nav .search-icon{
+        width: 40px;
+        text-align: center;
+        margin: 0 50px;
+        font-size: 18px;
+        color: #fff;
+        cursor: pointer;       
+
+}
+
+
   table {
     margin-top: 10vh;
     border-collapse: collapse;
@@ -321,12 +334,25 @@ footer {
     color: rgba(255, 255, 255, 0.534);
   }
 
-
+  
 
 
 @media only screen and (max-width: 888px) {
     
+    .logo-image {
+        width: 120px;
     
+      }
+    
+
+    .search-bar {
+        display: none;
+    }
+
+
+    nav .nav-items li{
+        display: none;
+      }
 
 
 
