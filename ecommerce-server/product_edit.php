@@ -13,23 +13,20 @@ $name = $_POST["name"];
 $category = $_POST["category"];
 $description = $_POST["description"];
 $price = $_POST["price"];
-$orders = 0;
-$times_favorited = 0;
-$discount = 0;
-$visited = 0;
 
 // Functions
 
-function editProduct($id, $name, $cat, $desc, $price, $ord, $mysql) {
+function editProduct($id, $name, $cat, $desc, $price, $mysql) {
     $query = $mysql -> prepare(
-        "UPDATE products SET `name` = ?, category = ?, `description`= ?,
-        price = ?, orders = ? WHERE id = ?");
+        "UPDATE products SET `name` = ?, category = ?,
+        `description`= ?, price = ? WHERE id = ?"
+    );
 
     if ($query === false) {
         die(json_encode("error: " . $mysql -> error));
     };
 
-    $query -> bind_param("ssssss", $name, $cat, $desc, $price, $ord, $id);
+    $query -> bind_param("sssss", $name, $cat, $desc, $price, $id);
     $query -> execute();
 
     return true;
@@ -49,32 +46,31 @@ function getProductData($id, $mysql) {
         $response[] = $i;
     };
 
-    $data = new stdClass();
-    $data -> name = $response[0]["name"];
-    $data -> category = $response[0]["category"];
-    $data -> description = $response[0]["description"];
-    $data -> price = $response[0]["price"];
-
-    return $data;
+    return $response;
 };
 
-function getSellerId($user, $mysql) {
-    $query = $mysql -> prepare(
-        "SELECT id FROM sellers
-        WHERE username = '$user'");
+// function getSellerId($user, $mysql) {
+//     $query = $mysql -> prepare(
+//         "SELECT id FROM sellers
+//         WHERE username = '$user'");
 
-    $query -> execute();
-    $array = $query -> get_result();
+//     $query -> execute();
+//     $array = $query -> get_result();
 
-    $response = [];
-    $response[] = $array -> fetch_assoc();
+//     $response = [];
+//     $response[] = $array -> fetch_assoc();
 
-    return $response[0]["id"];
-};
+//     return $response[0]["id"];
+// };
 
 // Main
 
-$sellerId = getSellerId($sellerUserName, $mysql);
+$data = getProductData($productId, $mysql);
+
+$oldName = $data[0]["name"];
+$oldCategory = $data[0]["category"];
+$oldDescription = $data[0]["description"];
+$oldPrice = $data[0]["price"];
 
 if(!isset($name)){
     $name = $oldName;
@@ -92,7 +88,6 @@ if(!isset($price)){
     $price = $oldPrice;
 };
 
-echo json_encode(addProduct($sellerId, $name, $category, $description,
-$price, $orders, $times_favorited, $discount, $visited, $mysql));
+echo json_encode(editProduct($productId, $name, $category, $description, $price, $mysql));
 
 ?>
