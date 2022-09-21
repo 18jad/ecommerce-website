@@ -1,8 +1,8 @@
-<!-- Bans Unbans Clients
-Returns true When Completed 
-POST userName of Client to be Banned -->
-
 <?php
+
+// Bans Unbans Clients
+// Returns true When Completed 
+// POST userName of Client to be Banned
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");

@@ -1,5 +1,8 @@
 <?php
 
+// Takes in userName and Token
+// Returns whether the token is valis or not (authorized)
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 

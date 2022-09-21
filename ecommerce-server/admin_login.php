@@ -1,8 +1,8 @@
-<!-- Takes in: userName and password
-Returns: "Username Not Found!" or "Incorrect Password!" if failed
-Returns token if success -->
-
 <?php
+
+// Takes in: userName and password
+// Returns: "Username Not Found!" or "Incorrect Password!" if failed
+// Returns token if success
 
 include("connection.php");
 include("token.php");
