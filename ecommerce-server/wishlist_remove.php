@@ -18,4 +18,10 @@ if ($remove_wishlist=== false) {
     die(json_encode("error: " . $mysql -> error));
 };
 
+//execute the query
+$remove_wishlist -> execute();
+
+// send the resposne with succces message
+echo json_encode("product hass been removed from wishlist");
+
 ?>
