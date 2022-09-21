@@ -1,5 +1,8 @@
 <?php
 
+// Takes in: userName / name / category / description / price
+// Returns true on success. otherwise logs the error
+
 include("connection.php");
 
 // Init Variables
@@ -18,7 +21,7 @@ $visited = 0;
 
 function addProduct($id, $name, $cat, $desc, $price, $ord, $fav, $disc, $visit, $mysql) {
     $query = $mysql -> prepare(
-        "INSERT INTO products(id, `name`, category, `description`,
+        "INSERT INTO products(seller_id, `name`, category, `description`,
         price, orders, times_favorited, discount, visited)
         VALUE ('$id', ?, ?, ?, ?, '$ord', '$fav', '$disc', '$visit')");
 
