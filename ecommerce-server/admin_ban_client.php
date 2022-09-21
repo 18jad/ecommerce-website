@@ -4,6 +4,9 @@ POST userName of Client to be Banned -->
 
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("connection.php");
 
 // Init Variables
