@@ -19,4 +19,10 @@ if ($delete_favorite=== false) {
     die(json_encode("error: " . $mysql -> error));
 };
 
+//execute the query
+$delete_favorite -> execute();
+
+// send the resposne with succces message
+echo json_encode("product hass been removed from favorites");
+
 ?>
