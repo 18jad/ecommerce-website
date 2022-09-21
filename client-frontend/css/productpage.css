@@ -101,3 +101,29 @@ html {
     padding-bottom: 2rem;
   }
 
+  input::-webkit-outer-spin-button,
+  input::-webkit-inner-spin-button {
+      -webkit-appearance: none;
+      margin: 0; 
+  }
+  
+  input[type=number] {
+      -moz-appearance:textfield; 
+  }
+
+  .plus-minus-input{
+    text-align: center;
+  }
+
+  .minus-btn,
+  .plus-btn,
+  .plus-minus-input {
+    background-color: #F6416C;
+    padding: 1rem 2rem;
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    outline: none;
+  }
+
