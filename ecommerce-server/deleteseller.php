@@ -22,6 +22,6 @@ if ($delete_seller === false) {
 $delete_seller -> execute();
 
 // send the resposne with succces message
-echo json_encode("success");
+echo json_encode("The seller has been delete");
 
 ?>
