@@ -9,5 +9,10 @@ include("connection.php");
 
 $user_id = $_POST["user_id"];
 
+//select info from the table products which favorites by a user
+$view_favorites= $mysql -> prepare("SELECT id,seller_id,name,category,description,price,orders,times_favorited,discount,visited 
+FROM products p inner join favorited_products fav 
+on p.id=fav.product_id where fav.user_id=$user_id");
+
 
 ?>
