@@ -208,11 +208,13 @@
     flex-direction: column;
     align-items:flex-end;
     margin-right: 30vh;
+    margin-bottom: 20vh;
     
 }
 
 .cart-totals {
-    font-size: 8vh;
+    font-size: 4vh;
+    margin-bottom: 3vh;
 }
 
 .subtotal {
@@ -221,7 +223,9 @@
     justify-content: space-between;
     width: 30vh;
     border-style: groove;
-
+    width: 50vh;
+    height: 5vh;
+    color: rgba(128, 128, 128, 0.865);
 }
 
 .total {
@@ -230,7 +234,20 @@
     justify-content: space-between;
     width: 30vh;
     border-style: groove;
-    
+    width: 50vh;
+    height: 5vh;
+    margin-top: 2vh; 
+    color: rgba(128, 128, 128, 0.865);   
+}
+
+.subtotal-title {
+    padding-left: 1vh;
+    padding-top: 1vh;
+}
+
+.subtotal-price {
+    padding-right: 1vh;
+    padding-top: 1vh;
 }
   
 
