@@ -21,6 +21,10 @@ html {
     margin-bottom: 3rem;
 }
 
+.product-main{
+    display: flex;
+}
+
 .left-section{
     width: 50%;
 }
@@ -70,3 +74,30 @@ html {
     background-size: 100%;
 
   }
+
+  .right-section{
+    margin-left: 10rem;
+  }
+
+  .right-section h2{
+    font-size: 4rem;
+  }
+
+.description{
+    font-size: 2rem;
+    margin: 2rem 0;
+    border-bottom: 1px solid gray;
+    padding-bottom: 2rem;
+  }
+
+  .right-section h3{
+    margin-top: 8rem;
+    font-size: 3rem;
+  }
+
+  .right-section p{
+    font-size: 2rem;
+    margin: 2rem 0;
+    padding-bottom: 2rem;
+  }
+
