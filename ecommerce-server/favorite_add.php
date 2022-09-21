@@ -18,4 +18,11 @@ if ($add_favorite=== false) {
     die(json_encode("error: " . $mysql -> error));
 };
 
+//execute the query
+$add_favorite -> bind_param("ss", $user_id, $product_id);
+$add_favorite -> execute();
+
+// send the resposne with succces message
+echo json_encode("product added to favorites");
+
 ?>
