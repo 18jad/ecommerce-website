@@ -3,7 +3,6 @@
 //Returns succes message if the execute query true
 //otherwise returns error message
 
-
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
