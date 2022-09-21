@@ -16,7 +16,7 @@ $password = $_POST["password"];
 
 function checkAdmin($user, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT username FROM users
+        "SELECT username FROM admins
         WHERE username = '$user'"
     );
 
@@ -37,7 +37,7 @@ function checkPassword($user, $pass, $mysql) {
     $hashedPassword = hash("sha256", $pass . "thcaj5445");
 
     $query = $mysql -> prepare(
-        "SELECT username FROM users
+        "SELECT username FROM admins
         WHERE username = '$user' AND password = '$hashedPassword'"
     );
 
