@@ -335,6 +335,9 @@ footer {
         flex-direction: column;
         align-items: center;
         margin-bottom: 20vh;
+        margin-left:auto; 
+        margin-right:auto;
+        
         
     }
 
