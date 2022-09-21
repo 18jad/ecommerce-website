@@ -22,4 +22,11 @@ if ($add_wishlist=== false) {
     die(json_encode("error: " . $mysql -> error));
 };
 
+//execute the query
+$add_wishlist -> bind_param("ss", $user_id, $product_id);
+$add_wishlist -> execute();
+
+// send the resposne with succces message
+echo json_encode("product added to wishlist");
+
 ?>
