@@ -1,5 +1,10 @@
 <?php
 
+//Takes in: new name / new description / new password /new money
+//Returns true if success
+//otherwise returns error message
+
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
