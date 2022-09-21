@@ -157,3 +157,43 @@ button{
 .ads-left{
     grid-row: 1 /3;
 }
+
+@media (max-width: 1550px) {
+    html {
+        font-size: 56.25%;
+    }
+}
+
+@media (max-width: 1400px) {
+    html {
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 1200px) {
+    html {
+        font-size: 37.5%;
+    }
+}
+
+@media (max-width: 950px) {
+    .top-seller-main,
+    .brand-new-product-header,
+    .best-sell-product-header{ 
+        flex-direction: column;
+    }
+
+    .brand-new-product-header-right{
+        align-self: center;
+        margin: 3rem 0;
+    }
+
+    .top-seller-main{
+        align-items:  center;
+    }
+    
+    .top-seller-main-left,
+    .top-seller-main-right{
+     width: 100%;
+    }
+}
