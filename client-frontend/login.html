@@ -6,10 +6,28 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login</title>
-
 </head>
 
 <body>
+    <form>
+        <h1 class="sign-in-header">Sign in</h1>
+        <div class="content">
+            <div class="inputs-container">
+                <div class="input-container">
+                    <input type="text" name="email" id="emailInput" class="admin-input"
+                        placeholder="Enter your email address">
+                    <label for="email">Email address</label>
+                </div>
+                <div class="input-container">
+                    <input type="password" name="password" id="paswordInput" class="admin-input"
+                        placeholder="Enter your password">
+                    <label for="passwordInput">Password</label>
+                </div>
+            </div>
+            <button type="submit" id="authSubmitBtn" class="form-submit">Sign in</button>
+        </div>
+        <p>Don't have an account? <span>Register</span></p>
+    </form>
 </body>
 
 </html>
