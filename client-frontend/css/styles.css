@@ -21,6 +21,7 @@ button{
 
 .container{
     padding: 0 10rem;
+    padding-top: 5rem;
 }
 
 .hero-page-bg{
@@ -90,4 +91,49 @@ button{
 
 .top-seller-main{
     display: flex;
+}
+
+.top-seller-header{
+    margin: 2rem 0;
+}
+
+.top-seller-main-left,
+.top-seller-main-right{
+    width: 50%;
+}
+
+.top-seller-main-right{
+    border: 1px solid red;
+    background-color: #f5f5f5;
+    padding: 2rem 3rem;
+}
+
+.top-seller-main-right h3{
+    font-size: 5rem;
+    margin: 1.5rem 0 3rem 0;
+}
+
+.top-seller-main-right h5{
+    font-size: 3rem;
+    color: gray;
+    margin-bottom: 3rem;
+}
+
+.top-seller-main-right button{
+    display: block;
+    font-size: 2rem;
+}
+
+.btn-price{
+    background-color: white;
+    padding: 1.8rem 8rem;
+    margin: 5.5rem 0;
+}
+
+.btn-view-deatils{
+    margin: 7rem 0 0 0 ;
+    background-color: #F6416C;
+    padding: 1.8rem 5.2rem;
+    color: white;
+    border-radius: 10px;
 }
