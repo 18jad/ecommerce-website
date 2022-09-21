@@ -16,11 +16,11 @@ $visited = 0;
 
 // Functions
 
-function addProduct($name, $cat, $desc, $price, $ord, $fav, $disc, $visit, $mysql) {
+function addProduct($id, $name, $cat, $desc, $price, $ord, $fav, $disc, $visit, $mysql) {
     $query = $mysql -> prepare(
-        "INSERT INTO products(`name`, category, `description`,
+        "INSERT INTO products(id, `name`, category, `description`,
         price, orders, times_favorited, discount, visited)
-        VALUE (?, ?, ?, ?, '$ord', '$fav', '$disc', '$visit')");
+        VALUE ('$id', ?, ?, ?, ?, '$ord', '$fav', '$disc', '$visit')");
 
     if ($query === false) {
         die(json_encode("error: " . $mysql -> error));
@@ -48,6 +48,9 @@ function getSellerId($user, $mysql) {
 
 // Main
 
+$sellerId = getSellerId($sellerUserName, $mysql);
 
+echo json_encode(addProduct($sellerId, $name, $category, $description,
+$price, $orders, $times_favorited, $discount, $visited, $mysql));
 
 ?>
