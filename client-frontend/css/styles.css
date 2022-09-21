@@ -52,7 +52,7 @@ button{
 .hero-page-left-side h1{
     width: 80%;
     font-size: 8rem;
-    margin: 0 0 5rem 0;
+    margin: 0 0 15rem 0;
 }
 
 .hero-page-left-side{
@@ -286,8 +286,14 @@ button{
     }
 
     .brand-new-product-header-right{
-        align-self: center;
+        /* width: 100%; */
         margin: 5rem 0;
+        align-self: center;
+    }
+
+    .brand-new-product-header-right button{
+        margin: 0.5rem;
+        padding: 1rem 2rem;
     }
 
     .top-seller-main{
@@ -303,15 +309,3 @@ button{
         grid-template-columns: 1fr
     }
 }
-
-@media (max-width: 600px) {
-    .brand-new-product-header-right{
-        display: flex;
-        flex-direction: column;
-    }
-
-    .brand-new-product-header-right button{
-        margin: 1rem 0;
-    }
-}
-
