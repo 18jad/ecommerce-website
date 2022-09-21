@@ -12,3 +12,49 @@ img{
     width: 100%;
 }
 
+button{
+    border: none;
+    outline: none;
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+.container{
+    padding: 0 10rem;
+}
+
+.hero-page-bg{
+    height: 90vh;
+    background-color: #F5F5F5;
+}
+.hero-page{
+    padding-top: 25rem;
+}
+
+.hero-page-left-side h1{
+    width: 80%;
+    font-size: 8rem;
+    margin: 0 0 5rem 0;
+}
+
+.hero-page-left-side{
+    width: 50vw;
+}
+
+.hero-page-btns button{
+    font-size: 3rem;
+    margin-right: 5rem;
+    padding: 2rem 6rem;
+    border-radius: 10px;
+    margin-bottom: 2rem;
+}
+
+.hero-page-btns button:first-child{
+    background-color: #F6416C;
+    color: white;
+}
+
+.hero-page-btns button:last-child{
+    background-color: white;
+    color: black;
+}
