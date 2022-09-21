@@ -9,13 +9,22 @@ include("connection.php");
 
 //decalre the post varaibales
 $seller_id= $_POST["seller_id"];
+$percentage= $_POST["percentage"];
+$code= $_POST["code"];
 
 //insert query to the table discounts
-$add_favorite = $mysql -> prepare("INSERT INTO discounts(seller_id,percentage,code) VALUE (?, ?, ?)");
+$add_discount = $mysql -> prepare("INSERT INTO discounts(seller_id,percentage,code) VALUE (?, ?, ?)");
 
-if ($add_favorite=== false) {
+if ($add_discount=== false) {
     die(json_encode("error: " . $mysql -> error));
 };
+
+//execute the query
+$add_discount -> bind_param("ss", $seller_id,$percentage,$code);
+$add_discount -> execute();
+
+// send the resposne with succces message
+echo json_encode("product added to favorites");
 
 
 ?>
