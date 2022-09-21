@@ -16,12 +16,20 @@ img{
 
 body{
     font-family: 'Roboto', sans-serif;
-    display: grid;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     height: 100vh;
     place-items: center;
 }
 
+.logo{
+    margin-bottom: 10rem;
+    width: 25rem;
+}
+
 form {
+    border: 1px solid gray;
     background: white;
     border-radius: 10px;
     height: 430px;
@@ -39,6 +47,7 @@ form {
     width: 100%;
     padding: 13px 0;
     font-weight: 750;
+    font-size: 2.5rem;
 }   
 
 .content {
@@ -70,7 +79,6 @@ form {
 }
 
 label {
-    color: var(--black);
     font-weight: 500;
     font-size: 17px;
     transition: color 150ms ease-in-out;
@@ -107,7 +115,7 @@ label {
     background: #F6416C;
     border: 1.5px solid #F6416C;
     width: 88%;
-    color: var(--black);
+    color: white;
     font-weight: 800;
     box-shadow: 0px 5px 9px #F6416C;
     cursor: pointer;
@@ -118,4 +126,13 @@ label {
     opacity: 0.9;
     transform: translateY(-5px);
     box-shadow: 0px 6px 10px 2px #F6416C;
+}
+
+.new-account{
+    font-size: 1.5rem;
+    margin-bottom: 3rem;
+}
+
+.register{
+    color: #F6416C;
 }
