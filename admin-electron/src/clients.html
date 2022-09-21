@@ -49,6 +49,18 @@
             <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
         </div>
         <section class="page-content">
+            <div class="navigation">
+                <div class="search-container">
+                    <div class="search-input">
+                        <span class="tick">#</span>
+                        <input type="number" placeholder="Ban user by id" id="idInput" class="id-search">
+                    </div>
+                    <button id="banById">Ban</button>
+                </div>
+                <p class="res success" id="responseResult">User banned
+                    successfully</p>
+                <button class="view-banned" id="viewBannedUsers">View banned clients</button>
+            </div>
             <div class="clients-table">
                 <div class="table-info">
                     <p>ID</p>
