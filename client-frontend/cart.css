@@ -125,3 +125,41 @@
     background-color: #9ec598;
 }
   
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: end;
+    height: 70px;
+    padding: 0 100px;
+    background-color: #F6416C;
+}
+
+footer .logo{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+  }
+  footer .footer-items{
+    display: flex;
+    flex: 1;
+    padding: 0 0 0 40px;
+  }
+  footer .footer-items li{
+    list-style: none;
+    padding: 0 15px;
+  }
+  footer .footer-items li a{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  footer .footer-items li a:hover{
+    color: #F6416C;
+  }
+
+  .space {
+    width: 65vh;
+}
