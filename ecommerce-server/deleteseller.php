@@ -1,5 +1,9 @@
 <?php
 
+//Takes in: user name
+//Returns seller deleted if true
+//otherwise returns erorr
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
