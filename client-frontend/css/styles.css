@@ -64,13 +64,15 @@ button{
     justify-content: space-between;
 }
 
-.brand-new-product-header-left h2{
+.brand-new-product-header-left h2,
+.top-seller-header h2{
     font-size: 5rem;
     text-transform: capitalize;
     margin: 1rem 0;
 } 
 
-.brand-new-product-header-left p{
+.brand-new-product-header-left p,
+.top-seller-header p{
     font-size: 2rem;
     color: gray;
 } 
@@ -85,3 +87,4 @@ button{
     padding: 1.5rem 5rem;
     background-color: white;
 }
+
