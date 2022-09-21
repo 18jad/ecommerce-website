@@ -8,6 +8,15 @@ header('Access-Control-Allow-Methods: POST, GET, PUT, OPTIONS, PATCH, DELETE');
 //include the connection to the database
 include("connection.php");
 
+//declare discount id varaible to delete on it
+$discount_id=$_POST["discount_id"];
+
+//query to delete seller of specific username
+$delete_discount = $mysql -> prepare("DELETE from discounts where id= $discount_id");
+
+if ($delete_discount === false) {
+    die(json_encode("error: " . $mysql -> error));
+};
 
 
 ?>
