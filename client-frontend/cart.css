@@ -92,5 +92,10 @@
     margin-left: -8px;
   }
 
+.button {
+    width: 20vh;
+    height: 4vh;
+    background-color: #F6416C;
 
+}
   
