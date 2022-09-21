@@ -93,9 +93,21 @@
   }
 
 .button {
-    width: 20vh;
-    height: 4vh;
-    background-color: #F6416C;
+    width: 23vh;
+    height: 5vh;
+    color: white;
+    font-weight:300;
+    border-radius: 6px;
+    border-style: none;
 
+}
+
+.red {
+    background-color: #F6416C;
+    border-color: #F6416C;
+}
+
+.button:hover {
+    background-color: #f45e81;
 }
   
