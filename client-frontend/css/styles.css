@@ -88,3 +88,6 @@ button{
     background-color: white;
 }
 
+.top-seller-main{
+    display: flex;
+}
