@@ -1,5 +1,9 @@
 <?php
 
+//Takes in: userName / name / password /description /money/date joined
+//Returns true if success
+//otherwise returns username already exist
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -10,10 +14,11 @@ include("connection.php");
 //decalre the input varaibales
 $username = $_POST["username"];
 $name = $_POST["name"];
-$password = hash("sha256", $_POST["password"]);
+$date_joined = date("d M Y @ " . "H" . ":i");
+$password = hash("sha256", $_POST["password"] . $date_joined . "thcaj5445");
 $description = $_POST["description"];
 $money =$_POST["money"];
-$date_joined = date("d M Y @ " . "H" . ":i");
+
 
 //select the username from the database to check if exist
 $check_seller = $mysql -> prepare("SELECT username FROM sellers WHERE username = '$username'");
