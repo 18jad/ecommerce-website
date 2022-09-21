@@ -1,5 +1,8 @@
 <?php
 
+// Takes in: userName / id
+// Returns true on success. otherwise logs the error
+
 include("connection.php");
 
 // Init Variables
