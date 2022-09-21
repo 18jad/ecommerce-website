@@ -326,13 +326,29 @@ footer {
 
 @media only screen and (max-width: 888px) {
     
+    
 
 
-    .td, th {
+
+    .cover-text{
+        font-size: 5vh;
+      }
+
+
+    .tr, th {
         border: 1px solid #dddddd;
         text-align: center;
         padding-top: 4vh;
         padding-bottom: 4vh;
+        font-size: 10px;
+      }
+
+    .tr, td {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+        font-size: 10px;
       }
 
     .totals-section {
