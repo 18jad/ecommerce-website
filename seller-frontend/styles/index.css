@@ -18,6 +18,7 @@ form {
     display: flex;
     align-items: center;
     flex-direction: column;
+    box-shadow: 0 5px 10px #0003;
 }
 
 .sign-in-header {
