@@ -28,11 +28,24 @@ button{
 }
 
 .hero-page-bg{
+    background-image: url("../assets/WhatsApp\ Image\ 2022-09-21\ at\ 11.12.12\ AM.jpeg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
     height: 90vh;
     background-color: #F5F5F5;
 }
 .hero-page{
     padding-top: 25rem;
+    display: flex;
+    position: relative;
+}
+
+.hero-page-img{
+    right: 10rem;
+    top: 10rem;
+    position: absolute;
+    width: 30vw;
 }
 
 .hero-page-left-side h1{
@@ -111,7 +124,6 @@ button{
 }
 
 .top-seller-main-right{
-    border: 1px solid red;
     background-color: #f5f5f5;
     padding: 2rem 3rem;
 }
