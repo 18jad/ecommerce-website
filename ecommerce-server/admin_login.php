@@ -7,6 +7,25 @@ include("token.php");
 
 // Functions
 
+function checkPassword($user, $mysql) {
+    $query = $mysql -> prepare(
+        "SELECT username FROM users
+        WHERE username = '$user'"
+    );
+
+    $query -> execute();
+    $array = $query -> get_result();
+
+    $response = [];
+    $response[] = $array -> fetch_assoc();
+
+    if($response[0] == null) {
+        die(json_encode("Incorrect Username!"));
+    }
+
+    return true;
+};
+
 function checkPassword($user, $pass, $mysql) {
     $hashedPassword = hash("sha256", $pass . "thcaj5445");
 
