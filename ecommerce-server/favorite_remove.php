@@ -11,4 +11,12 @@ include("connection.php");
 $user_id = $_POST["user_id"];
 $product_id = $_POST["product_id"];
 
+
+//select the username from the database to check if exist
+$delete_favorite = $mysql -> prepare("DELETE from favorited_products where user_id=$user_id and product_id=$product_id");
+
+if ($delete_favorite=== false) {
+    die(json_encode("error: " . $mysql -> error));
+};
+
 ?>
