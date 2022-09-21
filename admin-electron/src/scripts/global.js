@@ -48,3 +48,35 @@ closeBarBtn.addEventListener('click', () => {
     }
     shrink();
 })
+
+
+/**
+ * Modal:
+ *  - Open and close modal
+ */
+
+const modalWrapper = document.querySelector('.modal'),
+    modal = document.querySelector('.modal-container'),
+    openModalBtn = document.querySelector('.open-modal'),
+    closeModalBtn = document.querySelector('.closeModal');
+
+const openModal = () => {
+    modalWrapper.classList.add('show-modal');
+    modal.classList.add('show-modal-content');
+}
+
+const closeModal = () => {
+    modalWrapper.classList.remove('show-modal');
+    modal.classList.remove('show-modal-content');
+}
+
+// open by button
+openModalBtn.addEventListener('click', openModal);
+// close by button
+closeModalBtn.addEventListener('click', closeModal);
+// close by clicking outside modal
+modalWrapper.addEventListener('click', (e) => {
+    if (!modal.contains(e.target)) {
+        closeModal()
+    }
+});
