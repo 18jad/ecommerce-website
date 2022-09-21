@@ -1,0 +1,107 @@
+.clients-table {
+    width: 90%;
+    background: #fefefe;
+    height: 80%;
+    overflow-y: auto;
+    margin-bottom: 55px;
+    border: 1px solid var(--dark-blue);
+    border-radius: 5px;
+}
+
+.clients-table::-webkit-scrollbar {
+    width: 7px;
+}
+
+.client:last-child {
+    border-bottom: none;
+}
+
+/* Track */
+.clients-table::-webkit-scrollbar-track {
+    border-radius: 100px;
+    background: var(--dark-blue);
+}
+
+/* Handle */
+.clients-table::-webkit-scrollbar-thumb {
+    background: var(--turquoise);
+    border-radius: 100px;
+}
+
+/* Handle on hover */
+.clients-table::-webkit-scrollbar-thumb:hover {
+    background: var(--black);
+}
+
+.client {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.table-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    color: var(--turquoise);
+    background: var(--dark-blue);
+    border-bottom: 1px solid var(--dark-blue);
+    border-radius: 5px 0 0 0;
+}
+
+.client-image {
+    height: 40px;
+    border-radius: 100px;
+    margin-left: 50px;
+}
+
+.client-name {
+    margin-left: 30px;
+}
+
+.banBtn {
+    padding: 10px 20px;
+    border: 2px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    margin-right: -10px;
+}
+
+.banBtn:hover {
+    background: #f74041;
+}
+
+.client-button {
+    background: var(--turquoise);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out;
+}
+
+.client-button:hover {
+    opacity: 0.8;
+}
+
+.client-button-a {
+    color: var(--black);
+    text-decoration: none;
+    text-align: center;
+}
