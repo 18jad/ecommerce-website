@@ -14,5 +14,14 @@ $view_favorites= $mysql -> prepare("SELECT id,seller_id,name,category,descriptio
 FROM products p inner join favorited_products fav 
 on p.id=fav.product_id where fav.user_id=$user_id");
 
+if ($view_favorites === false) {
+    die(json_encode("error: " . $mysql -> error));
+};
+
+//execute the select query
+$view_favorites -> execute();
+$array = $view_favorites -> get_result();
+$response = [];
+
 
 ?>
