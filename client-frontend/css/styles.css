@@ -42,7 +42,7 @@ button{
 }
 
 .hero-page-btns button{
-    font-size: 3rem;
+    font-size: 2.5rem;
     margin-right: 5rem;
     padding: 2rem 6rem;
     border-radius: 10px;
@@ -57,4 +57,31 @@ button{
 .hero-page-btns button:last-child{
     background-color: white;
     color: black;
+}
+
+.brand-new-product-header{
+    display: flex;
+    justify-content: space-between;
+}
+
+.brand-new-product-header-left h2{
+    font-size: 5rem;
+    text-transform: capitalize;
+    margin: 1rem 0;
+} 
+
+.brand-new-product-header-left p{
+    font-size: 2rem;
+    color: gray;
+} 
+
+.brand-new-product-header-right{
+    margin: auto 0;
+}
+
+.brand-new-product-header-right button{
+    border: 2px solid #ECECFD;
+    margin-left: 4rem;
+    padding: 1.5rem 5rem;
+    background-color: white;
 }
