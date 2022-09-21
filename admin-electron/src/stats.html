@@ -6,13 +6,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="./styles/admin.css">
+    <link rel="stylesheet" href="./styles/stats.css">
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
         integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./scripts/global.js" defer></script>
-    <script src="./scripts/overview.js" defer></script>
-    <title>Admin panel</title>
+    <script src="./scripts/stats.js" defer></script>
+    <title>Statistics</title>
 </head>
 
 <body>
@@ -32,7 +32,7 @@
                         <i class="fa-solid fa-user-tag"></i>
                         <span class="link-text">Sellers</span>
                     </a>
-                    <a href="./stats.html" class="link">
+                    <a href="./stats.html" class="link active">
                         <i class="fa-solid fa-chart-pie"></i>
                         <span class="link-text">Stats ‎ ‎</span>
                     </a>
@@ -40,7 +40,7 @@
             </div>
             <div class="nav-bottom">
                 <hr>
-                <button id="signOutBtn">Sign out <i class="fa-solid fa-right-from-bracket"></i></button>
+                <button id="signOutBtn">Sign out<i class="fa-solid fa-right-from-bracket"></i></button>
                 <p class="panelFooter">Admin panel</p>
             </div>
         </div>
@@ -48,36 +48,18 @@
     <main>
         <div class="header">
             <i class="fa-solid fa-angles-left" id="closeNav"></i>
-            <p id="pageName">Overview</p>
+            <p id="pageName">Statistics</p>
             <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
         </div>
         <section class="page-content">
             <div class="content-grid">
                 <div class="grid" id="grid1">
-                    <header>Monthly Revenue</header>
+                    <header>Top clients</header>
                     <canvas id="chart"></canvas>
                 </div>
                 <div class="grid" id="grid2">
-                    <header>Clients</header>
-                    <div class="client" id="client1">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
-                            alt="profile" class="client-image">
-                        <p class="client-name">Jad Yahya</p>
-                        <button class="banBtn">Ban</button>
-                    </div>
-                    <div class="client" id="client2">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
-                            alt="profile" class="client-image">
-                        <p class="client-name">Jad Yahya</p>
-                        <button class="banBtn">Ban</button>
-                    </div>
-                    <div class="client" id="client3">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
-                            alt="profile" class="client-image">
-                        <p class="client-name">Jad Yahya</p>
-                        <button class="banBtn">Ban</button>
-                    </div>
-                    <div class="client" id="client4">
+                    <header>Top Client</header>
+                    <div class="top-client" id="topClient">
                         <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
                             alt="profile" class="client-image">
                         <p class="client-name">Jad Yahya</p>
