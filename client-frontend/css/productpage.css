@@ -11,6 +11,16 @@ html {
     font-family: 'Roboto', sans-serif;
 }
 
+.container{
+    padding: 0 10rem;
+    padding-top: 5rem;
+}
+
+.container h1{
+    font-size: 5rem;
+    margin-bottom: 3rem;
+}
+
 .left-section{
     width: 50%;
 }
@@ -26,6 +36,10 @@ html {
     margin-right: 10px;
     border-radius: 5px;
     counter-increment: carousel-cell;
+    background-image: url("../assets/photo-1505740420928-5e560c06d30e.jpeg");
+    background-size: 100%;
+    background-repeat: no-repeat;
+
   }
   
   .carousel-cell:before {
@@ -50,4 +64,9 @@ html {
   
   .carousel-nav .carousel-cell.is-nav-selected {
     opacity: 0.8;
+  }
+
+  .img{
+    background-size: 100%;
+
   }
