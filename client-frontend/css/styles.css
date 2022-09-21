@@ -60,29 +60,34 @@ button{
     color: black;
 }
 
-.brand-new-product-header{
+.brand-new-product-header,
+.best-sell-product-header{
     display: flex;
     justify-content: space-between;
 }
 
 .brand-new-product-header-left h2,
-.top-seller-header h2{
+.top-seller-header h2,
+.best-sell-product h2{
     font-size: 5rem;
     text-transform: capitalize;
     margin: 1rem 0;
 } 
 
 .brand-new-product-header-left p,
-.top-seller-header p{
+.top-seller-header p,
+.best-sell-product-header-left p{
     font-size: 2rem;
     color: gray;
 } 
 
-.brand-new-product-header-right{
+.brand-new-product-header-right,
+.best-sell-product-header-right{
     margin: auto 0;
 }
 
-.brand-new-product-header-right button{
+.brand-new-product-header-right button,
+.best-sell-product-header-right button{
     border: 2px solid #ECECFD;
     margin-left: 4rem;
     padding: 1.5rem 5rem;
