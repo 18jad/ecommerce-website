@@ -319,7 +319,7 @@ label {
     background: #fefefe;
     margin-bottom: 100px;
     overflow: auto;
-    scale: 0;
+    scale: 0.01;
     opacity: 0;
     pointer-events: none;
     border: 1px solid var(--dark-blue);
@@ -358,6 +358,7 @@ label {
 
 #oldDescriptionInput {
     height: 130px;
+    resize: none;
 }
 
 .submitEdit {

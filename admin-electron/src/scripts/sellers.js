@@ -48,3 +48,45 @@ uploadProfileBtn.addEventListener("click", () => {
         }
     }
 })
+
+/**
+ * Edit seller info modal:
+ *  - Open and close modal
+ *  - Set name in header and input field
+ */
+
+const modalContainer = document.querySelector('.edit-modal-container'),
+    editModal = document.querySelector('.edit-modal'),
+    openModalBtns = document.querySelectorAll('.editBtn'),
+    closeEditModalBtn = document.querySelector('.close-edit-modal'),
+    modalHeaderName = document.getElementById('sellerNameHeader'),
+    oldSellerName = document.getElementById('oldSellerName');
+
+
+const openModal2 = (btn) => {
+    modalContainer.classList.add('show-modal');
+    editModal.classList.add('show-modal-content');
+    modalHeaderName.textContent = btn.dataset.name;
+    oldSellerName.value = btn.dataset.name;
+}
+
+const closeModal2 = () => {
+    modalContainer.classList.remove('show-modal');
+    editModal.classList.remove('show-modal-content');
+}
+
+// open by button
+openModalBtns.forEach((btn) => {
+    btn.addEventListener('click', () => {
+        openModal2(btn)
+    });
+})
+// close by button
+closeEditModalBtn.addEventListener('click', closeModal2);
+
+// close by clicking outside modal
+modalContainer.addEventListener('click', (e) => {
+    if (!editModal.contains(e.target)) {
+        closeModal2()
+    }
+});
