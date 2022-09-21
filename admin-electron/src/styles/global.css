@@ -289,6 +289,61 @@ section {
     pointer-events: unset !important;
 }
 
+/* Table */
+
+.clients-table {
+    width: 90%;
+    background: #fefefe;
+    height: 80%;
+    overflow-y: auto;
+    margin-bottom: 55px;
+    color: var(--black);
+    border: 1px solid var(--dark-blue);
+    box-shadow: 0 5px 15px 1px #3333;
+    font-weight: 500;
+}
+
+.client:last-child {
+    border-bottom: none;
+}
+
+.client {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.table-info {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    padding: 10px 20px;
+    text-align: center;
+    position: sticky;
+    top: 0;
+    color: var(--turquoise);
+    background: var(--dark-blue);
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.client-image {
+    height: 40px;
+    border-radius: 100px;
+    margin-left: 55px;
+}
+
+.client-name {
+    margin-left: 30px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 120px;
+}
+
 /* Scrollbar */
 
 ::-webkit-scrollbar {
