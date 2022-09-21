@@ -1,5 +1,9 @@
 <?php
 
+//Takes in: user_id / product_id
+//Returns succes message if the execute query true(if the product deleted)
+//otherwise returns error message
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
