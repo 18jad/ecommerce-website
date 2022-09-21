@@ -4,7 +4,7 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("connection.php");
-//include("token.php");
+include("token.php");
 
 // Init Variables
 
@@ -59,7 +59,8 @@ $dateJoined = retrieveDate($userName, $mysql);
 
 if($dateJoined) {
     if(checkPassword($userName, $password, $dateJoined, $mysql)) {
-        echo "success";
+        $tokenPayload = payloadCreate($userName, "client");
+        echo json_encode(tokenEncode($tokenHeader, $tokenPayload, $SECRETKEY));
     };
 };
 
