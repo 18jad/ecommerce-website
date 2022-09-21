@@ -1,4 +1,5 @@
 <?php
+
 //Takes in: user_id / product_id
 //Returns succes message if the execute query true
 //otherwise returns error message
