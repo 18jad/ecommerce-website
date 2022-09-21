@@ -24,11 +24,9 @@
     padding: 0 100px;
   }
 
-  nav .logo{
-    color: black;
-    font-size: 30px;
-    font-weight: 600;
-    letter-spacing: -1px;
+  .logo-image {
+    width: 150px;
+    
   }
   nav .nav-items{
     display: flex;
