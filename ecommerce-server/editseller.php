@@ -55,5 +55,20 @@ if (isset($new_money)) {
     $Money = $money;
 };
 
+//decalre newpassword variable
+$new_password = hash("sha256", $_POST["new_password"]);
+
+//prepare the query update
+$query = $mysql -> prepare ("UPDATE sellers set name='$Name', description='$Desc', money=$Money, password='$new_password' WHERE username ='$username'");
+
+if ($query === false) {
+    die(json_encode("error: " . $mysql -> error));
+};
+
+//execute the query
+
+$query -> execute();
+// send the resposne with succces message
+echo json_encode("success");
 
 ?>
