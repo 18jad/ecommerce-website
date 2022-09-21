@@ -1,5 +1,10 @@
 <?php
 
+//Takes in: discoount id
+//Returns discount deleted if true
+//otherwise returns erorr
+
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -23,6 +28,5 @@ $delete_discount -> execute();
 
 // send the resposne with succces message
 echo json_encode("Discount has been deleted");
-
 
 ?>
