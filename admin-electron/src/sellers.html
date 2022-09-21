@@ -58,7 +58,36 @@
                         </h1>
                     </header>
                     <div class="modal-content">
-
+                        <form id="addNewUserForm">
+                            <div class="inputs-container">
+                                <div class="input-container">
+                                    <input type="text" name="seller" id="sellerInput" class="seller-input"
+                                        placeholder="Enter new seller name">
+                                    <label for="seller">Seller name</label>
+                                </div>
+                                <div class="input-container">
+                                    <input type="text" name="username" id="usernameInput" class="seller-input"
+                                        placeholder="Enter new seller username">
+                                    <label for="usernameInput">Username</label>
+                                </div>
+                                <div class="input-container">
+                                    <input type="text" name="password" id="paswordInput" class="seller-input"
+                                        placeholder="Enter new seller password">
+                                    <label for="passwordInput">Password</label>
+                                </div>
+                                <div class="input-container">
+                                    <textarea type="text" name="description" id="descriptionInput" class="seller-input"
+                                        placeholder="Enter new seller description"></textarea>
+                                    <label for="descriptionInput">Description</label>
+                                </div>
+                                <div class="profile-container">
+                                    <input type="file" name="profile" id="sellerProfile" hidden>
+                                    <button id="profileUploadBtn" type="button">Upload profile picture</button>
+                                    <span id="profileName">Image134.png</span>
+                                </div>
+                            </div>
+                            <button type="submit" id="sellerFormSubmit">Add seller</button>
+                        </form>
                     </div>
                 </div>
             </div>
