@@ -18,5 +18,11 @@ if ($delete_discount === false) {
     die(json_encode("error: " . $mysql -> error));
 };
 
+//execute the delete query
+$delete_discount -> execute();
+
+// send the resposne with succces message
+echo json_encode("Discount has been deleted");
+
 
 ?>
