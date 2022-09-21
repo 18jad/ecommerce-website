@@ -7,13 +7,12 @@ header("Access-Control-Allow-Headers: *");
 //include the connection to the database
 include("connection.php");
 
-
-$username = $_POST["username"];
-
 //decalre the input varaibales
 $new_name = $_POST["new_name"];
 $new_desc = $_POST["new_desc"];
 $new_money =$_POST["new_money"];
+
+$username = $_POST["username"];
 
 //select info from the table sellers of specific username
 $seller_info = $mysql -> prepare("SELECT name,description,money FROM sellers WHERE username = '$username'");
@@ -31,6 +30,7 @@ $response = [];
 while($info  = $array -> fetch_assoc()){
     $response[] = $info;
 };
+
 //fetch the array and get the data
 $name = $response[0]["name"];
 $desc = $response[0]["description"];
@@ -66,8 +66,8 @@ if ($query === false) {
 };
 
 //execute the query
-
 $query -> execute();
+
 // send the resposne with succces message
 echo json_encode("success");
 
