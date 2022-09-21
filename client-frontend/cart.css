@@ -328,7 +328,12 @@ footer {
     
 
 
-
+    .td, th {
+        border: 1px solid #dddddd;
+        text-align: center;
+        padding-top: 4vh;
+        padding-bottom: 4vh;
+      }
 
     .totals-section {
         display: flex;
@@ -336,11 +341,8 @@ footer {
         align-items: center;
         margin-bottom: 20vh;
         margin-left:auto; 
-        margin-right:auto;
-        
-        
+        margin-right:auto;   
     }
-
 
     .btns {
         display: flex;
