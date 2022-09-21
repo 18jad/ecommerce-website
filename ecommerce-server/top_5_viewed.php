@@ -16,4 +16,17 @@ if ($top_5 === false) {
     die(json_encode("error: " . $mysql -> error));
 };
 
+//execute the select query
+$top_5 -> execute();
+$array = $top_5 -> get_result();
+$response = [];
+
+//put the data in the response array
+while($info  = $array -> fetch_assoc()){
+    $response[] = $info;
+};
+
+// send the resposne with succces message
+echo json_encode($response);
+
 ?>
