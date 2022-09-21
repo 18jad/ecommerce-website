@@ -49,20 +49,6 @@ function getProductData($id, $mysql) {
     return $response;
 };
 
-// function getSellerId($user, $mysql) {
-//     $query = $mysql -> prepare(
-//         "SELECT id FROM sellers
-//         WHERE username = '$user'");
-
-//     $query -> execute();
-//     $array = $query -> get_result();
-
-//     $response = [];
-//     $response[] = $array -> fetch_assoc();
-
-//     return $response[0]["id"];
-// };
-
 // Main
 
 $data = getProductData($productId, $mysql);
