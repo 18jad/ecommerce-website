@@ -7,7 +7,7 @@ $SECRETKEY = "f6kL*Ur^7r!vugmU2LIg6Dmw";
 $myHeaderObj = new stdClass();
 $myHeaderObj -> alg = "HS256";
 $myHeaderObj -> typ = "JWT";
-$tokenHeader = json_encode($myObj);
+$tokenHeader = json_encode($myHeaderObj);
 
 // Functions
 
