@@ -139,12 +139,12 @@ main {
     font-size: 20px;
     width: 100%;
     padding: 10px 30px;
-    transition: all 400ms ease-in-out;
+    transition: all 400ms ease-in-out, opacity 150ms ease-in-out;
     white-space: nowrap;
 }
 
 .link:hover {
-    opacity: 0.8;
+    opacity: 0.7;
 }
 
 .link.active {
@@ -193,6 +193,7 @@ hr {
 
 #closeNav {
     cursor: pointer;
+    transition: transform 300ms ease-in-out;
 }
 
 .panelFooter {

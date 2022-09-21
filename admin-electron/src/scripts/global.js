@@ -3,6 +3,7 @@
  * Navbar:
  *  - Close and open
  *  - Shrink buttons, links, logo
+ *  - Check if close
  */
 const closeBarBtn = document.getElementById('closeNav'),
     navbar = document.querySelector('.nav-header'),
@@ -13,7 +14,9 @@ const closeBarBtn = document.getElementById('closeNav'),
     signOutBtn = document.getElementById('signOutBtn'),
     footerText = document.querySelector('.panelFooter');
 
-closeBarBtn.addEventListener('click', () => {
+
+// shrink nav and nav childs
+const shrink = () => {
     navbar.classList.toggle('shrinked-nav');
     logo.classList.toggle('shrinked-logo');
     overviewBtn.classList.toggle('shrinked-btn');
@@ -25,4 +28,23 @@ closeBarBtn.addEventListener('click', () => {
     linkTexts.forEach(linkText => {
         linkText.classList.toggle('hide-text');
     })
+}
+
+// check if nav is closed when switching pages if yes keep it closed
+if (localStorage.getItem('nav-status')) {
+    if (localStorage.getItem('nav-status') != 'open') {
+        shrink();
+    }
+}
+
+// close nav by button
+closeBarBtn.addEventListener('click', () => {
+    if (navbar.classList.contains('shrinked-nav')) {
+        closeBarBtn.style.transform = "rotate(0deg)";
+        localStorage.setItem('nav-status', 'open');
+    } else {
+        closeBarBtn.style.transform = "rotate(180deg)";
+        localStorage.setItem('nav-status', 'closed');
+    }
+    shrink();
 })
