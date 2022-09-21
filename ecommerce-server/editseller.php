@@ -36,5 +36,24 @@ $name = $response[0]["name"];
 $desc = $response[0]["description"];
 $money = $response[0]["money"];
 
+//check if the varaibles is set
+if (isset($new_name)) {
+    $Name = $new_name;
+} else {
+    $Name = $name;
+};
+
+if (isset($new_desc)) {
+    $Desc = $new_desc;
+} else {
+    $Desc  = $desc;
+};
+
+if (isset($new_money)) {
+    $Money = $new_money;
+} else {
+    $Money = $money;
+};
+
 
 ?>
