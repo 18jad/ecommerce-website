@@ -1,5 +1,9 @@
 <?php
 
+//Takes in: user_id 
+//Returns wishlist products if the execute query true
+//otherwise returns error message
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
