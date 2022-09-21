@@ -1,6 +1,6 @@
 <?php
 
-//Takes in: user name
+//Takes in: seller id
 //Returns seller deleted if true
 //otherwise returns erorr
 
