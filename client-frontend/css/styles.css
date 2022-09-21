@@ -286,7 +286,6 @@ button{
     }
 
     .brand-new-product-header-right{
-        /* width: 100%; */
         margin: 5rem 0;
         align-self: center;
     }
@@ -307,5 +306,12 @@ button{
 
     .ads{
         grid-template-columns: 1fr
+    }
+}
+
+@media (max-width: 950px) {
+    .brand-new-product-header-right{
+     display: flex;
+     flex-direction: column;
     }
 }
