@@ -24,6 +24,8 @@ function deleteProduct($id, $mysql) {
     return true;
 };
 
+// Main
 
+echo json_encode(deleteProduct($productId, $mysql));
 
 ?>
