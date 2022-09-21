@@ -1,6 +1,9 @@
 <?php
-
+//retrieve top 5 product viewed data from table products
+//return json with product data
+//otherwise returns error message
 // include the headers
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
