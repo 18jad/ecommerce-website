@@ -2,7 +2,7 @@
 
 // Takes in: userName and password
 // Returns: "Username Not Found!" or "Incorrect Password!" if failed
-// Returns token if success
+// Returns id, username, token if success
 
 include("connection.php");
 include("token.php");
@@ -16,7 +16,7 @@ $password = $_POST["password"];
 
 function checkAdmin($user, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT username FROM admins
+        "SELECT id FROM admins
         WHERE username = '$user'"
     );
 
@@ -30,7 +30,7 @@ function checkAdmin($user, $mysql) {
         die(json_encode("Incorrect Username!"));
     }
 
-    return true;
+    return $response[0]["id"];
 };
 
 function checkPassword($user, $pass, $mysql) {
@@ -56,11 +56,18 @@ function checkPassword($user, $pass, $mysql) {
 
 // Main
 
-if(checkAdmin($userName, $mysql)) {
-    if(checkPassword($userName, $password, $mysql)) {
-        $tokenPayload = payloadCreate($userName, "admin");
-        echo json_encode(tokenEncode($tokenHeader, $tokenPayload, $SECRETKEY));
-    };
+$id = checkAdmin($userName, $mysql);
+
+if(checkPassword($userName, $password, $mysql)) {
+    $tokenPayload = payloadCreate($userName, "admin");
+    $token = tokenEncode($tokenHeader, $tokenPayload, $SECRETKEY);
+
+    $json = new stdClass();
+    $json -> id = $id;
+    $json -> userName = $userName;
+    $json -> token = $token;
+
+    die(json_encode($json));
 };
 
 ?>
