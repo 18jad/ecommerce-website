@@ -25,10 +25,6 @@ html {
     display: flex;
 }
 
-.left-section{
-    width: 50%;
-}
-
 .carousel {
     background: #FAFAFA;
     margin-bottom: 40px;
@@ -36,88 +32,96 @@ html {
 
 .carousel-cell {
     width: 100%;
-    height: 50vh;
+    height: 50rem;
     margin-right: 10px;
     border-radius: 5px;
     counter-increment: carousel-cell;
     background-image: url("../assets/photo-1505740420928-5e560c06d30e.jpeg");
-    background-size: 100%;
+    background-size: cover;
     background-repeat: no-repeat;
-
-  }
+}
   
-  .carousel-cell:before {
+.carousel-cell:before {
     display: block;
     text-align: center;
     line-height: 200px;
     font-size: 80px;
-  }
-  
-  .carousel-nav .carousel-cell {
+}
+
+.carousel-nav .carousel-cell {
     height: 80px;
     width: 100px;
     background-image: url("../assets/photo-1505740420928-5e560c06d30e.jpeg");
-    background-size: 100%;
+    background-size: cover;
+    background-position: center;
     background-repeat: no-repeat;
-  }
+}
   
-  .carousel-nav .carousel-cell:before {
+.carousel-nav .carousel-cell:before {
     font-size: 50px;
     line-height: 80px;
-  }
+}
   
-  .carousel-nav .carousel-cell.is-nav-selected {
+.carousel-nav .carousel-cell.is-nav-selected {
     opacity: 0.8;
-  }
+}
 
-  .img{
+.img{
     background-size: 100%;
+}
 
-  }
-
-  .right-section{
+.right-section{
     margin-left: 10rem;
-  }
+}
 
-  .right-section h2{
+.left-section,
+.right-section{
+    width: 50vw;
+}
+
+.left-section{
+    min-width: 700px;
+}
+
+.right-section h2{
     font-size: 4rem;
-  }
+}
 
 .description{
     font-size: 2rem;
     margin: 2rem 0;
-    border-bottom: 1px solid gray;
+    border-bottom: 1px solid rgb(184, 174, 174);
     padding-bottom: 2rem;
-  }
+}
 
-  .right-section h3{
+.right-section h3{
     margin-top: 8rem;
     font-size: 3rem;
-  }
+}
 
-  .right-section p{
+.right-section p{
     font-size: 2rem;
     margin: 2rem 0;
     padding-bottom: 2rem;
-  }
+}
 
-  input::-webkit-outer-spin-button,
-  input::-webkit-inner-spin-button {
-      -webkit-appearance: none;
-      margin: 0; 
-  }
-  
-  input[type=number] {
-      -moz-appearance:textfield; 
-  }
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0; 
+}
 
-  .plus-minus-input{
+input[type=number] {
+    -moz-appearance:textfield; 
+}
+
+.plus-minus-input{
     text-align: center;
-  }
+}
 
-  .minus-btn,
-  .plus-btn,
-  .plus-minus-input {
+.minus-btn,
+.plus-btn,
+.plus-minus-input {
     background-color: #F6416C;
     padding: 1rem 2rem;
     border: none;
@@ -125,5 +129,115 @@ html {
     font-size: 2rem;
     cursor: pointer;
     outline: none;
+}
+
+.cart-btn{
+    border: none;
+    margin: 5rem 0;
+    padding: 1.5rem 5rem;
+    color: white;
+    cursor: pointer;
+    background-color: green;
+}
+
+img {
+    vertical-align: middle;
   }
+  
+  /* Position the image container (needed to position the left and right arrows) */
+  /* .left-section {
+    width: 50%;
+    height: 100vh;
+    position: relative;
+  } */
+  
+  /* Hide the images by default */
+  .mySlides {
+    display: none;
+  }
+  
+  /* Add a pointer when hovering over the thumbnail images */
+  .cursor {
+    cursor: pointer;
+  }
+  
+  /* Next & previous buttons */
+  .prev,
+  .next {
+    cursor: pointer;
+    position: absolute;
+    top: 40%;
+    width: auto;
+    padding: 16px;
+    margin-top: -50px;
+    color: white;
+    font-weight: bold;
+    font-size: 20px;
+    border-radius: 0 3px 3px 0;
+    user-select: none;
+    -webkit-user-select: none;
+  }
+  
+  /* Position the "next button" to the right */
+  .next {
+    right: 0;
+    border-radius: 3px 0 0 3px;
+  }
+  
+  /* On hover, add a black background color with a little bit see-through */
+  .prev:hover,
+  .next:hover {
+    background-color: rgba(0, 0, 0, 0.8);
+  }
+  
+  /* Number text (1/3 etc) */
+  .numbertext {
+    color: #f2f2f2;
+    font-size: 12px;
+    padding: 8px 12px;
+    position: absolute;
+    top: 0;
+  }
+  
+  /* Container for image text */
+  .caption-container {
+    text-align: center;
+    background-color: #222;
+    padding: 2px 16px;
+    color: white;
+  }
+  
+  .row:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+  
+  /* Six columns side by side */
+  .column {
+    float: left;
+    width: 16.66%;
+  }
+  
+  /* Add a transparency effect for thumnbail images */
+  .demo {
+    opacity: 0.6;
+  }
+  
+  .active,
+  .demo:hover {
+    opacity: 1;
+  }
+
+@media (max-width: 1200px) {
+    .product-main{
+        flex-direction: column;
+    }
+
+    .right-section{
+        margin-left: 0rem;
+        margin-top: 5rem;
+    }
+}
+
 
