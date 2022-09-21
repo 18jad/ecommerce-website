@@ -249,6 +249,23 @@
     padding-right: 1vh;
     padding-top: 1vh;
 }
+
+.button-red-long {
+    font-size: 2vh;
+    width: 40vh;
+    height: 6vh;
+    color: white;
+    font-weight:300;
+    border-radius: 6px;
+    border-style: none;
+    background-color: #F6416C;
+    border-color: #F6416C;
+    margin-top: 3vh;
+}
+
+.button-red-long:hover {
+    background-color: #f45e81;
+}
   
 
 footer {
