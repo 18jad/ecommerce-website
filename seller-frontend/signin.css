@@ -1,0 +1,114 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: url(./background.svg) no-repeat center;
+    background-size: cover;
+    height: 100vh;
+    overflow-x: hidden;
+    display: grid;
+    place-items: center;
+    font-family: 'Roboto', sans-serif;
+}
+
+form {
+    background: white;
+    border-radius: 10px;
+    height: 430px;
+    width: 360px;
+    color: #222831;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sign-in-header {
+    text-align: center;
+    border-bottom: 1px solid #222831;
+    width: 100%;
+    padding: 13px 0;
+    font-weight: 750;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    gap: 60px;
+}
+
+.inputs-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.input-container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column-reverse;
+    width: 88%;
+    gap: 5px;
+}
+
+label {
+    color: #222831;
+    font-weight: 450;
+    font-size: 17px;
+    transition: color 150ms ease-in-out;
+}
+
+.seller-input {
+    padding: 13px;
+    border-radius: 13px;
+    outline: none;
+    font-size: 15px;
+    border: 1.5px solid #222831;
+    font-weight: 400;
+    transition: border 150ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.seller-input::placeholder {
+    color: lightgray;
+}
+
+.seller-input:focus {
+    box-shadow: 0px 4px 6px rgba(0, 173, 181, 0.22);
+}
+
+.seller-input:focus+label {
+    color: #3FC1C9;
+}
+
+.form-submit {
+    padding: 13px;
+    border-radius: 13px;
+    outline: none;
+    font-size: 17px;
+    background: #3FC1C9;
+    border: 1.5px solid #3FC1C9;
+    width: 88%;
+    color: white;
+    font-weight: 800;
+    box-shadow: 0px 5px 9px rgba(0, 173, 181, 0.38);
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out, transform 200ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.form-submit:hover {
+    opacity: 0.9;
+    transform: translateY(-5px);
+    box-shadow: 0px 6px 10px 2px #3FC1C9;
+}
