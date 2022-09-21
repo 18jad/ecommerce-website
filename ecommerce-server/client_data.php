@@ -1,5 +1,9 @@
 <?php
 
+//retrieve sellers data from sellers table
+//Returns json array data if success
+//otherwise returns error message
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
