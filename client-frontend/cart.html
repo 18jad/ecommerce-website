@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="cart.css" rel="stylesheet">
     <link href="assets/" rel="images">
+    <script defer src="cart.js"></script>
     <title>Shopping Cart</title>
 </head>
 <body>
@@ -16,7 +17,7 @@
         </div>
         <div class="nav-items">
            <li><a href="#">Home</a></li>
-           <li><a href="#">Profile</a></li>
+           <li><a href="#" data-modal-target="#modal">Profile</a></li>
            <li><a href="#">Cart</a></li>
         </div>
         <form action="#" class="search-bar">
@@ -24,6 +25,29 @@
            <button type="submit"><img src="assets/search.png" class="search-btn" alt="ssearch"></button>
         </form>
     </nav>
+    <!--Profile PopUp Section-->
+    <div class="modal" id="modal">
+        <div class="modal-header">
+            <div class="title">Edit Profile</div>
+            <button class="data-close-button">&times;</button>
+        </div>
+        <div class="modal-body">
+            Lorem ipsum dolor sit amet, 
+            consectetur adipisicing elit. Explicabo officia quae, 
+            quibusdam pariatur doloribus facilis illo.
+            Possimus odio officia, nemo magnam qui, maxime 
+            sequi ut quisquam voluptatum, magni distinctio
+            reprehenderit praesentium repellendus. 
+            Molestiae laboriosam fugiat, ipsam, quibusdam
+            voluptates dicta modi, maiores sed soluta
+            ea sapiente quidem illum sit totam quae est.
+            Et, minus qui. Eius aspernatur fuga dolorum 
+            voluptatum officia illum, sapiente, maiores 
+            tempora iusto dolores qui perspiciatis consectetur
+             unde eum odio iure, aut magni tenetur totam quibusdam numquam. Nam.
+        </div>
+    </div>
+    <div id="overlay"></div>
     <!--Cover image-->
     <section class="cover-container">
         <img class= "cover" src="assets/cover.svg" alt="cover">
@@ -73,11 +97,6 @@
         </div>
         <button class="button-red-long">PROCEED TO CHECKOUT</button>
     </div>
-
-
-
-    
-
     <footer>
         <div class="white-logo">
             <div><img class= "white-logo-image" src="assets/white-logo.png" alt="logo"></div>
