@@ -22,7 +22,7 @@
                 <a href="./admin.html"><button class="overeview">Overview</button></a>
                 <div class="link-list">
                     <a href="./categories.html" class="link active">
-                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <i class="fa-solid fa-dolly"></i>
                         <span class="link-text">Categories</span>
                     </a>
                     <a href="./products.html" class="link">
@@ -56,9 +56,12 @@
                             <div class="search-input">
                                 <input type="text" placeholder="Add new categorie" id="categorieInput"
                                     class="categorie-search" autocomplete="off" required>
-                                <span class="tick">C</span>
+                                <span class="tick"><i class="fa-solid fa-filter"></i></span>
                             </div>
-                            <button id="addCategorie" type="submit">+ Add</button>
+                            <button id="addCategorie" type="submit">
+                                <i class="fa-solid fa-plus"></i>
+                                Add
+                            </button>
                         </form>
                     </div>
                     <p class="res success" id="responseResult">Categorie successfully added</p>
