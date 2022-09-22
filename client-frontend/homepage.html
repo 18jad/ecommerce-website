@@ -6,6 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JACHT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
     <link rel="stylesheet" href="css/styles.css">
     <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
@@ -13,7 +16,20 @@
 </head>
 
 <body>
-
+    <nav>
+        <div class="logo">
+            <img class="logo-image" src="assets/Logo.png" alt="logo">
+        </div>
+        <div class="nav-items">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Cart</a></li>
+        </div>
+        <form action="#" class="search-bar">
+            <input type="search" class="search-data" placeholder="Search" required>
+            <button type="submit" id="submitSearch"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+        </form>
+    </nav>
     <div class="hero-page-bg">
         <div class="hero-page container">
             <div class="hero-page-left-side">
