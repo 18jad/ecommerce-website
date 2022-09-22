@@ -17,6 +17,7 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
+    position: relative;
     height: 70px;
     padding: 0 100px;
   }
@@ -28,7 +29,8 @@
 
   .page-title {
     font-weight: 300;
-    text-align: center;
+    position: absolute;
+    color: rgba(0, 0, 0, 0.559);
   }
 
 
