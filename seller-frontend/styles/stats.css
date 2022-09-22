@@ -13,16 +13,16 @@
 }
 
 .chart {
-    height: 400px;
-    width: 700px;
+    height: 40vh;
+    width: 45vw;
     background: #fdfdfd;
     padding-top: 20px;
     box-shadow: 0 4px 8px #0001;
 }
 
 .right-content {
-    height: 820px;
-    width: 700px;
+    height: 82vh;
+    width: 30vw;
     background: #fdfdfd;
     padding-top: 20px;
     box-shadow: 0 4px 8px #0001;
@@ -37,18 +37,49 @@
     margin: auto;
     align-items: center;
     justify-content: center;
-    gap: 20px;
+    text-align: center;
     background: linear-gradient(300deg, var(--aqua), var(--blue-gray));
     height: 130px;
     width: 80%;
+    gap: 10px;
     color: var(--white);
     font-weight: 800;
     border-radius: 6px;
     box-shadow: 0 6px 8px #0003;
-    font-size: 40px;
+    font-size: 20px;
 }
 
 .stats-card p {
-    width: 400px;
+    width: 50%;
     white-space: nowrap;
+}
+
+@media screen and (max-width: 1200px) {
+    .page-content {
+        flex-direction: column;
+        justify-content: unset;
+        overflow: scroll;
+    }
+
+    .grid-charts {
+        margin-top: 30px;
+    }
+
+    .right-content {
+        width: 45vw;
+        gap: 10px;
+        margin-bottom: 40px;
+        padding-bottom: 20px;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .nav-header {
+        display: none;
+    }
+
+    .chart,
+    .right-content {
+        width: 90vw;
+    }
 }
