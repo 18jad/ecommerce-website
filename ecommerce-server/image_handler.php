@@ -37,12 +37,18 @@ function imageSave($image, $id, $type, $mysql) {
 function imageRetrieve($id, $type, $mysql) {
     if($type == "profile") {
         $query = $mysql -> prepare(
-            "SELECT profile_pic AS pic FROM users
+            "SELECT photo AS pic FROM users
             WHERE id = '$id'");
-    } else {
+    } else if($type == "profile") {
+        $query = $mysql -> prepare(
+            "SELECT photo AS pic FROM sellers
+            WHERE id = '$id'");
+    } else if($type == "profile") {
         $query = $mysql -> prepare(
             "SELECT `image` AS pic FROM images
-            WHERE tweet_id = '$id'");
+            WHERE product_id = '$id'");
+    } else {
+        continue;
     };
 
     if ($query === false) {
