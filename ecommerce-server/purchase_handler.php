@@ -1,5 +1,10 @@
 <?php
 
+// Before Requesting this API, Make sure client has enough money to purchase product(s)
+// This API only handles 1 purchase at a time. call it multiple times for more products
+// Takes in: userName / prodId / quantity
+// Returns: true on successful purchase
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
@@ -27,9 +32,9 @@ function addOrder($id, $quan, $time, $price, $mysql) {
     return true;
 };
 
-function getPrice($id, $mysql) {
+function getData($id, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT `price` FROM products
+        "SELECT seller_id AS id, `price` FROM products
         WHERE id = ?"
     );
 
@@ -40,7 +45,7 @@ function getPrice($id, $mysql) {
     $response = [];
     $response[] = $array -> fetch_assoc();
 
-    return $response[0]["price"];
+    return $response;
 };
 
 function updateProduct($id, $quan, $mysql) {
@@ -78,7 +83,11 @@ function removeMoneyClient($user, $totalPrice, $mysql) {
 
 // Main
 
-$price = getPrice($prodId, $mysql);
+$data = getPrice($prodId, $mysql);
+$price = $data[0]["price"];
+$sellerId = $data[0]["id"];
 $totalPrice = $price * $quantity;
+
+
 
 ?>
