@@ -31,7 +31,6 @@ img{
 
 .head-table{
     font-weight: 600;
-    margin: 5rem 0;
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
     font-size: 2rem;
@@ -43,7 +42,9 @@ img{
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
     border-bottom: 1px solid gray;
-    padding-bottom: 2rem;
+    padding: 3rem 0;
+    justify-content: center;
+    align-items: center;
 }
 
 .head-name{
@@ -74,4 +75,20 @@ img{
 
 .wishlist p{
     font-size: 1.8rem;
+}
+
+.wishlist-cart {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    margin-right: 2rem;
+}
+
+.wishlist-cart button {
+    padding: 1rem 3rem;
+    color: white;
+    background-color: #F6416C;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
 }
