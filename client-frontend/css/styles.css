@@ -28,11 +28,11 @@ button {
 }
 
 .hero-page-bg {
-    background-image: url("../assets/WhatsApp\ Image\ 2022-09-21\ at\ 11.12.12\ AM.jpeg");
+    background-image: url("../assets/home-hero-background.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: 100%;
-    height: 90vh;
+    background-size: contain;
+    height: 80vh;
     background-color: #F5F5F5;
 }
 
@@ -51,20 +51,28 @@ button {
 
 .hero-page-left-side h1 {
     width: 80%;
-    font-size: 8rem;
+    font-size: 6rem;
     margin: 0 0 15 rem 0;
 }
 
 .hero-page-left-side {
     width: 50vw;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    flex-direction: column;
+    gap: 80px;
 }
 
 .hero-page-btns button {
-    font-size: 2.5rem;
+    font-size: 2rem;
     margin-right: 5rem;
-    padding: 2rem 6rem;
-    border-radius: 10px;
+    padding: 2rem 4rem;
+    border-radius: 7px;
     margin-bottom: 2rem;
+    cursor: pointer;
+    box-shadow: 0 5px 8px #3331;
+    transition: opacity 200ms ease-in-out, translate 200ms cubic-bezier(0.215, 0.610, 0.355, 1);
 }
 
 .hero-page-btns button:first-child {
@@ -75,6 +83,11 @@ button {
 .hero-page-btns button:last-child {
     background-color: white;
     color: black;
+}
+
+.hero-page-btns button:hover {
+    opacity: 0.8;
+    translate: 0 -7px;
 }
 
 .brand-new-product-header,
