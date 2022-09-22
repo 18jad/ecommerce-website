@@ -119,3 +119,22 @@
     opacity: 1;
     color: rgb(246, 92, 92);
 }
+
+.add-table {
+    max-height: 95vh;
+}
+
+@media screen and (max-width: 600px) {
+    .nav-header {
+        display: none;
+    }
+
+    .categorie-table,
+    .navigation {
+        width: 90vw;
+    }
+
+    .add-categorie-form {
+        width: 87vw;
+    }
+}
