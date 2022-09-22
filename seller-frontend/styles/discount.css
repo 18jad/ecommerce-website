@@ -1,0 +1,142 @@
+@import url("./global.css");
+
+.page-content {
+    flex-direction: column;
+}
+
+/* Inputs */
+
+.deleteBtn {
+    cursor: pointer;
+    padding: 8px 10px;
+    color: var(--white);
+    box-shadow: 0 3px 5px #0004;
+    background: var(--blue-gray);
+    border: 1px solid var(--aqua);
+    transition: background 150ms ease-in-out;
+}
+
+.deleteBtn:hover {
+    background: #f74041;
+}
+
+/* Result */
+
+.res {
+    opacity: 0;
+    font-weight: 500;
+    max-width: 550px;
+    overflow: hidden;
+    padding: 8px 14px;
+    border-radius: 7px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: var(--blue-gray);
+    transition: all 150ms ease-in-out;
+    margin-bottom: 10px;
+}
+
+.res.success {
+    opacity: 1;
+    color: rgb(92, 246, 92);
+}
+
+.res.failed {
+    opacity: 1;
+    color: rgb(246, 92, 92);
+}
+
+/* Above table */
+
+.navigation {
+    width: 50%;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.discount-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+#banById {
+    cursor: pointer;
+    padding: 8px 20px;
+    color: var(--white);
+    margin-right: -10px;
+    box-shadow: 0 3px 5px #0004;
+    background: var(--blue-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    border: 1px solid var(--aqua);
+    transition: background 150ms ease-in-out;
+}
+
+#banById:hover {
+    background: #f74041;
+}
+
+.add-new-product {
+    gap: 10px;
+    display: flex;
+    cursor: pointer;
+    padding: 8px 20px;
+    color: var(--white);
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 3px 5px #0004;
+    background: var(--blue-gray);
+    border: 1px solid var(--aqua);
+    transition: background 150ms ease-in-out;
+}
+
+.add-new-product:hover {
+    background: var(--aqua);
+}
+
+/* Discount table */
+
+.products-table {
+    width: 50%;
+}
+
+.discount {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 18px;
+    border-bottom: 1px solid var(--blue-gray);
+}
+
+.discount:last-child {
+    border: none;
+}
+
+.discount-code {
+    margin-left: -70px;
+}
+
+/* Extra */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+label {
+    font-size: 17px;
+    font-weight: 540;
+    color: var(--black);
+    transition: color 150ms ease-in-out;
+}
