@@ -1,5 +1,8 @@
 <?php
 
+//Takes in: amount/code/path of QR code generator image
+//Returns succes if the insert is done
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
