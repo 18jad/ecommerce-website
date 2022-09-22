@@ -11,7 +11,6 @@ html{
     font-family: 'Roboto', sans-serif;
 }
 
-
 img{
     width: 100%;
 }
@@ -25,11 +24,23 @@ img{
     margin: 1rem 0;
 }
 
-.header-table{
+.head-table{
     font-weight: 600;
     margin: 5rem 0;
-    display: flex;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
     font-size: 2rem;
-    justify-content: space-around;
     border-bottom: 1px solid gray;
+}
+
+.head-name{
+    grid-column: 2/3;
+}
+
+.head-price{
+    grid-column: 3/4;
+}
+
+.head-status{
+    grid-column: 4/5;
 }
