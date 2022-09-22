@@ -1,6 +1,6 @@
 <?php
 
-//Takes in: userName / name / password /description /money/date joined
+//Takes in: userName / name / password /description /date joined
 //Returns true if success
 //otherwise returns username already exist
 
@@ -17,7 +17,7 @@ $name = $_POST["name"];
 $date_joined = date("d M Y @ " . "H" . ":i");
 $password = hash("sha256", $_POST["password"] . $date_joined . "thcaj5445");
 $description = $_POST["description"];
-$money =$_POST["money"];
+$money = 0;
 
 
 //select the username from the database to check if exist
