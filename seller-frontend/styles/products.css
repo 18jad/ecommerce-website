@@ -282,6 +282,10 @@ option {
     margin-right: -10px;
     box-shadow: 0 3px 5px #0004;
     background: var(--blue-gray);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
     border: 1px solid var(--aqua);
     transition: background 150ms ease-in-out;
 }
