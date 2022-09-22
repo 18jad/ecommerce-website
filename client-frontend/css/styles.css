@@ -124,7 +124,7 @@ nav .nav-items li a:hover {
     background-image: url("../assets/home-hero-background.jpg");
     background-position: center;
     background-repeat: no-repeat;
-    background-size: contain;
+    background-size: cover;
     height: 80vh;
     background-color: #F5F5F5;
 }
@@ -606,4 +606,50 @@ nav .nav-items li a:hover {
         display: flex;
         flex-direction: column;
     }
+}
+
+@media only screen and (max-width: 528px) {
+
+    .search-data {
+        display: none;
+    }
+
+}
+
+@media only screen and (max-width: 888px) {
+    nav {
+        display: flex;
+        justify-content: space-between;
+    }
+
+    nav .nav-items li {
+        display: none
+    }
+
+
+    nav form .search-data {
+        width: 150px;
+        height: 30px;
+        font-size: 13px;
+        border: none;
+        font-weight: 500;
+        background: none;
+    }
+
+    .logo-image {
+        width: 100px;
+
+    }
+}
+
+@media only screen and (max-width: 380px) {
+
+    .search-bar {
+        display: none;
+    }
+
+    .logo-image {
+        justify-content: center;
+    }
+
 }
