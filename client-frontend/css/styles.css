@@ -344,6 +344,7 @@ nav .nav-items li a:hover {
     grid-template-columns: repeat(2, 1fr);
     gap: 2rem;
     height: 500px;
+    margin-bottom: 30px;
 }
 
 .ads div {
