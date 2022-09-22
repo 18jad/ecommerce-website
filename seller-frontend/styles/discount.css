@@ -49,7 +49,7 @@
 /* Above table */
 
 .navigation {
-    width: 50%;
+    width: 60vw;
     display: flex;
     align-items: center;
     margin-bottom: 20px;
@@ -103,7 +103,7 @@
 /* Discount table */
 
 .products-table {
-    width: 50%;
+    width: 60vw;
 }
 
 .discount {
@@ -120,4 +120,27 @@
 
 .discount-code {
     margin-left: -70px;
+}
+
+@media screen and (max-width: 1000px) {
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .res {
+        margin-top: 10px;
+    }
+}
+
+@media screen and (max-width: 730px) {
+    .nav-header {
+        display: none;
+    }
+
+
+    .navigation,
+    .products-table {
+        width: 90vw;
+    }
 }
