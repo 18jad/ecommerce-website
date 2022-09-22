@@ -93,3 +93,29 @@
     outline: 2px solid var(--aqua);
     outline-style: double;
 }
+
+/* result */
+
+.res {
+    opacity: 0;
+    font-weight: 500;
+    max-width: 550px;
+    overflow: hidden;
+    padding: 8px 14px;
+    margin-top: 10px;
+    border-radius: 7px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: var(--blue-gray);
+    transition: all 150ms ease-in-out;
+}
+
+.res.success {
+    opacity: 1;
+    color: rgb(92, 246, 92);
+}
+
+.res.failed {
+    opacity: 1;
+    color: rgb(246, 92, 92);
+}
