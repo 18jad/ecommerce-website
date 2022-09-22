@@ -2,7 +2,7 @@
 
 .page-content {
     flex-direction: row;
-    justify-content: space-around;
+    gap: 30px;
 }
 
 .grid-charts {
@@ -13,10 +13,42 @@
 }
 
 .chart {
-    /* border: 1px solid var(); */
     height: 400px;
     width: 700px;
     background: #fdfdfd;
     padding-top: 20px;
     box-shadow: 0 4px 8px #0001;
+}
+
+.right-content {
+    height: 820px;
+    width: 700px;
+    background: #fdfdfd;
+    padding-top: 20px;
+    box-shadow: 0 4px 8px #0001;
+    display: flex;
+    justify-content: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+.stats-card {
+    display: flex;
+    margin: auto;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    background: linear-gradient(300deg, var(--aqua), var(--blue-gray));
+    height: 130px;
+    width: 80%;
+    color: var(--white);
+    font-weight: 800;
+    border-radius: 6px;
+    box-shadow: 0 6px 8px #0003;
+    font-size: 40px;
+}
+
+.stats-card p {
+    width: 400px;
+    white-space: nowrap;
 }
