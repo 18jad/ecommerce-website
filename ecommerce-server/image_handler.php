@@ -11,14 +11,20 @@ function imageSave($image, $id, $type, $mysql) {
     file_put_contents($photoAddress, $image);
     $postAddress = "images/" . $type . $id . ".png";
 
-    if($type == "profile") {
+    if($type == "client") {
         $query = $mysql -> prepare(
-            "UPDATE users SET profile_pic = '$postAddress'
+            "UPDATE users SET photo = '$postAddress'
             WHERE id = '$id'");
-    } else {
+    } else if($type == "seller"){
         $query = $mysql -> prepare(
-            "INSERT INTO images(tweet_id, `image`)
+            "UPDATE sellers SET photo = '$postAddress'
+            WHERE id = '$id'");
+    } else if($type == "product"){
+        $query = $mysql -> prepare(
+            "INSERT INTO images(product_id, `image`)
             VALUE ('$id', '$postAddress')");
+    } else {
+        continue;
     };
 
     if ($query === false) {
