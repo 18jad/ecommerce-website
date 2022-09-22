@@ -71,6 +71,7 @@ const changeTextContent = (element, newContent) => {
     }
 }
 
+// on input change, update the preview inforamtion
 productNameInput.addEventListener('input', (e) => {
     changeTextContent(productPreviewName, e.target.value);
 })
@@ -82,8 +83,6 @@ descriptionInput.addEventListener('input', (e) => {
 priceInput.addEventListener('input', (e) => {
     changeTextContent(productPreviewPrice, `$${e.target.value}`);
 })
-
-
 
 
 /**

@@ -163,7 +163,7 @@
                 </div>
             </div>
             <!-- Edit modal -->
-            <!-- <div class="edit-modal-container">
+            <div class="edit-modal-container">
                 <div class="edit-modal">
                     <header class="edit-modal-header">
                         <i class="fa-solid fa-xmark close-edit-modal"></i>
@@ -173,24 +173,33 @@
                     </header>
                     <form class="edit-modal-content">
                         <div class="input-container">
-                            <input type="text" name="productOldName" id="oldproductName" class="product-input"
-                                placeholder="Enter a new name">
-                            <label for="oldproductName">Product name</label>
+                            <input type="text" name="productNewName" id="newProductName" class="product-input"
+                                placeholder="Enter a new product name">
+                            <label for="newProductName">Product name</label>
                         </div>
                         <div class="input-container">
-                            <input type="text" name="password" id="oldPasswordInput" class="product-input"
-                                placeholder="Enter a new product password">
-                            <label for="oldPasswordInput">New password</label>
-                        </div>
-                        <div class="input-container">
-                            <textarea type="text" name="description" id="oldDescriptionInput" class="product-input"
+                            <textarea type="text" name="newDescription" id="newDescriptionInput" class="product-input"
                                 placeholder="Enter new product description"></textarea>
-                            <label for="oldDescriptionInput">Description</label>
+                            <label for="newDescriptionInput">Description</label>
+                        </div>
+                        <div class="input-container">
+                            <div class="price-input-container">
+                                <input type="number" name="price" id="newPriceInput" class="product-input price-input"
+                                    placeholder="0 - 9999" autocomplete='off'>
+                                <div class="price-tick">$</div>
+                            </div>
+                            <label for="priceInput">Price</label>
+                        </div>
+                        <div class="new-image-container">
+                            <label for="newImage" class="custom-file-upload">
+                                <i class="fa fa-cloud-upload"></i> Change image
+                            </label>
+                            <input id="newImage" type="file" hidden />
                         </div>
                         <button type="submit" class="submitEdit">Update</button>
                     </form>
                 </div>
-            </div> -->
+            </div>
         </section>
     </main>
 

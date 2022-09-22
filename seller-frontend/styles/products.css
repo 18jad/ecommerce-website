@@ -296,31 +296,32 @@
     background: var(--aqua);
 }
 
+/* Edit modal */
 
-
-/* .edit-modal-container {
+.edit-modal-container {
     opacity: 0;
     z-index: 10;
     height: 100vh;
     width: 84.3vw;
     display: flex;
-    background: #0004;
+    /* background: #0004; */
     position: absolute;
     align-items: center;
     pointer-events: none;
     justify-content: center;
     transition: opacity 150ms ease-in-out;
-} */
+}
 
-/* .edit-modal {
+.edit-modal {
     opacity: 0;
     scale: 0.01;
-    height: 500px;
+    height: 600px;
     overflow: auto;
     position: relative;
     background: #fefefe;
     margin-bottom: 100px;
     pointer-events: none;
+    box-shadow: 0 0 0 900px #0003;
     border: 1px solid var(--blue-gray);
     transition: all 400ms ease-in-out, opacity 300ms cubic-bezier(0.165, 0.84, 0.9, 1);
 }
@@ -353,11 +354,30 @@
     align-items: center;
     flex-direction: column;
     justify-content: center;
-} */
+}
 
-/* #oldDescriptionInput {
+.custom-file-upload {
+    border: 1px solid #ccc;
+    display: inline-block;
+    padding: 6px 12px;
+    cursor: pointer;
+    margin-top: 20px;
+}
+
+.new-image-container {
+    width: 88%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: flex-start;
+}
+
+#newDescriptionInput {
     resize: none;
     height: 130px;
+}
+
+#newPriceInput {
+    width: 25%;
 }
 
 .submitEdit {
@@ -376,7 +396,7 @@
 
 .submitEdit:hover {
     background: var(--aqua);
-} */
+}
 
 /* Extra */
 
