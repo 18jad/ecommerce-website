@@ -15,8 +15,8 @@ $i = 0;
 
 function searchFor($search, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT id, username, f_name, l_name FROM users
-        WHERE `username` REGEXP ? OR f_name REGEXP ? OR l_name REGEXP ?"
+        "SELECT id, `name`, category, `description`, price FROM products
+        WHERE `name` REGEXP ? OR category REGEXP ? OR description REGEXP ?"
     );
 
     $query -> bind_param("sss", $search, $search, $search);
