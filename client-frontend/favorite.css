@@ -17,19 +17,18 @@
     display: flex;
     flex-wrap: wrap;
     align-items: center;
-    position: relative;
     height: 70px;
     padding: 0 100px;
   }
 
   .logo-image {
     width: 150px;
+    
   }
 
 
   .page-title {
     font-weight: 300;
-    position: absolute;
     color: rgba(0, 0, 0, 0.559);
   }
 
