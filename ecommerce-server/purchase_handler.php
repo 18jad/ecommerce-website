@@ -43,11 +43,18 @@ function getPrice($id, $mysql) {
     return $response[0]["price"];
 };
 
-function updateProduct() {
+function updateProduct($id, $quan, $mysql) {
+    $query = $mysql -> prepare(
+        "UPDATE products SET times_purchased += '$quan'
+        WHERE id = '$id'"
+    );
 
+    $query -> execute();
+
+    return true;
 };
 
-function addMoneySeller($totalPrice, $mysql) {
+function addMoneySeller($id, $totalPrice, $mysql) {
     $query = $mysql -> prepare(
         "UPDATE sellers SET `money` += '$totalPrice'
         WHERE id = '$id'"
@@ -58,7 +65,7 @@ function addMoneySeller($totalPrice, $mysql) {
     return true;
 };
 
-function removeMoneyClient($user, $mysql) {
+function removeMoneyClient($user, $totalPrice, $mysql) {
     $query = $mysql -> prepare(
         "UPDATE clients SET `money` -= '$totalPrice'
         WHERE username = '$user'"
