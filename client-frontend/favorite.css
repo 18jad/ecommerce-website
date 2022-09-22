@@ -32,22 +32,34 @@
   }
 
 
-  .carousel-text{
+  .product-text{
     margin: 1rem 0;
-    font-size: 2rem;
+    font-size: 1rem;
 }
 
-.carousel-text-1{
-    color: red;
+.product-text-1{
+    color: #F6416C;
 }
-.carousel-text-2{
+
+.product-text-2{
     display: flex;
     justify-content: space-between;
     margin: 1rem 0;
 }
 
-.carousel-price{
+.product-price{
     color: gray;
+}
+
+.items-showcase {
+    margin: 8vh;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
 }
 
 
