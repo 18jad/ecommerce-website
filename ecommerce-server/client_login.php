@@ -1,7 +1,7 @@
 <?php
 
 // Takes in: userName and password
-// Returns: "Username Not Found!" or "Incorrect Password!" if failed
+// Returns: "Username Not Found!" or "Incorrect Password!" or "Banned!" if failed
 // Returns id, username, token if success
 
 // example:
@@ -30,7 +30,7 @@ $password = $_POST["password"];
 
 function retrieveData($user, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT date_joined AS dj, id FROM users
+        "SELECT date_joined AS dj, id, is_banned AS ban FROM users
         WHERE username = '$user'"
     );
 
@@ -76,6 +76,11 @@ function checkPassword($user, $pass, $date, $mysql) {
 $data = retrieveData($userName, $mysql);
 $id = $data[0]["id"];
 $dateJoined = $data[0]["dj"];
+$banned = $data[0]["ban"];
+
+if($banned == 1) {
+    die("banned!")
+};
 
 if(checkPassword($userName, $password, $dateJoined, $mysql)) {
     $tokenPayload = payloadCreate($userName, "client");
