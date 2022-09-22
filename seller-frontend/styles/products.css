@@ -454,3 +454,25 @@ option {
 .submitEdit:hover {
     background: var(--aqua);
 }
+
+@media screen and (max-width: 850px) {
+    .navigation {
+        flex-direction: column;
+        gap: 10px;
+        margin-top: 20px;
+    }
+}
+
+@media screen and (max-width: 660px) {
+    .nav-header {
+        display: none;
+    }
+
+    .navigation {
+        width: 90vh;
+    }
+
+    .search-container {
+        width: 100%;
+    }
+}
