@@ -337,7 +337,6 @@ footer .footer-items li a:hover {
   nav {
     display: flex;
     justify-content: space-between;
-    top: 50%;
   }
 
   .static-button {
