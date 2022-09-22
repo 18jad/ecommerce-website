@@ -1,5 +1,27 @@
 <?php
 
+// Takes in: searchQuery
+// Returns: All matches in name / category / description
+
+// example:
+
+// [
+//     {
+//         "id": 1,
+//         "name": "RTX 3080 Ti",
+//         "category": "electronics",
+//         "description": "8gb",
+//         "price": 1200
+//     },
+//     {
+//         "id": 2,
+//         "name": "GTX 970",
+//         "category": "electronics",
+//         "description": "4gb",
+//         "price": 400
+//     }
+// ]
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
@@ -34,24 +56,7 @@ function searchFor($search, $mysql) {
 
 // Main
 
-$userId = returnId($userName, $mysql);
-$blockedBy = checkBlocked($userId, $mysql);
 $allData = searchFor($regEx, $mysql);
-
-foreach($allData as $data) {
-    foreach($blockedBy as $id){
-        if($data["id"] == $id["user_id"]) {
-            unset($allData[$i]);
-        };
-    };
-    $i++;
-};
-
-$array = [];
-foreach($allData as $data) {
-    $array[] = $data;
-};
-
-echo json_encode($array);
+echo json_encode($allData);
 
 ?>
