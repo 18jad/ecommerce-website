@@ -338,6 +338,12 @@ footer {
 
 
 @media only screen and (max-width: 888px) {
+
+    .static-button {
+        width: 14vh;
+        height: 4vh;
+        font-size: 1vh;
+    }
     
     .logo-image {
         width: 120px;
