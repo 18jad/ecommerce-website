@@ -17,11 +17,16 @@ img{
 
 .wishlist-page{
     text-align: center;
+    margin: 3rem 0;
 }
 
 .wishlist-page h1{
     font-size: 5rem;
-    margin: 1rem 0;
+    margin: 3rem 0;
+}
+
+.table{
+    margin: 10rem 2rem;
 }
 
 .head-table{
@@ -37,6 +42,8 @@ img{
 .wishlist{
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
+    border-bottom: 1px solid gray;
+    padding-bottom: 2rem;
 }
 
 .head-name{
@@ -54,7 +61,11 @@ img{
 .wishlist-details{
     display: flex;
     align-items: center;
-    justify-content: space-around;
+    justify-content: space-evenly;
+}
+
+.wishlist-details svg{
+    cursor: pointer;
 }
 
 .wishlist-details img{
@@ -62,5 +73,5 @@ img{
 }
 
 .wishlist p{
-    font-size: 1.5rem;
+    font-size: 1.8rem;
 }
