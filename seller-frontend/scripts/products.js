@@ -96,14 +96,17 @@ const modalContainer = document.querySelector('.edit-modal-container'),
     openModalBtns = document.querySelectorAll('.editBtn'),
     closeEditModalBtn = document.querySelector('.close-edit-modal'),
     newProductName = document.getElementById('newProductName'),
-    newPriceInput = document.getElementById('newPriceInput');
+    newPriceInput = document.getElementById('newPriceInput'),
+    newCategorie = document.getElementById('newCategorieSelector')
 
 
 const openModal2 = (btn) => {
     modalContainer.classList.add('show-modal');
     editModal.classList.add('show-modal-content');
+    // caching value inside dataset instead fetching everytime to get old values
     newProductName.value = btn.dataset.name;
     newPriceInput.value = btn.dataset.price;
+    newCategorie.value = btn.dataset.categorie;
 }
 
 const closeModal2 = () => {
