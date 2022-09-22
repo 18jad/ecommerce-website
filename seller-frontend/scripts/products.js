@@ -95,15 +95,15 @@ const modalContainer = document.querySelector('.edit-modal-container'),
     editModal = document.querySelector('.edit-modal'),
     openModalBtns = document.querySelectorAll('.editBtn'),
     closeEditModalBtn = document.querySelector('.close-edit-modal'),
-    modalHeaderName = document.getElementById('sellerNameHeader'),
-    oldSellerName = document.getElementById('oldSellerName');
+    newProductName = document.getElementById('newProductName'),
+    newPriceInput = document.getElementById('newPriceInput');
 
 
 const openModal2 = (btn) => {
     modalContainer.classList.add('show-modal');
     editModal.classList.add('show-modal-content');
-    modalHeaderName.textContent = btn.dataset.name;
-    oldSellerName.value = btn.dataset.name;
+    newProductName.value = btn.dataset.name;
+    newPriceInput.value = btn.dataset.price;
 }
 
 const closeModal2 = () => {
