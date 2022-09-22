@@ -70,6 +70,10 @@
     background: transparent;
     justify-content: center;
     box-shadow: 0 3px 5px #3332;
+    background-size: cover !important;
+    background-position: center !important;
+    background-repeat: no-repeat !important;
+    background-size: cover !important;
     border: 3px dashed var(--aqua);
 }
 

@@ -1,19 +1,18 @@
 /**
- * Upload image button:
- *  - Click the hidden file input
- *  - Set image name next to button
+ *  Create new product:
+ *      - Upload product image button:
+ *          - Click the hidden file input
+ *          - Set image inside the preview frame
+ *          - Remove the initial styles
+ *      - Product info preview:
+ *          - On input change update the preview text under image
  */
 
-const profileInput = document.getElementById("sellerProfile"),
-    uploadProfileBtn = document.getElementById("profileUploadBtn"),
-    imageName = document.getElementById("profileName");
+// Upload product image section
+const uploadedProductImageInput = document.getElementById("uploadedProductImage"),
+    uploadProductImageBtn = document.querySelector(".produt-image-container");
 
-let selectedImageName, base64Image;
-
-// update image name on every change
-const updateImageName = (name) => {
-    imageName.textContent = name;
-}
+let base64Image;
 
 // convert image to base64
 const imageToBase64 = (imageInput) => {
@@ -28,26 +27,64 @@ const imageToBase64 = (imageInput) => {
     }
 }
 
-uploadProfileBtn.addEventListener("click", () => {
-    profileInput.click();
-    profileInput.onchange = () => {
-        const [uploadedFileDetails] = profileInput.files;
+uploadProductImageBtn.addEventListener("click", () => {
+    // click the hidden file input
+    uploadedProductImageInput.click();
+    uploadedProductImageInput.onchange = () => {
+        const [uploadedFileDetails] = uploadedProductImageInput.files;
         // if no image is chosen
-        if (profileInput.files.length == 0) {
-            selectedImageName = null;
-            updateImageName("No image uploaded");
+        if (uploadedProductImageInput.files.length == 0) {
+            // add styles back if no image is chosen
+            uploadProductImageBtn.style.background = "transparent";
+            uploadProductImageBtn.style.border = "3px dashed var(--aqua)";
+            uploadProductImageBtn.innerHTML = '<i class="fa-regular fa-file-image"></i>'
             return;
             // if an image is chosen
-        } else if (profileInput.value && profileInput.value.trim().length > 0 && profileInput.files.length > 0) {
-            // save image name
-            selectedImageName = uploadedFileDetails.name || profileInput.value.split("\\").pop();
+        } else if (uploadedProductImageInput.value && uploadedProductImageInput.value.trim().length > 0 && uploadedProductImageInput.files.length > 0) {
+            // remove image container border and icon and add uploaded image
+            uploadProductImageBtn.style.border = "none";
+            uploadProductImageBtn.innerHTML = "";
+
+            // set image inside the preview box
+            uploadProductImageBtn.style.backgroundImage = `url("${URL.createObjectURL(uploadedFileDetails)}")`;
+
             // convert image to base64
-            imageToBase64(profileInput, base64Image)
-            // update the name next to button
-            updateImageName(selectedImageName);
+            imageToBase64(uploadedProductImageInput, base64Image)
         }
     }
 })
+
+// Product info preview
+const productPreviewName = document.getElementById('productPreviewName'),
+    productPreviewDescription = document.getElementById('productPreviewDescription'),
+    productPreviewPrice = document.getElementById('productPreviewPrice'),
+    productNameInput = document.getElementById('productNameInput'),
+    descriptionInput = document.getElementById('descriptionInput'),
+    priceInput = document.getElementById('priceInput');
+
+// change the properties under image preview
+const changeTextContent = (element, newContent) => {
+    if (newContent.trim().length > 0) {
+        element.textContent = newContent;
+    } else {
+        element.textContent = "";
+    }
+}
+
+productNameInput.addEventListener('input', (e) => {
+    changeTextContent(productPreviewName, e.target.value);
+})
+
+descriptionInput.addEventListener('input', (e) => {
+    changeTextContent(productPreviewDescription, e.target.value);
+})
+
+priceInput.addEventListener('input', (e) => {
+    changeTextContent(productPreviewPrice, `$${e.target.value}`);
+})
+
+
+
 
 /**
  * Edit seller info modal:
