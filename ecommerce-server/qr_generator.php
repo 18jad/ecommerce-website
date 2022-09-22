@@ -20,4 +20,17 @@ $qrcode=$path.$amount.".png";
 //generate the QR code and customize the message when scan the code
 Qrcode::png('Enjoy a '.$amount.'$ Voucher From JACHT',$qrcode);
 
+//insert query to the table vouchers
+$query = $mysql -> prepare("INSERT INTO vouchers(amount,code,qrcode) VALUE (?, ?, ?)");
+
+if ($query === false) {
+    die(json_encode("error: " . $mysql -> error));
+};
+//execute the query
+$query -> bind_param("sss", $amount,$code,$qrcode);
+$query -> execute();
+
+// send the resposne with succces message
+echo json_encode("success");
+
 ?>
