@@ -112,6 +112,7 @@ main {
 
 .link-text {
     transition: all 400ms ease-in-out;
+    width: 200px;
 }
 
 .logo-container {
