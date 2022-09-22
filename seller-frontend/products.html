@@ -96,18 +96,15 @@
                                     </div>
                                     <div class="input-container">
                                         <div class="price-input-container">
-                                            <select name="categorie" id="categorieSelector">
-                                                <option value="">1</option>
-                                                <option value="">1</option>
-                                                <option value="">1</option>
-                                                <option value="">1</option>
-                                                <option value="">1</option>
-                                                <option value="">1</option>
-                                                <option value="">1</option>
-                                                <option value="">1</option>
-                                                <option value="">1</option>
-                                                <option value="">1</option>
-                                                <option value="">1</option>
+                                            <select name="categorie" id="categorieSelector" class="categorie-selector">
+                                                <option value="">Tech</option>
+                                                <option value="">Home</option>
+                                                <option value="">Clothes</option>
+                                                <option value="">Mobile</option>
+                                                <option value="">Electronics</option>
+                                                <option value="">Office</option>
+                                                <option value="">Shoes</option>
+                                                <option value="">Pants</option>
                                             </select>
                                         </div>
                                         <label for="priceInput">Categorie</label>
@@ -207,13 +204,30 @@
                                 placeholder="Enter new product description"></textarea>
                             <label for="newDescriptionInput">Description</label>
                         </div>
-                        <div class="input-container">
-                            <div class="price-input-container">
-                                <input type="number" name="price" id="newPriceInput" class="product-input price-input"
-                                    placeholder="0 - 9999" autocomplete='off'>
-                                <div class="price-tick">$</div>
+                        <div class="edit-small-inputs">
+                            <div class="input-container">
+                                <div class="price-input-container">
+                                    <input type="number" name="price" id="newPriceInput"
+                                        class="product-input price-input" placeholder="0 - 9999" autocomplete='off'>
+                                    <div class="price-tick">$</div>
+                                </div>
+                                <label for="priceInput">Price</label>
                             </div>
-                            <label for="priceInput">Price</label>
+                            <div class="input-container">
+                                <div class="price-input-container">
+                                    <select name="categorie" id="newCategorieSelector" class="categorie-selector">
+                                        <option value="">Tech</option>
+                                        <option value="">Home</option>
+                                        <option value="">Clothes</option>
+                                        <option value="">Mobile</option>
+                                        <option value="">Electronics</option>
+                                        <option value="">Office</option>
+                                        <option value="">Shoes</option>
+                                        <option value="">Pants</option>
+                                    </select>
+                                </div>
+                                <label for="priceInput">Categorie</label>
+                            </div>
                         </div>
                         <div class="new-image-container">
                             <label for="newImage" class="custom-file-upload">
