@@ -8,9 +8,28 @@
 
 html{
     font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
 }
 
 
 img{
     width: 100%;
+}
+
+.wishlist-page{
+    text-align: center;
+}
+
+.wishlist-page h1{
+    font-size: 5rem;
+    margin: 1rem 0;
+}
+
+.header-table{
+    font-weight: 600;
+    margin: 5rem 0;
+    display: flex;
+    font-size: 2rem;
+    justify-content: space-around;
+    border-bottom: 1px solid gray;
 }
