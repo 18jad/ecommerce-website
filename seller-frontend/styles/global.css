@@ -146,6 +146,7 @@ main {
     font-size: 20px;
     width: 100%;
     padding: 10px 30px;
+    border-left: 5px solid transparent;
     transition: all 400ms ease-in-out, opacity 150ms ease-in-out;
     white-space: nowrap;
 }
