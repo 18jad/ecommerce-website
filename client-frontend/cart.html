@@ -23,9 +23,6 @@
            <input type="search" class="search-data" placeholder="Search" required>
            <button type="submit"><img src="assets/search.png" class="search-btn" alt="ssearch"></button>
         </form>
-        <div class="menu-icon">
-            <i class="fas fa-bars"></i>
-         </div>
     </nav>
     <!--Cover image-->
     <section class="cover-container">
@@ -92,6 +89,11 @@
             <li><a href="#">More</a></li>
          </div>
     </footer>
-     <script src="cart.js"></script>
+    <script>
+        $('nav ul li.btn span').click(function(){
+          $('nav ul div.items').toggleClass("show");
+          $('nav ul li.btn span').toggleClass("show");
+        });
+     </script>
 </body>
 </html>
