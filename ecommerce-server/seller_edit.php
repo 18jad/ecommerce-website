@@ -12,15 +12,13 @@ header("Access-Control-Allow-Headers: *");
 include("connection.php");
 
 //decalre the input varaibales
+$username = $_POST["username"];
 $new_name = $_POST["new_name"];
 $new_desc = $_POST["new_desc"];
-$new_money =$_POST["new_money"];
 
-
-$username = $_POST["username"];
 
 //select info from the table sellers of specific username
-$seller_info = $mysql -> prepare("SELECT name,description,money,date_joined FROM sellers WHERE username = '$username'");
+$seller_info = $mysql -> prepare("SELECT name,description,date_joined FROM sellers WHERE username = '$username'");
 
 if ($seller_info === false) {
     die(json_encode("error: " . $mysql -> error));
@@ -39,7 +37,6 @@ while($info  = $array -> fetch_assoc()){
 //fetch the array and get the data
 $name = $response[0]["name"];
 $desc = $response[0]["description"];
-$money = $response[0]["money"];
 $date_joined  = $response[0]["date_joined"];
 
 //check if the varaibles is set
@@ -55,17 +52,11 @@ if (isset($new_desc)) {
     $Desc  = $desc;
 };
 
-if (isset($new_money)) {
-    $Money = $new_money;
-} else {
-    $Money = $money;
-};
-
 //decalre newpassword variable
 $new_password = hash("sha256", $_POST["new_password"] . $date_joined . "thcaj5445");
 
 //prepare the query update
-$query = $mysql -> prepare ("UPDATE sellers set name='$Name', description='$Desc', money=$Money, password='$new_password' WHERE username ='$username'");
+$query = $mysql -> prepare ("UPDATE sellers set name='$Name', description='$Desc', password='$new_password' WHERE username ='$username'");
 
 if ($query === false) {
     die(json_encode("error: " . $mysql -> error));
