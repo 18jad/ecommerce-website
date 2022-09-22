@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="cart.css" rel="stylesheet">
+    <link href="assets/" rel="images">
+    <title>Shopping Cart</title>
+</head>
+<body>
+    <!--Navigation bar-->
+    <nav>
+        <div class="logo">
+            <img class= "logo-image" src="assets/Logo.png" alt="logo">
+        </div>
+        <div class="nav-items">
+           <li><a href="#">Home</a></li>
+           <li><a href="#">Profile</a></li>
+           <li><a href="#">Cart</a></li>
+        </div>
+        <form action="#" class="search-bar">
+           <input type="search" class="search-data" placeholder="Search" required>
+           <button type="submit"><img src="assets/search.png" class="search-btn" alt="ssearch"></button>
+        </form>
+    </nav>
+    <!--Cover image-->
+    <section class="cover-container">
+        <img class= "cover" src="assets/cover.svg" alt="cover">
+        <h1 class="cover-text">Shopping Cart</h1>
+        <button  type="button" class="static-button"><span class="home-bold">HOME </span> |  CART</button>
+    </section>
+    <!--Table for shopping cart-->
+    <table>
+        <tr>
+            <th style="width:30%">Images</th>
+            <th>Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Remove</th>
+        </tr>
+        <tr>
+            <td><img src="" alt=""></td>
+            <td>Furniture</td>
+            <td>$130.00</td>
+            <td>Counter</td>
+            <td>$130.00</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td><img src="" alt=""></td>
+            <td>Furniture</td>
+            <td>$130.00</td>
+            <td>Counter</td>
+            <td>$130.00</td>
+            <td>x</td>
+        </tr>
+    </table>
+    <!--buttons-->
+    <div class="btns">
+        <button class="button-transparent">Coupon Code</button>
+        <button class="button-green">APPLY COUPON</button>
+        <button class="button-red">UPDATE CART</button>   
+    </div>
+    <div class="totals-section">
+        <div class="cart-totals">Cart Totals</div>
+        <div class="subtotal">
+            <p class="subtotal-title">Subtotal</p><p class="subtotal-price">price</p>
+        </div>
+        <div class="total">
+            <p class="subtotal-title">Total</p><p class="subtotal-price">price</p>
+        </div>
+        <button class="button-red-long">PROCEED TO CHECKOUT</button>
+    </div>
+
+
+
+    
+
+    <footer>
+        <div class="white-logo">
+            <div><img class= "white-logo-image" src="assets/white-logo.png" alt="logo"></div>
+            <div class="copyright"><p>Copyright Ⓒ 2022 - All rights reserved</p></div>
+         </div>
+         <div class="footer-items">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">More</a></li>
+         </div>
+    </footer>
+    <script>
+        $('nav ul li.btn span').click(function(){
+          $('nav ul div.items').toggleClass("show");
+          $('nav ul li.btn span').toggleClass("show");
+        });
+     </script>
+</body>
+</html>
