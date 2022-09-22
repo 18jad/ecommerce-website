@@ -19,8 +19,9 @@ body {
 
 
 .cover {
-  background-size: auto;
-  width: 100%;
+  object-fit: cover;
+  height: 70vh;
+  width: 100vw;
 }
 
 .cover-text {
@@ -38,12 +39,14 @@ body {
   position: absolute;
   top: 60%;
   left: 50%;
+  outline: none;
+  border: none;
   transform: translate(-50%, -50%);
+  background: white;
 }
 
-
 .home-bold {
-  font-weight: 600;
+  font-weight: bold;
 }
 
 nav {
