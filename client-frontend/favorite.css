@@ -32,6 +32,24 @@
   }
 
 
+  .carousel-text{
+    margin: 1rem 0;
+    font-size: 2rem;
+}
+
+.carousel-text-1{
+    color: red;
+}
+.carousel-text-2{
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.carousel-price{
+    color: gray;
+}
+
 
 
   
