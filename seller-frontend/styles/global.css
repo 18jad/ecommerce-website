@@ -396,7 +396,17 @@ section {
     width: 120px;
 }
 
-/* Scrollbar */
+/* Extra */
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    margin: 0;
+    -webkit-appearance: none;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
 
 ::-webkit-scrollbar {
     width: 5px;
@@ -413,4 +423,11 @@ section {
 
 ::-webkit-scrollbar-thumb:hover {
     background: var(--aqua);
+}
+
+label {
+    font-size: 17px;
+    font-weight: 540;
+    color: var(--black);
+    transition: color 150ms ease-in-out;
 }

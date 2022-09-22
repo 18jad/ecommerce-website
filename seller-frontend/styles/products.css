@@ -454,22 +454,3 @@ option {
 .submitEdit:hover {
     background: var(--aqua);
 }
-
-/* Extra */
-
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
-    margin: 0;
-    -webkit-appearance: none;
-}
-
-input[type="number"] {
-    -moz-appearance: textfield;
-}
-
-label {
-    font-size: 17px;
-    font-weight: 540;
-    color: var(--black);
-    transition: color 150ms ease-in-out;
-}
