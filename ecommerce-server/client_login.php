@@ -79,7 +79,7 @@ $dateJoined = $data[0]["dj"];
 $banned = $data[0]["ban"];
 
 if($banned == 1) {
-    die("banned!")
+    die("banned!");
 };
 
 if(checkPassword($userName, $password, $dateJoined, $mysql)) {
