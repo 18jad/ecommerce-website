@@ -332,6 +332,17 @@ option {
     background: var(--aqua);
 }
 
+.product-name {
+    margin-left: 55px;
+}
+
+.product-categorie {
+    width: 100px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
 /* Edit modal */
 
 .edit-modal-container {
