@@ -55,7 +55,7 @@
 }
 
 .items-showcase {
-    margin: 8vh;
+    margin: 7vh;
     margin-left: auto;
     margin-right: auto;
     border-style: groove;
@@ -68,6 +68,8 @@
 section {
     display: flex;
     flex-wrap: wrap;
+    margin-left: 2vh;
+    margin-right: 2vh;
 }
 
 .product-image-size {
@@ -127,4 +129,44 @@ footer {
   footer .footer-items li a:hover{
     color: rgba(255, 255, 255, 0.534);
   }
+
+
+  @media only screen and (max-width: 555px){
+     nav {
+        height: 100px;
+     }
+
+     .page-title {
+        font-size: 18px;
+        
+      }
+  }
+
+  @media only screen and (max-width: 888px){
+    footer {
+        height :100px;
+    }
+
+    footer .footer-items li a{
+        font-size: 13px;
+        
+      }
+
+      .white-logo{
+        color: white;
+        font-size: 13px;
+        font-weight: 500;
+        display: flex;
+        flex-direction: row;
+        
+      }
+
+      .white-logo-image {
+        width: 30px;
+      }
+
+
+ }
+    
+  
   
