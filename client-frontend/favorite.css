@@ -27,8 +27,8 @@
 
 
   .page-title {
-    margin-left: 400px;
     font-weight: 300;
+    text-align: center;
   }
 
 
@@ -55,6 +55,11 @@
     margin: 8vh;
     margin-left: auto;
     margin-right: auto;
+    border-style: groove;
+    border-width: 4px;
+    border-radius: 8px;
+    border-color: rgb(232, 231, 231);
+    padding: 4vh;
 }
 
 section {
@@ -62,6 +67,61 @@ section {
     flex-wrap: wrap;
 }
 
+.product-image-size {
+  width: 70vh;
+}
 
 
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: end;
+    height: 70px;
+    padding: 0 100px;
+    background-color: #F6416C;
+    flex-direction: row;
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.white-logo{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+    
+  }
+
+  .copyright  {
+    padding-left: 3vh;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+
+  footer .footer-items{
+    display: flex;
+    flex: 1;
+    padding: 0 0 0 40px;
+    justify-content: end;
+  }
+
+  footer .footer-items li{
+    list-style: none;
+    padding: 0 15px;
+  }
+  
+  footer .footer-items li a{
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+
+  footer .footer-items li a:hover{
+    color: rgba(255, 255, 255, 0.534);
+  }
   
