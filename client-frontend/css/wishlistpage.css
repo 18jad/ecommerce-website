@@ -30,7 +30,13 @@ img{
     display: grid;
     grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
     font-size: 2rem;
+    padding-bottom: 3rem;
     border-bottom: 1px solid gray;
+}
+
+.wishlist{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
 }
 
 .head-name{
@@ -43,4 +49,18 @@ img{
 
 .head-status{
     grid-column: 4/5;
+}
+
+.wishlist-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.wishlist-details img{
+    width: 75px;
+}
+
+.wishlist p{
+    font-size: 1.5rem;
 }
