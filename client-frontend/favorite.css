@@ -19,6 +19,7 @@
     align-items: center;
     height: 70px;
     padding: 0 100px;
+    justify-content:space-around;
   }
 
   .logo-image {
@@ -30,6 +31,7 @@
   .page-title {
     font-weight: 300;
     color: rgba(0, 0, 0, 0.559);
+    
   }
 
 
@@ -69,7 +71,7 @@ section {
 }
 
 .product-image-size {
-  width: 70vh;
+  width: 30vh;
 }
 
 
