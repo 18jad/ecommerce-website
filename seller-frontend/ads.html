@@ -6,12 +6,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
-    <link rel="stylesheet" href="./styles/stats.css">
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.3/echarts.min.js"
-        integrity="sha512-2L0h0GhoIHQEjti/1KwfjcbyaTHy+hPPhE1o5wTCmviYcPO/TD9oZvUxFQtWvBkCSTIpt+fjsx1CCx6ekb51gw=="
-        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
-    <script src="./scripts/stats.js" defer></script>
-    <title>Statistics</title>
+    <link rel="stylesheet" href="./styles/adsPage.css">
+    <script src="./scripts/ads.js" defer></script>
+    <title>Ads</title>
 </head>
 
 <body>
@@ -35,11 +32,11 @@
                         <i class="fa-solid fa-tags"></i>
                         <span class="link-text">Discount</span>
                     </a>
-                    <a href="./ads.html" class="link">
+                    <a href="./ads.html" class="link active">
                         <i class="fa-solid fa-rectangle-ad"></i>
                         <span class="link-text">Ads</span>
                     </a>
-                    <a href="./stats.html" class="link active">
+                    <a href="./stats.html" class="link">
                         <i class="fa-solid fa-chart-pie"></i>
                         <span class="link-text">Statistics</span>
                     </a>
@@ -55,28 +52,17 @@
     <main>
         <div class="header">
             <i class="fa-solid fa-angles-left" id="closeNav"></i>
-            <p id="pageName">Statistics</p>
+            <p id="pageName">Ads</p>
             <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
         </div>
         <section class="page-content">
-            <div class="grid-charts">
-                <div class="chart" id="topViewedProducts"></div>
-                <div class="chart" id="monthlyRevenue"></div>
-            </div>
-            <div class="right-content">
-                <div class="stats-card">
-                    <i class="fa-solid fa-cart-shopping"></i>
-                    <p><span id="itemSoldAmount">12</span> items sold</p>
-                </div>
-                <div class="stats-card">
-                    <i class="fa-solid fa-money-bill"></i>
-                    <p><span id="totalRevenueAmount">$2380</span> total revenue</p>
-                </div>
-                <div class="stats-card">
-                    <i class="fa-solid fa-receipt"></i>
-                    <p><span id="totalProductsListed">120</span> products listed</p>
-                </div>
-            </div>
+            <form>
+                <label for="adImage" class="ad-input">
+                    <i class="fa fa-cloud-upload"></i> Upload an AD
+                </label>
+                <input id="adImage" type="file" hidden />
+                <button type="submit" id="formSubmit">Submit</button>
+            </form>
         </section>
     </main>
 </body>
