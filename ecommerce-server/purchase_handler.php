@@ -59,9 +59,9 @@ function updateProduct($id, $quan, $mysql) {
     return true;
 };
 
-function addMoneySeller($id, $totalPrice, $mysql) {
+function addMoneySeller($id, $price, $mysql) {
     $query = $mysql -> prepare(
-        "UPDATE sellers SET `money` += '$totalPrice'
+        "UPDATE sellers SET `money` += '$price'
         WHERE id = '$id'"
     );
 
@@ -70,9 +70,9 @@ function addMoneySeller($id, $totalPrice, $mysql) {
     return true;
 };
 
-function removeMoneyClient($user, $totalPrice, $mysql) {
+function removeMoneyClient($user, $price, $mysql) {
     $query = $mysql -> prepare(
-        "UPDATE clients SET `money` -= '$totalPrice'
+        "UPDATE clients SET `money` -= '$price'
         WHERE username = '$user'"
     );
 
@@ -88,6 +88,15 @@ $price = $data[0]["price"];
 $sellerId = $data[0]["id"];
 $totalPrice = $price * $quantity;
 
+if(addOrder($prodId, $quantity, $time, $totalPrice, $mysql)) {
+    if(updateProduct($prodId, $quantity, $mysql)) {
+        if(addMoneySeller($sellerId, $totalPrice, $mysql)) {
+            echo json_encode(removeMoneyClient($userName, $totalPrice, $mysql));
+        };
+    };
+};
 
+
+// CHECK DB FOR MORE UPDATES???
 
 ?>
