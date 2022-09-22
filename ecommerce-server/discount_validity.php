@@ -1,6 +1,12 @@
 <?php
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("connection.php");
+
+$id = $_POST["seller_id"];
+$code = $_POST["code"];
 
 function checkDiscountValidity($id, $code, $mysql) {
     $query = $mysql -> prepare(
@@ -19,7 +25,11 @@ function checkDiscountValidity($id, $code, $mysql) {
         return false;
     };
 
-    return $response;
+    return $response[0];
 };
+
+$check = checkDiscountValidity($id, $code, $mysql);
+
+echo json_encode($check);
 
 ?>
