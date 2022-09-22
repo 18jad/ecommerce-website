@@ -7,7 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/stats.css">
-    <script src="./scripts/global.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.3/echarts.min.js"
+        integrity="sha512-2L0h0GhoIHQEjti/1KwfjcbyaTHy+hPPhE1o5wTCmviYcPO/TD9oZvUxFQtWvBkCSTIpt+fjsx1CCx6ekb51gw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./scripts/stats.js" defer></script>
     <title>Statistics</title>
 </head>
@@ -53,7 +55,13 @@
             <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
         </div>
         <section class="page-content">
-
+            <div class="grid-charts">
+                <div class="chart" id="topViewedProducts"></div>
+                <div class="chart" id="monthlyRevenue"></div>
+            </div>
+            <div class="right-content">
+                <p>test</p>
+            </div>
         </section>
     </main>
 </body>
