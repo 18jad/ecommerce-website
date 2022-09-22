@@ -17,7 +17,7 @@ $time = date("d M Y @ " . "H" . ":i");
 
 function addOrder($id, $quan, $time, $price, $mysql) {
     $query = $mysql -> prepare(
-        "INSERT INTO orders(product_id, quan, `time`, price)
+        "INSERT INTO orders(product_id, quantity, `time`, price)
         VALUE (?, ?, '$time', ?)"
     );
 
@@ -43,8 +43,35 @@ function getPrice($id, $mysql) {
     return $response[0]["price"];
 };
 
+function updateProduct() {
+
+};
+
+function addMoneySeller($totalPrice, $mysql) {
+    $query = $mysql -> prepare(
+        "UPDATE sellers SET `money` += '$totalPrice'
+        WHERE id = '$id'"
+    );
+
+    $query -> execute();
+
+    return true;
+};
+
+function removeMoneyClient($user, $mysql) {
+    $query = $mysql -> prepare(
+        "UPDATE clients SET `money` -= '$totalPrice'
+        WHERE username = '$user'"
+    );
+
+    $query -> execute();
+
+    return true;
+};
+
 // Main
 
 $price = getPrice($prodId, $mysql);
+$totalPrice = $price * $quantity;
 
 ?>
