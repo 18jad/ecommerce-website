@@ -87,17 +87,20 @@ nav .nav-items li a:hover {
   color: #F6416C;
 }
 
-nav form {
+.search-bar {
   display: flex;
+  align-items: center;
+  justify-content: center;
   height: 40px;
   padding: 2px;
   background: white;
   min-width: 18% !important;
   border-radius: 2px;
-  border: 1px solid rgba(155, 155, 155, 0.2);
+  border: 1.4px solid rgba(155, 155, 155, 0.2);
+  border-radius: 100px;
 }
 
-nav form .search-data {
+.search-bar .search-data {
   width: 100%;
   height: 100%;
   padding: 0 10px;
@@ -108,30 +111,33 @@ nav form .search-data {
   background: none;
 }
 
-nav form button {
-  padding: 0 15px;
+.search-bar .search-data::placeholder {
+  color: lightgray;
+}
+
+#submitSearch {
+  padding: 0 17px;
+  aspect-ratio: 1/1;
+  display: flex;
+  align-items: center;
+  height: 100%;
   color: #fff;
   font-size: 17px;
   background: #F6416C;
   border: none;
   border-radius: 2px;
   cursor: pointer;
+  border-radius: 100px;
 }
 
-nav button {
-  max-width: 30px;
-}
-
-nav form button:hover {
+#submitSearch:hover {
   background: #f45e81;
 }
 
-.search-btn {
+.search-icon {
   width: 18px;
   margin-left: -8px;
 }
-
-
 
 table {
   margin-top: 10vh;
