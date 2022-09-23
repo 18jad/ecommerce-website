@@ -36,6 +36,10 @@ nav {
     padding: 0 100px;
 }
 
+i {
+    font-size: 2rem;
+}
+
 .logo-image {
     width: 150px;
 
@@ -85,6 +89,7 @@ nav .nav-items li a:hover {
     border: none;
     font-weight: 500;
     background: none;
+    outline: none;
 }
 
 .search-bar .search-data::placeholder {
@@ -187,12 +192,13 @@ nav .nav-items li a:hover {
 .best-sell-product-header {
     display: flex;
     justify-content: space-between;
+    margin-bottom: 20px;
 }
 
 .brand-new-product-header-left h2,
 .top-seller-header h2,
 .best-sell-product h2 {
-    font-size: 5rem;
+    font-size: 4rem;
     text-transform: capitalize;
     margin: 1rem 0;
 }
