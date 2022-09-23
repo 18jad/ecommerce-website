@@ -51,6 +51,6 @@ if(isset($name) and isset($photo) and isset($description)) {
 } 
 
 // send the resposne with succces message
-echo "user updated";
+echo json_encode("user updated");
 
 ?>
