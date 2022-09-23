@@ -1,5 +1,11 @@
 <?php
 
+// NEEDS TESTING
+
+// NEEDS TESTING
+
+// NEEDS TESTING
+
 // Takes in: userName / id / name / category / description / price
 // Returns true on success. otherwise logs the error
 
@@ -55,7 +61,7 @@ function getProductData($id, $mysql) {
 
 if (isset($photo)) {
     $decodedImage = imageDecode($photo);
-    imageSave($decodedImage, $id, "client", $mysql);
+    imageSave($decodedImage, $id, "product", $mysql);
 };
 
 $data = getProductData($productId, $mysql);
