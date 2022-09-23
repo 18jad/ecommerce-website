@@ -4,6 +4,7 @@
 // Returns true on success. otherwise logs the error
 
 include("connection.php");
+include("image_handler.php");
 
 // Init Variables
 
@@ -12,6 +13,7 @@ $name = $_POST["name"];
 $category = $_POST["category"];
 $description = $_POST["description"];
 $price = $_POST["price"];
+$photo = $_POST["photo"];
 $orders = 0;
 $times_favorited = 0;
 $discount = 0;
@@ -50,6 +52,11 @@ function getSellerId($user, $mysql) {
 };
 
 // Main
+
+if (isset($photo)) {
+    $decodedImage = imageDecode($photo);
+    imageSave($decodedImage, $id, "client", $mysql);
+};
 
 $sellerId = getSellerId($sellerUserName, $mysql);
 

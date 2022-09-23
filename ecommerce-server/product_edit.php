@@ -4,6 +4,7 @@
 // Returns true on success. otherwise logs the error
 
 include("connection.php");
+include("image_handler.php");
 
 // Init Variables
 
@@ -13,6 +14,7 @@ $name = $_POST["name"];
 $category = $_POST["category"];
 $description = $_POST["description"];
 $price = $_POST["price"];
+$photo = $_POST["photo"];
 
 // Functions
 
@@ -50,6 +52,11 @@ function getProductData($id, $mysql) {
 };
 
 // Main
+
+if (isset($photo)) {
+    $decodedImage = imageDecode($photo);
+    imageSave($decodedImage, $id, "client", $mysql);
+};
 
 $data = getProductData($productId, $mysql);
 

@@ -12,6 +12,7 @@ header("Access-Control-Allow-Headers: *");
 
 //include the connection to the database
 include("connection.php");
+include("image_handler.php");
 
 //decalre the input varaibales
 $id = $_POST["id"];
