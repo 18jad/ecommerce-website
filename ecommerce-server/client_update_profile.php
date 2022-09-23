@@ -1,5 +1,11 @@
 <?php
 
+// NEEDS TESTING
+
+// NEEDS TESTING
+
+// NEEDS TESTING
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -12,19 +18,16 @@ $id = $_POST["id"];
 $name = $_POST["name"];
 $photo = $_POST["photo"];
 
-if(isset($name) and isset($photo)) {
-    $query = $mysql->prepare("UPDATE users SET name = ?, photo = ? WHERE id = ?");
-    $query->bind_param("sss",$name, $photo, $id);
+if (isset($photo)) {
+    $decodedImage = imageDecode($photo);
+    imageSave($decodedImage, $id, "client", $mysql);
+};
+
+if(isset($name)) {
+    $query = $mysql->prepare("UPDATE users SET name = ? WHERE id = ?");
+    $query->bind_param("ss", $name, $id);
     $query->execute();
-} elseif (isset($name)) {
-    $query1 = $mysql->prepare("UPDATE users SET name = ? WHERE id = ?");
-    $query1->bind_param("ss", $name, $id);
-    $query1->execute();
-}  else {
-    $query1 = $mysql->prepare("UPDATE users SET photo = ? WHERE id = ?");
-    $query1->bind_param("ss",$photo, $id);
-    $query1->execute();
-}
+} 
 
 // send the resposne with succces message
 echo json_encode("user updated");
