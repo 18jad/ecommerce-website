@@ -122,11 +122,11 @@ label {
     outline: none;
     font-size: 17px;
     background: #F6416C;
-    border: 1.5px solid #F6416C;
+    border: 3px solid #F6416C;
+    box-shadow: 0px 4px 4px rgba(246, 65, 108, 0.26);
     width: 88%;
     color: white;
     font-weight: 800;
-    box-shadow: 0px 5px 9px #F6416C;
     cursor: pointer;
     transition: opacity 150ms ease-in-out, transform 200ms ease-in-out, box-shadow 150ms ease-in-out;
 }
@@ -134,7 +134,7 @@ label {
 .form-submit:hover {
     opacity: 0.9;
     transform: translateY(-5px);
-    box-shadow: 0px 6px 10px 2px #F6416C;
+    box-shadow: 0px 4px 8px rgba(246, 65, 108, 0.6);
 }
 
 .new-account {
