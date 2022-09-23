@@ -67,7 +67,7 @@ form {
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    gap: 60px;
+    gap: 30px;
 }
 
 .inputs-container {
@@ -145,4 +145,9 @@ label {
 
 .register {
     color: #F6416C;
+}
+
+.old-account {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
 }
