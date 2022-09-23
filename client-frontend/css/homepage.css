@@ -292,9 +292,10 @@ nav .nav-items li a:hover {
 }
 
 .carousel-btn-new {
-    background-color: green;
+    background-color: #73bd68;
     padding: 0.8rem 2.2rem;
     margin-bottom: 1rem;
+    border-radius: 3px;
 }
 
 .carousel-btn-sale {
