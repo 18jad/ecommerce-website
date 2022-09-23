@@ -100,6 +100,7 @@ label {
     outline: none;
     font-size: 15px;
     border: 1.5px solid #393E46;
+    box-shadow: 0px 3px 6px #3331;
     font-weight: 500;
     transition: border 150ms ease-in-out, box-shadow 200ms ease-in-out;
 }
@@ -109,7 +110,7 @@ label {
 }
 
 .client-input:focus {
-    box-shadow: 0px 4px 6px #F6416C;
+    box-shadow: 0px 3px 7px #f6416b30;
 }
 
 .client-input:focus+label {
