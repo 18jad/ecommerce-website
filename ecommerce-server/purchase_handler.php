@@ -9,13 +9,14 @@ header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("connection.php");
-include("discount_validity");
+include("discount_validity.php");
 
 // Init Variables
 
 $userName = $_POST["userName"];
 $prodId = $_POST["prodId"];
 $quantity = $_POST["quantity"];
+$discount = $_POST["discount"];
 $time = date("d M Y @ " . "H" . ":i");
 
 // Functions
@@ -50,7 +51,7 @@ function getData($id, $mysql) {
 
 function updateProduct($id, $quan, $mysql) {
     $query = $mysql -> prepare(
-        "UPDATE products SET times_purchased += '$quan'
+        "UPDATE products SET times_purchased = times_purchased + '$quan'
         WHERE id = '$id'"
     );
 
@@ -61,7 +62,7 @@ function updateProduct($id, $quan, $mysql) {
 
 function addMoneySeller($id, $price, $mysql) {
     $query = $mysql -> prepare(
-        "UPDATE sellers SET `money` += '$price'
+        "UPDATE sellers SET `money` = `money` + '$price'
         WHERE id = '$id'"
     );
 
@@ -72,7 +73,7 @@ function addMoneySeller($id, $price, $mysql) {
 
 function removeMoneyClient($user, $price, $mysql) {
     $query = $mysql -> prepare(
-        "UPDATE clients SET `money` -= '$price'
+        "UPDATE users SET `money` = `money` - '$price'
         WHERE username = '$user'"
     );
 
@@ -83,20 +84,25 @@ function removeMoneyClient($user, $price, $mysql) {
 
 // Main
 
-$data = getPrice($prodId, $mysql);
+$data = getData($prodId, $mysql);
 $price = $data[0]["price"];
 $sellerId = $data[0]["id"];
 $totalPrice = $price * $quantity;
 
+if(isset($discount)) {
+    $discount = checkDiscountValidity($sellerId, $code, $mysql);
+    $discountAmount = ($totalPrice * $discount) / 100 ;
+    $totalPrice = $totalPrice - $discountAmount;
+};
+
 if(addOrder($prodId, $quantity, $time, $totalPrice, $mysql)) {
     if(updateProduct($prodId, $quantity, $mysql)) {
         if(addMoneySeller($sellerId, $totalPrice, $mysql)) {
-            echo json_encode(removeMoneyClient($userName, $totalPrice, $mysql));
+            die(json_encode(removeMoneyClient($userName, $totalPrice, $mysql)));
         };
     };
 };
 
-
-// CHECK DB FOR MORE UPDATES???
+echo json_encode("false");
 
 ?>
