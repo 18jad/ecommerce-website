@@ -305,9 +305,12 @@ nav .nav-items li a:hover {
 
 .carousel-icons {
     display: flex;
+    align-items: center;
+    justify-content: center;
     position: absolute;
     top: 80%;
-    left: 25%;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .carousel-icons div {
