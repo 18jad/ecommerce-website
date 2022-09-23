@@ -33,6 +33,17 @@ while($info  = $array -> fetch_assoc()){
 
 $qr_code = $response[0]["qrcode"];
 
+//insert into table voucher_sent
+$send_voucher = $mysql -> prepare("INSERT INTO voucher_sent(user_send,user_received,qrcode) VALUE (?, ?, ?)");
 
+if ($send_voucher === false) {
+    die(json_encode("error: " . $mysql -> error));
+};
+//execute the query
+$send_voucher -> bind_param("sss",$user_send,$username,$qr_code);
+$send_voucher -> execute();
+
+// send the resposne with succces message
+echo json_encode("success");
 
 ?>
