@@ -312,6 +312,7 @@ nav .nav-items li a:hover {
     left: 50%;
     gap: 60px;
     transform: translate(-50%, -50%);
+    width: 100%;
 }
 
 .carousel-icons div {
@@ -319,6 +320,12 @@ nav .nav-items li a:hover {
     padding: 1rem;
     background-color: white;
     cursor: pointer;
+    transition: color 150ms ease-in-out;
+    box-shadow: 0 4px 6px #3331;
+}
+
+.carousel-icons div:hover {
+    color: #F6416C;
 }
 
 .carousel-text {
