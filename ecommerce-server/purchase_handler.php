@@ -2,7 +2,7 @@
 
 // Before Requesting this API, Make sure client has enough money to purchase product(s)
 // This API only handles 1 purchase at a time. call it multiple times for more products
-// Takes in: userName / prodId / quantity
+// Takes in: userId / userName / prodId / quantity / discount(if not POST null)
 // Returns: true on successful purchase
 
 header("Access-Control-Allow-Origin: *");
@@ -13,6 +13,7 @@ include("discount_validity.php");
 
 // Init Variables
 
+$userId = $_POST["userId"];
 $userName = $_POST["userName"];
 $prodId = $_POST["prodId"];
 $quantity = $_POST["quantity"];
@@ -21,13 +22,17 @@ $time = date("d M Y @ " . "H" . ":i");
 
 // Functions
 
-function addOrder($id, $quan, $time, $price, $mysql) {
+function addOrder($id, $prodId, $quan, $time, $price, $mysql) {
     $query = $mysql -> prepare(
-        "INSERT INTO orders(product_id, quantity, `time`, price)
-        VALUE (?, ?, '$time', ?)"
+        "INSERT INTO orders(`user_id`, product_id, quantity, `time`, price)
+        VALUE (?, ?, ?, '$time', ?)"
     );
 
-    $query -> bind_param("sss", $id, $quan, $price);
+    if ($query === false) {
+        return false;
+    };
+
+    $query -> bind_param("ssss", $id, $prodId, $quan, $price);
     $query -> execute();
 
     return true;
@@ -55,6 +60,10 @@ function updateProduct($id, $quan, $mysql) {
         WHERE id = '$id'"
     );
 
+    if ($query === false) {
+        return false;
+    };
+
     $query -> execute();
 
     return true;
@@ -66,6 +75,10 @@ function addMoneySeller($id, $price, $mysql) {
         WHERE id = '$id'"
     );
 
+    if ($query === false) {
+        return false;
+    };
+
     $query -> execute();
 
     return true;
@@ -76,6 +89,10 @@ function removeMoneyClient($user, $price, $mysql) {
         "UPDATE users SET `money` = `money` - '$price'
         WHERE username = '$user'"
     );
+
+    if ($query === false) {
+        return false;
+    };
 
     $query -> execute();
 
@@ -90,12 +107,15 @@ $sellerId = $data[0]["id"];
 $totalPrice = $price * $quantity;
 
 if(isset($discount)) {
-    $discount = checkDiscountValidity($sellerId, $code, $mysql);
-    $discountAmount = ($totalPrice * $discount) / 100 ;
-    $totalPrice = $totalPrice - $discountAmount;
+    $discount = checkDiscountValidity($sellerId, $discount, $mysql);
+
+    if($discount) {
+        $discountAmount = ($totalPrice * $discount["p"]) / 100 ;
+        $totalPrice = $totalPrice - $discountAmount;
+    };
 };
 
-if(addOrder($prodId, $quantity, $time, $totalPrice, $mysql)) {
+if(addOrder($userId, $prodId, $quantity, $time, $totalPrice, $mysql)) {
     if(updateProduct($prodId, $quantity, $mysql)) {
         if(addMoneySeller($sellerId, $totalPrice, $mysql)) {
             die(json_encode(removeMoneyClient($userName, $totalPrice, $mysql)));

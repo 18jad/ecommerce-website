@@ -4,7 +4,7 @@ include("connection.php");
 
 function checkDiscountValidity($id, $code, $mysql) {
     $query = $mysql -> prepare(
-        "SELECT `percentage` FROM discounts
+        "SELECT `percentage` AS p FROM discounts
         WHERE `code` = ? AND seller_id = ?"
     );
 
