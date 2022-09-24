@@ -64,6 +64,10 @@ function imageRetrieve($id, $type, $mysql) {
     $response = [];
     $response[] = $array -> fetch_assoc();
 
+    if($response[0] == null) {
+        return false;
+    };
+
     $photoAddress =  $response[0]["pic"];
     $image = file_get_contents($photoAddress);
     $imageEncoded = base64_encode($image);
