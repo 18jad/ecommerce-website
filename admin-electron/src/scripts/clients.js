@@ -20,7 +20,7 @@
                 clientName = client.name,
                 clientUsername = client.username,
                 clientBanned = client.is_banned,
-                clientPhoto = (client.photo == null || client.photo == "" || client.photo == "NULL") ? "./assets/empty-profile.jpg" : client.photo,
+                clientPhoto = (client.photo == null || client.photo == "" || client.photo == "NULL") ? "./assets/empty-profile.jpg" : `../../ecommerce-server/${client.photo}`,
                 clientDate = client.date_joined;
 
             if (!Boolean(clientBanned)) {
