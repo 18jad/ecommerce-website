@@ -208,11 +208,22 @@ const deleteSeller = (sellerID) => {
 }
 
 setTimeout(() => {
+    // delete seller by button
     const deleteBtns = document.querySelectorAll('.deleteBtn');
 
     deleteBtns.forEach((btn) => {
         btn.addEventListener('click', () => {
             deleteSeller(btn.dataset.id)
         })
+    })
+
+    // delete seller by id input
+    const sellerIDInput = document.getElementById('idInput'),
+        deleteForm = document.querySelector('.search-container');
+
+    deleteForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let selletID = sellerIDInput.value;
+        deleteSeller(selletID);
     })
 }, 200)
