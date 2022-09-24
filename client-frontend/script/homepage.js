@@ -22,8 +22,10 @@ axios({
 })
   .then(function (response) {
     //handle success
-    if (localStorageData) {
-      console.log(localStorageData);
+    if (response.data === true) {
+      console.log("HELLo");
+    } else {
+      window.location.href = "login.html";
     }
   })
   .catch(function (response) {
