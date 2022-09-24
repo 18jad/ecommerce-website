@@ -3,6 +3,7 @@ const usernameInputEl = document.getElementById("usernameInput");
 const emailInputEl = document.getElementById("emailInput");
 const passwordInputEl = document.getElementById("passwordInput");
 const authSubmitBtnEl = document.getElementById("authSubmitBtn");
+const responseEl = document.getElementById("response");
 
 authSubmitBtnEl.addEventListener("click", (e) => {
   e.preventDefault();
@@ -21,7 +22,12 @@ authSubmitBtnEl.addEventListener("click", (e) => {
     .then(function (response) {
       //handle success
       console.log(response.data);
-      if (response === true) {
+      responseEl.classList.remove("opacity");
+      if (response.data == true) {
+        responseEl.textContent = "Acoount Created";
+      } else {
+        responseEl.textContent = response.data;
+        
       }
     })
     .catch(function (response) {
