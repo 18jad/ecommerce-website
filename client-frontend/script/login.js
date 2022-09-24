@@ -17,7 +17,6 @@ authSubmitBtnEl.addEventListener("click", (e) => {
   })
     .then(function (response) {
       //handle success
-      //   console.log(response.data);
       responseEl.classList.remove("opacity");
       if (response.data == "Username Not Found!") {
         responseEl.textContent = response.data;
@@ -28,14 +27,6 @@ authSubmitBtnEl.addEventListener("click", (e) => {
         passwordInputEl.value = "";
       } else {
         responseEl.textContent = "Logged in";
-        // localStorage.setItem(
-        //   response.data.id,
-        //   response.data.userName,
-        //   response.data.token
-        // );
-        // localStorage.setItem("userName");
-        // localStorage.setItem("token");
-
         const localStorageData = [];
         localStorageData.push(response.data.id);
         localStorageData.push(response.data.userName);
