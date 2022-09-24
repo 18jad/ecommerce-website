@@ -1,7 +1,7 @@
 <?php
 
-//Takes in: seller_id
-//Returns succes message if insert query true
+//Takes in: seller_id and percentage
+//Returns success message if insert query true
 //otherwise returns error message
 
 // include the headers
