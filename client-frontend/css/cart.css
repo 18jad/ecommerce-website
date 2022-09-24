@@ -21,7 +21,7 @@ body {
 .cover {
   object-fit: cover;
   height: 70vh;
-  width: 100vw;
+  width: 100%;
 }
 
 .cover-text {
