@@ -246,7 +246,8 @@ section {
 }
 
 .id-search {
-    padding: 8px 14px;
+    padding: 8px 10px;
+    width: 14vw;
     outline: 2px solid transparent;
     border: 1px solid var(--dark-blue);
     border-left: none;
