@@ -3,6 +3,29 @@
 // Get Request
 // 5 Top Sellers
 // 10 Random Products
+// example:
+
+// [
+//     [
+//         {
+//             top 5
+//         }
+//         {
+//             top 5
+//         }
+//         {
+//             top 5
+//         }
+//     ]
+//     [
+//         {
+//             random 10
+//         }
+//         {
+//             random 10
+//         }
+//     ]
+// ]
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -19,7 +42,7 @@ $index = 0;
 function getBestProducts($mysql) {
     $query = $mysql -> prepare(
         "SELECT id, `name`, `description`, category, price FROM products
-        ORDER BY times_purchased DES
+        ORDER BY times_purchased DESC
         LIMIT 5"
     );
 
@@ -32,7 +55,7 @@ function getBestProducts($mysql) {
         $response[] = $i;
     };
     
-    return $response[0];
+    return $response;
 };
 
 
@@ -52,7 +75,7 @@ function getRandomProducts($mysql) {
         $response[] = $i;
     };
     
-    return $response[0];
+    return $response;
 };
 
 $best = getBestProducts($mysql);
@@ -62,7 +85,7 @@ foreach($best as $b) {
     $prodId = $b["id"];
     $photo = imageRetrieve($prodId, "product", $mysql);
     $best[$index]["photo"] = $photo;
-    $index++
+    $index++;
 };
 
 $index = 0;
@@ -71,7 +94,7 @@ foreach($random as $r) {
     $prodId = $r["id"];
     $photo = imageRetrieve($prodId, "product", $mysql);
     $random[$index]["photo"] = $photo;
-    $index++
+    $index++;
 };
 
 $json = [];
