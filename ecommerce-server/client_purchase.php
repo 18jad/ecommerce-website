@@ -3,7 +3,7 @@
 // Before Requesting this API, Make sure client has enough money to purchase product(s)
 // This API only handles 1 purchase at a time. call it multiple times for more products
 // Takes in: userId / userName / prodId / quantity / discount(if not POST null)
-// Returns: true on successful purchase
+// Returns: true on successful purchase 
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -86,7 +86,7 @@ function addMoneySeller($id, $price, $mysql) {
 
 function removeMoneyClient($user, $price, $mysql) {
     $query = $mysql -> prepare(
-        "UPDATE users SET `money` = `money` - '$price'
+        "UPDATE users SET `money` = `money` - '$price', amount_spent = amount_spent + '$price'
         WHERE username = '$user'"
     );
 

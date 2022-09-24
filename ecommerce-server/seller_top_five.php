@@ -1,4 +1,5 @@
 <?php
+
 //retrieve top 5 product viewed data from table products
 //return json with product data
 //otherwise returns error message

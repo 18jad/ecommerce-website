@@ -23,8 +23,6 @@ function imageSave($image, $id, $type, $mysql) {
         $query = $mysql -> prepare(
             "INSERT INTO images(product_id, `image`)
             VALUE ('$id', '$postAddress')");
-    } else {
-        continue;
     };
 
     if ($query === false) {
@@ -34,25 +32,30 @@ function imageSave($image, $id, $type, $mysql) {
     $query -> execute();
 };
 
+function imageEncode($address) {
+    $image = file_get_contents($address);
+    $imageEncoded = base64_encode($image);
+    
+    return ("data:image/png;base64," . $imageEncoded);
+};
+
 function imageRetrieve($id, $type, $mysql) {
-    if($type == "profile") {
+    if($type == "client") {
         $query = $mysql -> prepare(
             "SELECT photo AS pic FROM users
             WHERE id = '$id'");
-    } else if($type == "profile") {
+    } else if($type == "seller") {
         $query = $mysql -> prepare(
             "SELECT photo AS pic FROM sellers
             WHERE id = '$id'");
-    } else if($type == "profile") {
+    } else if($type == "product") {
         $query = $mysql -> prepare(
             "SELECT `image` AS pic FROM images
             WHERE product_id = '$id'");
-    } else {
-        continue;
     };
 
     if ($query === false) {
-        die("error: " . $mysql -> error);
+        return false;
     };
 
     $query -> execute();
@@ -60,6 +63,10 @@ function imageRetrieve($id, $type, $mysql) {
 
     $response = [];
     $response[] = $array -> fetch_assoc();
+
+    if($response[0] == null) {
+        return null;
+    };
 
     $photoAddress =  $response[0]["pic"];
     $image = file_get_contents($photoAddress);
