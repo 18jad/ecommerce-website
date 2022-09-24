@@ -6,7 +6,7 @@
 
 // NEEDS TESTING
 
-// Takes in: userName / name / category / description / price
+// Takes in: userName / name / category / description / price / photo
 // Returns true on success. otherwise logs the error
 
 include("connection.php");
@@ -40,7 +40,16 @@ function addProduct($id, $name, $cat, $desc, $price, $ord, $fav, $disc, $visit, 
     $query -> bind_param("ssss", $name, $cat, $desc, $price);
     $query -> execute();
 
-    return true;
+    $check = $mysql -> prepare(
+        "SELECT LAST_INSERT_ID() AS id");
+    
+    $check -> execute();
+    $array = $check -> get_result();
+
+    $response = [];
+    $response[] = $array -> fetch_assoc();
+
+    return $response[0]["id"];
 };
 
 function getSellerId($user, $mysql) {
