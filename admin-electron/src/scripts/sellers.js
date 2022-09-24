@@ -113,9 +113,10 @@ uploadProfileBtn.addEventListener("click", () => {
  *  - Set name in header and input field
  */
 
-const editSeller = (sellerID, newName, newDescription, newPhoto) => {
+const editSeller = (sellerID, newName = null, newDescription = null, newPhoto = null) => {
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_update_profile.php";
     axios({
-        method: "GET",
+        method: "POST",
         url: _URL,
         data: {
             id: sellerID,
@@ -139,7 +140,8 @@ setTimeout(() => {
         closeEditModalBtn = document.querySelector('.close-edit-modal'),
         modalHeaderName = document.getElementById('sellerNameHeader'),
         oldSellerName = document.getElementById('oldSellerName'),
-        oldDescription = document.getElementById('oldDescriptionInput');
+        oldDescription = document.getElementById('oldDescriptionInput'),
+        editForm = document.querySelector('.edit-modal-content');
 
 
     const openModal2 = (btn) => {
@@ -148,6 +150,7 @@ setTimeout(() => {
         modalHeaderName.textContent = btn.dataset.name;
         oldSellerName.value = btn.dataset.name;
         oldDescription.value = btn.dataset.description;
+        editForm.dataset.id = btn.dataset.id;
     }
 
     const closeModal2 = () => {
@@ -171,9 +174,11 @@ setTimeout(() => {
         }
     });
 
-    modalContainer.addEventListener('submit', (e) => {
+    editForm.addEventListener('submit', (e) => {
+        e.preventDefault();
         let newDescription = oldDescription.value,
             newName = oldSellerName.value;
 
+        editSeller(e.target.dataset.id, newDescription, newName);
     })
 }, 100)
