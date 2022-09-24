@@ -31,4 +31,9 @@ return $response;
 };
 
 
+$TopProduct= getTopViewdProduct($seller_id,$mysql);
+$json = [];
+$json[] = $TopProduct;
+echo json_encode($json);
+
 ?>
