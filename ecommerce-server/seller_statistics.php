@@ -11,49 +11,51 @@ $seller_id=$_POST["seller_id"];
 //function to get the top 5 selleviewd productrs depends on the visited
 function getTopViewdProduct($seller_id,$mysql) {
 
-$top_5= $mysql -> prepare("SELECT * FROM products where seller_id=$seller_id ORDER BY visited DESC LIMIT 5");
+      $top_5= $mysql -> prepare("SELECT * FROM products where seller_id=$seller_id ORDER BY visited DESC LIMIT 5");
 
-if ($top_5 === false) {
-    die(json_encode("error: " . $mysql -> error));
-};
+      if ($top_5 === false) {
+        die(json_encode("error: " . $mysql -> error));
+      };
 
-//execute the select query
-$top_5 -> execute();
-$array = $top_5 -> get_result();
-$response = [];
+      //execute the select query
+      $top_5 -> execute();
+      $array = $top_5 -> get_result();
+      $response = [];
 
-//put the data in the response array
-while($info  = $array -> fetch_assoc()){
-    $response[] = $info;
-};
+      //put the data in the response array
+      while($info  = $array -> fetch_assoc()){
+          $response[] = $info;
+      };
 
-return $response[0];
+      return $response[0];
 };
 
 //tested
 //function to get the product lits of the seller
 function getProductList($seller_id,$mysql) {
 
-    $product_list= $mysql -> prepare("SELECT count(id) FROM products where seller_id=$seller_id");
+       $product_list= $mysql -> prepare("SELECT count(id) FROM products where seller_id=$seller_id");
     
-    if ($product_list === false) {
-        die(json_encode("error: " . $mysql -> error));
-    };
+       if ($product_list === false) {
+          die(json_encode("error: " . $mysql -> error));
+       };
     
-    //execute the select query
-    $product_list -> execute();
-    $array = $product_list -> get_result();
-    $response = [];
+       //execute the select query
+       $product_list -> execute();
+       $array = $product_list -> get_result();
+       $response = [];
     
-    //put the data in the response array
-    while($info  = $array -> fetch_assoc()){
-        $response[] = $info;
-    };
+       //put the data in the response array
+       while($info  = $array -> fetch_assoc()){
+           $response[] = $info;
+        };
     
-    return $response[0];
-    };
+        return $response[0];
+};
 
-    function TotalItemsSold($seller_id,$mysql) {
+//tested
+//function to get the total products sold of a seller
+function TotalItemsSold($seller_id,$mysql) {
 
         $item_sold= $mysql -> prepare("SELECT Sum(times_purchased) FROM products where seller_id=$seller_id");
         
@@ -72,8 +74,8 @@ function getProductList($seller_id,$mysql) {
         };
         
         return $response[0];
-        };
-    
+};
+
 
 $TopProduct= getTopViewdProduct($seller_id,$mysql);
 $ProductList= getProductList($seller_id,$mysql);
