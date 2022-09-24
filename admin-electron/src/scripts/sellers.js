@@ -190,8 +190,10 @@ setTimeout(() => {
  *      - Delete seller by entering his id
  */
 
+
 const deleteSeller = (sellerID) => {
     const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_delete.php";
+    const result = document.getElementById('responseResult');
     axios({
         method: "POST",
         url: _URL,
@@ -200,11 +202,21 @@ const deleteSeller = (sellerID) => {
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
-        alert(response.data);
-        window.location.reload();
+        result.textContent = "Seller successfully deleted";
+        result.classList.remove("failed");
+        result.classList.add("success");
+        result.classList.add("show-result");
+        setTimeout(() => {
+            result.classList.remove("show-result");
+            window.location.reload();
+        }, 2000)
     }).catch((error) => {
-        alert(error);
+        result.textContent = "Error occured please try again " + error;
+        result.classList.remove("success");
+        result.classList.add("failed");
+        result.classList.add("show-result");
     });
+
 }
 
 setTimeout(() => {
