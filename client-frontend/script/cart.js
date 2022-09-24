@@ -22,7 +22,6 @@ axios({
   });
 
 const shoppingCartFetch = () => {
-  // console.log(id);
   let products = Array.from(localStorage.getItem("product_id"));
 
   for (let i = 0; i < products.length; i++) {
@@ -32,11 +31,8 @@ const shoppingCartFetch = () => {
     }
   }
 
-  // console.log(products);
   const tablesProducts = [];
   for (let i = 0; i < products.length; i++) {
-    // console.log(products[i]);
-
     axios({
       method: "POST",
       url: "http://localhost/jacht/product_retrieve.php",
@@ -47,11 +43,9 @@ const shoppingCartFetch = () => {
     })
       .then(function (response) {
         //handle success
-        // console.log(response.data[0]["photo"]);
-
         let table = `
            <tr>
-            <td><img src="${response.data[0]["photo"]}" alt=""></td>
+            <td><img class="cart-image" src="${response.data[0]["photo"]}" alt=""></td>
             <td>${response.data[0]["name"]}</td>
             <td>${response.data[0]["price"]}</td>
             <td>QUANTITY</td>

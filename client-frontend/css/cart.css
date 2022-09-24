@@ -160,6 +160,10 @@ th {
   padding-bottom: 10vh;
 }
 
+.cart-image{
+  width: 30%;
+}
+
 
 .btns {
   display: flex;
