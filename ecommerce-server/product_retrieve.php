@@ -33,7 +33,11 @@ function getData($id, $mysql) {
 
 // Main
 
-getData($id, $mysql);
-imageRetrieve($id, $type, $mysql);
+$data = getData($prodId, $mysql);
+$image = imageRetrieve($prodId, "product", $mysql);
+
+$data[0]["photo"] = $image;
+
+echo json_encode($data);
 
 ?>
