@@ -1,11 +1,12 @@
 /**
  * Ban clients:
  *  - Ban clients by clicking on ban button
- *  - Ban clients by id
+ *  - Ban clients by input username
  */
 
 (() => {
     setTimeout(() => {
+        // Ban by button
         const banButtons = document.querySelectorAll('.banBtn'),
             result = document.getElementById('responseResult');
 
@@ -21,7 +22,7 @@
                 headers: { "Content-Type": "multipart/form-data" },
             }).then((response) => {
                 console.log(response)
-                if (response.data) {
+                if (response.data == true) {
                     result.textContent = "User banned successfully";
                     result.classList.remove("failed");
                     result.classList.add("success");
@@ -47,5 +48,16 @@
                 banClient(button.dataset.username)
             })
         })
+
+
+        // Ban by entering username
+        const usernameInput = document.getElementById('idInput'),
+            banForm = document.querySelector('.search-container');
+
+        banForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let username = usernameInput.value;
+            banClient(username);
+        });
     }, 100)
 })();
