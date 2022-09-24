@@ -51,7 +51,7 @@ const fillData = (data) => {
     // console.log(data);
     let wishlistHtml = `        <div class="wishlist">
                 <div class="wishlist-details">
-                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    <svg id="${data[i]["id"]}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-trash-2">
                         <polyline points="3 6 5 6 21 6"></polyline>
@@ -74,6 +74,17 @@ const fillData = (data) => {
   console.log(wishlistArr);
   wishlistsEl.innerHTML = wishlistArr.join("");
   addCartClickedBtn();
+  removewishClickedBtn();
+};
+
+const removewishClickedBtn = () => {
+  const removebtnEl = document.querySelectorAll("svg");
+
+  removebtnEl.forEach((removebtn) => {
+    removebtn.addEventListener("click", (removebtn) => {
+      console.log(removebtn.path[0].id);
+    });
+  });
 };
 
 const addCartClickedBtn = () => {
@@ -82,6 +93,23 @@ const addCartClickedBtn = () => {
   addCartEl.forEach((addCartbtn) => {
     addCartbtn.addEventListener("click", (btn) => {
       console.log(btn.path[0].id);
+      axios({
+        method: "POST",
+        url: "http://localhost/jacht/wishlist_remove.php",
+        data: {
+          user_id: id,
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(function (response) {
+          //handle success
+          console.log(response.data);
+          fillData(response.data);
+        })
+        .catch(function (response) {
+          //handle error
+          console.log(response);
+        });
     });
   });
 };
