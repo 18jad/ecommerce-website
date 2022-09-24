@@ -52,8 +52,10 @@ function getProductList($seller_id,$mysql) {
     };
 
 $TopProduct= getTopViewdProduct($seller_id,$mysql);
+$ProductList= getProductList($seller_id,$mysql);
 $json = [];
 $json[] = $TopProduct;
+$json[] = $ProductList;
 echo json_encode($json);
 
 ?>
