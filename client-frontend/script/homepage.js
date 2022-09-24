@@ -34,6 +34,4 @@ axios({
     console.log(response);
   });
 
-const fetchingAllData = () => {
-    
-};
+const fetchingAllData = () => {};
