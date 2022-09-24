@@ -82,7 +82,7 @@ uploadProfileBtn.addEventListener("click", () => {
                     <p class="client-name">${sellerName}</p>
                     <p class="client-date-joined">${sellerDate}</p>
                     <div class="action">
-                        <button class="deleteBtn">
+                        <button class="deleteBtn" data-id="${sellerId}">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
                         <button class="editBtn" data-name="${sellerName}" data-id="${sellerId}" data-description="${sellerDescription}">
@@ -128,7 +128,7 @@ const editSeller = (sellerID, newName = null, newDescription = null, newPhoto = 
     }).then((response) => {
         console.log(response);
     }).catch((error) => {
-        console.log(error)
+        alert(error)
     });
 }
 
@@ -182,3 +182,37 @@ setTimeout(() => {
         editSeller(e.target.dataset.id, newDescription, newName);
     })
 }, 100)
+
+
+/**
+ * Delete seller:
+ *      - Delete seller pressing a button
+ *      - Delete seller by entering his id
+ */
+
+const deleteSeller = (sellerID) => {
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_delete.php";
+    axios({
+        method: "POST",
+        url: _URL,
+        data: {
+            seller_id: sellerID,
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+    }).then((response) => {
+        alert(response.data);
+        window.location.reload();
+    }).catch((error) => {
+        alert(error);
+    });
+}
+
+setTimeout(() => {
+    const deleteBtns = document.querySelectorAll('.deleteBtn');
+
+    deleteBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            deleteSeller(btn.dataset.id)
+        })
+    })
+}, 200)
