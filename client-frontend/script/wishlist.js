@@ -24,6 +24,7 @@ axios({
     console.log(response);
   });
 
+let responseData;
 const fetchWishlistData = (id) => {
   axios({
     method: "POST",
@@ -34,8 +35,9 @@ const fetchWishlistData = (id) => {
     headers: { "Content-Type": "multipart/form-data" },
   })
     .then(function (response) {
+      responseData = response.data;
       //handle success
-      console.log(response.data);
+      //   console.log(response.data);
       fillData(response.data);
     })
     .catch(function (response) {
@@ -71,7 +73,8 @@ const fillData = (data) => {
             </div>`;
     wishlistArr.push(wishlistHtml);
   }
-  console.log(wishlistArr);
+  //   console.log(wishlistArr);
+
   wishlistsEl.innerHTML = wishlistArr.join("");
   addCartClickedBtn();
   removewishClickedBtn();
@@ -83,6 +86,28 @@ const removewishClickedBtn = () => {
   removebtnEl.forEach((removebtn) => {
     removebtn.addEventListener("click", (removebtn) => {
       console.log(removebtn.path[0].id);
+      axios({
+        method: "POST",
+        url: "http://localhost/jacht/wishlist_remove.php",
+        data: {
+          user_id: localStorageData[0],
+          product_id: removebtn.path[0].id,
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(function (response) {
+          // if (response.data === "product hass been removed from wishlist") {
+          responseData.pop();
+          fillData(responseData);
+          //   console.log(responseData.pop);
+          //   }
+          //handle success
+          //   console.log(response.data);
+        })
+        .catch(function (response) {
+          //handle error
+          console.log(response);
+        });
     });
   });
 };
@@ -93,23 +118,6 @@ const addCartClickedBtn = () => {
   addCartEl.forEach((addCartbtn) => {
     addCartbtn.addEventListener("click", (btn) => {
       console.log(btn.path[0].id);
-      axios({
-        method: "POST",
-        url: "http://localhost/jacht/wishlist_remove.php",
-        data: {
-          user_id: id,
-        },
-        headers: { "Content-Type": "multipart/form-data" },
-      })
-        .then(function (response) {
-          //handle success
-          console.log(response.data);
-          fillData(response.data);
-        })
-        .catch(function (response) {
-          //handle error
-          console.log(response);
-        });
     });
   });
 };
