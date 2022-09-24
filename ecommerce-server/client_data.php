@@ -12,19 +12,19 @@ header("Access-Control-Allow-Headers: *");
 include("connection.php");
 
 //select info from the table sellers of specific username
-$clients_data = $mysql -> prepare("SELECT *, NULL AS `password` FROM users");
+$clients_data = $mysql->prepare("SELECT * FROM users");
 
 if ($clients_data === false) {
-    die(json_encode("error: " . $mysql -> error));
+    die(json_encode("error: " . $mysql->error));
 };
 
 //execute the select query
-$clients_data -> execute();
-$array = $clients_data -> get_result();
+$clients_data->execute();
+$array = $clients_data->get_result();
 $response = [];
 
 //put the data in the response array
-while($info  = $array -> fetch_assoc()){
+while ($info  = $array->fetch_assoc()) {
     $response[] = $info;
 };
 
