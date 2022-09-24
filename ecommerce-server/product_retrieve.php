@@ -1,5 +1,6 @@
 <?php
 
+// Retrieves 1 Product at a time. call multiple times for more products.
 // Takes in: prodId.
 // Returns: All Product Data.
 
