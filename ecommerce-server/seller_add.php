@@ -12,7 +12,7 @@ header("Access-Control-Allow-Headers: *");
 include("connection.php");
 
 //decalre the input varaibales
-$username = $_POST["userName"];
+$username = $_POST["username"];
 $name = $_POST["name"];
 $date_joined = date("d M Y @ " . "H" . ":i");
 $password = hash("sha256", $_POST["password"] . $date_joined . "thcaj5445");
