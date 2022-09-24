@@ -4,16 +4,16 @@
  *  - Set image name next to button
  */
 
-const profileInput = document.getElementById("sellerProfile"),
-    uploadProfileBtn = document.getElementById("profileUploadBtn"),
-    imageName = document.getElementById("profileName");
+// const profileInput = document.getElementById("sellerProfile"),
+//     uploadProfileBtn = document.getElementById("profileUploadBtn"),
+//     imageName = document.getElementById("profileName");
 
 let selectedImageName, base64Image;
 
 // update image name on every change
-const updateImageName = (name) => {
-    imageName.textContent = name;
-}
+// const updateImageName = (name) => {
+//     imageName.textContent = name;
+// }
 
 // convert image to base64
 const imageToBase64 = (imageInput) => {
@@ -28,29 +28,29 @@ const imageToBase64 = (imageInput) => {
     }
 }
 
-uploadProfileBtn.addEventListener("click", () => {
-    profileInput.click();
-    profileInput.onchange = () => {
-        const [uploadedFileDetails] = profileInput.files;
-        // if no image is chosen
-        if (profileInput.files.length == 0) {
-            selectedImageName = null;
-            updateImageName("No image uploaded");
-            return;
-            // if an image is chosen
-        } else if (profileInput.value && profileInput.value.trim().length > 0 && profileInput.files.length > 0) {
-            // save image name
-            selectedImageName = uploadedFileDetails.name || profileInput.value.split("\\").pop();
-            // convert image to base64
-            imageToBase64(profileInput, base64Image)
-            // update the name next to button
-            updateImageName(selectedImageName);
-        }
-    }
-});
+// uploadProfileBtn.addEventListener("click", () => {
+//     profileInput.click();
+//     profileInput.onchange = () => {
+//         const [uploadedFileDetails] = profileInput.files;
+//         // if no image is chosen
+//         if (profileInput.files.length == 0) {
+//             selectedImageName = null;
+//             updateImageName("No image uploaded");
+//             return;
+//             // if an image is chosen
+//         } else if (profileInput.value && profileInput.value.trim().length > 0 && profileInput.files.length > 0) {
+//             // save image name
+//             selectedImageName = uploadedFileDetails.name || profileInput.value.split("\\").pop();
+//             // convert image to base64
+//             imageToBase64(profileInput, base64Image)
+//             // update the name next to button
+//             updateImageName(selectedImageName);
+//         }
+//     }
+// });
 
 /**
- * Get sellerse details:
+ * Get sellers details:
  *      - Get all sellers
  *      - Show sellers inside the table
  */
@@ -97,14 +97,14 @@ uploadProfileBtn.addEventListener("click", () => {
 
 })();
 
-// "id": 2,
-//     "name": "ali",
-//         "username": "test4",
-//             "password": "f1be22d31a6243fa5f9828cc0717408eefa861031eb2e840a544e41642d751ca",
-//                 "description": "abclkjljk",
-//                     "money": 2000,
-//                         "photo": null,
-//                             "date_joined": "22 Sep 2022 @ 15:15"
+// "id": ,
+//     "name": "",
+//         "username": "",
+//             "password": "",
+//                 "description": "",
+//                     "money": ,
+//                         "photo": ,
+//                             "date_joined": ""
 
 
 /**
@@ -227,3 +227,52 @@ setTimeout(() => {
         deleteSeller(selletID);
     })
 }, 200)
+
+
+/**
+ * Add new seller
+ */
+
+const addNewSeller = (username, name, password, description) => {
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_add.php";
+    axios({
+        method: "POST",
+        url: _URL,
+        data: {
+            userName: username,
+            name,
+            password,
+            description
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+    }).then((response) => {
+        if (response.data == "success") {
+            alert("Successfully created new seller");
+            window.location.reload();
+        } else {
+            alert(response.data);
+        }
+    }).catch((error) => {
+        alert(error);
+    });
+}
+
+
+
+setTimeout(() => {
+    const addSellerForm = document.getElementById("addNewUserForm"),
+        newSellerName = document.getElementById("nameInput"),
+        newSellerUsername = document.getElementById("usernameInput"),
+        newSellerPassword = document.getElementById("passwordInput"),
+        newSellerDescription = document.getElementById("descriptionInput");
+
+    addSellerForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let sellerName = newSellerName.value,
+            sellerUsername = newSellerUsername.value,
+            sellerPassword = newSellerPassword.value,
+            sellerDescription = newSellerDescription.value;
+
+        addNewSeller(sellerUsername, sellerName, sellerPassword, sellerDescription);
+    })
+}, 300)
