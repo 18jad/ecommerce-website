@@ -64,6 +64,6 @@ $json = [];
 $json[] = $best;
 $json[] = $random;
 
-echo json_encode($json);
+echo json_encode($json); 
 
 ?>
