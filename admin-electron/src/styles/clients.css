@@ -76,16 +76,22 @@
     white-space: nowrap;
     text-overflow: ellipsis;
     overflow: hidden;
-    transition: all 150ms ease-in-out;
+    opacity: 0;
+    translate: 0 70px;
+    transition: opacity 200ms ease-in-out, translate 300ms ease-in-out;
+}
+
+.show-result {
+    opacity: 1 !important;
+    translate: 0 !important;
+    /* z-index: 1; */
 }
 
 .res.success {
-    opacity: 1;
     color: rgb(92, 246, 92);
 }
 
 .res.failed {
-    opacity: 1;
     color: rgb(246, 92, 92);
 }
 
