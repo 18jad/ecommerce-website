@@ -254,7 +254,7 @@ nav {
 }
 
 i {
-    font-size: 2rem;
+    font-size: 1.5rem;
 }
 
 .logo-image {
@@ -333,7 +333,6 @@ nav .nav-items li a:hover {
 }
 
 .search-icon {
-    width: 18px;
     margin-left: -8px;
 }
 
