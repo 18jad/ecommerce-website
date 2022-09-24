@@ -20,14 +20,14 @@
                 clientName = client.name,
                 clientUsername = client.username,
                 clientBanned = client.is_banned,
-                clientPhoto = client.photo,
+                clientPhoto = (client.photo == null || client.photo == "" || client.photo == "NULL") ? "./assets/empty-profile.jpg" : client.photo,
                 clientDate = client.date_joined;
 
             if (!Boolean(clientBanned)) {
                 let clientHTML = `
                 <div class="client">
                     <p class="client-id">#${clientId}</p>
-                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
+                    <img src="${clientPhoto}"
                         alt="profile" class="client-image">
                     <p class="client-name">${clientName}</p>
                     <p class="client-date-joined">${clientDate}</p>
