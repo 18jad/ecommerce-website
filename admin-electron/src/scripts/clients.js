@@ -6,7 +6,8 @@
 
 (() => {
     const _URL = "http://localhost/ecommerce-website/ecommerce-server/client_data.php",
-        clientsTable = document.querySelector('.clients-table');
+        clientsTable = document.querySelector('.clients-table'),
+        bannedClientsTable = document.querySelector('.banned-clients');
     axios({
         method: "GET",
         url: _URL,
@@ -34,6 +35,14 @@
                     <button class="banBtn" data-id="${clientId}">Ban</button>
                 </div>`
                 clientsTable.innerHTML += clientHTML;
+            } else {
+                let bannedClientHTML = `
+                            <div class="banned-client">
+                                <p class="banned-id">${clientId}</p>
+                                <p class="banned-name">${clientName}</p>
+                                <button class="unban-btn" data-id="${clientId}">Unban</button>
+                            </div>`
+                bannedClientsTable.innerHTML += bannedClientHTML;
             }
         })
     }).catch((error) => {
