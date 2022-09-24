@@ -1,53 +1,26 @@
 <?php
 
+// 5 top sellers
+// 10 random products
+
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
 
 include("connection.php");
-include("image_handler.php");  
+include("image_handler.php");
+
+// Init Variables
 
 $id = $_POST["id"];
 $userName = $_POST["userName"];
 
-function getUserData($user, $mysql) {
+// Functions
+
+function getBestProducts($mysql) {
     $query = $mysql -> prepare(
-        "SELECT f_name, l_name FROM users
-        WHERE username = '$user'"
-    );
-    
-    $query -> execute();
-    $array = $query -> get_result();
-    
-    $response = [];
-    
-    while($i = $array -> fetch_assoc()) {
-        $response[] = $i;
-    };
-
-    $response[0]["username"] = $user;
-    return $response;
-};
-
-function returnId($user, $mysql) {
-    $check = $mysql -> prepare(
-        "SELECT id FROM users
-        WHERE username = ?"
-    );
-
-    $check -> bind_param("s", $user);
-    $check -> execute();
-    $array = $check -> get_result();
-
-    $response = [];
-    $response[] = $array -> fetch_assoc();
-
-    return $response[0]["id"];
-};
-
-function getFollowing($user, $mysql) {
-    $query = $mysql -> prepare(
-        "SELECT followed_user_id FROM follows
-        WHERE `user_id` = '$user'"
+        "SELECT * FROM products
+        ORDER BY times_purchased DES
+        LIMIT 5"
     );
 
     $query -> execute();
@@ -59,13 +32,7 @@ function getFollowing($user, $mysql) {
         $response[] = $i;
     };
     
-    $ids = [];
-
-    foreach($response as $resp) {
-        $ids[] = $resp["followed_user_id"];
-    };
-    
-    return $ids;
+    return $response[0];
 };
 
 
@@ -105,8 +72,6 @@ function getFollowedTweets($followedIds, $mysql) {
             $test[] = $i;
             $index++;
         };
-
-        
     };
 
     return $response;
