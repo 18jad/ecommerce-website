@@ -40,22 +40,22 @@ function imageEncode($address) {
 };
 
 function imageRetrieve($id, $type, $mysql) {
-    if($type == "profile") {
+    if($type == "client") {
         $query = $mysql -> prepare(
             "SELECT photo AS pic FROM users
             WHERE id = '$id'");
-    } else if($type == "profile") {
+    } else if($type == "seller") {
         $query = $mysql -> prepare(
             "SELECT photo AS pic FROM sellers
             WHERE id = '$id'");
-    } else if($type == "profile") {
+    } else if($type == "product") {
         $query = $mysql -> prepare(
             "SELECT `image` AS pic FROM images
             WHERE product_id = '$id'");
     };
 
     if ($query === false) {
-        die("error: " . $mysql -> error);
+        return false;
     };
 
     $query -> execute();

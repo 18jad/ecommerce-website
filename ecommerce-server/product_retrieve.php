@@ -32,3 +32,8 @@ function getData($id, $mysql) {
 };
 
 // Main
+
+getData($id, $mysql);
+imageRetrieve($id, $type, $mysql);
+
+?>
