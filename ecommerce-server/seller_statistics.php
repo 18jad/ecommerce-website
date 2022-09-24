@@ -7,6 +7,7 @@ include("connection.php");
 
 $seller_id=$_POST["seller_id"];
 
+//tested
 //function to get the top 5 selleviewd productrs depends on the visited
 function getTopViewdProduct($seller_id,$mysql) {
 
@@ -29,6 +30,7 @@ while($info  = $array -> fetch_assoc()){
 return $response;
 };
 
+//tested
 //function to get the product lits of the seller
 function getProductList($seller_id,$mysql) {
 
