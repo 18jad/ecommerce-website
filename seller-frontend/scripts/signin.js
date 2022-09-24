@@ -38,3 +38,9 @@ authSubmitBtnEl.addEventListener("click", (e) => {
       }, 2000);
     }
   })
+
+  .catch(function (response) {
+    //handle error
+    console.log(response);
+  });
+});
