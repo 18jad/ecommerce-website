@@ -28,6 +28,9 @@ authSubmitBtnEl.addEventListener("click", (e) => {
         passwordInputEl.value = "";
       } else {
         responseEl.textContent = "Logged in";
+        localStorage.setItem("id", response.data.id);
+        localStorage.setItem("userName", response.data.userName);
+        localStorage.setItem("token", response.data.token);
         window.setTimeout(function () {
           window.location.href = "homepage.html";
         }, 2000);
