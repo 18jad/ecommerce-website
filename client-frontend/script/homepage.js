@@ -23,8 +23,9 @@ axios({
   .then(function (response) {
     //handle success
     if (response.data === true) {
-      console.log("HELLo");
+      fetchingAllData();
     } else {
+      localStorage.clear();
       window.location.href = "login.html";
     }
   })
@@ -32,3 +33,7 @@ axios({
     //handle error
     console.log(response);
   });
+
+const fetchingAllData = () => {
+  console.log("haha");
+};
