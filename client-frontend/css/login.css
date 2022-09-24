@@ -67,7 +67,7 @@ form {
     justify-content: center;
     flex-direction: column;
     height: 100%;
-    gap: 30px;
+    gap: 10px;
 }
 
 .inputs-container {
