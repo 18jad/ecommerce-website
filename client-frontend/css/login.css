@@ -1,6 +1,6 @@
-@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik:wght@300;400;500;600;700&display=swap');
 
-*{
+* {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
@@ -10,24 +10,26 @@ html {
     font-size: 62.5%;
 }
 
-img{
+img {
     width: 100%;
 }
 
-a{
-   text-decoration: none; 
+a {
+    text-decoration: none;
 }
 
-body{
-    font-family: 'Roboto', sans-serif;
+body {
+    font-family: 'Rubik', sans-serif;
     display: flex;
     flex-direction: column;
     justify-content: center;
     height: 100vh;
     place-items: center;
+    background: url('../assets/background.svg') no-repeat center;
+    background-size: cover;
 }
 
-.logo{
+.logo {
     margin-bottom: 10rem;
     width: 25rem;
 }
@@ -44,7 +46,8 @@ form {
     flex-direction: column;
     box-shadow: 5px 5px 10px #d0d4dd;
 }
-.signup-form{
+
+.signup-form {
     height: 55rem;
 }
 
@@ -55,7 +58,7 @@ form {
     padding: 13px 0;
     font-weight: 750;
     font-size: 2.5rem;
-}   
+}
 
 .content {
     width: 100%;
@@ -65,10 +68,6 @@ form {
     flex-direction: column;
     height: 100%;
     gap: 30px;
-}
-
-.content-register {
-    gap: 5px;
 }
 
 .inputs-container {
@@ -101,6 +100,7 @@ label {
     outline: none;
     font-size: 15px;
     border: 1.5px solid #393E46;
+    box-shadow: 0px 3px 6px #3331;
     font-weight: 500;
     transition: border 150ms ease-in-out, box-shadow 200ms ease-in-out;
 }
@@ -110,7 +110,7 @@ label {
 }
 
 .client-input:focus {
-    box-shadow: 0px 4px 6px #F6416C;
+    box-shadow: 0px 3px 7px #f6416b30;
 }
 
 .client-input:focus+label {
@@ -123,11 +123,11 @@ label {
     outline: none;
     font-size: 17px;
     background: #F6416C;
-    border: 1.5px solid #F6416C;
+    border: 3px solid #F6416C;
+    box-shadow: 0px 4px 4px rgba(246, 65, 108, 0.26);
     width: 88%;
     color: white;
     font-weight: 800;
-    box-shadow: 0px 5px 9px #F6416C;
     cursor: pointer;
     transition: opacity 150ms ease-in-out, transform 200ms ease-in-out, box-shadow 150ms ease-in-out;
 }
@@ -135,23 +135,22 @@ label {
 .form-submit:hover {
     opacity: 0.9;
     transform: translateY(-5px);
-    box-shadow: 0px 6px 10px 2px #F6416C;
+    box-shadow: 0px 4px 8px rgba(246, 65, 108, 0.6);
 }
 
-.new-account{
+.new-account {
     font-size: 1.5rem;
     margin-bottom: 3rem;
 }
 
-.old-account {
-    font-size: 1.5rem;
-    margin-top: 1rem;
-}
-
-.register{
+.register {
     color: #F6416C;
 }
 
+.old-account {
+    font-size: 1.5rem;
+    margin-bottom: 2rem;
+}
 .opacity {
     opacity: 0;
 }
