@@ -12,7 +12,7 @@ header("Access-Control-Allow-Headers: *");
 include("connection.php");
 
 //select info from the table sellers of specific username
-$clients_data = $mysql -> prepare("SELECT * FROM users");
+$clients_data = $mysql -> prepare("SELECT *, NULL AS `password` FROM users");
 
 if ($clients_data === false) {
     die(json_encode("error: " . $mysql -> error));
@@ -30,5 +30,3 @@ while($info  = $array -> fetch_assoc()){
 
 // send the resposne with succces message
 echo json_encode($response);
-
-?>
