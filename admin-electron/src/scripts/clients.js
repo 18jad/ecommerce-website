@@ -22,7 +22,6 @@
                 clientBanned = client.is_banned,
                 clientPhoto = client.photo,
                 clientDate = client.date_joined;
-            console.log(client)
 
             if (!Boolean(clientBanned)) {
                 let clientHTML = `
