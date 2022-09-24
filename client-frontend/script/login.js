@@ -4,7 +4,6 @@ const authSubmitBtnEl = document.getElementById("authSubmitBtn");
 
 authSubmitBtnEl.addEventListener("click", (e) => {
   e.preventDefault();
-  console.log(passwordInputEl.value);
 
   axios({
     method: "POST",
@@ -17,7 +16,10 @@ authSubmitBtnEl.addEventListener("click", (e) => {
   })
     .then(function (response) {
       //handle success
-      console.log(response);
+      console.log(response.data);
+        if (response.data == "Username Not Found!") {
+            
+        }
       //   responseEl.classList.remove("opacity");
       //   if (response.data == true) {
       //     responseEl.textContent = "Acoount Created";
