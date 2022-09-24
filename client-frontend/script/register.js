@@ -21,13 +21,15 @@ authSubmitBtnEl.addEventListener("click", (e) => {
   })
     .then(function (response) {
       //handle success
-      console.log(response.data);
+      console.log(response);
       responseEl.classList.remove("opacity");
       if (response.data == true) {
         responseEl.textContent = "Acoount Created";
+        window.setTimeout(function () {
+          window.location.href = "homepage.html";
+        }, 2000);
       } else {
         responseEl.textContent = response.data;
-        
       }
     })
     .catch(function (response) {
