@@ -20,4 +20,19 @@ function getTopSellers($mysql) {
     return $response;
 };
 
+function getTopClients($mysql) {
+    $query = $mysql -> prepare("SELECT * FROM users ORDER BY amount_spent DESC LIMIT 5 ");
+    
+    $query -> execute();
+    $array = $query -> get_result();
+    
+    $response = [];
+    
+    while($i = $array -> fetch_assoc()) {
+        $response[] = $i;
+    };
+
+    return $response;
+};
+
 ?>
