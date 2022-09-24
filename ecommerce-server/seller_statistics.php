@@ -34,7 +34,7 @@ return $response;
 //function to get the product lits of the seller
 function getProductList($seller_id,$mysql) {
 
-    $product_list= $mysql -> prepare("SELECT * FROM products where seller_id=$seller_id");
+    $product_list= $mysql -> prepare("SELECT count(id) FROM products where seller_id=$seller_id");
     
     if ($product_list === false) {
         die(json_encode("error: " . $mysql -> error));
