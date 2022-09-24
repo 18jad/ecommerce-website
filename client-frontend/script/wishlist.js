@@ -27,6 +27,7 @@ axios({
 let responseData;
 let imageRes;
 const fetchWishlistData = (id) => {
+  // console.log(id);
   axios({
     method: "POST",
     url: "http://localhost/jacht/view_wishlist.php",
@@ -37,9 +38,9 @@ const fetchWishlistData = (id) => {
   })
     .then(function (response) {
       //handle success
+      console.log(response.data);
       fillData(response.data);
       responseData = response.data;
-      // console.log(imageRes);
     })
     .catch(function (response) {
       //handle error
@@ -47,41 +48,13 @@ const fetchWishlistData = (id) => {
     });
 };
 
-// console.log(imageRes);
-
 const fillData = (data) => {
-  // console.log(image);
-  // console.log(data[0]["id"]);
-
   const wishlistArr = [];
   for (let i = 0; i < data.length; i++) {
-    const images = [];
-
-    axios({
-      method: "POST",
-      url: "http://localhost/jacht/product_retrieve.php",
-      data: {
-        prodId: data[i]["id"],
-      },
-      headers: { "Content-Type": "multipart/form-data" },
-    })
-      .then(function (response) {
-        //handle success
-        // responseData = response.data;
-        console.log(response.data[0]["photo"]);
-        images.push(response.data[0]["photo"]);
-      })
-      .catch(function (response) {
-        //handle error
-        console.log(response);
-      });
-
-    console.log(images);
-
-    // console.log(data);
+    // console.log(data[i]);
     let wishlistHtml = `        <div class="wishlist">
                 <div class="wishlist-details">
-                    <svg id="${data[i]["id"]}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    <svg class="delete" id="${data[i]["id"]}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-trash-2">
                         <polyline points="3 6 5 6 21 6"></polyline>
@@ -89,7 +62,8 @@ const fillData = (data) => {
                         <line x1="10" y1="11" x2="10" y2="17"></line>
                         <line x1="14" y1="11" x2="14" y2="17"></line>
                     </svg>
-                    <img src= ${images[i]} alt="Girl in a jacket">
+
+                    <img src= ${data[i]["photo"]} alt="">
                 </div>
                 <p class="wishlist-name">${data[i]["name"]}</p>
                 <p class="wishlist-price">$${data[i]["price"]}</p>
@@ -108,7 +82,7 @@ const fillData = (data) => {
 };
 
 const removewishClickedBtn = () => {
-  const removebtnEl = document.querySelectorAll("svg");
+  const removebtnEl = document.querySelectorAll(".wishlist-details svg");
 
   removebtnEl.forEach((removebtn) => {
     removebtn.addEventListener("click", (removebtn) => {
@@ -123,7 +97,7 @@ const removewishClickedBtn = () => {
         headers: { "Content-Type": "multipart/form-data" },
       })
         .then(function (response) {
-          responseData.pop();
+          responseData.pop(removebtn.path[0].id);
           fillData(responseData);
           // console.log(responseData);
         })
