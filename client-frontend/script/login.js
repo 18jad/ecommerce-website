@@ -32,10 +32,6 @@ authSubmitBtnEl.addEventListener("click", (e) => {
         localStorageData.push(response.data.userName);
         localStorageData.push(response.data.token);
         localStorage.setItem("auth", JSON.stringify(localStorageData));
-
-        // let storedData = JSON.parse(localStorage.getItem("auth"));
-        // console.log(storedData[0]);
-
         window.setTimeout(function () {
           window.location.href = "homepage.html";
         }, 2000);
