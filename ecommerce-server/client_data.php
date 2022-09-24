@@ -29,7 +29,7 @@ while($info  = $array -> fetch_assoc()){
     $response[] = $info;
 };
 
-foreach($response, $res) {
+foreach($response as $res) {
     $address = $res["photo"];
     if(isset($address)) {
         $res["photo"] = imageEncode($address);

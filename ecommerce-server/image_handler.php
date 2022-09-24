@@ -23,8 +23,6 @@ function imageSave($image, $id, $type, $mysql) {
         $query = $mysql -> prepare(
             "INSERT INTO images(product_id, `image`)
             VALUE ('$id', '$postAddress')");
-    } else {
-        continue;
     };
 
     if ($query === false) {
@@ -54,8 +52,6 @@ function imageRetrieve($id, $type, $mysql) {
         $query = $mysql -> prepare(
             "SELECT `image` AS pic FROM images
             WHERE product_id = '$id'");
-    } else {
-        continue;
     };
 
     if ($query === false) {
