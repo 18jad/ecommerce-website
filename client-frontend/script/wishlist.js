@@ -109,12 +109,33 @@ const removewishClickedBtn = () => {
   });
 };
 
+const productIdQuantity = (productId, quantity) => {
+  let product_id = [];
+  let quantity_product = [];
+
+  // Parse the serialized data back into an aray of objects
+  product_id = JSON.parse(localStorage.getItem("product_id")) || [];
+  quantity_product = JSON.parse(localStorage.getItem("quantity")) || [];
+  // Push the new data (whether it be an object or anything else) onto the array
+
+  if (productId )
+  
+  
+  
+  product_id.push(productId);
+  quantity_product.push(quantity);
+  // Re-serialize the array back into a string and store it in localStorage
+  localStorage.setItem("product_id", JSON.stringify(product_id));
+  localStorage.setItem("quantity", JSON.stringify(quantity_product));
+};
+
 const addCartClickedBtn = () => {
   const addCartEl = document.querySelectorAll("button");
 
   addCartEl.forEach((addCartbtn) => {
     addCartbtn.addEventListener("click", (btn) => {
-      // console.log(btn.path[0].id);
+      // console.log(btn.path[0].id, 1);
+      productIdQuantity(btn.path[0].id, "1");
     });
   });
 };
