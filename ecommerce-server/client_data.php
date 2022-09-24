@@ -31,8 +31,10 @@ while($info  = $array -> fetch_assoc()){
 
 foreach($response, $res) {
     $address = $res["photo"];
-    $res["photo"] = 
-}
+    if(isset($address)) {
+        $res["photo"] = imageEncode($address);
+    };
+};
 
 // send the resposne with succces message
 echo json_encode($response);
