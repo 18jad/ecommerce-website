@@ -1,4 +1,5 @@
 let localStorageData = JSON.parse(localStorage.getItem("auth"));
+const tableEl = document.querySelector(".table-header");
 
 axios({
   method: "POST",
@@ -12,7 +13,7 @@ axios({
   .then(function (response) {
     //handle success
     if (response.data === true) {
-      shoppingCartFetch(localStorageData[0]);
+      shoppingCartFetch();
     }
   })
   .catch(function (response) {
@@ -20,18 +21,8 @@ axios({
     console.log(response);
   });
 
-const shoppingCartFetch = (id) => {
-  console.log(id);
-
-  // const productsId = [];
-  // productsId.push(localStorage.getItem("product_id"));
-  // const quantity = localStorage.getItem("quantity");
-  // console.log(productsId, quantity);
-
-  // for (let i = 0; i < productsId.length; i++) {
-  //   console.log(i);
-  // }
-
+const shoppingCartFetch = () => {
+  // console.log(id);
   let products = Array.from(localStorage.getItem("product_id"));
 
   for (let i = 0; i < products.length; i++) {
@@ -41,7 +32,43 @@ const shoppingCartFetch = (id) => {
     }
   }
 
+  // console.log(products);
+  const tablesProducts = [];
+  for (let i = 0; i < products.length; i++) {
+    // console.log(products[i]);
 
+    axios({
+      method: "POST",
+      url: "http://localhost/jacht/product_retrieve.php",
+      data: {
+        prodId: products[i],
+      },
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then(function (response) {
+        //handle success
+        // console.log(response.data[0]["photo"]);
 
-  // console.log(typeof localStorage.getItem("product_id"));
+        let table = `
+           <tr>
+            <td><img src="${response.data[0]["photo"]}" alt=""></td>
+            <td>${response.data[0]["name"]}</td>
+            <td>${response.data[0]["price"]}</td>
+            <td>QUANTITY</td>
+            <td>COUNT</td>
+            <td><i class="fa-solid fa-xmark"></i></td>
+        </tr>`;
+
+        document
+          .querySelector(".table-header")
+          .insertAdjacentHTML("afterend", table);
+      })
+      .catch(function (response) {
+        //handle error
+        console.log(response);
+      });
+  }
+
+  // console.log(tablesProducts);
+  //  += tablesProducts;
 };
