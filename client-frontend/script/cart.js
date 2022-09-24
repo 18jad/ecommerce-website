@@ -22,4 +22,26 @@ axios({
 
 const shoppingCartFetch = (id) => {
   console.log(id);
+
+  // const productsId = [];
+  // productsId.push(localStorage.getItem("product_id"));
+  // const quantity = localStorage.getItem("quantity");
+  // console.log(productsId, quantity);
+
+  // for (let i = 0; i < productsId.length; i++) {
+  //   console.log(i);
+  // }
+
+  let products = Array.from(localStorage.getItem("product_id"));
+
+  for (let i = 0; i < products.length; i++) {
+    if (products[i] == "[" || products[i] == "]" || products[i] == ",") {
+      products.splice(i, 1);
+      i--;
+    }
+  }
+
+
+
+  // console.log(typeof localStorage.getItem("product_id"));
 };

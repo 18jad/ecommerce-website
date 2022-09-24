@@ -38,7 +38,7 @@ const fetchWishlistData = (id) => {
   })
     .then(function (response) {
       //handle success
-      console.log(response.data);
+      // console.log(response.data);
       fillData(response.data);
       responseData = response.data;
     })
@@ -118,7 +118,7 @@ const productIdQuantity = (productId, quantity) => {
   quantity_product = JSON.parse(localStorage.getItem("quantity")) || [];
   // Push the new data (whether it be an object or anything else) onto the array
 
-  console.log(product_id);
+  // console.log(product_id);
   if (product_id.includes(productId)) {
     for (let i = 0; i < product_id.length; i++) {
       if (product_id[i] === productId) {
