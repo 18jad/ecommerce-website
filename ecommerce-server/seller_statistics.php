@@ -27,7 +27,7 @@ while($info  = $array -> fetch_assoc()){
     $response[] = $info;
 };
 
-return $response;
+return $response[0];
 };
 
 //tested
@@ -50,14 +50,38 @@ function getProductList($seller_id,$mysql) {
         $response[] = $info;
     };
     
-    return $response;
+    return $response[0];
     };
+
+    function TotalItemsSold($seller_id,$mysql) {
+
+        $item_sold= $mysql -> prepare("SELECT Sum(times_purchased) FROM products where seller_id=$seller_id");
+        
+        if ($item_sold === false) {
+            die(json_encode("error: " . $mysql -> error));
+        };
+        
+        //execute the select query
+        $item_sold -> execute();
+        $array = $item_sold -> get_result();
+        $response = [];
+        
+        //put the data in the response array
+        while($info  = $array -> fetch_assoc()){
+            $response[] = $info;
+        };
+        
+        return $response[0];
+        };
+    
 
 $TopProduct= getTopViewdProduct($seller_id,$mysql);
 $ProductList= getProductList($seller_id,$mysql);
+$ItemSold= TotalItemsSold($seller_id,$mysql);
 $json = [];
 $json[] = $TopProduct;
 $json[] = $ProductList;
+$json[] = $ItemSold;
 echo json_encode($json);
 
 ?>
