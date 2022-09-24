@@ -20,23 +20,50 @@ minusBtnEl.addEventListener("click", () => {
   }
 });
 
+let localStorageData = JSON.parse(localStorage.getItem("auth"));
+
 axios({
   method: "POST",
-  url: "http://localhost/jacht/product_retrieve.php",
+  url: "http://localhost/jacht/authorized.php",
   data: {
-    prodId: 1,
+    userName: localStorageData[1],
+    token: localStorageData[2],
   },
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
     //handle success
-    console.log(response.data);
-    mySlidesEl.src = response.data[0]["photo"];
-    rightSectionEl.textContent = response.data[0]["name"];
-    descriptionEl.textContent = response.data[0]["description"];
-    rightSectionh3El.textContent = `${response.data[0]["price"]}$`;
+    if (response.data === true) {
+      fillProduct();
+    } else {
+      localStorage.clear();
+      window.location.href = "login.html";
+    }
   })
   .catch(function (response) {
     //handle error
     console.log(response);
   });
+
+const fillProduct = () => {
+  axios({
+    method: "POST",
+    url: "http://localhost/jacht/product_retrieve.php",
+    data: {
+      prodId: 2,
+    },
+    headers: { "Content-Type": "multipart/form-data" },
+  })
+    .then(function (response) {
+      //handle success
+      console.log(response.data);
+      mySlidesEl.src = response.data[0]["photo"];
+      rightSectionEl.textContent = response.data[0]["name"];
+      descriptionEl.textContent = response.data[0]["description"];
+      rightSectionh3El.textContent = `${response.data[0]["price"]}$`;
+    })
+    .catch(function (response) {
+      //handle error
+      console.log(response);
+    });
+};
