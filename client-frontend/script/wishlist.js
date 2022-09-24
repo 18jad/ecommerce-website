@@ -22,3 +22,28 @@ axios({
     //handle error
     console.log(response);
   });
+
+const fetchWishlistData = (id) => {
+  axios({
+    method: "POST",
+    url: "http://localhost/jacht/view_wishlist.php",
+    data: {
+      user_id: id,
+    },
+    headers: { "Content-Type": "multipart/form-data" },
+  })
+    .then(function (response) {
+      console.log(response.data);
+      //handle success
+      if (response.data === true) {
+        fetchWishlistData();
+      } else {
+        // localStorage.clear();
+        // window.location.href = "login.html";
+      }
+    })
+    .catch(function (response) {
+      //handle error
+      console.log(response);
+    });
+};
