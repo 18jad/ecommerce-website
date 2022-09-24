@@ -48,7 +48,7 @@ const fillData = (data) => {
   //   console.log(data[0]);
   const wishlistArr = [];
   for (let i = 0; i < data.length; i++) {
-    console.log(data);
+    // console.log(data);
     let wishlistHtml = `        <div class="wishlist">
                 <div class="wishlist-details">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
@@ -65,12 +65,23 @@ const fillData = (data) => {
                 <p class="wishlist-price">$${data[i]["price"]}</p>
                 <p class="wishlist-status">In Stock</p>
                 <div class="wishlist-cart">
-                    <p>Added on Dec 5, 2021</p>
-                    <button>Add to cart</button>
+                    <p>Added on ${data[i]["times_favorited"]}</p>
+                    <button id="${data[i]["id"]}" >Add to cart</button>
                 </div>
             </div>`;
     wishlistArr.push(wishlistHtml);
   }
   console.log(wishlistArr);
   wishlistsEl.innerHTML = wishlistArr.join("");
+  addCartClickedBtn();
+};
+
+const addCartClickedBtn = () => {
+  const addCartEl = document.querySelectorAll("button");
+
+  addCartEl.forEach((addCartbtn) => {
+    addCartbtn.addEventListener("click", (btn) => {
+      console.log(btn.path[0].id);
+    });
+  });
 };
