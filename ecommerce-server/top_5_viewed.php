@@ -9,6 +9,7 @@ header("Access-Control-Allow-Headers: *");
 
 //include the connection to the database
 include("connection.php");
+include("image_handler.php");
 
 $seller_id=$_POST["seller_id"];
 

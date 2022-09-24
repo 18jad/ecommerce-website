@@ -10,6 +10,7 @@ header("Access-Control-Allow-Headers: *");
 
 //include the connection to the database
 include("connection.php");
+include("image_handler.php");
 
 //select info from the table sellers of specific username
 $clients_data = $mysql -> prepare("SELECT * FROM users");
