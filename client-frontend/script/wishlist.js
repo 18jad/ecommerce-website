@@ -118,12 +118,17 @@ const productIdQuantity = (productId, quantity) => {
   quantity_product = JSON.parse(localStorage.getItem("quantity")) || [];
   // Push the new data (whether it be an object or anything else) onto the array
 
-  if (productId )
-  
-  
-  
-  product_id.push(productId);
-  quantity_product.push(quantity);
+  console.log(product_id);
+  if (product_id.includes(productId)) {
+    for (let i = 0; i < product_id.length; i++) {
+      if (product_id[i] === productId) {
+        quantity_product[i] = quantity_product[i] + 1;
+      }
+    }
+  } else {
+    product_id.push(productId);
+    quantity_product.push(quantity);
+  }
   // Re-serialize the array back into a string and store it in localStorage
   localStorage.setItem("product_id", JSON.stringify(product_id));
   localStorage.setItem("quantity", JSON.stringify(quantity_product));
@@ -134,8 +139,8 @@ const addCartClickedBtn = () => {
 
   addCartEl.forEach((addCartbtn) => {
     addCartbtn.addEventListener("click", (btn) => {
-      // console.log(btn.path[0].id, 1);
-      productIdQuantity(btn.path[0].id, "1");
+      productId = Number(btn.path[0].id);
+      productIdQuantity(productId, 1);
     });
   });
 };
