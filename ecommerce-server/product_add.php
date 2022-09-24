@@ -20,18 +20,17 @@ $category = $_POST["category"];
 $description = $_POST["description"];
 $price = $_POST["price"];
 $photo = $_POST["photo"];
-$orders = 0;
 $times_favorited = 0;
 $discount = 0;
 $visited = 0;
 
 // Functions
 
-function addProduct($id, $name, $cat, $desc, $price, $ord, $fav, $disc, $visit, $mysql) {
+function addProduct($id, $name, $cat, $desc, $price, $fav, $disc, $visit, $mysql) {
     $query = $mysql -> prepare(
         "INSERT INTO products(seller_id, `name`, category, `description`,
-        price, orders, times_favorited, discount, visited)
-        VALUE ('$id', ?, ?, ?, ?, '$ord', '$fav', '$disc', '$visit')");
+        price, times_favorited, discount, visited)
+        VALUE ('$id', ?, ?, ?, ?, '$fav', '$disc', '$visit')");
 
     if ($query === false) {
         die(json_encode("error: " . $mysql -> error));
@@ -68,14 +67,16 @@ function getSellerId($user, $mysql) {
 
 // Main
 
-if (isset($photo)) {
-    $decodedImage = imageDecode($photo);
-    imageSave($decodedImage, $id, "product", $mysql);
-};
-
 $sellerId = getSellerId($sellerUserName, $mysql);
 
-echo json_encode(addProduct($sellerId, $name, $category, $description,
-$price, $orders, $times_favorited, $discount, $visited, $mysql));
+$prodId = addProduct($sellerId, $name, $category, $description,
+$price, $orders, $times_favorited, $discount, $visited, $mysql);
+
+if (isset($photo)) {
+    $decodedImage = imageDecode($photo);
+    imageSave($decodedImage, $prodId, "product", $mysql);
+};
+
+echo json_encode(true);
 
 ?>
