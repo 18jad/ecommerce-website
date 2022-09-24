@@ -34,6 +34,13 @@ function imageSave($image, $id, $type, $mysql) {
     $query -> execute();
 };
 
+function imageEncode($address) {
+    $image = file_get_contents($address);
+    $imageEncoded = base64_encode($image);
+    
+    return ("data:image/png;base64," . $imageEncoded);
+};
+
 function imageRetrieve($id, $type, $mysql) {
     if($type == "profile") {
         $query = $mysql -> prepare(

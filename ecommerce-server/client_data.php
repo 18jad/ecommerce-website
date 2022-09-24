@@ -29,6 +29,11 @@ while($info  = $array -> fetch_assoc()){
     $response[] = $info;
 };
 
+foreach($response, $res) {
+    $address = $res["photo"];
+    $res["photo"] = 
+}
+
 // send the resposne with succces message
 echo json_encode($response);
 
