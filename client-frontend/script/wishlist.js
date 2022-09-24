@@ -25,6 +25,7 @@ axios({
   });
 
 let responseData;
+let imageRes;
 const fetchWishlistData = (id) => {
   axios({
     method: "POST",
@@ -35,32 +36,10 @@ const fetchWishlistData = (id) => {
     headers: { "Content-Type": "multipart/form-data" },
   })
     .then(function (response) {
-      // console.log(response.data);
-      let imageRes = [];
-      response.data.forEach((res) => {
-        // console.log(res);
-        axios({
-          method: "POST",
-          url: "http://localhost/jacht/product_retrieve.php",
-          data: {
-            prodId: res.id,
-          },
-          headers: { "Content-Type": "multipart/form-data" },
-        })
-          .then(function (response) {
-            console.log(response.data);
-            imageRes.push(response.data);
-          })
-          .catch(function (response) {
-            //handle error
-            console.log(response);
-          });
-      });
-
       //handle success
+      fillData(response.data);
       responseData = response.data;
-      console.log(imageRes);
-      fillData(response.data, imageRes);
+      // console.log(imageRes);
     })
     .catch(function (response) {
       //handle error
@@ -68,10 +47,37 @@ const fetchWishlistData = (id) => {
     });
 };
 
-const fillData = (data, image) => {
-  //   console.log(data[0]);
+// console.log(imageRes);
+
+const fillData = (data) => {
+  // console.log(image);
+  // console.log(data[0]["id"]);
+
   const wishlistArr = [];
   for (let i = 0; i < data.length; i++) {
+    const images = [];
+
+    axios({
+      method: "POST",
+      url: "http://localhost/jacht/product_retrieve.php",
+      data: {
+        prodId: data[i]["id"],
+      },
+      headers: { "Content-Type": "multipart/form-data" },
+    })
+      .then(function (response) {
+        //handle success
+        // responseData = response.data;
+        console.log(response.data[0]["photo"]);
+        images.push(response.data[0]["photo"]);
+      })
+      .catch(function (response) {
+        //handle error
+        console.log(response);
+      });
+
+    console.log(images);
+
     // console.log(data);
     let wishlistHtml = `        <div class="wishlist">
                 <div class="wishlist-details">
@@ -83,7 +89,7 @@ const fillData = (data, image) => {
                         <line x1="10" y1="11" x2="10" y2="17"></line>
                         <line x1="14" y1="11" x2="14" y2="17"></line>
                     </svg>
-                    <img src="./assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
+                    <img src= ${images[i]} alt="Girl in a jacket">
                 </div>
                 <p class="wishlist-name">${data[i]["name"]}</p>
                 <p class="wishlist-price">$${data[i]["price"]}</p>
