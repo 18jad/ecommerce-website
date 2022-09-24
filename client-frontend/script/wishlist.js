@@ -98,7 +98,9 @@ const removewishClickedBtn = () => {
         .then(function (response) {
           // if (response.data === "product hass been removed from wishlist") {
           responseData.pop();
+
           fillData(responseData);
+          console.log(responseData[id]["seller_id"]);
           //   console.log(responseData.pop);
           //   }
           //handle success
@@ -121,3 +123,20 @@ const addCartClickedBtn = () => {
     });
   });
 };
+
+axios({
+  method: "POST",
+  url: "http://localhost/jacht/wishlist_remove.php",
+  data: {
+    user_id: localStorageData[0],
+    product_id: responseData[id]["seller_id"],
+  },
+  headers: { "Content-Type": "multipart/form-data" },
+})
+  .then(function (response) {
+    console.log(response);
+  })
+  .catch(function (response) {
+    //handle error
+    console.log(response);
+  });
