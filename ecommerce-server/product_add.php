@@ -1,11 +1,5 @@
 <?php
 
-// NEEDS TESTING
-
-// NEEDS TESTING
-
-// NEEDS TESTING
-
 // Takes in: userName / name / category / description / price / photo
 // Returns true on success. otherwise logs the error
 
