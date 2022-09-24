@@ -19,26 +19,18 @@ authSubmitBtnEl.addEventListener("click", (e) => {
       //handle success
       console.log(response.data);
       responseEl.classList.remove("opacity");
-
-      //   if (response.data == "Username Not Found!") {
-      //     responseEl.textContent = response.data;
-      //   } else {
-      //     responseEl.textContent = "Logged in";
-      //     window.setTimeout(function () {
-      //       window.location.href = "homepage.html";
-      //     }, 200000);
-      //   }
-
       if (response.data == "Username Not Found!") {
         responseEl.textContent = response.data;
-      }
-      if (response.data == "Incorrect Password!") {
+        usernameInputEl.value = "";
+        passwordInputEl.value = "";
+      } else if (response.data == "Incorrect Password!") {
         responseEl.textContent = response.data;
+        passwordInputEl.value = "";
       } else {
         responseEl.textContent = "Logged in";
         window.setTimeout(function () {
           window.location.href = "homepage.html";
-        }, 200000);
+        }, 2000);
       }
     })
     .catch(function (response) {
