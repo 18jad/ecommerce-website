@@ -86,7 +86,7 @@ function addMoneySeller($id, $price, $mysql) {
 
 function removeMoneyClient($user, $price, $mysql) {
     $query = $mysql -> prepare(
-        "UPDATE users SET `money` = `money` - '$price'
+        "UPDATE users SET `money` = `money` - '$price', amount_spent = amount_spent + '$price'
         WHERE username = '$user'"
     );
 
