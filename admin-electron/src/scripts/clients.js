@@ -32,7 +32,7 @@
                         alt="profile" class="client-image">
                     <p class="client-name">${clientName}</p>
                     <p class="client-date-joined">${clientDate}</p>
-                    <button class="banBtn" data-id="${clientId}">Ban</button>
+                    <button class="banBtn" data-id="${clientId}" data-username="${clientUsername}">Ban</button>
                 </div>`
                 clientsTable.innerHTML += clientHTML;
             } else {
@@ -40,7 +40,7 @@
                             <div class="banned-client">
                                 <p class="banned-id">${clientId}</p>
                                 <p class="banned-name">${clientName}</p>
-                                <button class="unban-btn" data-id="${clientId}">Unban</button>
+                                <button class="unban-btn" data-id="${clientId}" data-username="${clientUsername}">Unban</button>
                             </div>`
                 bannedClientsTable.innerHTML += bannedClientHTML;
             }
