@@ -1,6 +1,7 @@
 const emailInputEl = document.getElementById("emailInput");
 const passwordInputEl = document.getElementById("passwordInput");
 const authSubmitBtnEl = document.getElementById("authSubmitBtn");
+const responseEl = document.getElementById("response");
 
 authSubmitBtnEl.addEventListener("click", (e) => {
   e.preventDefault();
@@ -17,18 +18,16 @@ authSubmitBtnEl.addEventListener("click", (e) => {
     .then(function (response) {
       //handle success
       console.log(response.data);
-        if (response.data == "Username Not Found!") {
-            
-        }
-      //   responseEl.classList.remove("opacity");
-      //   if (response.data == true) {
-      //     responseEl.textContent = "Acoount Created";
-      //     window.setTimeout(function () {
-      //       window.location.href = "homepage.html";
-      //     }, 2000);
-      //   } else {
-      //     responseEl.textContent = response.data;
-      //   }
+      responseEl.classList.remove("opacity");
+
+      if (response.data == "Username Not Found!") {
+        responseEl.textContent = response.data;
+      } else {
+        responseEl.textContent = "Logged in";
+        window.setTimeout(function () {
+          window.location.href = "homepage.html";
+        }, 2000);
+      }
     })
     .catch(function (response) {
       //handle error
