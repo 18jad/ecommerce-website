@@ -3,7 +3,7 @@
 // Before Requesting this API, Make sure client has enough money to purchase product(s)
 // This API only handles 1 purchase at a time. call it multiple times for more products
 // Takes in: userId / userName / prodId / quantity / discount(if not POST null)
-// Returns: true on successful purchase
+// Returns: true on successful purchase 
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
