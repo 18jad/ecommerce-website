@@ -35,4 +35,12 @@ function getTopClients($mysql) {
     return $response;
 };
 
+$TopSellers = getTopSellers($mysql);
+$Topclients = getTopClients($mysql);
+$json = [];
+$json[] = $TopSellers;
+$json[] = $Topclients;
+echo json_encode($json);
+
+
 ?>
