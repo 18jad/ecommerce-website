@@ -73,13 +73,14 @@
                 </div>
             </div>
             <div class="navigation">
-                <div class="search-container">
+                <form class="search-container">
                     <div class="search-input">
-                        <input type="number" placeholder="Ban client by id" id="idInput" class="id-search">
+                        <input type="search" placeholder="Ban client by username" id="idInput" class="id-search"
+                            required>
                         <span class="tick">#</span>
                     </div>
                     <button id="banById">Ban</button>
-                </div>
+                </form>
                 <p class="res" id="responseResult"></p>
                 <button class="open-modal view-banned" id="viewBannedUsers">View banned clients</button>
             </div>
