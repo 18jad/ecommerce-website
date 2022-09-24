@@ -1,7 +1,8 @@
 <?php
 
-// 5 top sellers
-// 10 random products
+// Get Request
+// 5 Top Sellers
+// 10 Random Products
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -11,14 +12,13 @@ include("image_handler.php");
 
 // Init Variables
 
-$id = $_POST["id"];
-$userName = $_POST["userName"];
+$index = 0;
 
 // Functions
 
 function getBestProducts($mysql) {
     $query = $mysql -> prepare(
-        "SELECT * FROM products
+        "SELECT id, `name`, `description`, category, price FROM products
         ORDER BY times_purchased DES
         LIMIT 5"
     );
@@ -36,54 +36,34 @@ function getBestProducts($mysql) {
 };
 
 
-function getFollowedTweets($followedIds, $mysql) {
+function getRandomProducts($mysql) {
+    $query = $mysql -> prepare(
+        "SELECT id, `name`, `description`, category, price FROM products
+        ORDER BY RAND()
+        LIMIT 10"
+    );
+
+    $query -> execute();
+    $array = $query -> get_result();
+
     $response = [];
-    $index = 0;
 
-    foreach($followedIds as $id) {
-        $query = $mysql -> prepare(
-            "SELECT t.id, u.username, u.f_name, u.l_name, t.`text`, t.`time` FROM users u, tweets t
-            WHERE t.`user_id` = '$id' AND u.id = '$id'"
-        );
-
-        $query -> execute();
-        $array = $query -> get_result();
-
-        while($i = $array -> fetch_assoc()){
-            $response[] = $i;
-        };
+    while($i = $array -> fetch_assoc()){
+        $response[] = $i;
     };
-
-    foreach($response as $resp) {
-        $id = $resp["id"];
-
-        $query = $mysql -> prepare(
-            "SELECT COUNT(`user_id`) AS likes FROM likes
-            WHERE tweet_id = '$id'"
-        );
-
-        $query -> execute();
-        $array = $query -> get_result();
-
-        
-        
-        while($i = $array -> fetch_assoc()){
-            $response[$index]["likes"] = $i["likes"];
-            $test[] = $i;
-            $index++;
-        };
-    };
-
-    return $response;
+    
+    return $response[0];
 };
 
-$userId = returnId($userName, $mysql);
-$followedIds = getFollowing($userId , $mysql);
-$userData = getUserData($userName, $mysql);
-$tweetsData = getFollowedTweets($followedIds, $mysql);
+$best = getBestProducts($mysql);
+$random = getRandomProducts($mysql);
+
+foreach($best)
+
 $json = [];
-$json[] = $userData;
-$json[] = $tweetsData;
+$json[] = $best;
+$json[] = $random;
+
 echo json_encode($json);
 
 ?>

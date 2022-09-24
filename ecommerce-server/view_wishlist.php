@@ -33,9 +33,13 @@ while($info  = $array -> fetch_assoc()){
     $response[] = $info;
 };
 
-$prodId = $response[0]["id"];
-$photo = imageRetrieve($prodId, "product", $mysql);
-$response[0]["photo"] = $photo;
+$i = 0;
+foreach($response as $resp) {
+    $prodId = $resp["id"];
+    $photo = imageRetrieve($prodId, "product", $mysql);
+    $response[$i]["photo"] = $photo;
+    $i++;
+}
 
 // send the resposne with succces message
 echo json_encode($response);
