@@ -172,6 +172,8 @@ setTimeout(() => {
     });
 
     modalContainer.addEventListener('submit', (e) => {
-        // 
+        let newDescription = oldDescription.value,
+            newName = oldSellerName.value;
+
     })
 }, 100)
