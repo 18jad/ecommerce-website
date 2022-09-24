@@ -8,32 +8,42 @@ const responseEl = document.getElementById("response");
 authSubmitBtnEl.addEventListener("click", (e) => {
   e.preventDefault();
 
-  axios({
-    method: "POST",
-    url: "http://localhost/jacht/client_register.php",
-    data: {
-      userName: usernameInputEl.value,
-      name: nameInputEl.value,
-      email: emailInputEl.value,
-      password: passwordInputEl.value,
-    },
-    headers: { "Content-Type": "multipart/form-data" },
-  })
-    .then(function (response) {
-      //handle success
-      console.log(response);
-      responseEl.classList.remove("opacity");
-      if (response.data == true) {
-        responseEl.textContent = "Account Created";
-        window.setTimeout(function () {
-          window.location.href = "login.html";
-        }, 2000);
-      } else {
-        responseEl.textContent = response.data;
-      }
+  if (
+    usernameInputEl.value === "" ||
+    nameInputEl.value === "" ||
+    emailInputEl.value === "" ||
+    passwordInputEl.value === ""
+  ) {
+    responseEl.classList.remove("opacity");
+    responseEl.textContent = "Please fill inputs";
+  } else {
+    axios({
+      method: "POST",
+      url: "http://localhost/jacht/client_register.php",
+      data: {
+        userName: usernameInputEl.value,
+        name: nameInputEl.value,
+        email: emailInputEl.value,
+        password: passwordInputEl.value,
+      },
+      headers: { "Content-Type": "multipart/form-data" },
     })
-    .catch(function (response) {
-      //handle error
-      console.log(response);
-    });
+      .then(function (response) {
+        //handle success
+        console.log(response);
+        responseEl.classList.remove("opacity");
+        if (response.data == true) {
+          responseEl.textContent = "Account Created";
+          window.setTimeout(function () {
+            window.location.href = "login.html";
+          }, 2000);
+        } else {
+          responseEl.textContent = response.data;
+        }
+      })
+      .catch(function (response) {
+        //handle error
+        console.log(response);
+      });
+  }
 });
