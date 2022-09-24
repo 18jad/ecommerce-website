@@ -1,4 +1,5 @@
 <?php
+
 //retrieve top 5 product viewed data from table products
 //return json with product data
 //otherwise returns error message
@@ -9,7 +10,6 @@ header("Access-Control-Allow-Headers: *");
 
 //include the connection to the database
 include("connection.php");
-include("image_handler.php");
 
 $seller_id=$_POST["seller_id"];
 
