@@ -19,7 +19,7 @@ authSubmitBtnEl.addEventListener("click", (e) => {
   .then(function (response) {
     //handle success
     responseEl.classList.remove("opacity");
-    if (response.data == "Email Not Found!") {
+    if (response.data == "Username Not Found!") {
       responseEl.textContent = response.data;
       userNameInput.value = "";
       passwordInput.value = "";
