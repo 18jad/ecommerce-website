@@ -1,0 +1,39 @@
+@import url("./global.css");
+
+.page-content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+}
+
+form {
+    height: 400px;
+    background: white;
+    border-radius: 7px;
+    box-shadow: 0 6px 8px #0001;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    width: 20vw;
+}
+
+.ad-input {
+    padding: 10px 20px;
+    border: 3px dashed var(--black);
+    cursor: pointer;
+}
+
+#formSubmit {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 40px;
+    background: var(--blue-gray);
+    color: var(--white);
+    font-weight: 600;
+    border: none;
+    cursor: pointer;
+}

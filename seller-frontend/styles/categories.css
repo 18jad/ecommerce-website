@@ -1,0 +1,140 @@
+@import url("./global.css");
+
+.page-content {
+    flex-direction: column;
+}
+
+/* Navigation top */
+
+.navigation {
+    width: 100%;
+    display: flex;
+    gap: 10px;
+    flex-direction: column-reverse;
+    align-items: center;
+    margin-bottom: 20px;
+    justify-content: space-between;
+}
+
+.categorie-table {
+    width: 40vw;
+    background: #fefefe;
+    height: 80%;
+    overflow-y: auto;
+    margin-bottom: 55px;
+    color: var(--black);
+    border: 1px solid var(--blue-gray);
+    box-shadow: 0 5px 15px 1px #3333;
+    font-weight: 500;
+}
+
+.table-info p:nth-child(2) {
+    margin-left: 70px;
+}
+
+.categorie {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--blue-gray);
+}
+
+.categorie-name {
+    margin-left: -2 0px;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+    width: 120px;
+}
+
+/* Add categorie */
+
+#addCategorie {
+    cursor: pointer;
+    padding: 8px 20px;
+    color: var(--white);
+    margin-right: -10px;
+    box-shadow: 0 3px 5px #0004;
+    background: var(--blue-gray);
+    border: 1px solid var(--aqua);
+    transition: background 150ms ease-in-out;
+    white-space: nowrap;
+}
+
+#addCategorie:hover {
+    background: var(--aqua);
+}
+
+.search-input {
+    width: 85%;
+}
+
+.add-categorie-form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    width: 40vw;
+}
+
+.categorie-search {
+    width: 100%;
+    padding: 8px 14px;
+    outline: 2px solid transparent;
+    border: 1px solid var(--blue-gray);
+    border-left: none;
+    overflow: hidden;
+    transition: outline 150ms ease-in-out;
+}
+
+.categorie-search:focus,
+.categorie-search:focus+.tick {
+    outline: 2px solid var(--aqua);
+    outline-style: double;
+}
+
+/* result */
+
+.res {
+    opacity: 0;
+    font-weight: 500;
+    max-width: 550px;
+    overflow: hidden;
+    padding: 8px 14px;
+    margin-top: 10px;
+    border-radius: 7px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    background: var(--blue-gray);
+    transition: all 150ms ease-in-out;
+}
+
+.res.success {
+    opacity: 1;
+    color: rgb(92, 246, 92);
+}
+
+.res.failed {
+    opacity: 1;
+    color: rgb(246, 92, 92);
+}
+
+.add-table {
+    max-height: 95vh;
+}
+
+@media screen and (max-width: 600px) {
+    .nav-header {
+        display: none;
+    }
+
+    .categorie-table,
+    .navigation {
+        width: 90vw;
+    }
+
+    .add-categorie-form {
+        width: 87vw;
+    }
+}

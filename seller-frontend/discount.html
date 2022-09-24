@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/discount.css">
+    <script src="./scripts/global.js" defer></script>
+    <script src="./scripts/discount.js" defer></script>
+    <title>Discount</title>
+</head>
+
+<body>
+    <div class="nav-header">
+        <div class="side-nav">
+            <div class="nav-top">
+                <div class="logo-container">
+                    <img src="./assets/logo.svg" alt="logo" class="logo">
+                </div>
+                <button class="overeview">Overview</button>
+                <div class="link-list">
+                    <a href="./categories.html" class="link">
+                        <i class="fa-solid fa-dolly"></i>
+                        <span class="link-text">Categories</span>
+                    </a>
+                    <a href="./products.html" class="link">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <span class="link-text">Products</span>
+                    </a>
+                    <a href="./discount.html" class="link active">
+                        <i class="fa-solid fa-tags"></i>
+                        <span class="link-text">Discount</span>
+                    </a>
+                    <a href="./ads.html" class="link">
+                        <i class="fa-solid fa-rectangle-ad"></i>
+                        <span class="link-text">Ads</span>
+                    </a>
+                    <a href="./stats.html" class="link">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="link-text">Statistics</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <hr>
+                <button id="signOutBtn">Sign out <i class="fa-solid fa-right-from-bracket"></i></button>
+                <p class="panelFooter">Seller panel</p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="header">
+            <i class="fa-solid fa-angles-left" id="closeNav"></i>
+            <p id="pageName">Discount</p>
+            <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
+        </div>
+        <section class="page-content">
+            <p class="res success" id="responseResult">Discount code successfully generated</p>
+            <div class="navigation">
+                <form class="search-container">
+                    <div class="search-input" id="deleteForm">
+                        <input type="number" placeholder="Delete code by id" id="idInput" class="id-search" required>
+                        <span class="tick">#</span>
+                    </div>
+                    <button id="banById"><i class="fa-solid fa-delete-left"></i> Delete</button>
+                </form>
+                <form class="discount-container">
+                    <div class="search-input" id="percentageForm">
+                        <input type="number"
+                            oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
+                            maxlength="3" placeholder="Discount percentage" id="idInput" class="id-search" required>
+                        <span class="tick">%</span>
+                    </div>
+                    <button class="open-modal add-new-product" id="addNewproduct">
+                        <i class="fa-solid fa-box"></i>
+                        Generate new code
+                    </button>
+                </form>
+            </div>
+            <div class="products-table">
+                <div class="table-info">
+                    <p>ID</p>
+                    <p>Discoun Code</p>
+                    <p>Discount Percentage</p>
+                    <p>Action</p>
+                </div>
+                <div class="discount">
+                    <p class="discount-id">#1</p>
+                    <p class="discount-code">XS1J29</p>
+                    <p class="discount-percentage">20%</p>
+                    <button class="deleteBtn">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+                <div class="discount">
+                    <p class="discount-id">#1</p>
+                    <p class="discount-code">XS1J29</p>
+                    <p class="discount-percentage">25%</p>
+                    <button class="deleteBtn">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+                <div class="discount">
+                    <p class="discount-id">#1</p>
+                    <p class="discount-code">XS1J29</p>
+                    <p class="discount-percentage">75%</p>
+                    <button class="deleteBtn">
+                        <i class="fa-solid fa-trash-can"></i>
+                    </button>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+</body>
+
+</html>

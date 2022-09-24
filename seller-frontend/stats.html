@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/stats.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/echarts/5.3.3/echarts.min.js"
+        integrity="sha512-2L0h0GhoIHQEjti/1KwfjcbyaTHy+hPPhE1o5wTCmviYcPO/TD9oZvUxFQtWvBkCSTIpt+fjsx1CCx6ekb51gw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="./scripts/global.js" defer></script>
+    <script src="./scripts/stats.js" defer></script>
+    <title>Statistics</title>
+</head>
+
+<body>
+    <div class="nav-header">
+        <div class="side-nav">
+            <div class="nav-top">
+                <div class="logo-container">
+                    <img src="./assets/logo.svg" alt="logo" class="logo">
+                </div>
+                <button class="overeview">Overview</button>
+                <div class="link-list">
+                    <a href="./categories.html" class="link">
+                        <i class="fa-solid fa-dolly"></i>
+                        <span class="link-text">Categories</span>
+                    </a>
+                    <a href="./products.html" class="link">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <span class="link-text">Products</span>
+                    </a>
+                    <a href="./discount.html" class="link">
+                        <i class="fa-solid fa-tags"></i>
+                        <span class="link-text">Discount</span>
+                    </a>
+                    <a href="./ads.html" class="link">
+                        <i class="fa-solid fa-rectangle-ad"></i>
+                        <span class="link-text">Ads</span>
+                    </a>
+                    <a href="./stats.html" class="link active">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="link-text">Statistics</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <hr>
+                <button id="signOutBtn">Sign out <i class="fa-solid fa-right-from-bracket"></i></button>
+                <p class="panelFooter">Seller panel</p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="header">
+            <i class="fa-solid fa-angles-left" id="closeNav"></i>
+            <p id="pageName">Statistics</p>
+            <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
+        </div>
+        <section class="page-content">
+            <div class="grid-charts">
+                <div class="chart" id="topViewedProducts"></div>
+                <div class="chart" id="monthlyRevenue"></div>
+            </div>
+            <div class="right-content">
+                <div class="stats-card">
+                    <i class="fa-solid fa-cart-shopping"></i>
+                    <p><span id="itemSoldAmount">12</span> items sold</p>
+                </div>
+                <div class="stats-card">
+                    <i class="fa-solid fa-money-bill"></i>
+                    <p><span id="totalRevenueAmount">$2380</span> total revenue</p>
+                </div>
+                <div class="stats-card">
+                    <i class="fa-solid fa-receipt"></i>
+                    <p><span id="totalProductsListed">120</span> products listed</p>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+
+</html>
