@@ -69,7 +69,7 @@ const imageToBase64 = (imageInput) => {
             let sellerName = seller.name,
                 sellerUsername = seller.username,
                 sellerDescription = seller.description,
-                sellerPhoto = seller.photo,
+                sellerPhoto = (seller.photo == null || seller.photo == "" || seller.photo == "NULL") ? "./assets/empty-profile.jpg" : seller.photo,
                 sellerId = seller.id,
                 sellerDate = seller.date_joined,
                 sellerMoney = seller.money;
@@ -77,7 +77,7 @@ const imageToBase64 = (imageInput) => {
             let sellerHTML = `
                 <div class="client">
                     <p class="client-id">#${sellerId}</p>
-                    <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
+                    <img src="${sellerPhoto}"
                         alt="profile" class="client-image">
                     <p class="client-name">${sellerName}</p>
                     <p class="client-date-joined">${sellerDate}</p>
