@@ -1,0 +1,88 @@
+@import "./global.css";
+
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat(2, 1fr);
+    row-gap: 20px;
+    column-gap: 20px;
+    margin-bottom: 55px;
+}
+
+.grid {
+    height: 350px;
+    width: 36vw;
+    border: 1px solid var(--turquoise);
+    border-radius: 10px;
+    overflow: hidden;
+}
+
+.grid header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--dark-blue);
+    color: var(--white);
+    padding: 5px;
+    width: 100%;
+    border-radius: 10px 10px 0 0;
+    font-weight: 600;
+}
+
+.client {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    text-align: center;
+    padding: 10px 20px;
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.client-image {
+    height: 40px;
+    border-radius: 100px;
+}
+
+.banBtn {
+    padding: 10px 20px;
+    border: 2px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+}
+
+.banBtn:hover {
+    background: #f74041;
+}
+
+.client-button {
+    background: var(--turquoise);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out;
+}
+
+.client-button:hover {
+    opacity: 0.8;
+}
+
+.client-button-a {
+    color: var(--black);
+    text-decoration: none;
+    text-align: center;
+}
+
+#chart,
+#chart2 {
+    height: calc(100% - 40px) !important;
+}

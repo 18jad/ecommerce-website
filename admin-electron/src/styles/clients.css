@@ -1,0 +1,169 @@
+@import url("./global.css");
+
+.banBtn {
+    padding: 8px 20px;
+    border: 1px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    margin-right: -10px;
+    box-shadow: 0 3px 5px #0004;
+}
+
+.banBtn:hover {
+    background: #f74041;
+}
+
+.client-button {
+    background: var(--turquoise);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out;
+}
+
+.client-button:hover {
+    opacity: 0.8;
+}
+
+.client-button-a {
+    color: var(--black);
+    text-decoration: none;
+    text-align: center;
+}
+
+.page-content {
+    flex-direction: column;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+#banById {
+    padding: 8px 20px;
+    border: 1px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    margin-right: -10px;
+    box-shadow: 0 3px 5px #0004;
+}
+
+#banById:hover {
+    background: #f74041;
+}
+
+.res {
+    font-weight: 500;
+    background: var(--dark-blue);
+    padding: 8px 14px;
+    border-radius: 7px;
+    opacity: 0;
+    max-width: 550px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    transition: all 150ms ease-in-out;
+}
+
+.res.success {
+    opacity: 1;
+    color: rgb(92, 246, 92);
+}
+
+.res.failed {
+    opacity: 1;
+    color: rgb(246, 92, 92);
+}
+
+.view-banned {
+    padding: 8px 20px;
+    border: 1px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out;
+    box-shadow: 0 3px 5px #0004;
+}
+
+.view-banned:hover {
+    opacity: 0.9;
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.modal-container {
+    translate: 400px -300px;
+}
+
+.banned-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+    position: sticky;
+    top: 57px;
+    background: var(--dark-blue);
+    color: var(--turquoise);
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.banned-clients {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.banned-client {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 20px;
+}
+
+.banned-name {
+    width: 130px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}
+
+.unban-btn {
+    padding: 8px 10px;
+    border: 1px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    margin-right: -10px;
+    box-shadow: 0 3px 5px #0004;
+}
+
+.unban-btn:hover {
+    background: #f74041;
+}
