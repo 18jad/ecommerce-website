@@ -58,12 +58,26 @@ function getRandomProducts($mysql) {
 $best = getBestProducts($mysql);
 $random = getRandomProducts($mysql);
 
-foreach($best)
+foreach($best as $b) {
+    $prodId = $b["id"];
+    $photo = imageRetrieve($prodId, "product", $mysql);
+    $best[$index]["photo"] = $photo;
+    $index++
+};
+
+$index = 0;
+
+foreach($random as $r) {
+    $prodId = $r["id"];
+    $photo = imageRetrieve($prodId, "product", $mysql);
+    $random[$index]["photo"] = $photo;
+    $index++
+};
 
 $json = [];
 $json[] = $best;
 $json[] = $random;
 
-echo json_encode($json); 
+echo json_encode($json);
 
 ?>
