@@ -22,17 +22,17 @@ $time = date("d M Y @ " . "H" . ":i");
 
 // Functions
 
-function addOrder($id, $prodId, $quan, $time, $price, $mysql) {
+function addOrder($id, $prodId, $sellerId, $quan, $time, $price, $mysql) {
     $query = $mysql -> prepare(
-        "INSERT INTO orders(`user_id`, product_id, quantity, `time`, price)
-        VALUE (?, ?, ?, '$time', ?)"
+        "INSERT INTO orders(`user_id`, product_id, seller_id, quantity, `time`, price)
+        VALUE (?, ?, ?, ?, '$time', ?)"
     );
 
     if ($query === false) {
         return false;
     };
 
-    $query -> bind_param("ssss", $id, $prodId, $quan, $price);
+    $query -> bind_param("sssss", $id, $prodId, $sellerId, $quan, $price);
     $query -> execute();
 
     return true;
@@ -115,7 +115,7 @@ if(isset($discount)) {
     };
 };
 
-if(addOrder($userId, $prodId, $quantity, $time, $totalPrice, $mysql)) {
+if(addOrder($userId, $prodId, $sellerId, $quantity, $time, $totalPrice, $mysql)) {
     if(updateProduct($prodId, $quantity, $mysql)) {
         if(addMoneySeller($sellerId, $totalPrice, $mysql)) {
             die(json_encode(removeMoneyClient($userName, $totalPrice, $mysql)));
