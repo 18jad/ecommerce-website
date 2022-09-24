@@ -24,9 +24,9 @@ authSubmitBtnEl.addEventListener("click", (e) => {
       console.log(response);
       responseEl.classList.remove("opacity");
       if (response.data == true) {
-        responseEl.textContent = "Acoount Created";
+        responseEl.textContent = "Account Created";
         window.setTimeout(function () {
-          window.location.href = "homepage.html";
+          window.location.href = "login.html";
         }, 2000);
       } else {
         responseEl.textContent = response.data;

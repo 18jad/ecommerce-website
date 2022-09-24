@@ -1,13 +1,16 @@
+const emailInputEl = document.getElementById("emailInput");
+const passwordInputEl = document.getElementById("passwordInput");
+const authSubmitBtnEl = document.getElementById("authSubmitBtn");
+
 authSubmitBtnEl.addEventListener("click", (e) => {
   e.preventDefault();
+  console.log(passwordInputEl.value);
 
   axios({
     method: "POST",
-    url: "http://localhost/jacht/client_register.php",
+    url: "http://localhost/jacht/client_login.php",
     data: {
-      userName: usernameInputEl.value,
-      name: nameInputEl.value,
-      email: emailInputEl.value,
+      userName: emailInputEl.value,
       password: passwordInputEl.value,
     },
     headers: { "Content-Type": "multipart/form-data" },
@@ -15,15 +18,15 @@ authSubmitBtnEl.addEventListener("click", (e) => {
     .then(function (response) {
       //handle success
       console.log(response);
-      responseEl.classList.remove("opacity");
-      if (response.data == true) {
-        responseEl.textContent = "Acoount Created";
-        window.setTimeout(function () {
-          window.location.href = "homepage.html";
-        }, 2000);
-      } else {
-        responseEl.textContent = response.data;
-      }
+      //   responseEl.classList.remove("opacity");
+      //   if (response.data == true) {
+      //     responseEl.textContent = "Acoount Created";
+      //     window.setTimeout(function () {
+      //       window.location.href = "homepage.html";
+      //     }, 2000);
+      //   } else {
+      //     responseEl.textContent = response.data;
+      //   }
     })
     .catch(function (response) {
       //handle error
