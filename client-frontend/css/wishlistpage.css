@@ -1,0 +1,158 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html{
+    font-size: 62.5%;
+    font-family: 'Roboto', sans-serif;
+}
+
+img{
+    width: 100%;
+}
+
+.wishlist-page{
+    text-align: center;
+    margin: 3rem 0;
+}
+
+.wishlist-page h1{
+    font-size: 5rem;
+    margin: 3rem 0;
+}
+
+.table{
+    margin: 10rem 2rem;
+}
+
+.head-table{
+    font-weight: 600;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
+    font-size: 2rem;
+    padding-bottom: 3rem;
+    border-bottom: 1px solid gray;
+}
+
+.wishlist{
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr 2fr 2fr;
+    border-bottom: 1px solid gray;
+    padding: 3rem 0;
+    justify-content: center;
+    align-items: center;
+}
+
+.head-name{
+    grid-column: 2/3;
+}
+
+.head-price{
+    grid-column: 3/4;
+}
+
+.head-status{
+    grid-column: 4/5;
+}
+
+.wishlist-details{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.wishlist-details svg{
+    cursor: pointer;
+}
+
+.wishlist-details img{
+    width: 75px;
+}
+
+.wishlist p{
+    font-size: 1.8rem;
+    align-self: center;
+}
+
+.wishlist-cart {
+    display: flex;
+    /* flex-direction: column; */
+    justify-content: space-between;
+    margin-right: 2rem;
+}
+
+.wishlist-cart button {
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    color: white;
+    background-color: #F6416C;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+@media (max-width: 1600px) {
+    html{
+        font-size: 50%;
+    }
+}
+
+@media (max-width: 1300px) {
+    html{
+        font-size: 37.5%;
+    }
+
+    .wishlist-cart {
+        flex-direction: column;
+    }
+
+    .wishlist-cart button{
+        margin-top: 1rem;
+        width: 50%;
+        align-self: center;
+    }
+}
+
+
+@media (max-width: 1000px) {
+    .wishlist-cart button{
+        width: 70%;
+    }
+}
+
+@media (max-width: 800px) {
+    html {
+        font-size: 31.25%;
+    }
+
+    .wishlist-cart button{
+        width: 100%;
+    }
+
+    .wishlist-cart {
+        margin-right: 0;
+    }
+
+    .wishlist-details img{
+        width: 50px;
+    }
+}
+
+@media (max-width: 500px) {
+    html {
+        font-size: 25%;
+    }
+
+    .wishlist-details img{
+       display: none;
+    }
+
+    .wishlist{
+        grid-template-columns: 0fr 2fr 2fr 2fr 2fr;
+       
+    }
+}
