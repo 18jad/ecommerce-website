@@ -35,5 +35,5 @@ axios({
   });
 
 const fetchingAllData = () => {
-  console.log("haha");
+    
 };
