@@ -14,6 +14,9 @@
 //     DA1NTY4In0=.cbd142156784acb614a0ea4d7f29cc3489f8e884349dc5fc03bde3eaf90fe780"
 // }
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("connection.php");
 include("token.php");
 
