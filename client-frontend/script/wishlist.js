@@ -35,10 +35,32 @@ const fetchWishlistData = (id) => {
     headers: { "Content-Type": "multipart/form-data" },
   })
     .then(function (response) {
-      responseData = response.data;
+      // console.log(response.data);
+      let imageRes = [];
+      response.data.forEach((res) => {
+        // console.log(res);
+        axios({
+          method: "POST",
+          url: "http://localhost/jacht/product_retrieve.php",
+          data: {
+            prodId: res.id,
+          },
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+          .then(function (response) {
+            console.log(response.data);
+            imageRes.push(response.data);
+          })
+          .catch(function (response) {
+            //handle error
+            console.log(response);
+          });
+      });
+
       //handle success
-      //   console.log(response.data);
-      fillData(response.data);
+      responseData = response.data;
+      console.log(imageRes);
+      fillData(response.data, imageRes);
     })
     .catch(function (response) {
       //handle error
@@ -46,7 +68,7 @@ const fetchWishlistData = (id) => {
     });
 };
 
-const fillData = (data) => {
+const fillData = (data, image) => {
   //   console.log(data[0]);
   const wishlistArr = [];
   for (let i = 0; i < data.length; i++) {
@@ -73,7 +95,6 @@ const fillData = (data) => {
             </div>`;
     wishlistArr.push(wishlistHtml);
   }
-  //   console.log(wishlistArr);
 
   wishlistsEl.innerHTML = wishlistArr.join("");
   addCartClickedBtn();
@@ -96,15 +117,9 @@ const removewishClickedBtn = () => {
         headers: { "Content-Type": "multipart/form-data" },
       })
         .then(function (response) {
-          // if (response.data === "product hass been removed from wishlist") {
           responseData.pop();
-
           fillData(responseData);
-          console.log(responseData[id]["seller_id"]);
-          //   console.log(responseData.pop);
-          //   }
-          //handle success
-          //   console.log(response.data);
+          // console.log(responseData);
         })
         .catch(function (response) {
           //handle error
@@ -119,24 +134,7 @@ const addCartClickedBtn = () => {
 
   addCartEl.forEach((addCartbtn) => {
     addCartbtn.addEventListener("click", (btn) => {
-      console.log(btn.path[0].id);
+      // console.log(btn.path[0].id);
     });
   });
 };
-
-axios({
-  method: "POST",
-  url: "http://localhost/jacht/wishlist_remove.php",
-  data: {
-    user_id: localStorageData[0],
-    product_id: responseData[id]["seller_id"],
-  },
-  headers: { "Content-Type": "multipart/form-data" },
-})
-  .then(function (response) {
-    console.log(response);
-  })
-  .catch(function (response) {
-    //handle error
-    console.log(response);
-  });
