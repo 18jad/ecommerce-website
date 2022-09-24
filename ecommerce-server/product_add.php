@@ -70,7 +70,7 @@ function getSellerId($user, $mysql) {
 $sellerId = getSellerId($sellerUserName, $mysql);
 
 $prodId = addProduct($sellerId, $name, $category, $description,
-$price, $orders, $times_favorited, $discount, $visited, $mysql);
+$price, $times_favorited, $discount, $visited, $mysql);
 
 if (isset($photo)) {
     $decodedImage = imageDecode($photo);
