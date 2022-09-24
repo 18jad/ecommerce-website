@@ -17,7 +17,7 @@ authSubmitBtnEl.addEventListener("click", (e) => {
   })
     .then(function (response) {
       //handle success
-      console.log(response.data);
+      //   console.log(response.data);
       responseEl.classList.remove("opacity");
       if (response.data == "Username Not Found!") {
         responseEl.textContent = response.data;
@@ -28,9 +28,23 @@ authSubmitBtnEl.addEventListener("click", (e) => {
         passwordInputEl.value = "";
       } else {
         responseEl.textContent = "Logged in";
-        localStorage.setItem("id", response.data.id);
-        localStorage.setItem("userName", response.data.userName);
-        localStorage.setItem("token", response.data.token);
+        // localStorage.setItem(
+        //   response.data.id,
+        //   response.data.userName,
+        //   response.data.token
+        // );
+        // localStorage.setItem("userName");
+        // localStorage.setItem("token");
+
+        const localStorageData = [];
+        localStorageData.push(response.data.id);
+        localStorageData.push(response.data.userName);
+        localStorageData.push(response.data.token);
+        localStorage.setItem("auth", JSON.stringify(localStorageData));
+
+        // let storedData = JSON.parse(localStorage.getItem("auth"));
+        // console.log(storedData[0]);
+
         window.setTimeout(function () {
           window.location.href = "homepage.html";
         }, 2000);
