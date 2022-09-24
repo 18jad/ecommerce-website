@@ -76,14 +76,39 @@ function TotalItemsSold($seller_id,$mysql) {
         return $response[0];
 };
 
+//tested
+//function to get the total revnenue of a seller
+function TotalRevnenue($seller_id,$mysql) {
+
+    $total_money= $mysql -> prepare("SELECT money FROM sellers where id=$seller_id");
+    
+    if ($total_money === false) {
+        die(json_encode("error: " . $mysql -> error));
+    };
+    
+    //execute the select query
+    $total_money -> execute();
+    $array = $total_money -> get_result();
+    $response = [];
+    
+    //put the data in the response array
+    while($info  = $array -> fetch_assoc()){
+        $response[] = $info;
+    };
+    
+    return $response[0];
+};
+
 
 $TopProduct= getTopViewdProduct($seller_id,$mysql);
 $ProductList= getProductList($seller_id,$mysql);
 $ItemSold= TotalItemsSold($seller_id,$mysql);
+$TotalRevnenue= TotalRevnenue($seller_id,$mysql);
 $json = [];
 $json[] = $TopProduct;
 $json[] = $ProductList;
 $json[] = $ItemSold;
+$json[] = $TotalRevnenue;
 echo json_encode($json);
 
 ?>
