@@ -128,6 +128,28 @@ nav .nav-items li a:hover {
     color: rgb(246, 65, 108);
 }
 
+.search-output{
+    position: absolute;
+    background-color: white;
+    min-width: 12%;
+    margin: 1rem;
+}
+
+.search-output a{
+    text-decoration: none;
+}
+
+.search-output-output{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid rgb(246, 65, 108);
+    padding: 1rem 0;
+}
+
+.search-output-output p {
+    font-size: 1.3rem;
+}
+
 .search-icon {
     width: 18px;
     margin-left: -8px;

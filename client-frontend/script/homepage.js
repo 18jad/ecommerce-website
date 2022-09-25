@@ -3,6 +3,7 @@ const chatPopupEl = document.querySelector(".chat-popup");
 const closeEl = document.querySelector(".close");
 const userAmountEl = document.querySelector(".user-amount");
 const searchDataEl = document.querySelector(".search-data");
+const searchOutputEl = document.querySelector(".search-output");
 
 chatEl.addEventListener("click", () => {
   chatPopupEl.classList.toggle("none");
@@ -57,3 +58,23 @@ const fetchingAllData = () => {
       console.log(response);
     });
 };
+
+searchDataEl.addEventListener("keyup", () => {
+  axios({
+    method: "POST",
+    url: "http://localhost/jacht/client_search.php",
+    data: {
+      searchQuery: searchDataEl.value,
+    },
+    headers: { "Content-Type": "multipart/form-data" },
+  })
+    .then(function (response) {
+      //handle success
+      console.log(response.data);
+      searchOutputEl
+    })
+    .catch(function (response) {
+      //handle error
+      console.log(response);
+    });
+});
