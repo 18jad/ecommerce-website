@@ -64,6 +64,10 @@ function imageRetrieve($id, $type, $mysql) {
     $response = [];
     $response[] = $array -> fetch_assoc();
 
+    if($response[0] == null) {
+        return null;
+    };
+
     if($response[0]["pic"] == null) {
         return null;
     };
