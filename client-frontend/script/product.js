@@ -51,7 +51,7 @@ const fillProduct = () => {
     method: "POST",
     url: "http://localhost/jacht/product_retrieve.php",
     data: {
-      prodId: 3,
+      prodId: 1,
     },
     headers: { "Content-Type": "multipart/form-data" },
   })
@@ -72,6 +72,27 @@ const fillProduct = () => {
 
 const addCartBtn = (id) => {
   cartBtnEl.addEventListener("click", () => {
-    console.log(plusMinusInputEl.value);
+    // console.log(plusMinusInputEl.value);
+
+    let product_id = [];
+    let quantity_product = [];
+
+    // Parse the serialized data back into an aray of objects
+    product_id = JSON.parse(localStorage.getItem("product_id")) || [];
+    quantity_product = JSON.parse(localStorage.getItem("quantity")) || [];
+
+    if (product_id.includes(id)) {
+      for (let i = 0; i < product_id.length; i++) {
+        if (product_id[i] === id) {
+          quantity_product[i] = Number(plusMinusInputEl.value);
+        }
+      }
+    } else {
+      product_id.push(id);
+      quantity_product.push(plusMinusInputEl.value);
+    }
+    // Re-serialize the array back into a string and store it in localStorage
+    localStorage.setItem("product_id", JSON.stringify(product_id));
+    localStorage.setItem("quantity", JSON.stringify(quantity_product));
   });
 };
