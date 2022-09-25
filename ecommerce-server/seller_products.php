@@ -39,8 +39,9 @@ $response = getData($sellerId, $mysql);
 $i = 0;
 
 foreach($response as $res) {
-    $image = imageRetrieve($id, "product", $mysql);
-    $response[0]["photo"] = $image;
+    $prodId = $res["id"];
+    $image = imageRetrieve($prodId, "product", $mysql);
+    $response[$i]["photo"] = $image;
     $i++;
 };
 
