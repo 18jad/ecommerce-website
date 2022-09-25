@@ -110,7 +110,11 @@
             }
         };
 
-
+        new Chart('chart2', {
+            type: 'bar',
+            options: chart2Options,
+            data: chart2Data
+        });
     }).catch((error) => { });
 })();
 
