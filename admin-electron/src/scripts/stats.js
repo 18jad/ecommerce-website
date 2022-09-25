@@ -69,7 +69,7 @@
         const clientsMoney = [];
         clients.forEach(client => {
             clientsData.push(client.name);
-            clientsMoney.push(client.money);
+            clientsMoney.push(client.amount_spent);
         });
 
         const chart2Data = {
@@ -117,75 +117,3 @@
         });
     }).catch((error) => { });
 })();
-
-// const grid1Options = {
-//     maintainAspectRatio: false,
-//     responsive: true,
-//     scales: {
-//         y: {
-//             stacked: true,
-//             grid: {
-//                 display: true,
-//                 color: "#232831"
-//             },
-//             ticks: {
-//                 // Include a dollar sign in the ticks
-//                 callback: function (value, index, ticks) {
-//                     return '$' + value;
-//                 }
-//             }
-//         },
-//         x: {
-//             grid: {
-//                 display: false
-//             }
-//         }
-//     }
-// };
-
-// new Chart('chart', {
-//     type: 'bar',
-//     options: grid1Options,
-//     data: grid1Data
-// });
-
-// // Top 5 clients
-
-// const grid2Data = {
-//     labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul"],
-//     datasets: [{
-//         label: "Monthly revenue",
-//         backgroundColor: "#00ADB5",
-//         borderColor: "#c4c5c7",
-//         borderWidth: 2,
-//         hoverBackgroundColor: "#00acb59c",
-//         hoverBorderColor: "rgba(255,99,132,1)",
-//         data: [65, 59, 20, 81, 56, 55, 40],
-//     }]
-// };
-
-// var ctx = document.getElementById("chart2");
-// var myChart = new Chart(ctx, {
-//     type: 'bar',
-//     options: {
-//         elements: {
-//             bar: {
-//                 borderSkipped: 'end'
-//             }
-//         },
-
-//     },
-//     data: {
-//         labels: ["Red", "Blue", "Yellow", "Green", "Purple", "Orange"],
-//         datasets: [{
-//             label: '# of Votes',
-//             data: [12, 19, 3, 5, 2, 3],
-//             backgroundColor: '#7FC6E7',
-//             borderColor: '#FFFFFF',
-//             borderWidth: {
-//                 top: 5
-//             },
-//             stack: 'stack'
-//         }]
-//     },
-// });
