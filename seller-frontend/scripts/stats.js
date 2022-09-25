@@ -112,31 +112,20 @@ monthlyRevenueOption && monthlyRevenue.setOption(monthlyRevenueOption);
 //Linking statistics API
 
 const productSubmitForm = document.getElementById("productFormSubmit")
-const productInputName = document.getElementById("productNameInput")
-const descriptionInputData = document.getElementById("descriptionInput")
-const imageInputData = document.getElementById("uploadedProductImage")
 
 
-
-
-      const addNewProduct = () => {
+      const addNewStat = () => {
         const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_statistics.php";
         axios({
             method: "POST",
             url: _URL,
             data: {
-                productName: productInputName.value,
-                description: descriptionInputData.value,
-                image: imageInputData.imageToBase64
+                
             },
             headers: { "Content-Type": "multipart/form-data" },
-        }).then((response) => {
-            if (response.data == "success") {
-                alert("Successfully created new product");
-                window.location.reload();
-            } else {
-                alert(response.data);
-            }
+        }).then(() => {
+            
+
         }).catch((error) => {
             alert(error);
         });

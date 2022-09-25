@@ -152,7 +152,7 @@ const imageInputData = document.getElementById("uploadedProductImage")
             data: {
                 productName: productInputName.value,
                 description: descriptionInputData.value,
-                image: imageInputData.imageToBase64
+                image: imageInputData.image
             },
             headers: { "Content-Type": "multipart/form-data" },
         }).then((response) => {
@@ -209,7 +209,7 @@ const editProduct = () => {
         data: {
             productName: productInputName.value,
             description: descriptionInputData.value,
-            image: imageInputData.imageToBase64,
+            image: imageInputData.image,
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
