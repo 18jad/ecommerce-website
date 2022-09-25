@@ -1,5 +1,6 @@
 // Init Variables
 const favoritesEl = document.querySelector(".favorite");
+const divLogo = document.querySelector(".logo");
 let localStorageData = JSON.parse(localStorage.getItem("auth"));
 
 //Check if Authorized
@@ -68,3 +69,7 @@ const fillData = (data) => {
   
     favoritesEl.innerHTML = favoriteArr.join("");
 };
+
+divLogo.addEventListener("click", () => {
+    window.location.href = "homepage.html";
+});
