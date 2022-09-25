@@ -23,6 +23,26 @@ while($info  = $array -> fetch_assoc()){
     $response[] = $info;
 };
 
+// check if response have data, if true send an error message
+if ($response) {
 
+//udpate the user_id on the insert code
+$add_voucher = $mysql -> prepare("UPDATE vouchers set user_id=$user_id WHERE code ='$code'");
+
+if ($add_voucher=== false) {
+    die(json_encode("error: " . $mysql -> error));
+};
+
+//execute the update query
+$add_voucher -> execute();
+
+echo json_encode("success");
+    
+}
+
+else{
+
+    echo json_encode("error: code not found.");
+};
 
 ?>
