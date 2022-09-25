@@ -142,60 +142,60 @@ const descriptionInputData = document.getElementById("descriptionInput")
 
 
 
-      const addNewProduct = () => {
-        const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_add.php";
-        axios({
-            method: "POST",
-            url: _URL,
-            data: {
-                productName: productInputName.value,
-                description: descriptionInputData.value,
-                image: "",
-                price: ""
-            },
-            headers: { "Content-Type": "multipart/form-data" },
-        }).then((response) => {
-            if (response.data == "success") {
-                alert("Successfully created new product");
-                window.location.reload();
-            } else {
-                alert(response.data);
-            }
-        }).catch((error) => {
-            alert(error);
-        });
-    }
+const addNewProduct = () => {
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_add.php";
+    axios({
+        method: "POST",
+        url: _URL,
+        data: {
+            productName: productInputName.value,
+            description: descriptionInputData.value,
+            image: "",
+            price: ""
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+    }).then((response) => {
+        if (response.data == "success") {
+            alert("Successfully created new product");
+            window.location.reload();
+        } else {
+            alert(response.data);
+        }
+    }).catch((error) => {
+        alert(error);
+    });
+}
 
 
 
-   //Removing a product from seller list Api linking
-    const deleteProduct = () => {
-        const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_remove.php";
-        const result = document.getElementById('responseResult');
-        axios({
-            method: "POST",
-            url: _URL,
-            data: {
-                product_id: productID,
-            },
-            headers: { "Content-Type": "multipart/form-data" },
-        }).then((response) => {
-            result.textContent = "product deleted";
-            result.classList.remove("failed");
-            result.classList.add("success");
-            result.classList.add("show-result");
+//Removing a product from seller list Api linking
+const deleteProduct = () => {
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_remove.php";
+    const result = document.getElementById('responseResult');
+    axios({
+        method: "POST",
+        url: _URL,
+        data: {
+            product_id: productID,
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+    }).then((response) => {
+        result.textContent = "product deleted";
+        result.classList.remove("failed");
+        result.classList.add("success");
+        result.classList.add("show-result");
         setTimeout(() => {
-                result.classList.remove("show-result");
-                window.location.reload();
-            }, 2000)
-        }).catch((error) => {
-            result.textContent = "Error occured please try again " + error;
-            result.classList.remove("success");
-            result.classList.add("failed");
-            result.classList.add("show-result");
-        });
-    
-    }
+            result.classList.remove("show-result");
+            window.location.reload();
+        }, 2000)
+    }).catch((error) => {
+        result.textContent = "Error occured please try again " + error;
+        result.classList.remove("success");
+        result.classList.add("failed");
+        result.classList.add("show-result");
+    });
+
+}
 
 
 // Editing a product data api linking
@@ -224,5 +224,49 @@ const editProduct = () => {
     });
 }
 
-    
-        
+// get all products
+(() => {
+    const productsTable = document.querySelector('.products-table');
+
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_products.php";
+    axios({
+        method: "POST",
+        url: _URL,
+        data: {
+            sellerId: localStorage.getItem("seller_id"),
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+    }).then((response) => {
+        let products = response.data;
+        products.forEach((product) => {
+            let productCategory = product.category,
+                productName = product.name,
+                productDescription = product.description,
+                productImage = product.photo,
+                productId = product.id,
+                productPrice = product.price;
+
+            let productHTML = `
+                <div class="product">
+                    <p class="product-id">#${productId}</p>
+                    <img src="${productImage}"
+                        alt="profile" class="product-image">
+                    <p class="product-name">${productName}</p>
+                    <p class="product-categorie">${productCategory}</p>
+                    <p class="product-date-joined">$${productPrice}</p>
+                    <div class="action">
+                        <button class="deleteBtn" data-id="${productId}">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                        <button class="editBtn" data-name="${productName}" data-price="${productPrice}" data-categorie="${productCategory} data-description="${productDescription}" data-id="${productId}">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+                `
+            productsTable.innerHTML += productHTML;
+        })
+    }).catch((error) => {
+        console.log(error);
+    })
+})();
