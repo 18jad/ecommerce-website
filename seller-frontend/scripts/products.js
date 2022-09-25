@@ -181,6 +181,8 @@ modalContainer.addEventListener('click', (e) => {
 
 // Product Api Linking
 
+const addResult = document.querySelector('.result-add');
+
 //Add new product
 const addNewProduct = (sellerUsername, productName, productCategory, productDescription, productPrice, productPhoto = null) => {
     const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_add.php";
@@ -200,10 +202,16 @@ const addNewProduct = (sellerUsername, productName, productCategory, productDesc
             category: productCategory,
             description: productDescription,
             price: productPrice,
+
         },
         headers: { "Content-Type": "multipart/form-data" },
-    }).then((response) => {
-        console.log(response);
+    }).then(() => {
+        addResult.textContent = "Product added successfully";
+        addResult.hidden = false;
+        setTimeout(() => {
+            addResult.hidden = true;
+            window.location.reload();
+        }, 1500)
     }).catch((error) => {
         console.log(error);
     });
@@ -216,7 +224,7 @@ const newProductForm = document.getElementById('addNewProductForm'),
 newProductForm.addEventListener('submit', (event) => {
     event.preventDefault();
     let productName = productNameInput.value,
-        productCategory = categoryInput.value,
+        productCategory = categoryInput.options[categoryInput.selectedIndex].value,
         productDescription = descriptionInput.value,
         productPrice = priceInput.value,
         filesSelected = photoInput.files;
@@ -234,10 +242,7 @@ newProductForm.addEventListener('submit', (event) => {
     }
 })
 
-
-
-
-//Removing a product from seller list Api linking
+// delete product by button and user input
 const deleteProduct = () => {
     const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_remove.php";
     const result = document.getElementById('responseResult');
