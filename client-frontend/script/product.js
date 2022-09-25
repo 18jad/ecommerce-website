@@ -25,7 +25,7 @@ let localStorageData = JSON.parse(localStorage.getItem("auth"));
 
 axios({
   method: "POST",
-  url: "http://localhost/jacht/authorized.php",
+  url: "http://localhost/fswo5/jacht/authorized.php",
   data: {
     userName: localStorageData[1],
     token: localStorageData[2],
@@ -47,11 +47,13 @@ axios({
   });
 
 const fillProduct = () => {
+  let params = new URLSearchParams(document.location.search);
+  let name = params.get("product_id");
   axios({
     method: "POST",
-    url: "http://localhost/jacht/product_retrieve.php",
+    url: "http://localhost/fswo5/jacht/product_retrieve.php",
     data: {
-      prodId: 1,
+      prodId: name,
     },
     headers: { "Content-Type": "multipart/form-data" },
   })
@@ -72,7 +74,6 @@ const fillProduct = () => {
 
 const addCartBtn = (id) => {
   cartBtnEl.addEventListener("click", () => {
-    // console.log(plusMinusInputEl.value);
 
     let product_id = [];
     let quantity_product = [];
