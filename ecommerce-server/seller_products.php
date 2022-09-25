@@ -1,8 +1,7 @@
 <?php
 
-// Retrieves 1 Product at a time. call multiple times for more products.
-// Takes in: prodId.
-// Returns: All Product Data.
+// Takes in: sellerId.
+// Returns: All Products of Seller.
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
@@ -28,19 +27,23 @@ function getData($id, $mysql) {
 
     $response = [];
     while($i = $array -> fetch_assoc()) {
-        
-    }
+        $response[] = $i;
+    };
 
     return $response;
 };
 
 // Main
 
-$data = getData($prodId, $mysql);
-$image = imageRetrieve($prodId, "product", $mysql);
+$response = getData($sellerId, $mysql);
+$i = 0;
 
-$data[0]["photo"] = $image;
+foreach($response as $res) {
+    $image = imageRetrieve($id, "product", $mysql);
+    $response[0]["photo"] = $image;
+    $i++;
+};
 
-echo json_encode($data);
+echo json_encode($response);
 
 ?>
