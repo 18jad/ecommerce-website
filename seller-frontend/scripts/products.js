@@ -91,44 +91,51 @@ priceInput.addEventListener('input', (e) => {
  *  - Set name in header and input field
  */
 
-const modalContainer = document.querySelector('.edit-modal-container'),
-    editModal = document.querySelector('.edit-modal'),
-    openModalBtns = document.querySelectorAll('.editBtn'),
-    closeEditModalBtn = document.querySelector('.close-edit-modal'),
-    newProductName = document.getElementById('newProductName'),
-    newPriceInput = document.getElementById('newPriceInput'),
-    newCategorie = document.getElementById('newCategorieSelector')
+setTimeout(() => {
+
+    const modalContainer = document.querySelector('.edit-modal-container'),
+        editModal = document.querySelector('.edit-modal'),
+        openModalBtns = document.querySelectorAll('.editBtn'),
+        closeEditModalBtn = document.querySelector('.close-edit-modal'),
+        newProductName = document.getElementById('newProductName'),
+        newPriceInput = document.getElementById('newPriceInput'),
+        newCategorie = document.getElementById('newCategorieSelector'),
+        formm = document.querySelector('.edit-modal-content'),
+        desc = document.getElementById('newDescriptionInput');
 
 
-const openModal2 = (btn) => {
-    modalContainer.classList.add('show-modal');
-    editModal.classList.add('show-modal-content');
-    // caching value inside dataset instead fetching everytime to get old values
-    newProductName.value = btn.dataset.name;
-    newPriceInput.value = btn.dataset.price;
-    newCategorie.value = btn.dataset.categorie;
-}
-
-const closeModal2 = () => {
-    modalContainer.classList.remove('show-modal');
-    editModal.classList.remove('show-modal-content');
-}
-
-// open by button
-openModalBtns.forEach((btn) => {
-    btn.addEventListener('click', () => {
-        openModal2(btn)
-    });
-})
-// close by button
-closeEditModalBtn.addEventListener('click', closeModal2);
-
-// close by clicking outside modal
-modalContainer.addEventListener('click', (e) => {
-    if (!editModal.contains(e.target)) {
-        closeModal2()
+    const openModal2 = (btn) => {
+        modalContainer.classList.add('show-modal');
+        editModal.classList.add('show-modal-content');
+        // caching value inside dataset instead fetching everytime to get old values
+        newProductName.value = btn.dataset.name;
+        newPriceInput.value = btn.dataset.price;
+        newCategorie.value = btn.dataset.categorie;
+        desc.value = btn.dataset.description;
     }
-});
+
+    const closeModal2 = () => {
+        modalContainer.classList.remove('show-modal');
+        editModal.classList.remove('show-modal-content');
+    }
+
+    // open by button
+    openModalBtns.forEach((btn) => {
+        btn.addEventListener('click', () => {
+            openModal2(btn)
+            formm.dataset.id = btn.dataset.id;
+        });
+    })
+    // close by button
+    closeEditModalBtn.addEventListener('click', closeModal2);
+
+    // close by clicking outside modal
+    modalContainer.addEventListener('click', (e) => {
+        if (!editModal.contains(e.target)) {
+            closeModal2()
+        }
+    });
+}, 300);
 
 
 // get all products
@@ -165,7 +172,7 @@ modalContainer.addEventListener('click', (e) => {
                         <button class="deleteBtn" data-id="${productId}">
                             <i class="fa-solid fa-trash-can"></i>
                         </button>
-                        <button class="editBtn" data-name="${productName}" data-price="${productPrice}" data-categorie="${productCategory} data-description="${productDescription}" data-id="${productId}">
+                        <button class="editBtn" data-name="${productName}" data-price="${productPrice}" data-categorie="${productCategory}" data-description="${productDescription}" data-id="${productId}">
                             <i class="fa-solid fa-pen"></i>
                         </button>
                     </div>
@@ -283,27 +290,71 @@ setTimeout(() => {
 
 // Editing a product data api linking
 
-const editProduct = () => {
+let resultEdit;
+setTimeout(() => {
+    resultEdit = document.querySelector('.edit-result');
+}, 300)
+
+const editProduct = (productId, productName, productCategory, productDescription, productPrice, productPhoto = null) => {
     const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_edit.php";
     axios({
         method: "POST",
         url: _URL,
-        data: {
-            productName: productInputName.value,
-            description: descriptionInputData.value,
-            image: "",
-            price: ""
+        data: productPhoto != null ? {
+            userName: localStorage.getItem('seller_username'),
+            id: productId,
+            name: productName,
+            category: productCategory,
+            description: productDescription,
+            price: productPrice,
+            photo: productPhoto,
+        } : {
+            userName: localStorage.getItem('seller_username'),
+            id: productId,
+            name: productName,
+            category: productCategory,
+            description: productDescription,
+            price: productPrice,
         },
         headers: { "Content-Type": "multipart/form-data" },
-    }).then((response) => {
-        if (response.data == "success") {
-            alert("Successfully edited product");
+    }).then((res) => {
+        resultEdit.textContent = "Product added successfully";
+        resultEdit.hidden = false;
+        setTimeout(() => {
+            resultEdit.hidden = true;
             window.location.reload();
-        } else {
-            alert(response.data);
-        }
+        }, 1500)
     }).catch((error) => {
-        alert(error);
+        console.log(error);
     });
 }
 
+setTimeout(() => {
+    const editForm = document.querySelector('.edit-modal-content'),
+        newProductDesc = document.getElementById('newDescriptionInput'),
+        newPhotoInput = document.getElementById('newImage'),
+        newProductName = document.getElementById('newProductName'),
+        newPriceInput = document.getElementById('newPriceInput'),
+        newCategorie = document.getElementById('newCategorieSelector')
+
+    editForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        let filesSelected = newPhotoInput.files,
+            newName = newProductName.value,
+            newPrice = newPriceInput.value,
+            newCategory = newCategorie.options[newCategorie.selectedIndex].value,
+            newDescription = newProductDesc.value;
+
+        if (filesSelected.length > 0) {
+            let fileToLoad = filesSelected[0];
+            let fileReader = new FileReader();
+            fileReader.onload = (fileLoadedEvent) => {
+                let base64 = fileLoadedEvent.target.result;
+                editProduct(editForm.dataset.id, newName, newCategory, newDescription, newPrice, base64)
+            }
+            fileReader.readAsDataURL(fileToLoad);
+        } else {
+            editProduct(editForm.dataset.id, newName, newCategory, newDescription, newPrice)
+        }
+    })
+}, 500)
