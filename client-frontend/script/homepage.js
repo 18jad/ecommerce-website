@@ -60,6 +60,7 @@ const fetchingAllData = () => {
 };
 
 searchDataEl.addEventListener("keyup", () => {
+  searchOutputEl.classList.remove("none");
   axios({
     method: "POST",
     url: "http://localhost/jacht/client_search.php",
@@ -70,9 +71,19 @@ searchDataEl.addEventListener("keyup", () => {
   })
     .then(function (response) {
       //handle success
-      console.log(response.data);
-      searchOutputEl
+      // console.log(response.data[0]["id"]);
+
+      searchOutputEl.innerHTML = "";
+      for (let i = 0; i < response.data.length; i++) {
+        let serchOutput = `
+        <a id="${response.data[i]["id"]}" href="" class="search-output-output"
+            <h1>${response.data[i]["name"]}</h1>
+            <p>${response.data[i]["price"]}</p>
+        </a>`;
+        searchOutputEl.innerHTML += serchOutput;
+      }
     })
+
     .catch(function (response) {
       //handle error
       console.log(response);

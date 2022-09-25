@@ -133,6 +133,8 @@ nav .nav-items li a:hover {
     background-color: white;
     min-width: 12%;
     margin: 1rem;
+    overflow-y: scroll;
+    height: 200px;
 }
 
 .search-output a{
@@ -144,6 +146,7 @@ nav .nav-items li a:hover {
     justify-content: space-around;
     border-bottom: 1px solid rgb(246, 65, 108);
     padding: 1rem 0;
+    background-color: white ;
 }
 
 .search-output-output p {
