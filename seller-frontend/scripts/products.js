@@ -181,6 +181,23 @@ const descriptionInputData = document.getElementById("descriptionInput")
                 product_id: productID,
             },
             headers: { "Content-Type": "multipart/form-data" },
+        }).then((response) => {
+            result.textContent = "product deleted";
+            result.classList.remove("failed");
+            result.classList.add("success");
+            result.classList.add("show-result");
+        setTimeout(() => {
+                result.classList.remove("show-result");
+                window.location.reload();
+            }, 2000)
+        }).catch((error) => {
+            result.textContent = "Error occured please try again " + error;
+            result.classList.remove("success");
+            result.classList.add("failed");
+            result.classList.add("show-result");
+        });
+    
+    }
 
 
 
