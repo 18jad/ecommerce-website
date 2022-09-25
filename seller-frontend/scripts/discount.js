@@ -65,33 +65,46 @@ discountForm.addEventListener('submit', (event) => {
     createNewDiscount(sellerID, percentage);
 })
 
-setTimeout(() => {
-    const deleteDiscount = (discountID) => {
-        const _URL = "http://localhost/ecommerce-website/ecommerce-server/discount_delete.php";
-        axios({
-            method: "POST",
-            url: _URL,
-            data: {
-                discount_id: discountID,
-            },
-            headers: { "Content-Type": "multipart/form-data" },
-        }).then((response) => {
-            console.log(response)
-        }).catch((error) => {
-            console.log(error)
-        });
-    }
 
+const deleteDiscount = (discountID) => {
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/discount_delete.php";
+    axios({
+        method: "POST",
+        url: _URL,
+        data: {
+            discount_id: discountID,
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+    }).then((response) => {
+        // success
+        result.textContent = `Discount ${discountID} deleted`;
+        result.hidden = false;
+        setTimeout(() => {
+            result.hidden = true;
+            window.location.reload();
+        }, 1500);
+    }).catch((error) => {
+        console.log(error)
+    });
+}
+
+// delete discount code  by button
+
+setTimeout(() => {
     const deleteBtns = document.querySelectorAll('.deleteBtn');
     deleteBtns.forEach((btns) => {
         btns.addEventListener('click', () => {
             deleteDiscount(btns.dataset.id);
-            result.textContent = `Discount ${btns.dataset.id} deleted`;
-            result.hidden = false;
-            setTimeout(() => {
-                result.hidden = true;
-                window.location.reload();
-            }, 1500);
         })
     })
 }, 200);
+
+// delete discount code by user input
+const idInput = document.querySelector('.discountIdInput'),
+    idForm = document.getElementById('discount-id-form');
+
+idForm.addEventListener('submit', (e) => {
+    e.preventDefault();
+    let id = idInput.value;
+    deleteDiscount(id);
+})
