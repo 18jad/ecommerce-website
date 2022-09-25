@@ -91,14 +91,13 @@ const shoppingCartFetch = () => {
 };
 
 axios({
-    method: "POST",
-    url: "http://localhost/fswo5/jacht/client_purchase.php",
-    data: {
-      userId: localStorage.getItem("product_id"),
-      prodId: localStorage.getItem("product_id"),
-
-    },
-    headers: { "Content-Type": "multipart/form-data" },
+  method: "POST",
+  url: "http://localhost/fswo5/jacht/client_purchase.php",
+  data: {
+    userId: localStorage.getItem("product_id"),
+    prodId: localStorage.getItem("product_id"),
+  },
+  headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
     //handle success
@@ -110,4 +109,3 @@ axios({
     //handle error
     console.log(response);
   });
-

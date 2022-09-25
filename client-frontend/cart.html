@@ -20,13 +20,30 @@
             <img class="logo-image" src="assets/Logo.png" alt="logo">
         </div>
         <div class="nav-items">
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Cart</a></li>
+            <li><a href="homepage.html">Home</a></li>
+            <!-- <li><a href="#">Profile</a></li> -->
+            <li><a href="cart.html">Cart</a></li>
         </div>
-        <form action="#" class="search-bar">
-            <input type="search" class="search-data" placeholder="Search" required>
-            <button type="submit" id="submitSearch"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
-        </form>
+        <div>
+            <form action="#" class="search-bar">
+                <input type="search" class="search-data" placeholder="Search" required>
+                <button type="submit" id="submitSearch"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+            </form>
+            <div class="search-output none">
+                <!-- <a href="" class="search-output-output">
+                <h1>NAME</h1>
+                <p>Price</p>
+              </a> -->
+            </div>
+        </div>
+        <div class="user-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+        <b class="user-amount">5000$</b>
     </nav>
     <!--Cover image-->
     <section class="cover-container">
@@ -47,16 +64,17 @@
     </table>
     <!--buttons-->
     <div class="btns">
-        <button class="button-transparent">Coupon Code</button>
-        <button class="button-green">APPLY COUPON</button>
+        <!-- <button class="button-transparent">Coupon Code</button> -->
+        <input class="button-transparent" type="text" placeholder="Coupon code">
+        <!-- <button class="button-green">APPLY COUPON</button> -->
         <!-- <button class="button-red">UPDATE CART</button> -->
     </div>
     <div class="totals-section">
         <div class="cart-totals">Cart Totals</div>
-        <div class="subtotal">
+        <!-- <div class="subtotal">
             <p class="subtotal-title">Subtotal</p>
             <p class="subtotal-price">price</p>
-        </div>
+        </div> -->
         <div class="total">
             <p class="subtotal-title">Total</p>
             <p class="subtotal-price">price</p>
