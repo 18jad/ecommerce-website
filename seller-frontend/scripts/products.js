@@ -242,34 +242,43 @@ newProductForm.addEventListener('submit', (event) => {
     }
 })
 
-// delete product by button and user input
-const deleteProduct = () => {
+const delResult = document.getElementById('responseResult');
+
+// delete product by button
+const deleteProduct = (productId) => {
     const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_remove.php";
-    const result = document.getElementById('responseResult');
     axios({
         method: "POST",
         url: _URL,
         data: {
-            product_id: productID,
+            userName: localStorage.getItem('seller_username'),
+            id: productId,
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
-        result.textContent = "product deleted";
-        result.classList.remove("failed");
-        result.classList.add("success");
-        result.classList.add("show-result");
+        console.log(response);
+        delResult.textContent = "Product successfully deleted";
+        delResult.hidden = false;
+        delResult.classList.add('failed')
+        delResult.classList.remove('success')
         setTimeout(() => {
-            result.classList.remove("show-result");
-            window.location.reload();
+            delResult.hidden = true;
+            // window.location.reload();
         }, 2000)
     }).catch((error) => {
-        result.textContent = "Error occured please try again " + error;
-        result.classList.remove("success");
-        result.classList.add("failed");
-        result.classList.add("show-result");
+        console.log(error)
     });
-
 }
+
+setTimeout(() => {
+    const deleteBtns = document.querySelectorAll('.deleteBtn');
+    deleteBtns.forEach((btns) => {
+        btns.addEventListener('click', () => {
+            console.log(btns.dataset.id)
+            deleteProduct(btns.dataset.id)
+        })
+    })
+}, 300)
 
 
 // Editing a product data api linking
