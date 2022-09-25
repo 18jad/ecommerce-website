@@ -1,5 +1,10 @@
 <?php
 
+//take username of the user to send
+//get id from table users
+//update user_id in table vouchers
+
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
