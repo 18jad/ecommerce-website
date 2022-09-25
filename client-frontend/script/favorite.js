@@ -1,4 +1,5 @@
 // Init Variables
+const favoritesEl = document.querySelector(".favorite");
 let localStorageData = JSON.parse(localStorage.getItem("auth"));
 
 //Check if Authorized
@@ -14,7 +15,7 @@ axios({
 .then(function (response) {
     //handle success
     if (response.data === true) {
-    fetchWishlistData(localStorageData[0]);
+        fetchFavoriteData(localStorageData[0]);
     } else {
     localStorage.clear();
     window.location.href = "login.html";
@@ -67,5 +68,5 @@ const fillData = (data) => {
     favoriteArr.push(favoriteHtml);
     }
   
-    wishlistsEl.innerHTML = favoriteArr.join("");
+    favoritesEl.innerHTML = favoriteArr.join("");
 };
