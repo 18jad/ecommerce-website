@@ -70,7 +70,13 @@ const shoppingCartFetch = () => {
         removebtnEl.addEventListener("click", (removebtn) => {
           console.log(removebtn.path[1]["id"]);
 
-          
+          let productRemoved = products.indexOf(
+            Number(removebtn.path[1]["id"])
+          );
+
+          products.splice(productRemoved, 1);
+          quantity.splice(productRemoved, 1);
+          console.log(products, quantity);
         });
       })
       .catch(function (response) {
