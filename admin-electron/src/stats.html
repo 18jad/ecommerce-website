@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/stats.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.9.1/chart.min.js"
         integrity="sha512-ElRFoEQdI5Ht6kZvyzXhYG9NqjtkmlkfYk0wr6wHxU9JEHakS7UJZNeml5ALk+8IKlU6jDgMabC3vkumRokgJA=="
         crossorigin="anonymous" referrerpolicy="no-referrer"></script>
@@ -51,53 +54,17 @@
             <p id="pageName">Statistics</p>
             <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
         </div>
+        <div class="page-info"><b>Top clients</b> are sorted by most spent money | <b>Top sellers</b> are sorted by
+            revenue</div>
         <section class="page-content">
             <div class="content-grid">
                 <div class="grid" id="grid1">
-                    <header>Top clients</header>
+                    <header>Top Sellers</header>
                     <canvas id="chart"></canvas>
                 </div>
-                <div class="grid" id="grid2">
-                    <header>Top Client</header>
-                    <div class="top-client" id="topClient">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
-                            alt="profile" class="client-image">
-                        <p class="client-name">Jad Yahya</p>
-                        <button class="banBtn">Ban</button>
-                    </div>
-                    <a href="./clients.html" class="client-button-a"><button class="client-button">View all</button></a>
-                </div>
                 <div class="grid" id="grid3">
-                    <header>Monthly Selling</header>
+                    <header>Top Clients</header>
                     <canvas id="chart2"></canvas>
-                </div>
-                <div class="grid" id="grid4">
-                    <header>Seller</header>
-                    <div class="client" id="client1">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
-                            alt="profile" class="client-image">
-                        <p class="client-name">Jad Yahya</p>
-                        <button class="banBtn">Edit</button>
-                    </div>
-                    <div class="client" id="client2">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
-                            alt="profile" class="client-image">
-                        <p class="client-name">Jad Yahya</p>
-                        <button class="banBtn">Edit</button>
-                    </div>
-                    <div class="client" id="client3">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
-                            alt="profile" class="client-image">
-                        <p class="client-name">Jad Yahya</p>
-                        <button class="banBtn">Edit</button>
-                    </div>
-                    <div class="client" id="client4">
-                        <img src="https://images.unsplash.com/photo-1570295999919-56ceb5ecca61?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8Mnx8dXNlciUyMHByb2ZpbGV8ZW58MHx8MHx8&w=1000&q=80"
-                            alt="profile" class="client-image">
-                        <p class="client-name">Jad Yahya</p>
-                        <button class="banBtn">Edit</button>
-                    </div>
-                    <a href="./sellers.html" class="client-button-a"><button class="client-button">View all</button></a>
                 </div>
             </div>
         </section>
