@@ -123,6 +123,11 @@ nav .nav-items li a:hover {
     padding: 0.4rem;
 }
 
+.user-amount{
+    font-size: 1.8rem;
+    color: rgb(246, 65, 108);
+}
+
 .search-icon {
     width: 18px;
     margin-left: -8px;
