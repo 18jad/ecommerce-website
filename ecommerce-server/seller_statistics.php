@@ -99,16 +99,49 @@ function TotalRevnenue($seller_id,$mysql) {
     return $response[0];
 };
 
+//tested
+//function to get the total revnenue for a week (day by day) of a seller
+function WeekRevnenue($seller_id,$mysql) {
+
+    $today= date('d M Y');
+    $week_days = date("d M Y", strtotime("-6 days"));
+    $response = [];
+
+	while (strtotime($week_days) <= strtotime($today)) {
+
+    $daily_revneue= $mysql -> prepare("SELECT Sum(price) FROM orders where seller_id=$seller_id and time='$week_days'");
+    
+    if ($daily_revneue === false) {
+        die(json_encode("error: " . $mysql -> error));
+    };
+    
+    //execute the select query
+    $daily_revneue -> execute();
+    $array = $daily_revneue -> get_result();
+    
+    
+    //put the data in the response array
+    while($info  = $array -> fetch_assoc()){
+        $response[] = $info;
+    };
+
+    $week_days= date ("d M Y", strtotime("+1 day", strtotime($week_days)));
+ }   
+      return $response;
+};
+
 
 $TopProduct= getTopViewdProduct($seller_id,$mysql);
 $ProductList= getProductList($seller_id,$mysql);
 $ItemSold= TotalItemsSold($seller_id,$mysql);
 $TotalRevnenue= TotalRevnenue($seller_id,$mysql);
+$WeekRevnenue= WeekRevnenue($seller_id,$mysql);
 $json = [];
 $json[] = $TopProduct;
 $json[] = $ProductList;
 $json[] = $ItemSold;
 $json[] = $TotalRevnenue;
+$json[] = $WeekRevnenue;
 echo json_encode($json);
 
 ?>
