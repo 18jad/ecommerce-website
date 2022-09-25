@@ -4,7 +4,7 @@ const closeEl = document.querySelector(".close");
 const userAmountEl = document.querySelector(".user-amount");
 const searchDataEl = document.querySelector(".search-data");
 const searchOutputEl = document.querySelector(".search-output");
-const mainCarouselEl = document.querySelector(".main-carousel");
+const brandNewProduct = document.querySelector(".brand-new-product-items");
 
 chatEl.addEventListener("click", () => {
   chatPopupEl.classList.toggle("none");
@@ -110,52 +110,53 @@ axios({
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
-    setTimeout(() => {
-      //handle success
-      // console.log(response.data[1][0]["price"]);
-      const carouselDataArr = [];
-      for (let i = 0; i < response.data[1].length; i++) {
-        // console.log("hahah");
-        let carouselData = `
-        <div class="carousel-cell">
-          <div class="carousel-img">
-          <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
-          <div class="carousel-btns">
-                      <button class="carousel-btn-new">new</button>
-                  </div>
-                  <div class="carousel-icons">
-                      <div>
-                          <i class="fa-solid fa-cart-shopping"></i>
-                      </div>
-                      <div>
-                          <i class="fa-solid fa-eye"></i>
-                      </div>
-                  </div>
-              </div>
-              <div class="carousel-text">
-                  <p class="carousel-text-1">${response.data[1][i]["category"]}</p>
-                  <div class="carousel-text-2">
-                      <b>${response.data[1][i]["name"]}</b>
-                      <a href="">
-                          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                              fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                              stroke-linejoin="round" class="feather feather-heart">
-                              <path
-                                  d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
-                              </path>
-                          </svg>
-                      </a>
-                  </div>
-                  <p class="carousel-price">${response.data[1][i]["price"]}$</p>
-              </div>
-          </div>
-  `;
+    //handle success
+    console.log(response.data[1]);
+    // console.log(response.data[1][0]["price"]);
 
-        mainCarouselEl.insertAdjacentHTML("afterend", carouselDataArr);
-        // console.log(carouselDataArr);
-      }
-      mainCarouselEl.innerHTML = carouselDataArr.join("");
-    }, 500);
+    const brandNewProductItemsArr = [];
+
+    for (let i = 0; i < response.data[1].length; i++) {
+      console.log(i);
+      let brandNewItems = `
+       <div class="brand-new-product-item">
+                <div class="carousel-img">
+                    <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
+                    <div class="carousel-btns">
+                        <button class="carousel-btn-new">new</button>
+                    </div>
+                    <div class="carousel-icons">
+                        <div>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
+                        </div>
+                        <div>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="carousel-text">
+                    <p class="carousel-text-1">Decor, furniture</p>
+                    <div class="carousel-text-2">
+                        <b>Trauma furniture</b>
+                        <a href="">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                                stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
+                                class="feather feather-heart">
+                                <path
+                                    d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z">
+                                </path>
+                            </svg>
+                        </a>
+                    </div>
+                    <p class="carousel-price">$119.00</p>
+                </div>
+            </div>
+    `;
+      brandNewProductItemsArr.push(brandNewItems);
+    }
+    brandNewProduct.innerHTML = brandNewProductItemsArr.join("");
   })
 
   .catch(function (response) {

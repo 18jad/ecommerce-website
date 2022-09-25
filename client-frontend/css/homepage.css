@@ -313,16 +313,24 @@ nav .nav-items li a:hover {
     border-radius: 10px;
 }
 
-.main-carousel {
+.brand-new-product-items {
     margin-bottom: 5rem;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 3rem;
 }
 
-.carousel-cell {
+.brand-new-product-item {
     padding: 2rem;
 }
 
 .carousel-img {
     position: relative;
+}
+
+.carousel-img img {
+    width: 250px;
 }
 
 .carousel-btns {
