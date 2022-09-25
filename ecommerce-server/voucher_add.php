@@ -1,5 +1,9 @@
 <?php
 
+//take user_id and voucher code
+//update user_id in table voucher if code is exsist
+//else return error message
+
 // include the headers
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
