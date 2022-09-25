@@ -166,6 +166,11 @@ const descriptionInputData = document.getElementById("descriptionInput")
         });
     }
 
+    
+   //Removing a product from seller list Api linking
+    const deleteSeller = (sellerID) => {
+        const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_remove.php";
+        const result = document.getElementById('responseResult');
 
 
 
