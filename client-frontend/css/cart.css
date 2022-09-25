@@ -12,6 +12,10 @@ body {
   background: #f2f2f2;
 }
 
+button{
+  cursor: pointer;
+}
+
 .cover-container {
   position: relative;
   text-align: center;
@@ -160,7 +164,7 @@ th {
   padding-bottom: 10vh;
 }
 
-.close-icon{
+.close-icon svg{
   cursor: pointer;
 }
 

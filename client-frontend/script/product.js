@@ -5,6 +5,7 @@ const mySlidesEl = document.querySelector(".mySlides img");
 const rightSectionEl = document.querySelector(".right-section h2");
 const descriptionEl = document.querySelector(".description");
 const rightSectionh3El = document.querySelector(".right-section h3");
+const cartBtnEl = document.querySelector(".cart-btn");
 
 let slideIndex = 1;
 
@@ -50,7 +51,7 @@ const fillProduct = () => {
     method: "POST",
     url: "http://localhost/jacht/product_retrieve.php",
     data: {
-      prodId: 2,
+      prodId: 3,
     },
     headers: { "Content-Type": "multipart/form-data" },
   })
@@ -61,9 +62,16 @@ const fillProduct = () => {
       rightSectionEl.textContent = response.data[0]["name"];
       descriptionEl.textContent = response.data[0]["description"];
       rightSectionh3El.textContent = `${response.data[0]["price"]}$`;
+      addCartBtn(response.data[0]["id"]);
     })
     .catch(function (response) {
       //handle error
       console.log(response);
     });
+};
+
+const addCartBtn = (id) => {
+  cartBtnEl.addEventListener("click", () => {
+    console.log(plusMinusInputEl.value);
+  });
 };
