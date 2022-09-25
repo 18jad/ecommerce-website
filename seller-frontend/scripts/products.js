@@ -129,3 +129,12 @@ modalContainer.addEventListener('click', (e) => {
         closeModal2()
     }
 });
+
+
+
+// Product Api Linking
+
+//Adding Api Linking
+axios.get
+
+
