@@ -142,7 +142,7 @@ const descriptionInputData = document.getElementById("descriptionInput")
 
 
 
-      const addNewProduct = (productName, image, price, description) => {
+      const addNewProduct = () => {
         const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_add.php";
         axios({
             method: "POST",
@@ -166,11 +166,20 @@ const descriptionInputData = document.getElementById("descriptionInput")
         });
     }
 
-    
+
+
+
+
    //Removing a product from seller list Api linking
-    const deleteSeller = (sellerID) => {
+    const deleteProduct = () => {
         const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_remove.php";
         const result = document.getElementById('responseResult');
+        axios({
+            method: "POST",
+            url: _URL,
+            data: {
+                product_id: productID,
+            },
 
 
 
