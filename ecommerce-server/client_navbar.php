@@ -8,7 +8,7 @@ header("Access-Control-Allow-Headers: *");
 
 //include the connection to the database
 include("connection.php");
-
+include("image_handler.php");
 
 $user_id=$_POST['user_id'];
 
@@ -29,6 +29,9 @@ $response = [];
 while($info  = $array -> fetch_assoc()){
     $response[] = $info;
 };
+
+$photo = imageRetrieve($user_id, "client", $mysql);
+$response[0]["photo"] = $photo;
 
 echo json_encode($response);
 
