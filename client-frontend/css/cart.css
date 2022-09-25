@@ -160,6 +160,10 @@ th {
   padding-bottom: 10vh;
 }
 
+.close-icon{
+  cursor: pointer;
+}
+
 .cart-image{
   width: 30%;
 }
