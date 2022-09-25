@@ -22,6 +22,10 @@ button {
     cursor: pointer;
 }
 
+a{
+    cursor: pointer;
+}
+
 nav {
     background: white;
     display: flex;
@@ -113,6 +117,44 @@ nav .nav-items li a:hover {
 
 #submitSearch:hover {
     background: #f45e81;
+}
+
+.user-icon{
+    margin: 0 3rem;
+    cursor: pointer;
+    background-color: rgb(246, 65, 108);
+    border-radius: 50%;
+    padding: 0.4rem;
+}
+
+.user-amount{
+    font-size: 1.8rem;
+    color: rgb(246, 65, 108);
+}
+
+.search-output{
+    position: absolute;
+    background-color: white;
+    min-width: 12%;
+    margin: 1rem;
+    overflow-y: scroll;
+    height: 200px;
+}
+
+.search-output a{
+    text-decoration: none;
+}
+
+.search-output-output{
+    display: flex;
+    justify-content: space-around;
+    border-bottom: 1px solid rgb(246, 65, 108);
+    padding: 1rem 0;
+    background-color: white ;
+}
+
+.search-output-output p {
+    font-size: 1.3rem;
 }
 
 .search-icon {

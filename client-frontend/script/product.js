@@ -47,11 +47,13 @@ axios({
   });
 
 const fillProduct = () => {
+  let params = new URLSearchParams(document.location.search);
+  let name = params.get("product_id");
   axios({
     method: "POST",
     url: "http://localhost/jacht/product_retrieve.php",
     data: {
-      prodId: 1,
+      prodId: name,
     },
     headers: { "Content-Type": "multipart/form-data" },
   })
