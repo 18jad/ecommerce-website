@@ -146,8 +146,6 @@ const productSubmitForm = document.getElementById("productFormSubmit")
 
 
 
-
-
       const addNewProduct = () => {
         const _URL = "http://localhost/ecommerce-server/product_add.php";
         axios({
@@ -159,8 +157,6 @@ const productSubmitForm = document.getElementById("productFormSubmit")
                 image: imageInputData.image,
                 price: priceInputData.value,
                 category: categorieInputData.value
-
-
             },
             headers: { "Content-Type": "multipart/form-data" },
         }).then((response) => {

@@ -5,8 +5,11 @@ body {
     background-size: cover;
     height: 100vh;
     overflow-x: hidden;
-    display: grid;
-    place-items: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
 }
 
 form {
@@ -106,4 +109,30 @@ label {
     opacity: 0.9;
     transform: translateY(-5px);
     box-shadow: 0px 6px 10px 3px rgba(65, 129, 148, 0.4);
+}
+
+.result {
+    background: var(--aqua);
+    padding: 10px;
+    width: 360px;
+    text-align: center;
+    border-radius: 10px;
+    translate: 0 70px;
+    z-index: -1;
+    font-weight: 700;
+    opacity: 0;
+    transition: opacity 200ms ease-in-out, translate 300ms ease-in-out;
+}
+
+.show-result {
+    opacity: 1;
+    translate: 0;
+}
+
+[data-status="success"] {
+    background: rgb(110, 250, 110) !important;
+}
+
+[data-status="failed"] {
+    background: rgb(250, 110, 110) !important;
 }
