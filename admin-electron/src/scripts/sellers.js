@@ -132,8 +132,8 @@ const editSeller = (sellerID, newName = null, newDescription = null, newPhoto = 
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
-        console.log(sellerID, newName, newDescription, newPhoto);
-        console.log(response);
+        alert(`Seller #${sellerID} updated successfully!`);
+        window.location.reload();
     }).catch((error) => {
         alert(error)
     });
