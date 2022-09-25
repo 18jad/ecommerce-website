@@ -149,7 +149,7 @@ const descriptionInputData = document.getElementById("descriptionInput")
             url: _URL,
             data: {
                 productName: productInputName.value,
-                description,
+                description: descriptionInputData.value,
                 image: "",
                 price: ""
             },
