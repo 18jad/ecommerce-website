@@ -1,5 +1,10 @@
 let localStorageData = JSON.parse(localStorage.getItem("auth"));
 const tableEl = document.querySelector(".table-header");
+const subtotalPriceEl = document.querySelector(".subtotal-price");
+const userAmountEl = document.querySelector(".user-amount");
+const buttonTransparentEl = document.querySelector(".button-transparent");
+const buttonRedLongEl = document.querySelector(".button-red-long");
+const PurchuseSuccessfulEL = document.querySelector(".purchuse-successful");
 
 axios({
   method: "POST",
@@ -22,14 +27,10 @@ axios({
   });
 
 const shoppingCartFetch = () => {
-  // let products = Array.from(localStorage.getItem("product_id"));
   let products = [];
   let quantity = [];
   products = JSON.parse(localStorage.getItem("product_id"));
-
   quantity = JSON.parse(localStorage.getItem("quantity"));
-
-  console.log(products, quantity);
 
   for (let i = 0; i < products.length; i++) {
     axios({
@@ -41,8 +42,6 @@ const shoppingCartFetch = () => {
       headers: { "Content-Type": "multipart/form-data" },
     })
       .then(function (response) {
-        // console.log(response.data[0]["id"]);
-        //handle success
         let table = `
           <tr>
             <td><img class="cart-image" src="${
@@ -61,11 +60,14 @@ const shoppingCartFetch = () => {
               </svg>
             </td>
           </tr>`;
-
         tableEl.insertAdjacentHTML("afterend", table);
-        // const removesvgEl = document.querySelector("svg");
-        const removebtnEl = document.querySelector("svg");
-        // console.log(removebtnEl);
+        const removebtnEl = document.querySelector(".close-icon svg");
+
+        let price = Number(quantity[i] * response.data[0]["price"]);
+        // console.log(typeof price);
+
+        subtotalPriceEl.textContent =
+          Number(subtotalPriceEl.textContent) + price;
 
         removebtnEl.addEventListener("click", (removebtn) => {
           console.log(removebtn.path[1]["id"]);
@@ -82,6 +84,37 @@ const shoppingCartFetch = () => {
           localStorage.setItem("quantity", JSON.stringify(quantity));
           location.reload();
         });
+
+        // console.log(localStorageData[0], localStorageData[1]);
+        if (subtotalPriceEl.textContent < userAmountEl.textContent) {
+          buttonRedLongEl.addEventListener("click", () => {
+            for (let i = 0; i < products.length; i++) {
+              axios({
+                method: "POST",
+                url: "http://localhost/fswo5/jacht/client_purchase.php",
+                data: {
+                  userId: localStorageData[0],
+                  userName: localStorageData[1],
+                  prodId: products[i],
+                  quantity: quantity[i],
+                  discount: buttonTransparentEl.value,
+                },
+                headers: { "Content-Type": "multipart/form-data" },
+              })
+                .then(function (response) {
+                  //handle success
+                  // console.log(response.data);
+                  if (response.data) {
+                    PurchuseSuccessfulEL.classList.remove("none");
+                  }
+                })
+                .catch(function (response) {
+                  //handle error
+                  console.log(response);
+                });
+            }
+          });
+        }
       })
       .catch(function (response) {
         //handle error
@@ -92,18 +125,16 @@ const shoppingCartFetch = () => {
 
 axios({
   method: "POST",
-  url: "http://localhost/fswo5/jacht/client_purchase.php",
+  url: "http://localhost/fswo5/jacht/client_navbar.php",
   data: {
-    userId: localStorage.getItem("product_id"),
-    prodId: localStorage.getItem("product_id"),
+    user_id: localStorageData[0],
   },
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
     //handle success
-    if (response.data === true) {
-      shoppingCartFetch();
-    }
+    console.log(response.data[0]["money"]);
+    userAmountEl.textContent = response.data[0]["money"];
   })
   .catch(function (response) {
     //handle error
