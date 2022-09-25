@@ -346,7 +346,7 @@ footer {
     padding: 0 100px;
     background-color: #F6416C;
     flex-direction: row;
-    position: absolute;
+    position: fixed;
     left: 0;
     width: 100%;
 }
