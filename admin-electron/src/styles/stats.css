@@ -2,16 +2,15 @@
 
 .content-grid {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-rows: repeat(2, 1fr);
+    grid-template-columns: repeat(1, 1fr);
+    grid-template-rows: repeat(2, 0fr);
     row-gap: 20px;
-    column-gap: 20px;
-    margin-bottom: 55px;
+    margin-bottom: 100px;
 }
 
 .grid {
     height: 350px;
-    width: 36vw;
+    width: 50vw;
     border: 1px solid var(--turquoise);
     border-radius: 10px;
     overflow: hidden;
@@ -85,4 +84,10 @@
 #chart,
 #chart2 {
     height: calc(100% - 40px) !important;
+}
+
+.page-info {
+    background: #edf4f7;
+    text-align: center;
+    padding-top: 10px;
 }
