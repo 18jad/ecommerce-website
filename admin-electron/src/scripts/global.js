@@ -89,3 +89,31 @@ modalWrapper.addEventListener('click', (e) => {
         closeModal()
     }
 });
+
+/**
+ * Sign out
+ */
+
+const signOut = () => {
+    localStorage.removeItem('admin_token');
+    localStorage.removeItem('id');
+    localStorage.removeItem('username');
+    localStorage.removeItem('nav-status');
+    window.location.reload();
+}
+
+signOutBtn.addEventListener('click', () => {
+    if (localStorage.getItem('admin_token')) {
+        signOut();
+    } else {
+        return;
+    }
+});
+
+
+// close and sign out
+const powerOff = document.getElementById('closeAndSignOut');
+powerOff.addEventListener('click', () => {
+    signOut();
+    window.close()
+})
