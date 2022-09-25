@@ -151,6 +151,7 @@ setTimeout(() => {
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
+        console.log(response)
         let products = response.data;
         products.forEach((product) => {
             let productCategory = product.category,
@@ -270,7 +271,7 @@ const deleteProduct = (productId) => {
         delResult.classList.remove('success')
         setTimeout(() => {
             delResult.hidden = true;
-            // window.location.reload();
+            window.location.reload();
         }, 2000)
     }).catch((error) => {
         console.log(error)

@@ -22,7 +22,7 @@ button {
     cursor: pointer;
 }
 
-a{
+a {
     text-decoration: none;
     cursor: pointer;
 }
@@ -120,7 +120,7 @@ nav .nav-items li a:hover {
     background: #f45e81;
 }
 
-.user-icon{
+.user-icon {
     margin: 0 3rem;
     cursor: pointer;
     background-color: rgb(246, 65, 108);
@@ -128,12 +128,12 @@ nav .nav-items li a:hover {
     padding: 0.4rem;
 }
 
-.user-amount{
+.user-amount {
     font-size: 1.8rem;
     color: rgb(246, 65, 108);
 }
 
-.search-output{
+.search-output {
     position: absolute;
     background-color: white;
     min-width: 12%;
@@ -142,16 +142,16 @@ nav .nav-items li a:hover {
     height: 200px;
 }
 
-.search-output a{
+.search-output a {
     text-decoration: none;
 }
 
-.search-output-output{
+.search-output-output {
     display: flex;
     justify-content: space-around;
     border-bottom: 1px solid rgb(246, 65, 108);
     padding: 1rem 0;
-    background-color: white ;
+    background-color: white;
 }
 
 .search-output-output p {
@@ -279,9 +279,9 @@ nav .nav-items li a:hover {
     width: 50%;
 }
 
-.top-seller-main-right img{
-    
-    height: 100%;    
+.top-seller-main-right img {
+
+    height: 100%;
 }
 
 .top-seller-main-right {
@@ -804,4 +804,14 @@ footer .footer-items li a:hover {
         justify-content: center;
     }
 
+}
+
+body>div.top-seller.container>div.top-seller-main>div.top-seller-main-left>img {
+    height: 60%;
+    object-fit: contain;
+    background: #f5f5f5;
+}
+
+.top-seller-main-right {
+    height: 50% !important;
 }

@@ -101,6 +101,11 @@ const shoppingCartFetch = () => {
                   //handle success
                   if (response.data) {
                     PurchuseSuccessfulEL.classList.remove("none");
+                    localStorage.removeItem("product_id");
+                    localStorage.removeItem("quantity");
+                    setTimeout(() => {
+                      window.location.reload();
+                    }, 2000)
                   }
                 })
                 .catch(function (response) {
