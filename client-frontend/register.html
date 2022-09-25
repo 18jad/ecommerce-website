@@ -14,7 +14,7 @@
     <img class="logo" src="./assets/Group 4.png" alt="">
     <form class="signup-form">
         <h1 class="sign-in-header">Sign up</h1>
-        <div class="content">
+        <div class="content content-register">
             <div class="inputs-container">
                 <div class="input-container">
                     <input type="text" name="name" id="nameInput" class="client-input" placeholder="Enter your name">
@@ -31,14 +31,22 @@
                     <label for="email">Email address</label>
                 </div>
                 <div class="input-container">
-                    <input type="password" name="password" id="paswordInput" class="client-input"
+                    <input type="password" name="password" id="passwordInput" class="client-input"
                         placeholder="Enter your password">
                     <label for="passwordInput">Password</label>
                 </div>
+                <h2 id="response" class="response opacity">.</h2>
             </div>
             <button type="submit" id="authSubmitBtn" class="form-submit">Sign up</button>
+            <p class="old-account">Alreaady have an account? <a class="register" href="login.html">Sign in</a></p>
         </div>
+        <!-- <p class="old-account">Already have an account? <a class="register" href="./login.html">Sign in</a></p> -->
     </form>
+
+    <script src="script/register.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
 </body>
 
 </html>

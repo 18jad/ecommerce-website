@@ -1,0 +1,169 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700;900&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    outline: none;
+    box-sizing: border-box;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    background: #f2f2f2;
+}
+
+nav {
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    height: 70px;
+    padding: 0 100px;
+    justify-content: space-around;
+}
+
+.logo-image {
+    width: 150px;
+
+}
+
+
+.page-title {
+    font-weight: 300;
+    color: rgba(0, 0, 0, 0.559);
+
+}
+
+
+.product-text {
+    margin: 1rem 0;
+    font-size: 1rem;
+}
+
+.product-text-1 {
+    color: #F6416C;
+}
+
+.product-text-2 {
+    display: flex;
+    justify-content: space-between;
+    margin: 1rem 0;
+}
+
+.product-price {
+    color: gray;
+}
+
+.items-showcase {
+    margin: 7vh;
+    margin-left: auto;
+    margin-right: auto;
+    border-style: groove;
+    border-width: 4px;
+    border-radius: 8px;
+    border-color: rgb(232, 231, 231);
+    padding: 4vh;
+}
+
+section {
+    display: flex;
+    flex-wrap: wrap;
+    margin-left: 2vh;
+    margin-right: 2vh;
+}
+
+.product-image-size {
+    width: 30vh;
+}
+
+
+footer {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: end;
+    height: 70px;
+    padding: 0 100px;
+    background-color: #F6416C;
+    flex-direction: row;
+    position: absolute;
+    left: 0;
+    width: 100%;
+}
+
+.white-logo {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    display: flex;
+    flex-direction: row;
+
+}
+
+.copyright {
+    padding-left: 3vh;
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+}
+
+footer .footer-items {
+    display: flex;
+    flex: 1;
+    padding: 0 0 0 40px;
+    justify-content: end;
+}
+
+footer .footer-items li {
+    list-style: none;
+    padding: 0 15px;
+}
+
+footer .footer-items li a {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+footer .footer-items li a:hover {
+    color: rgba(255, 255, 255, 0.534);
+}
+
+
+@media only screen and (max-width: 555px) {
+    nav {
+        height: 100px;
+    }
+
+    .page-title {
+        font-size: 18px;
+
+    }
+}
+
+@media only screen and (max-width: 888px) {
+    footer {
+        height: 100px;
+    }
+
+    footer .footer-items li a {
+        font-size: 13px;
+
+    }
+
+    .white-logo {
+        color: white;
+        font-size: 13px;
+        font-weight: 500;
+        display: flex;
+        flex-direction: row;
+
+    }
+
+    .white-logo-image {
+        width: 30px;
+    }
+
+
+}

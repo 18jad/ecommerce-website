@@ -1,12 +1,6 @@
 <?php
 
-// NEEDS TESTING
-
-// NEEDS TESTING
-
-// NEEDS TESTING
-
-// Takes in: userName / name / category / description / price
+// Takes in: userName / name / category / description / price / photo
 // Returns true on success. otherwise logs the error
 
 include("connection.php");
@@ -20,18 +14,17 @@ $category = $_POST["category"];
 $description = $_POST["description"];
 $price = $_POST["price"];
 $photo = $_POST["photo"];
-$orders = 0;
 $times_favorited = 0;
 $discount = 0;
 $visited = 0;
 
 // Functions
 
-function addProduct($id, $name, $cat, $desc, $price, $ord, $fav, $disc, $visit, $mysql) {
+function addProduct($id, $name, $cat, $desc, $price, $fav, $disc, $visit, $mysql) {
     $query = $mysql -> prepare(
         "INSERT INTO products(seller_id, `name`, category, `description`,
-        price, orders, times_favorited, discount, visited)
-        VALUE ('$id', ?, ?, ?, ?, '$ord', '$fav', '$disc', '$visit')");
+        price, times_favorited, discount, visited)
+        VALUE ('$id', ?, ?, ?, ?, '$fav', '$disc', '$visit')");
 
     if ($query === false) {
         die(json_encode("error: " . $mysql -> error));
@@ -40,7 +33,16 @@ function addProduct($id, $name, $cat, $desc, $price, $ord, $fav, $disc, $visit, 
     $query -> bind_param("ssss", $name, $cat, $desc, $price);
     $query -> execute();
 
-    return true;
+    $check = $mysql -> prepare(
+        "SELECT LAST_INSERT_ID() AS id");
+    
+    $check -> execute();
+    $array = $check -> get_result();
+
+    $response = [];
+    $response[] = $array -> fetch_assoc();
+
+    return $response[0]["id"];
 };
 
 function getSellerId($user, $mysql) {
@@ -59,14 +61,16 @@ function getSellerId($user, $mysql) {
 
 // Main
 
-if (isset($photo)) {
-    $decodedImage = imageDecode($photo);
-    imageSave($decodedImage, $id, "product", $mysql);
-};
-
 $sellerId = getSellerId($sellerUserName, $mysql);
 
-echo json_encode(addProduct($sellerId, $name, $category, $description,
-$price, $orders, $times_favorited, $discount, $visited, $mysql));
+$prodId = addProduct($sellerId, $name, $category, $description,
+$price, $times_favorited, $discount, $visited, $mysql);
+
+if (isset($photo)) {
+    $decodedImage = imageDecode($photo);
+    imageSave($decodedImage, $prodId, "product", $mysql);
+};
+
+echo json_encode(true);
 
 ?>

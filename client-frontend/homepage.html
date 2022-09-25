@@ -6,14 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>JACHT</title>
-    <link rel="stylesheet" href="css/styles.css">
-    <link rel="stylesheet" href="/path/to/flickity.css" media="screen">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/homepage.css">
+    <!-- <link rel="stylesheet" href="/path/to/flickity.css" type="text" media="screen"> -->
     <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
 </head>
 
 <body>
-
+    <nav>
+        <div class="logo">
+            <img class="logo-image" src="assets/Logo.png" alt="logo">
+        </div>
+        <div class="nav-items">
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Profile</a></li>
+            <li><a href="#">Cart</a></li>
+        </div>
+        <form action="#" class="search-bar">
+            <input type="search" class="search-data" placeholder="Search" required>
+            <button type="submit" id="submitSearch"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+        </form>
+    </nav>
     <div class="hero-page-bg">
         <div class="hero-page container">
             <div class="hero-page-left-side">
@@ -23,9 +39,6 @@
                     <button>categorie</button>
                 </div>
             </div>
-            <!-- <div class="hero-page-img">
-                <img src="./assets/Screenshot from 2022-09-21 08-40-40.png" alt="">
-            </div> -->
         </div>
     </div>
     <div class="brand-new-product container">
@@ -47,25 +60,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -91,25 +94,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -135,25 +128,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -179,25 +162,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -223,25 +196,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -270,25 +233,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -314,25 +267,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -358,25 +301,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -402,25 +335,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -446,25 +369,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -495,7 +408,7 @@
         </div>
         <div class="top-seller-main">
             <div class="top-seller-main-left">
-                <img src="assets/Screenshot from 2022-09-21 08-40-40.png" height="500px" alt="">
+                <img src="assets/Screenshot from 2022-09-22 09-45-55.png" height="500px" alt="">
             </div>
             <div class="top-seller-main-right">
                 <h3>COCOA VASELINE</h3>
@@ -525,25 +438,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -569,25 +472,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -613,25 +506,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -657,25 +540,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -701,25 +574,15 @@
                     <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
-                        <button class="carousel-btn-sale">sale</button>
                     </div>
                     <div class="carousel-icons">
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-shopping-cart">
-                                <circle cx="9" cy="21" r="1"></circle>
-                                <circle cx="20" cy="21" r="1"></circle>
-                                <path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path>
-                            </svg>
+                            <!-- shopping cart icon -->
+                            <i class="fa-solid fa-cart-shopping"></i>
                         </div>
                         <div>
-                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"
-                                fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"
-                                stroke-linejoin="round" class="feather feather-eye">
-                                <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"></path>
-                                <circle cx="12" cy="12" r="3"></circle>
-                            </svg>
+                            <!-- eye icon -->
+                            <i class="fa-solid fa-eye"></i>
                         </div>
                     </div>
                 </div>
@@ -786,10 +649,23 @@
             </div>
         </div>
     </div>
-
-    <script src="script/script.js"></script>
-    <script src="/path/to/flickity.pkgd.min.js"></script>
+    <footer>
+        <div class="white-logo">
+            <div><img class="white-logo-image" src="assets/white-logo.png" alt="logo"></div>
+            <div class="copyright">
+                <p>Copyright Ⓒ 2022 - All rights reserved</p>
+            </div>
+        </div>
+        <div class="footer-items">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">More</a></li>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script/homepage.js"></script>
     <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
 </body>
-
 </html>
