@@ -1,7 +1,7 @@
 <?php
 
 // Takes in: sellerId.
-// Returns: All Products of Seller.
+// Returns: All Discounts Created by Seller.
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
