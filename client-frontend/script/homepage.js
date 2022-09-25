@@ -91,6 +91,7 @@ searchDataEl.addEventListener("keyup", () => {
       searchOutputOutputEl.forEach((clicked) => {
         clicked.addEventListener("click", (clicked) => {
           console.log(clicked.path[0]["id"]);
+          window.location.href = `product.html?product_id=${clicked.path[0]["id"]}`;
         });
       });
       console.log(searchOutputOutputEl);
