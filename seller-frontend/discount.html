@@ -7,6 +7,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
     <link rel="stylesheet" href="./styles/discount.css">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <script src="./scripts/global.js" defer></script>
     <script src="./scripts/discount.js" defer></script>
     <title>Discount</title>
@@ -57,23 +60,25 @@
             <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
         </div>
         <section class="page-content">
-            <p class="res success" id="responseResult">Discount code successfully generated</p>
+            <p class="res success" id="responseResult" hidden>Discount code successfully generated</p>
             <div class="navigation">
-                <form class="search-container">
+                <form class="search-container" id="discount-id-form">
                     <div class="search-input" id="deleteForm">
-                        <input type="number" placeholder="Delete code by id" id="idInput" class="id-search" required>
+                        <input type="number" placeholder="Delete code by id" id="idInput"
+                            class="id-search discountIdInput" required>
                         <span class="tick">#</span>
                     </div>
                     <button id="banById"><i class="fa-solid fa-delete-left"></i> Delete</button>
                 </form>
-                <form class="discount-container">
+                <form class="discount-container" action="javascript:void(0)">
                     <div class="search-input" id="percentageForm">
                         <input type="number"
                             oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"
-                            maxlength="3" placeholder="Discount percentage" id="idInput" class="id-search" required>
+                            maxlength="3" placeholder="Discount percentage" id="idInput"
+                            class="percentage-input id-search" required>
                         <span class="tick">%</span>
                     </div>
-                    <button class="open-modal add-new-product" id="addNewproduct">
+                    <button class="add-new-product" id="addNewproduct" type="submit">
                         <i class="fa-solid fa-box"></i>
                         Generate new code
                     </button>
@@ -85,30 +90,6 @@
                     <p>Discoun Code</p>
                     <p>Discount Percentage</p>
                     <p>Action</p>
-                </div>
-                <div class="discount">
-                    <p class="discount-id">#1</p>
-                    <p class="discount-code">XS1J29</p>
-                    <p class="discount-percentage">20%</p>
-                    <button class="deleteBtn">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </div>
-                <div class="discount">
-                    <p class="discount-id">#1</p>
-                    <p class="discount-code">XS1J29</p>
-                    <p class="discount-percentage">25%</p>
-                    <button class="deleteBtn">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
-                </div>
-                <div class="discount">
-                    <p class="discount-id">#1</p>
-                    <p class="discount-code">XS1J29</p>
-                    <p class="discount-percentage">75%</p>
-                    <button class="deleteBtn">
-                        <i class="fa-solid fa-trash-can"></i>
-                    </button>
                 </div>
             </div>
         </section>

@@ -1,46 +1,62 @@
-const userNameInput = document.getElementById("username");
-const passwordInput = document.getElementById("paswordInput");
-const authSubmitBtnEl = document.getElementById("authSubmitBtn");
-const responseEl = document.getElementById("response");
+/**
+ * Sign in
+ */
 
-authSubmitBtnEl.addEventListener("click", (e) => {
-  e.preventDefault();
+(() => {
 
-  axios({
-    method: "POST",
-    url: "http://localhost/ecommerce-website/ecommerce-server/seller_login.php",
-    data: {
-      userName: userNameInput.value,
-      password: passwordInput.value,
-    },
-    headers: { "Content-Type": "multipart/form-data" },
-  })
+  // check if user is already logged in kick to homescreen
+  if (localStorage.getItem('seller_token')) {
+    window.location.href = "./categories.html";
+  } else {
+    const usernameInput = document.getElementById('username'),
+      passwordInput = document.getElementById('passwordInput'),
+      signInForm = document.querySelector('form'),
+      result = document.querySelector('.result');
 
-  .then(function (response) {
-    //handle success
-    responseEl.classList.remove("opacity");
-    if (response.data == "Username Not Found!") {
-      responseEl.textContent = response.data;
-      userNameInput.value = "";
-      passwordInput.value = "";
-    } else if (response.data == "Incorrect Password!") {
-      responseEl.textContent = response.data;
-      passwordInput.value = "";
-    } else {
-      responseEl.textContent = "Logged in";
-      const localStorageData = [];
-      localStorageData.push(response.data.id);
-      localStorageData.push(response.data.userName);
-      localStorageData.push(response.data.token);
-      localStorage.setItem("auth", JSON.stringify(localStorageData));
-      window.setTimeout(function () {
-        window.location.href = "index.html";
-      }, 2000);
+    const signIn = (username, password) => {
+      const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_login.php";
+      axios({
+        method: "POST",
+        url: _URL,
+        data: {
+          userName: username,
+          password,
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+      }).then((response) => {
+        let status = response.data;
+        if (typeof status == 'string') {
+          if (status == "Incorrect Password!") {
+            result.textContent = "Incorrect password";
+          } else {
+            result.textContent = "Incorrect username";
+          }
+          result.dataset.status = "failed";
+        } else {
+          console.log(status);
+          result.textContent = "Sign in successfully done";
+          result.dataset.status = "success";
+          setTimeout(() => {
+            localStorage.setItem("seller_token", status.token);
+            localStorage.setItem("seller_id", status.id);
+            localStorage.setItem("seller_username", status.userName);
+            window.location.reload();
+          }, 2000)
+        }
+        setTimeout(() => {
+          result.classList.remove('show-result');
+        }, 2000)
+        result.classList.add("show-result");
+      }).catch((error) => {
+        console.log(error);
+      });
     }
-  })
 
-  .catch(function (response) {
-    //handle error
-    console.log(response);
-  });
-});
+    signInForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+      let username = usernameInput.value,
+        password = passwordInput.value;
+      signIn(username, password);
+    })
+  }
+})();
