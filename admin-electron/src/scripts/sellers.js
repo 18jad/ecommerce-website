@@ -120,11 +120,15 @@ const editSeller = (sellerID, newName = null, newDescription = null, newPhoto = 
     axios({
         method: "POST",
         url: _URL,
-        data: {
+        data: newPhoto != null ? {
             id: sellerID,
             name: newName,
             description: newDescription,
             photo: newPhoto
+        } : {
+            id: sellerID,
+            name: newName,
+            description: newDescription,
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
@@ -192,9 +196,11 @@ setTimeout(() => {
                 editSeller(e.target.dataset.id, newName, newDescription, base64);
             }
             fileReader.readAsDataURL(fileToLoad);
+        } else {
+            editSeller(e.target.dataset.id, newName, newDescription);
         }
     })
-}, 100)
+}, 300)
 
 
 /**
