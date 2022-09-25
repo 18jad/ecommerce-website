@@ -17,18 +17,28 @@
             <div class="inputs-container">
                 <label for="email">Change Profile Photo</label>
                 <div class="input-container"> 
-                    <input type="file" >
+                    <input id="profile-input" type="file" >
                                 <div class="client-image-container">
                                     <i class="fa-regular fa-file-image"></i>
                                 </div>
                 </div>
                 <div class="input-container">
-                    <input type="text" name="email" id="usernameInput" class="client-input"
-                        placeholder="Enter your new username">
-                    <label for="email">Username</label>
+                    <input type="text" name="name" id="usernameInput" class="client-input"
+                        placeholder="Enter your new name">
+                    <label for="name">Name</label>
                 </div>
                 
                 <button type="submit" id="authSubmitBtn" class="form-submit">Save Changes <i
                     class="fa-solid fa-right-to-bracket"></i></button>
             
             </div>
+        </div>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script/editprofile.js"></script>
+</body>
+
+</html>
