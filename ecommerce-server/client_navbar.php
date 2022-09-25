@@ -17,6 +17,16 @@ if ($client_data === false) {
     die(json_encode("error: " . $mysql -> error));
 };
 
+//execute the select query
+$client_data -> execute();
+$array = $client_data -> get_result();
+$response = [];
 
+//put the data in the response array
+while($info  = $array -> fetch_assoc()){
+    $response[] = $info;
+};
+
+echo json_encode($response);
 
 ?>
