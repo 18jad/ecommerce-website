@@ -37,7 +37,7 @@
     </section>
     <!--Table for shopping cart-->
     <table>
-        <tr>
+        <tr class="table-header">
             <th style="width:30%">Images</th>
             <th>Product</th>
             <th>Unit Price</th>
@@ -45,28 +45,12 @@
             <th>Total</th>
             <th>Remove</th>
         </tr>
-        <tr>
-            <td><img src="" alt=""></td>
-            <td>Furniture</td>
-            <td>$130.00</td>
-            <td>Counter</td>
-            <td>$130.00</td>
-            <td><i class="fa-solid fa-xmark"></i></td>
-        </tr>
-        <tr>
-            <td><img src="" alt=""></td>
-            <td>Furniture</td>
-            <td>$130.00</td>
-            <td>Counter</td>
-            <td>$130.00</td>
-            <td><i class="fa-solid fa-xmark"></i></td>
-        </tr>
     </table>
     <!--buttons-->
     <div class="btns">
         <button class="button-transparent">Coupon Code</button>
         <button class="button-green">APPLY COUPON</button>
-        <button class="button-red">UPDATE CART</button>
+        <!-- <button class="button-red">UPDATE CART</button> -->
     </div>
     <div class="totals-section">
         <div class="cart-totals">Cart Totals</div>
@@ -80,11 +64,6 @@
         </div>
         <button class="button-red-long">PROCEED TO CHECKOUT</button>
     </div>
-
-
-
-
-
     <footer>
         <div class="white-logo">
             <div><img class="white-logo-image" src="assets/white-logo.png" alt="logo"></div>
@@ -98,12 +77,11 @@
             <li><a href="#">More</a></li>
         </div>
     </footer>
-    <script>
-        $('nav ul li.btn span').click(function () {
-            $('nav ul div.items').toggleClass("show");
-            $('nav ul li.btn span').toggleClass("show");
-        });
-    </script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="script/cart.js"></script>
 </body>
 
 </html>

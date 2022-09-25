@@ -12,6 +12,10 @@ body {
   background: #f2f2f2;
 }
 
+button{
+  cursor: pointer;
+}
+
 .cover-container {
   position: relative;
   text-align: center;
@@ -158,6 +162,14 @@ th {
   text-align: center;
   padding-top: 10vh;
   padding-bottom: 10vh;
+}
+
+.close-icon svg{
+  cursor: pointer;
+}
+
+.cart-image{
+  width: 30%;
 }
 
 

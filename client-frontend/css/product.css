@@ -146,9 +146,7 @@ img {
     vertical-align: middle;
 }
 
-.mySlides {
-    display: none;
-}
+
 
 .cursor {
     cursor: pointer;
@@ -340,6 +338,7 @@ nav .nav-items li a:hover {
 
 footer {
     display: flex;
+    bottom: 0;
     flex-wrap: wrap;
     align-items: center;
     justify-content: end;

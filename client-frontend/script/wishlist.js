@@ -25,7 +25,9 @@ axios({
   });
 
 let responseData;
+let imageRes;
 const fetchWishlistData = (id) => {
+  // console.log(id);
   axios({
     method: "POST",
     url: "http://localhost/jacht/view_wishlist.php",
@@ -35,10 +37,10 @@ const fetchWishlistData = (id) => {
     headers: { "Content-Type": "multipart/form-data" },
   })
     .then(function (response) {
-      responseData = response.data;
       //handle success
-      //   console.log(response.data);
+      // console.log(response.data);
       fillData(response.data);
+      responseData = response.data;
     })
     .catch(function (response) {
       //handle error
@@ -47,13 +49,12 @@ const fetchWishlistData = (id) => {
 };
 
 const fillData = (data) => {
-  //   console.log(data[0]);
   const wishlistArr = [];
   for (let i = 0; i < data.length; i++) {
-    // console.log(data);
+    // console.log(data[i]);
     let wishlistHtml = `        <div class="wishlist">
                 <div class="wishlist-details">
-                    <svg id="${data[i]["id"]}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
+                    <svg class="delete" id="${data[i]["id"]}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="feather feather-trash-2">
                         <polyline points="3 6 5 6 21 6"></polyline>
@@ -61,7 +62,8 @@ const fillData = (data) => {
                         <line x1="10" y1="11" x2="10" y2="17"></line>
                         <line x1="14" y1="11" x2="14" y2="17"></line>
                     </svg>
-                    <img src="./assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
+
+                    <img src= ${data[i]["photo"]} alt="">
                 </div>
                 <p class="wishlist-name">${data[i]["name"]}</p>
                 <p class="wishlist-price">$${data[i]["price"]}</p>
@@ -73,7 +75,6 @@ const fillData = (data) => {
             </div>`;
     wishlistArr.push(wishlistHtml);
   }
-  //   console.log(wishlistArr);
 
   wishlistsEl.innerHTML = wishlistArr.join("");
   addCartClickedBtn();
@@ -81,7 +82,7 @@ const fillData = (data) => {
 };
 
 const removewishClickedBtn = () => {
-  const removebtnEl = document.querySelectorAll("svg");
+  const removebtnEl = document.querySelectorAll(".wishlist-details svg");
 
   removebtnEl.forEach((removebtn) => {
     removebtn.addEventListener("click", (removebtn) => {
@@ -96,13 +97,9 @@ const removewishClickedBtn = () => {
         headers: { "Content-Type": "multipart/form-data" },
       })
         .then(function (response) {
-          // if (response.data === "product hass been removed from wishlist") {
-          responseData.pop();
+          responseData.pop(removebtn.path[0].id);
           fillData(responseData);
-          //   console.log(responseData.pop);
-          //   }
-          //handle success
-          //   console.log(response.data);
+          // console.log(responseData);
         })
         .catch(function (response) {
           //handle error
@@ -112,12 +109,38 @@ const removewishClickedBtn = () => {
   });
 };
 
+const productIdQuantity = (productId, quantity) => {
+  let product_id = [];
+  let quantity_product = [];
+
+  // Parse the serialized data back into an aray of objects
+  product_id = JSON.parse(localStorage.getItem("product_id")) || [];
+  quantity_product = JSON.parse(localStorage.getItem("quantity")) || [];
+  // Push the new data (whether it be an object or anything else) onto the array
+
+  // console.log(product_id);
+  if (product_id.includes(productId)) {
+    for (let i = 0; i < product_id.length; i++) {
+      if (product_id[i] === productId) {
+        quantity_product[i] = quantity_product[i] + 1;
+      }
+    }
+  } else {
+    product_id.push(productId);
+    quantity_product.push(quantity);
+  }
+  // Re-serialize the array back into a string and store it in localStorage
+  localStorage.setItem("product_id", JSON.stringify(product_id));
+  localStorage.setItem("quantity", JSON.stringify(quantity_product));
+};
+
 const addCartClickedBtn = () => {
   const addCartEl = document.querySelectorAll("button");
 
   addCartEl.forEach((addCartbtn) => {
     addCartbtn.addEventListener("click", (btn) => {
-      console.log(btn.path[0].id);
+      productId = Number(btn.path[0].id);
+      productIdQuantity(productId, 1);
     });
   });
 };
