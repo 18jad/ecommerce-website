@@ -27,3 +27,155 @@ body {
     place-items: center;
     background-color:#fc013cae;
 }
+
+form {
+    border: 1px solid white;
+    background: white;
+    border-radius: 10px;
+    height: 630px;
+    width: 600px;
+    color: #393E46;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    box-shadow: 5px 5px 10px #d0d4dd;
+}
+
+.edit-profile-header {
+    text-align: center;
+    border-bottom: 1px solid #F6416C;
+    width: 100%;
+    padding: 13px 0;
+    font-weight: 750;
+    font-size: 2.5rem;
+}
+
+.content {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    height: 100%;
+    gap: 10px;
+}
+
+.content-register{
+    gap: 2px;
+}
+
+.inputs-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.input-container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column-reverse;
+    width: 88%;
+    gap: 5px;
+}
+
+label {
+    font-weight: 500;
+    font-size: 17px;
+    transition: color 150ms ease-in-out;
+}
+
+.client-input {
+    padding: 13px;
+    border-radius: 13px;
+    outline: none;
+    font-size: 15px;
+    border: 1.5px solid #393E46;
+    box-shadow: 0px 3px 6px #3331;
+    font-weight: 500;
+    transition: border 150ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.client-input::placeholder {
+    color: lightgray;
+}
+
+.client-input:focus {
+    box-shadow: 0px 3px 7px #f6416b30;
+}
+
+.client-input:focus+label {
+    color: #F6416C;
+}
+
+.form-submit {
+    margin-top: 60px;
+    padding: 13px;
+    border-radius: 13px;
+    outline: none;
+    font-size: 17px;
+    background: #F6416C;
+    border: 3px solid #F6416C;
+    box-shadow: 0px 4px 4px rgba(246, 65, 108, 0.26);
+    width: 88%;
+    color: white;
+    font-weight: 800;
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out, transform 200ms ease-in-out, box-shadow 150ms ease-in-out;
+}
+
+.form-submit:hover {
+    opacity: 0.9;
+    transform: translateY(-5px);
+    box-shadow: 0px 4px 8px rgba(246, 65, 108, 0.6);
+}
+
+.new-account {
+    font-size: 1.5rem;
+    margin-bottom: 1.5rem;
+}
+
+.register {
+    color: #F6416C;
+}
+
+.old-account {
+    font-size: 1.5rem;
+    margin: 1rem 0;
+}
+
+.client-image-container {
+    width: 100px;
+    height: 100px;
+    display: flex;
+    cursor: pointer;
+    font-size: 100px;
+    color: var(--aqua);
+    align-items: center;
+    border-radius: 100px;
+    background: transparent;
+    justify-content: center;
+    box-shadow: 0 3px 5px #3332;
+    margin-left: 40%;
+    
+}
+
+.client-input {
+    width: 100%;
+    padding: 13px;
+    outline: none;
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--black);
+    box-shadow: 0 2px 5px #3333;
+    border: 1.5px solid var(--black);
+    transition: border 150ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.client-input::placeholder {
+    color: lightgray;
+}
+
