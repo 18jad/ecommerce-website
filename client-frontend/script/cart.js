@@ -22,16 +22,15 @@ axios({
   });
 
 const shoppingCartFetch = () => {
-  let products = Array.from(localStorage.getItem("product_id"));
+  // let products = Array.from(localStorage.getItem("product_id"));
+  let products = [];
+  let quantity = [];
+  products = JSON.parse(localStorage.getItem("product_id"));
 
-  for (let i = 0; i < products.length; i++) {
-    if (products[i] == "[" || products[i] == "]" || products[i] == ",") {
-      products.splice(i, 1);
-      i--;
-    }
-  }
+  quantity = JSON.parse(localStorage.getItem("quantity"));
 
-  const tablesProducts = [];
+  console.log(products, quantity);
+
   for (let i = 0; i < products.length; i++) {
     axios({
       method: "POST",
@@ -45,24 +44,21 @@ const shoppingCartFetch = () => {
         //handle success
         let table = `
            <tr>
-            <td><img class="cart-image" src="${response.data[0]["photo"]}" alt=""></td>
+            <td><img class="cart-image" src="${
+              response.data[0]["photo"]
+            }" alt=""></td>
             <td>${response.data[0]["name"]}</td>
             <td>${response.data[0]["price"]}</td>
-            <td>QUANTITY</td>
-            <td>COUNT</td>
+            <td>${quantity[i]}</td>
+            <td>${quantity[i] * response.data[0]["price"]}</td>
             <td><i class="fa-solid fa-xmark"></i></td>
         </tr>`;
 
-        document
-          .querySelector(".table-header")
-          .insertAdjacentHTML("afterend", table);
+        tableEl.insertAdjacentHTML("afterend", table);
       })
       .catch(function (response) {
         //handle error
         console.log(response);
       });
   }
-
-  // console.log(tablesProducts);
-  //  += tablesProducts;
 };
