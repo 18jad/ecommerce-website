@@ -136,23 +136,31 @@ modalContainer.addEventListener('click', (e) => {
 
 //Adding Api Linking
 //Adding a product on list api linking.
-const productSubmitForm = document.getElementById("productFormSubmit")
+
 const productInputName = document.getElementById("productNameInput")
 const descriptionInputData = document.getElementById("descriptionInput")
 const imageInputData = document.getElementById("uploadedProductImage")
+const priceInputData = document.getElementById("priceInput")
+const categorieInputData = document.getElementById("categorieSelector")
+const productSubmitForm = document.getElementById("productFormSubmit")
+
 
 
 
 
       const addNewProduct = () => {
-        const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_add.php";
+        const _URL = "http://localhost/ecommerce-server/product_add.php";
         axios({
             method: "POST",
             url: _URL,
             data: {
                 productName: productInputName.value,
                 description: descriptionInputData.value,
-                image: imageInputData.image
+                image: imageInputData.image,
+                price: priceInputData.value,
+                category: categorieInputData.value
+
+
             },
             headers: { "Content-Type": "multipart/form-data" },
         }).then((response) => {
@@ -223,6 +231,8 @@ const editProduct = () => {
         alert(error);
     });
 }
+
+
 
     
         
