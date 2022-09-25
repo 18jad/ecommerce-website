@@ -1,7 +1,6 @@
 // Init Variables
 const favoritesEl = document.querySelector(".favorite");
 const divLogo = document.querySelector(".logo");
-const removeButton = document.querySelector(".removeButton");
 let localStorageData = JSON.parse(localStorage.getItem("auth"));
 
 //Check if Authorized
@@ -48,10 +47,37 @@ const fetchFavoriteData = (id) => {
     });
 };
 
+const removeFavorite = () => {
+    const removeButton = document.querySelectorAll(".removeButton");
+
+    removeButton.forEach((removebtn) => {
+      removebtn.addEventListener("click", (removebtn) => {
+        axios({
+          method: "POST",
+          url: "http://localhost/fswo5/jacht/favorite_remove.php",
+          data: {
+            user_id: localStorageData[0],
+            product_id: removebtn.path[2].id,
+          },
+          headers: { "Content-Type": "multipart/form-data" },
+        })
+            .then(function (response) {
+            responseData.pop(removebtn.path[2].id);
+            fillData(responseData);
+            // console.log(responseData);
+            })
+            .catch(function (response) {
+            //handle error
+            console.log(response);
+            });
+        });
+    });
+};
+
 const fillData = (data) => {
     const favoriteArr = [];
     for (let i = 0; i < data.length; i++) {
-      let favoriteHtml = `<div class="items-showcase">
+      let favoriteHtml = `<div class="items-showcase" id="${data[i]["id"]}">
         <div class="product-container">
         <button class="removeButton">X</button>
           <div class="product-image">
@@ -68,14 +94,10 @@ const fillData = (data) => {
   </div>`;
     favoriteArr.push(favoriteHtml);
     }
-  
     favoritesEl.innerHTML = favoriteArr.join("");
+    removeFavorite();
 };
 
 divLogo.addEventListener("click", () => {
     window.location.href = "homepage.html";
-});
-
-removeButton.addEventListener("click", () => {
-    removeFavorite(productId);
 });
