@@ -213,3 +213,6 @@ const editProduct = () => {
             price: ""
         },
         headers: { "Content-Type": "multipart/form-data" },
+        if (response.data == "success") {
+            alert("Successfully created new product");
+            window.location.reload();
