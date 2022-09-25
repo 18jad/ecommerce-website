@@ -1,0 +1,385 @@
+@import url("./global.css");
+
+.deleteBtn {
+    padding: 8px 10px;
+    border: 1px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    box-shadow: 0 3px 5px #0004;
+}
+
+.deleteBtn:hover {
+    background: #f74041;
+}
+
+.client-button {
+    background: var(--turquoise);
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 55px;
+    border: none;
+    font-size: 16px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out;
+}
+
+.client-button:hover {
+    opacity: 0.8;
+}
+
+.client-button-a {
+    color: var(--black);
+    text-decoration: none;
+    text-align: center;
+}
+
+.page-content {
+    flex-direction: column;
+}
+
+.navigation {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    margin-bottom: 20px;
+}
+
+
+#banById {
+    padding: 8px 20px;
+    border: 1px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    margin-right: -10px;
+    box-shadow: 0 3px 5px #0004;
+}
+
+#banById:hover {
+    background: #f74041;
+}
+
+.res {
+    font-weight: 500;
+    background: var(--dark-blue);
+    padding: 8px 14px;
+    border-radius: 7px;
+    max-width: 550px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    opacity: 0;
+    translate: 0 70px;
+    transition: opacity 200ms ease-in-out, translate 300ms ease-in-out;
+}
+
+.show-result {
+    translate: 0;
+    opacity: 1;
+    pointer-events: unset;
+}
+
+.res.success {
+    color: rgb(92, 246, 92);
+}
+
+.res.failed {
+    color: rgb(246, 92, 92);
+}
+
+.add-new-seller {
+    padding: 8px 20px;
+    border: 1px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    box-shadow: 0 3px 5px #0004;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.add-new-seller:hover {
+    background: var(--turquoise);
+}
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.modal-container {
+    height: 700px;
+    translate: 400px -300px;
+}
+
+.modal-content {
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    height: 82%;
+}
+
+.banned-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 20px;
+    position: sticky;
+    top: 57px;
+    background: var(--dark-blue);
+    color: var(--turquoise);
+    border-bottom: 1px solid var(--dark-blue);
+}
+
+.banned-clients {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    overflow: auto;
+}
+
+.banned-client {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+    padding: 5px 20px;
+}
+
+.banned-name {
+    width: 130px;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    overflow: hidden;
+    text-align: center;
+}
+
+.unban-btn {
+    padding: 8px 10px;
+    border: 1px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    margin-right: -10px;
+    box-shadow: 0 3px 5px #0004;
+}
+
+.unban-btn:hover {
+    background: #f74041;
+}
+
+.action {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 5px;
+    margin-right: -10px;
+}
+
+.editBtn {
+    padding: 8px 10px;
+    border: 1px solid var(--turquoise);
+    background: var(--dark-blue);
+    color: var(--white);
+    cursor: pointer;
+    transition: background 150ms ease-in-out;
+    box-shadow: 0 3px 5px #0004;
+}
+
+.editBtn:hover {
+    background: var(--turquoise);
+}
+
+.inputs-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 100%;
+    gap: 15px;
+}
+
+.input-container {
+    display: flex;
+    margin: 0 auto;
+    justify-content: center;
+    flex-direction: column-reverse;
+    width: 88%;
+    gap: 10px;
+}
+
+label {
+    color: var(--black);
+    font-weight: 540;
+    font-size: 17px;
+    transition: color 150ms ease-in-out;
+}
+
+.seller-input {
+    padding: 13px;
+    border-radius: 13px;
+    outline: none;
+    color: var(--black);
+    font-size: 15px;
+    border: 1.5px solid var(--black);
+    font-weight: 500;
+    transition: border 150ms ease-in-out, box-shadow 200ms ease-in-out;
+}
+
+.seller-input::placeholder {
+    color: lightgray;
+}
+
+.seller-input:focus {
+    box-shadow: 0px 4px 6px rgba(0, 173, 181, 0.22);
+}
+
+.seller-input:focus+label {
+    color: var(--turquoise);
+}
+
+#descriptionInput {
+    height: 130px;
+    resize: none;
+}
+
+.profile-container {
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 10px;
+    width: 88%;
+}
+
+#profileUploadBtn {
+    padding: 7px 13px;
+    border-radius: 13px;
+    outline: none;
+    color: var(--white);
+    background: var(--black);
+    font-size: 15px;
+    border: 1.5px solid var(--black);
+    font-weight: 500;
+    cursor: pointer;
+    transition: opacity 150ms ease-in-out;
+}
+
+#profileUploadBtn:hover {
+    opacity: 0.9;
+}
+
+#sellerFormSubmit {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: none;
+    height: 50px;
+    background: var(--black);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+#sellerFormSubmit:hover {
+    background: var(--turquoise);
+}
+
+.edit-modal-container {
+    position: absolute;
+    height: 100vh;
+    width: 84.3vw;
+    background: #0004;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 10;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 150ms ease-in-out;
+}
+
+.edit-modal {
+    position: relative;
+    height: 500px;
+    background: #fefefe;
+    margin-bottom: 100px;
+    overflow: auto;
+    scale: 0.01;
+    opacity: 0;
+    pointer-events: none;
+    border: 1px solid var(--dark-blue);
+    transition: all 400ms ease-in-out, opacity 300ms cubic-bezier(0.165, 0.84, 0.9, 1);
+}
+
+.edit-modal-header {
+    background: #f4f3f5;
+    width: 500px;
+    padding: 10px;
+    position: sticky;
+    top: 0;
+    text-align: center;
+    border-bottom: 1px solid var(--dark-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--black);
+}
+
+.close-edit-modal {
+    position: absolute;
+    font-size: 20px;
+    left: 20px;
+    cursor: pointer;
+}
+
+.edit-modal-content {
+    height: 80%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 10px;
+}
+
+#oldDescriptionInput {
+    height: 130px;
+    resize: none;
+}
+
+.submitEdit {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    border: none;
+    height: 50px;
+    background: var(--black);
+    font-size: 17px;
+    font-weight: 600;
+    color: var(--white);
+    transition: all 200ms ease-in-out;
+    cursor: pointer;
+}
+
+.submitEdit:hover {
+    background: var(--turquoise);
+}

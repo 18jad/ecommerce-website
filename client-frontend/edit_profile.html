@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Profile</title>
+    <link rel="stylesheet" href="css/edit_profile.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+</head>
+
+<body>
+    <form>
+        <h1 class="edit-profile-header">Edit Profile</h1>
+        <div class="content">
+            <div class="inputs-container">
+                <label for="email">Change Profile Photo</label>
+                <div class="input-container"> 
+                    <input id="profile-input" type="file" >
+                                <div class="client-image-container">
+                                    <i class="fa-regular fa-file-image"></i>
+                                </div>
+                </div>
+                <div class="input-container">
+                    <input type="text" name="name" id="usernameInput" class="client-input"
+                        placeholder="Enter your new name">
+                    <label for="name">Name</label>
+                </div>
+                
+                <button type="submit" id="authSubmitBtn" class="form-submit">Save Changes <i
+                    class="fa-solid fa-right-to-bracket"></i></button>
+            
+            </div>
+        </div>
+    </form>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script/editprofile.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="UTF-8" />
+  <title>Admin: Sign in</title>
+  <link rel="stylesheet" href="./styles/index.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+    integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+  <script src="./scripts/login.js" defer></script>
+</head>
+
+<body>
+  <div class="result" data-type="">Sign in successfully</div>
+  <form action="javascript:void(0)">
+    <h1 class="sign-in-header">Sign in</h1>
+    <div class="content">
+      <div class="inputs-container">
+        <div class="input-container">
+          <input type="text" name="username" id="emailInput" class="admin-input" placeholder="Enter your username">
+          <label for="emailInput">Username</label>
+        </div>
+        <div class="input-container">
+          <input type="password" name="password" id="passwordInput" class="admin-input"
+            placeholder="Enter your password">
+          <label for="passwordInput">Password</label>
+        </div>
+      </div>
+      <button type="submit" id="authSubmitBtn" class="form-submit">Sign in <i
+          class="fa-solid fa-right-to-bracket"></i></button>
+    </div>
+  </form>
+</body>
+
+</html>

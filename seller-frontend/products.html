@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/products.css">
+    <script src="./scripts/global.js" defer></script>
+    <script src="./scripts/products.js" defer></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Products</title>
+</head>
+
+<body>
+    <div class="nav-header">
+        <div class="side-nav">
+            <div class="nav-top">
+                <div class="logo-container">
+                    <img src="./assets/logo.svg" alt="logo" class="logo">
+                </div>
+                <button class="overeview">Overview</button>
+                <div class="link-list">
+                    <a href="./categories.html" class="link">
+                        <i class="fa-solid fa-dolly"></i>
+                        <span class="link-text">Categories</span>
+                    </a>
+                    <a href="./products.html" class="link active">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <span class="link-text">Products</span>
+                    </a>
+                    <a href="./discount.html" class="link">
+                        <i class="fa-solid fa-tags"></i>
+                        <span class="link-text">Discount</span>
+                    </a>
+                    <a href="./ads.html" class="link">
+                        <i class="fa-solid fa-rectangle-ad"></i>
+                        <span class="link-text">Ads</span>
+                    </a>
+                    <a href="./stats.html" class="link">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="link-text">Statistics</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <hr>
+                <button id="signOutBtn">Sign out <i class="fa-solid fa-right-from-bracket"></i></button>
+                <p class="panelFooter">Seller panel</p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="header">
+            <i class="fa-solid fa-angles-left" id="closeNav"></i>
+            <p id="pageName">Products</p>
+            <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
+        </div>
+        <section class="page-content">
+            <!-- new product modal -->
+            <div class="modal">
+                <div class="modal-container">
+                    <header class="modal-header">
+                        <i class="fa-solid fa-xmark closeModal"></i>
+                        <h1>
+                            Add new product
+                        </h1>
+                    </header>
+                    <div class="modal-content">
+                        <p class="result-add" style="text-align: center;" hidden></p>
+                        <form id="addNewProductForm">
+                            <div class="left-side">
+                                <input type="file" name="productImage" id="uploadedProductImage" hidden>
+                                <div class="produt-image-container">
+                                    <i class="fa-regular fa-file-image"></i>
+                                </div>
+                                <div class="info-preview">
+                                    <p id="productPreviewName" class="under-image-preview">
+                                    </p>
+                                    <p id="productPreviewDescription" class="under-image-preview">
+                                    </p>
+                                    <p id="productPreviewPrice" class="under-image-preview"></p>
+                                </div>
+                            </div>
+                            <div class="inputs-container">
+                                <div class="input-container">
+                                    <input type="text" name="product" id="productNameInput" class="product-input"
+                                        placeholder="Enter product name" autocomplete='off'>
+                                    <label for="product">Product name</label>
+                                </div>
+                                <div class="input-container">
+                                    <textarea type="text" name="description" id="descriptionInput" class="product-input"
+                                        placeholder="Enter product description" autocomplete='off'></textarea>
+                                    <label for="descriptionInput">Description</label>
+                                </div>
+                                <div class="small-inputs">
+                                    <div class="input-container">
+                                        <div class="price-input-container">
+                                            <input type="number" name="price" id="priceInput"
+                                                class="product-input price-input" placeholder="0 - 9999"
+                                                autocomplete='off'>
+                                            <div class="price-tick">$</div>
+                                        </div>
+                                        <label for="priceInput">Price</label>
+                                    </div>
+                                    <div class="input-container">
+                                        <div class="price-input-container">
+                                            <select name="categorie" id="categorieSelector" class="categorie-selector">
+                                                <option value="Tech">Tech</option>
+                                                <option value="Home">Home</option>
+                                                <option value="Clothes">Clothes</option>
+                                                <option value="Mobile">Mobile</option>
+                                                <option value="Electronics">Electronics</option>
+                                                <option value="Office">Office</option>
+                                                <option value="Shoes">Shoes</option>
+                                                <option value="Pants">Pants</option>
+                                                <option value="Makeup">Makeup</option>
+                                            </select>
+                                        </div>
+                                        <label for="priceInput">Categorie</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <button type="submit" id="productFormSubmit">Add product</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            <div class="navigation">
+                <div class="search-container">
+                </div>
+                <p class="res success" id="responseResult" hidden>Product successfully deleted</p>
+                <button class="open-modal add-new-product" id="addNewproduct">
+                    <i class="fa-solid fa-box"></i>
+                    Add new product
+                </button>
+            </div>
+            <div class="products-table">
+                <div class="table-info">
+                    <p>ID</p>
+                    <p>Product Image</p>
+                    <p>Product Name</p>
+                    <p>Categorie</p>
+                    <p>Price</p>
+                    <p>Action</p>
+                </div>
+            </div>
+            <!-- Edit modal -->
+            <div class="edit-modal-container">
+                <div class="edit-modal">
+                    <header class="edit-modal-header">
+                        <i class="fa-solid fa-xmark close-edit-modal"></i>
+                        <h1>
+                            Edit product details
+                        </h1>
+                    </header>
+                    <form class="edit-modal-content">
+                        <p class="edit-result" hidden></p>
+                        <div class="input-container">
+                            <input type="text" name="productNewName" id="newProductName" class="product-input"
+                                placeholder="Enter a new product name">
+                            <label for="newProductName">Product name</label>
+                        </div>
+                        <div class="input-container">
+                            <textarea type="text" name="newDescription" id="newDescriptionInput" class="product-input"
+                                placeholder="Enter new product description"></textarea>
+                            <label for="newDescriptionInput">Description</label>
+                        </div>
+                        <div class="edit-small-inputs">
+                            <div class="input-container">
+                                <div class="price-input-container">
+                                    <input type="number" name="price" id="newPriceInput"
+                                        class="product-input price-input" placeholder="0 - 9999" autocomplete='off'>
+                                    <div class="price-tick">$</div>
+                                </div>
+                                <label for="priceInput">Price</label>
+                            </div>
+                            <div class="input-container">
+                                <div class="price-input-container">
+                                    <select name="categorie" id="newCategorieSelector" class="categorie-selector">
+                                        <option value="Tech">Tech</option>
+                                        <option value="Home">Home</option>
+                                        <option value="Clothes">Clothes</option>
+                                        <option value="Mobile">Mobile</option>
+                                        <option value="Electronics">Electronics</option>
+                                        <option value="Office">Office</option>
+                                        <option value="Shoes">Shoes</option>
+                                        <option value="Pants">Pants</option>
+                                    </select>
+                                </div>
+                                <label for="priceInput">Categorie</label>
+                            </div>
+                        </div>
+                        <div class="new-image-container">
+                            <label for="newImage" class="custom-file-upload">
+                                <i class="fa fa-cloud-upload"></i> Change image
+                            </label>
+                            <input id="newImage" type="file" hidden />
+                        </div>
+                        <button type="submit" class="submitEdit">Update</button>
+                    </form>
+                </div>
+            </div>
+        </section>
+    </main>
+
+
+</body>
+
+</html>

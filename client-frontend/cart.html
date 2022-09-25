@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link href="./css/cart.css" rel="stylesheet">
+    <link href="assets/" rel="images">
+    <title>Shopping Cart</title>
+</head>
+
+<body>
+    <!--Navigation bar-->
+    <nav>
+        <div class="logo">
+            <img class="logo-image" src="assets/Logo.png" alt="logo">
+        </div>
+        <div class="nav-items">
+            <li><a href="homepage.html">Home</a></li>
+            <!-- <li><a href="#">Profile</a></li> -->
+            <li><a href="cart.html">Cart</a></li>
+        </div>
+        <div>
+            <form action="#" class="search-bar">
+                <input type="search" class="search-data" placeholder="Search" required>
+                <button type="submit" id="submitSearch"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+            </form>
+            <div class="search-output none">
+                <!-- <a href="" class="search-output-output">
+                <h1>NAME</h1>
+                <p>Price</p>
+              </a> -->
+            </div>
+        </div>
+        <div class="user-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+        <b class="user-amount">5000$</b>
+    </nav>
+    <!--Cover image-->
+    <section class="cover-container">
+        <img class="cover" src="./assets/cart-background.jpg" alt="cover">
+        <h1 class="cover-text">Shopping Cart</h1>
+        <button type="button" class="static-button"><span class="home-bold">HOME </span> | CART</button>
+    </section>
+    <!--Table for shopping cart-->
+    <table>
+        <tr class="table-header">
+            <th style="width:30%">Images</th>
+            <th>Product</th>
+            <th>Unit Price</th>
+            <th>Quantity</th>
+            <th>Total</th>
+            <th>Remove</th>
+        </tr>
+    </table>
+    <!--buttons-->
+    <div class="btns">
+        <!-- <button class="button-transparent">Coupon Code</button> -->
+        <input class="button-transparent" type="text" placeholder="Coupon code">
+        <!-- <button class="button-green">APPLY COUPON</button> -->
+        <!-- <button class="button-red">UPDATE CART</button> -->
+    </div>
+    <div class="totals-section">
+        <div class="cart-totals">Cart Totals</div>
+        <!-- <div class="subtotal">
+            <p class="subtotal-title">Subtotal</p>
+            <p class="subtotal-price">price</p>
+        </div> -->
+        <div class="total">
+            <p class="subtotal-title">Total</p>
+            <p class="subtotal-price"></p>
+        </div>
+        <button class="button-red-long">PROCEED TO CHECKOUT</button>
+        <b class="purchuse-successful none">Purchuse Successful</b>
+    </div>
+    <footer>
+        <div class="white-logo">
+            <div><img class="white-logo-image" src="assets/white-logo.png" alt="logo"></div>
+            <div class="copyright">
+                <p>Copyright Ⓒ 2022 - All rights reserved</p>
+            </div>
+        </div>
+        <div class="footer-items">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">More</a></li>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+        <script src="script/cart.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JACHT</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="css/homepage.css">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons" />
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img class="logo-image" src="assets/Logo.png" alt="logo">
+        </div>
+        <div class="nav-items">
+            <li><a href="homepage.html">Home</a></li>
+            <!-- <li><a href="#">Profile</a></li> -->
+            <li><a href="cart.html">Cart</a></li>
+        </div>
+       <div>
+        <form action="#" class="search-bar">
+            <input type="search" class="search-data" placeholder="Search" required>
+            <button type="submit" id="submitSearch"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+        </form>
+        <div class="search-output none">
+          <!-- <a href="" class="search-output-output">
+            <h1>NAME</h1>
+            <p>Price</p>
+          </a> -->
+        </div>
+       </div>
+      <div class="user-icon">
+        <a href="edit_profile.html">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </a>
+      </div>
+      <b class="user-amount">5000$</b>
+    </nav>
+    <div class="hero-page-bg">
+        <div class="hero-page container">
+            <div class="hero-page-left-side">
+                <h1>Keep calm and go shopping</h1>
+                <div class="hero-page-btns">
+                    <button>shop now</button>
+                    <button>categorie</button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="brand-new-product container">
+        <div class="brand-new-product-header">
+            <div class="brand-new-product-header-left">
+                <h2>brand new product</h2>
+                <p>Browse the huge variety of our products</p>
+            </div>
+            <div class="brand-new-product-header-right">
+                <button>FURNITURE</button>
+                <button>ELECTRONICS</button>
+                <button>ELECTRONICS</button>
+            </div>
+        </div>
+        <div class="brand-new-product-items">
+            
+        </div>
+    </div>
+
+    <div class="top-seller container">
+        <div class="top-seller-header">
+            <h2>Top Seller</h2>
+            <p>Browse the huge variety of our products</p>
+        </div>
+        <div class="top-seller-main">
+            <!-- <div class="top-seller-main-left">
+                <img src="assets/Screenshot from 2022-09-22 09-45-55.png" height="500px" alt="">
+            </div>
+            <div class="top-seller-main-right">
+                <h3>COCOA VASELINE</h3>
+                <h5>seller vaseline</h5>
+                <h5>Bought: 1000</h5>
+                <button class="btn-price">$1199.00 USD</button>
+                <button class="btn-view-deatils">VIEW DETAILS</button>
+            </div> -->
+        </div>
+    </div>
+    <div class="best-sell-product container">
+        <div class="best-sell-product-header">
+            <div class="best-sell-product-header-left">
+                <h2>best sell product</h2>
+                <p>Browse the huge variety of our products</p>
+            </div>
+            <div class="brand-new-product-header-right">
+                <button>FURNITURE</button>
+                <button>ELECTRONICS</button>
+                <button>ELECTRONICS</button>
+            </div>
+        </div>
+        <div class="brand-new-product-items brand-new-product-items-1">
+        
+        </div>
+    </div>
+
+    <div class="ads container">
+        <div class="ads-left">ADS</div>
+        <div class="ads-right-1">ADS</div>
+        <div class="ads-right-2">ADS</div>
+    </div>
+    <div class="chat">
+        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+            stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-message-circle">
+            <path
+                d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z">
+            </path>
+        </svg>
+    </div>
+    <div class="chat-popup none">
+        <div id="body">
+            <div class="chat-box">
+                <div class="chat-box-header">
+                    Chat with sellers
+                    <span class="chat-box-toggle"><i class="material-icons close">close</i></span>
+                </div>
+                <input class="seller-name" type="text" placeholder="Enter seller name...">
+                <!-- <select class="seller-name" name="" id="">
+                    <option value="">seller 1</option>
+                    <option value="">seller 2</option>
+                    <option value="">seller 3</option>
+                    <option value="">seller 4</option>
+                </select> -->
+                <div class="chat-box-body">
+                    <div class="chat-box-overlay">
+                    </div>
+                    <div class="chat-logs">
+                    </div>
+                </div>
+                <div class="chat-input">
+                    <form>
+                        <input type="text" class="chat-input-text" placeholder="Send a message..." />
+                        <button type="submit" class="chat-submit" id="chat-submit"><i
+                                class="material-icons">send</i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="white-logo">
+            <div><img class="white-logo-image" src="assets/white-logo.png" alt="logo"></div>
+            <div class="copyright">
+                <p>Copyright Ⓒ 2022 - All rights reserved</p>
+            </div>
+        </div>
+        <div class="footer-items">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">More</a></li>
+        </div>
+    </footer>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script/homepage.js"></script>
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+</body>
+</html>

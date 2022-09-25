@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Product page</title>
+    <link rel="stylesheet" href="css/product.css">
+</head>
+
+<body>
+    <nav>
+        <div class="logo">
+            <img class="logo-image" src="assets/Logo.png" alt="logo">
+        </div>
+        <div class="nav-items">
+            <li><a href="./homepage.html">Home</a></li>
+            <li><a href="./cart.html">Cart</a></li>
+        </div>
+        <form action="#" class="search-bar">
+            <input type="search" class="search-data" placeholder="Search" required>
+            <button type="submit" id="submitSearch"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+        </form>
+    </nav>
+    <div class="product container">
+        <h1>Product</h1>
+        <div class="product-main">
+            <div class="left-section">
+                <div class="mySlides">
+                    <img src="" style="width:100%">
+                </div>
+            </div>
+
+            <div class="right-section">
+                <h2>headphones</h2>
+                <p class="description">
+                    Headphones are a pair of padded speakers which you wear over your ears in order to listen to a radio
+                    or recorded music.
+                </p>
+                <h3>$70</h3>
+                <p>Quantity</p>
+
+                <div class="plus-minus">
+                    <button class="minus-btn">-</button>
+                    <input class="plus-minus-input" value="0" min="0" max="99" type="number">
+                    <button class="plus-btn">+</button>
+                </div>
+                <button class="cart-btn">ADD TO CART</button>
+            </div>
+        </div>
+    </div>
+    <footer>
+        <div class="white-logo">
+            <div><img class="white-logo-image" src="assets/white-logo.png" alt="logo"></div>
+            <div class="copyright">
+                <p>Copyright Ⓒ 2022 - All rights reserved</p>
+            </div>
+        </div>
+        <div class="footer-items">
+            <li><a href="#">FAQ</a></li>
+            <li><a href="#">Contact</a></li>
+            <li><a href="#">More</a></li>
+        </div>
+    </footer>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="script/product.js"></script>
+</body>
+
+</html>

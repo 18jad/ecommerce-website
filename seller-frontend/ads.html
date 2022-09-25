@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
+    <link rel="stylesheet" href="./styles/adsPage.css">
+    <script src="./scripts/ads.js" defer></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js"
+        integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Ads</title>
+</head>
+
+<body>
+    <div class="nav-header">
+        <div class="side-nav">
+            <div class="nav-top">
+                <div class="logo-container">
+                    <img src="./assets/logo.svg" alt="logo" class="logo">
+                </div>
+                <button class="overeview">Overview</button>
+                <div class="link-list">
+                    <a href="./categories.html" class="link">
+                        <i class="fa-solid fa-dolly"></i>
+                        <span class="link-text">Categories</span>
+                    </a>
+                    <a href="./products.html" class="link">
+                        <i class="fa-solid fa-boxes-stacked"></i>
+                        <span class="link-text">Products</span>
+                    </a>
+                    <a href="./discount.html" class="link">
+                        <i class="fa-solid fa-tags"></i>
+                        <span class="link-text">Discount</span>
+                    </a>
+                    <a href="./ads.html" class="link active">
+                        <i class="fa-solid fa-rectangle-ad"></i>
+                        <span class="link-text">Ads</span>
+                    </a>
+                    <a href="./stats.html" class="link">
+                        <i class="fa-solid fa-chart-pie"></i>
+                        <span class="link-text">Statistics</span>
+                    </a>
+                </div>
+            </div>
+            <div class="nav-bottom">
+                <hr>
+                <button id="signOutBtn">Sign out <i class="fa-solid fa-right-from-bracket"></i></button>
+                <p class="panelFooter">Seller panel</p>
+            </div>
+        </div>
+    </div>
+    <main>
+        <div class="header">
+            <i class="fa-solid fa-angles-left" id="closeNav"></i>
+            <p id="pageName">Ads</p>
+            <i class="fa-solid fa-power-off" id="closeAndSignOut" title="Sign out and exit"></i>
+        </div>
+        <section class="page-content">
+            <form>
+                <label for="adImage" class="ad-input">
+                    <i class="fa fa-cloud-upload"></i> Upload an AD
+                </label>
+                <input id="adImage" type="file" hidden />
+                <button type="submit" id="formSubmit">Submit</button>
+            </form>
+        </section>
+    </main>
+</body>
+
+</html>
