@@ -135,19 +135,33 @@ modalContainer.addEventListener('click', (e) => {
 // Product Api Linking
 
 //Adding Api Linking
+//Adding a product on list api linking.
 const productSubmitForm = document.getElementById("productFormSubmit")
 const productInputName = document.getElementById("productNameInput")
 
 
 axios.post('http://localhost/ecommerce-server/seller_add.php', {
     productName: productInputName.value,
+    description: "",
+    image: "",
+    price: ""
     
 })
-    .then((res) => console.log(res))
+    .then(function (response) {
+    console.log(response)
+    })
+    
+    
+    .catch(function (response) {
+        console.log(response);
+      });
 
-    .catch((err) => console.log(err))
 
 
 
+// Editing a product data api linking
 
+
+
+//Removing a product from seller list Api linking
 
