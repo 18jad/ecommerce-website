@@ -30,7 +30,7 @@ while($info  = $array -> fetch_assoc()){
     $response[] = $info;
 };
 
-$photo = imageRetrieve($user_id, "seller", $mysql);
+$photo = imageRetrieve($seller_id, "seller", $mysql);
 $response[0]["photo"] = $photo;
 
 echo json_encode($response);
