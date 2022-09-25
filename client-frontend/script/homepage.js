@@ -236,7 +236,7 @@ axios({
 
 axios({
   method: "POST",
-  url: "http://localhostfswo5//jacht/client_feed.php",
+  url: "http://localhost/fswo5/jacht/client_feed.php",
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
