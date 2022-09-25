@@ -1,7 +1,7 @@
 <?php
 
-//takes user id
-//retrieve data of the user
+//takes seller id
+//retrieve data of the seller
 
 header("Access-Control-Allow-Origin: *");
 header("Access-Control-Allow-Headers: *");
