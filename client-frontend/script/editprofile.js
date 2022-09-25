@@ -15,7 +15,7 @@ if (profileInputEl.files[0] != undefined) {
 
 axios({
   method: "POST",
-  url: "http://localhost/fswo5/jacht/client_update_profile.php",
+  url: "http://localhost/ecommerce-website/ecommerce-server/client_update_profile.php",
   data: {
     id: localStorageData[0],
     name: localStorageData[1],

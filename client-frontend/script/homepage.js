@@ -18,7 +18,7 @@ let localStorageData = JSON.parse(localStorage.getItem("auth"));
 
 axios({
   method: "POST",
-  url: "http://localhost/fswo5/jacht/authorized.php",
+  url: "http://localhost/ecommerce-website/ecommerce-server/authorized.php",
   data: {
     userName: localStorageData[1],
     token: localStorageData[2],
@@ -42,7 +42,7 @@ axios({
 const fetchingnavbarData = () => {
   axios({
     method: "POST",
-    url: "http://localhost/fswo5/jacht/client_navbar.php",
+    url: "http://localhost/ecommerce-website/ecommerce-server/client_navbar.php",
     data: {
       user_id: localStorageData[0],
     },
@@ -63,7 +63,7 @@ searchDataEl.addEventListener("keyup", () => {
   searchOutputEl.classList.remove("none");
   axios({
     method: "POST",
-    url: "http://localhost/fswo5/jacht/client_search.php",
+    url: "http://localhost/ecommerce-website/ecommerce-server/client_search.php",
     data: {
       searchQuery: searchDataEl.value,
     },
@@ -103,7 +103,7 @@ searchDataEl.addEventListener("keyup", () => {
 
 axios({
   method: "POST",
-  url: "http://localhost/fswo5/jacht/client_feed.php",
+  url: "http://localhost/ecommerce-website/ecommerce-server/client_feed.php",
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
@@ -164,7 +164,7 @@ axios({
 
 axios({
   method: "POST",
-  url: "http://localhost/fswo5/jacht/client_feed.php",
+  url: "http://localhost/ecommerce-website/ecommerce-server/client_feed.php",
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
@@ -225,7 +225,7 @@ axios({
 
 axios({
   method: "POST",
-  url: "http://localhost/fswo5/jacht/client_feed.php",
+  url: "http://localhost/ecommerce-website/ecommerce-server/client_feed.php",
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {

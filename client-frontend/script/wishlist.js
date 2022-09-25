@@ -2,7 +2,7 @@ const wishlistsEl = document.getElementById("wishlists");
 let localStorageData = JSON.parse(localStorage.getItem("auth"));
 axios({
   method: "POST",
-  url: "http://localhost/fswo5/jacht/authorized.php",
+  url: "http://localhost/ecommerce-website/ecommerce-server/authorized.php",
   data: {
     userName: localStorageData[1],
     token: localStorageData[2],
@@ -28,7 +28,7 @@ let imageRes;
 const fetchWishlistData = (id) => {
   axios({
     method: "POST",
-    url: "http://localhost/fswo5/jacht/view_wishlist.php",
+    url: "http://localhost/ecommerce-website/ecommerce-server/view_wishlist.php",
     data: {
       user_id: id,
     },
@@ -87,7 +87,7 @@ const removewishClickedBtn = () => {
       console.log(removebtn.path[0].id);
       axios({
         method: "POST",
-        url: "http://localhost/fswo5/jacht/wishlist_remove.php",
+        url: "http://localhost/ecommerce-website/ecommerce-server/wishlist_remove.php",
         data: {
           user_id: localStorageData[0],
           product_id: removebtn.path[0].id,

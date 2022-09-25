@@ -1,4 +1,12 @@
 
+
+(() => {
+    if (localStorage.getItem('seller_token')) {
+
+    } else {
+        window.location.href = "./"
+    }
+})();
 /**
  * Navbar:
  *  - Close and open

@@ -8,7 +8,7 @@ const PurchuseSuccessfulEL = document.querySelector(".purchuse-successful");
 
 axios({
   method: "POST",
-  url: "http://localhost/fswo5/jacht/authorized.php",
+  url: "http://localhost/ecommerce-website/ecommerce-server/authorized.php",
   data: {
     userName: localStorageData[1],
     token: localStorageData[2],
@@ -35,7 +35,7 @@ const shoppingCartFetch = () => {
   for (let i = 0; i < products.length; i++) {
     axios({
       method: "POST",
-      url: "http://localhost/fswo5/jacht/product_retrieve.php",
+      url: "http://localhost/ecommerce-website/ecommerce-server/product_retrieve.php",
       data: {
         prodId: products[i],
       },
@@ -44,17 +44,15 @@ const shoppingCartFetch = () => {
       .then(function (response) {
         let table = `
           <tr>
-            <td><img class="cart-image" src="${
-              response.data[0]["photo"]
-            }" alt="product image"></td>
+            <td><img class="cart-image" src="${response.data[0]["photo"]
+          }" alt="product image"></td>
             <td>${response.data[0]["name"]}</td>
             <td>${response.data[0]["price"]}</td>
             <td>${quantity[i]}</td>
             <td>${quantity[i] * response.data[0]["price"]}</td>
             <td class="close-icon" id ="${response.data[0]["id"]}" >
-              <svg class="close-icon" id ="${
-                response.data[0]["id"]
-              }" fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
+              <svg class="close-icon" id ="${response.data[0]["id"]
+          }" fill="#000000" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 50 50" width="50px" height="50px">
                 <path
                 d="M 7.71875 6.28125 L 6.28125 7.71875 L 23.5625 25 L 6.28125 42.28125 L 7.71875 43.71875 L 25 26.4375 L 42.28125 43.71875 L 43.71875 42.28125 L 26.4375 25 L 43.71875 7.71875 L 42.28125 6.28125 L 25 23.5625 Z" />
               </svg>
@@ -89,7 +87,7 @@ const shoppingCartFetch = () => {
             for (let i = 0; i < products.length; i++) {
               axios({
                 method: "POST",
-                url: "http://localhost/fswo5/jacht/client_purchase.php",
+                url: "http://localhost/ecommerce-website/ecommerce-server/client_purchase.php",
                 data: {
                   userId: localStorageData[0],
                   userName: localStorageData[1],
@@ -122,7 +120,7 @@ const shoppingCartFetch = () => {
 
 axios({
   method: "POST",
-  url: "http://localhost/fswo5/jacht/client_navbar.php",
+  url: "http://localhost/ecommerce-website/ecommerce-server/client_navbar.php",
   data: {
     user_id: localStorageData[0],
   },

@@ -8,7 +8,7 @@ authSubmitBtnEl.addEventListener("click", (e) => {
 
   axios({
     method: "POST",
-    url: "http://localhost/fswo5/jacht/client_login.php",
+    url: "http://localhost/ecommerce-website/ecommerce-server/client_login.php",
     data: {
       userName: usernameInputEl.value,
       password: passwordInputEl.value,

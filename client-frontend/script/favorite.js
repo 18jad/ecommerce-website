@@ -5,79 +5,79 @@ let localStorageData = JSON.parse(localStorage.getItem("auth"));
 
 //Check if Authorized
 axios({
-    method: "POST",
-    url: "http://localhost/fswo5/jacht/authorized.php",
-    data: {
-      userName: localStorageData[1],
-      token: localStorageData[2],
-    },
-    headers: { "Content-Type": "multipart/form-data" },
+  method: "POST",
+  url: "http://localhost/ecommerce-website/ecommerce-server/authorized.php",
+  data: {
+    userName: localStorageData[1],
+    token: localStorageData[2],
+  },
+  headers: { "Content-Type": "multipart/form-data" },
 })
-.then(function (response) {
+  .then(function (response) {
     //handle success
     if (response.data === true) {
-        fetchFavoriteData(localStorageData[0]);
+      fetchFavoriteData(localStorageData[0]);
     } else {
-    localStorage.clear();
-    window.location.href = "login.html";
+      localStorage.clear();
+      window.location.href = "login.html";
     }
-})
-.catch(function (response) {
+  })
+  .catch(function (response) {
     //handle error
     console.log(response);
-});
-  
+  });
+
 const fetchFavoriteData = (id) => {
-    axios({
-      method: "POST",
-      url: "http://localhost/fswo5/jacht/view_favorites.php",
-      data: {
-        user_id: id,
-      },
-      headers: { "Content-Type": "multipart/form-data" },
-    })
+  axios({
+    method: "POST",
+    url: "http://localhost/ecommerce-website/ecommerce-server/view_favorites.php",
+    data: {
+      user_id: id,
+    },
+    headers: { "Content-Type": "multipart/form-data" },
+  })
     .then(function (response) {
-        //handle success
-        fillData(response.data);
-        responseData = response.data;
+      //handle success
+      fillData(response.data);
+      responseData = response.data;
     })
     .catch(function (response) {
-        //handle error
-        console.log(response);
+      //handle error
+      console.log(response);
     });
 };
 
 const removeFavorite = () => {
-    const removeButton = document.querySelectorAll(".removeButton");
+  const removeButton = document.querySelectorAll(".removeButton");
 
-    removeButton.forEach((removebtn) => {
-      removebtn.addEventListener("click", (removebtn) => {
-        axios({
-          method: "POST",
-          url: "http://localhost/fswo5/jacht/favorite_remove.php",
-          data: {
-            user_id: localStorageData[0],
-            product_id: removebtn.path[2].id,
-          },
-          headers: { "Content-Type": "multipart/form-data" },
+  removeButton.forEach((removebtn) => {
+    removebtn.addEventListener("click", (removebtn) => {
+      axios({
+        method: "POST",
+        url: "http://localhost/ecommerce-website/ecommerce-server/favorite_remove.php",
+        data: {
+          user_id: localStorageData[0],
+          product_id: removebtn.path[2].id,
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+      })
+        .then(function (response) {
+          responseData.pop(removebtn.path[2].id);
+          fillData(responseData);
+          // console.log(responseData);
         })
-            .then(function (response) {
-            responseData.pop(removebtn.path[2].id);
-            fillData(responseData);
-            // console.log(responseData);
-            })
-            .catch(function (response) {
-            //handle error
-            console.log(response);
-            });
+        .catch(function (response) {
+          //handle error
+          console.log(response);
         });
     });
+  });
 };
 
 const fillData = (data) => {
-    const favoriteArr = [];
-    for (let i = 0; i < data.length; i++) {
-      let favoriteHtml = `<div class="items-showcase" id="${data[i]["id"]}">
+  const favoriteArr = [];
+  for (let i = 0; i < data.length; i++) {
+    let favoriteHtml = `<div class="items-showcase" id="${data[i]["id"]}">
         <div class="product-container">
         <button class="removeButton">X</button>
           <div class="product-image">
@@ -93,11 +93,11 @@ const fillData = (data) => {
       </div>
   </div>`;
     favoriteArr.push(favoriteHtml);
-    }
-    favoritesEl.innerHTML = favoriteArr.join("");
-    removeFavorite();
+  }
+  favoritesEl.innerHTML = favoriteArr.join("");
+  removeFavorite();
 };
 
 divLogo.addEventListener("click", () => {
-    window.location.href = "homepage.html";
+  window.location.href = "homepage.html";
 });
