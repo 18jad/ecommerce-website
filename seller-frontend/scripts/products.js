@@ -131,40 +131,109 @@ modalContainer.addEventListener('click', (e) => {
 });
 
 
+// get all products
+(() => {
+    const productsTable = document.querySelector('.products-table');
 
-// Product Api Linking
-
-//Adding Api Linking
-//Adding a product on list api linking.
-const productSubmitForm = document.getElementById("productFormSubmit")
-const productInputName = document.getElementById("productNameInput")
-const descriptionInputData = document.getElementById("descriptionInput")
-
-
-
-const addNewProduct = () => {
-    const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_add.php";
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_products.php";
     axios({
         method: "POST",
         url: _URL,
         data: {
-            productName: productInputName.value,
-            description: descriptionInputData.value,
-            image: "",
-            price: ""
+            sellerId: localStorage.getItem("seller_id"),
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
-        if (response.data == "success") {
-            alert("Successfully created new product");
-            window.location.reload();
-        } else {
-            alert(response.data);
-        }
+        let products = response.data;
+        products.forEach((product) => {
+            let productCategory = product.category,
+                productName = product.name,
+                productDescription = product.description,
+                productImage = product.photo,
+                productId = product.id,
+                productPrice = product.price;
+
+            let productHTML = `
+                <div class="product">
+                    <p class="product-id">#${productId}</p>
+                    <img src="${productImage}"
+                        alt="profile" class="product-image">
+                    <p class="product-name">${productName}</p>
+                    <p class="product-categorie">${productCategory}</p>
+                    <p class="product-date-joined">$${productPrice}</p>
+                    <div class="action">
+                        <button class="deleteBtn" data-id="${productId}">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                        <button class="editBtn" data-name="${productName}" data-price="${productPrice}" data-categorie="${productCategory} data-description="${productDescription}" data-id="${productId}">
+                            <i class="fa-solid fa-pen"></i>
+                        </button>
+                    </div>
+                </div>
+                `
+            productsTable.innerHTML += productHTML;
+        })
     }).catch((error) => {
-        alert(error);
+        console.log(error);
+    })
+})();
+
+
+// Product Api Linking
+
+//Add new product
+const addNewProduct = (sellerUsername, productName, productCategory, productDescription, productPrice, productPhoto = null) => {
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_add.php";
+    axios({
+        method: "POST",
+        url: _URL,
+        data: productPhoto != null ? {
+            userName: sellerUsername,
+            name: productName,
+            category: productCategory,
+            description: productDescription,
+            price: productPrice,
+            photo: productPhoto,
+        } : {
+            userName: sellerUsername,
+            name: productName,
+            category: productCategory,
+            description: productDescription,
+            price: productPrice,
+        },
+        headers: { "Content-Type": "multipart/form-data" },
+    }).then((response) => {
+        console.log(response);
+    }).catch((error) => {
+        console.log(error);
     });
 }
+
+const newProductForm = document.getElementById('addNewProductForm'),
+    categoryInput = document.getElementById('categorieSelector'),
+    photoInput = document.getElementById('uploadedProductImage');
+
+newProductForm.addEventListener('submit', (event) => {
+    event.preventDefault();
+    let productName = productNameInput.value,
+        productCategory = categoryInput.value,
+        productDescription = descriptionInput.value,
+        productPrice = priceInput.value,
+        filesSelected = photoInput.files;
+
+    if (filesSelected.length > 0) {
+        let fileToLoad = filesSelected[0];
+        let fileReader = new FileReader();
+        fileReader.onload = (fileLoadedEvent) => {
+            let base64 = fileLoadedEvent.target.result;
+            addNewProduct(localStorage.getItem('seller_username'), productName, productCategory, productDescription, productPrice, base64)
+        }
+        fileReader.readAsDataURL(fileToLoad);
+    } else {
+        addNewProduct(localStorage.getItem('seller_username'), productName, productCategory, productDescription, productPrice)
+    }
+})
+
 
 
 
@@ -224,49 +293,3 @@ const editProduct = () => {
     });
 }
 
-// get all products
-(() => {
-    const productsTable = document.querySelector('.products-table');
-
-    const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_products.php";
-    axios({
-        method: "POST",
-        url: _URL,
-        data: {
-            sellerId: localStorage.getItem("seller_id"),
-        },
-        headers: { "Content-Type": "multipart/form-data" },
-    }).then((response) => {
-        let products = response.data;
-        products.forEach((product) => {
-            let productCategory = product.category,
-                productName = product.name,
-                productDescription = product.description,
-                productImage = product.photo,
-                productId = product.id,
-                productPrice = product.price;
-
-            let productHTML = `
-                <div class="product">
-                    <p class="product-id">#${productId}</p>
-                    <img src="${productImage}"
-                        alt="profile" class="product-image">
-                    <p class="product-name">${productName}</p>
-                    <p class="product-categorie">${productCategory}</p>
-                    <p class="product-date-joined">$${productPrice}</p>
-                    <div class="action">
-                        <button class="deleteBtn" data-id="${productId}">
-                            <i class="fa-solid fa-trash-can"></i>
-                        </button>
-                        <button class="editBtn" data-name="${productName}" data-price="${productPrice}" data-categorie="${productCategory} data-description="${productDescription}" data-id="${productId}">
-                            <i class="fa-solid fa-pen"></i>
-                        </button>
-                    </div>
-                </div>
-                `
-            productsTable.innerHTML += productHTML;
-        })
-    }).catch((error) => {
-        console.log(error);
-    })
-})();
