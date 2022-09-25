@@ -206,4 +206,9 @@ const editProduct = () => {
     axios({
         method: "POST",
         url: _URL,
-        
+        data: {
+            productName: productInputName.value,
+            description: descriptionInputData.value,
+            image: "",
+            price: ""
+        },
