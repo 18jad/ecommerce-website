@@ -11,6 +11,18 @@ include("connection.php");
 $user_id= $_POST["user_id"];
 $code = $_POST["code"];
 
+$check_code = $mysql -> prepare("SELECT code FROM vouchers WHERE code = '$code'");
+
+//execute the select query
+$check_code -> execute();
+$array = $check_code -> get_result();
+$response = [];
+
+//put the data in the array
+while($info  = $array -> fetch_assoc()){
+    $response[] = $info;
+};
+
 
 
 ?>
