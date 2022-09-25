@@ -174,8 +174,8 @@ const productSubmitForm = document.getElementById("productFormSubmit")
 
 
    //Removing a product from seller list Api linking
-    const deleteProduct = () => {
-        const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_remove.php";
+    const deleteProduct = (product_id) => {
+        const _URL = "http://localhost/ecommerce-server/product_remove.php";
         const result = document.getElementById('responseResult');
         axios({
             method: "POST",
@@ -205,15 +205,17 @@ const productSubmitForm = document.getElementById("productFormSubmit")
 
 // Editing a product data api linking
 
-const editProduct = () => {
-    const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_edit.php";
+
+    const _URL = "http://localhost/ecommerce-server/product_edit.php";
     axios({
         method: "POST",
         url: _URL,
         data: {
-            productName: productInputName.value,
-            description: descriptionInputData.value,
-            image: imageInputData.image,
+                productName: productInputName.value,
+                description: descriptionInputData.value,
+                image: imageInputData.image,
+                price: priceInputData.value,
+                category: categorieInputData.value
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
@@ -226,7 +228,7 @@ const editProduct = () => {
     }).catch((error) => {
         alert(error);
     });
-}
+
 
 
 
