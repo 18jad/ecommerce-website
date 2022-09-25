@@ -259,14 +259,15 @@ th {
 
 .total {
   display: flex;
-  flex-direction: row;
   justify-content: space-between;
+  /* align-content: center; */
   width: 30vh;
   border-style: groove;
   width: 50vh;
-  height: 5vh;
+  /* height: 5vh; */
   margin-top: 2vh;
   color: rgba(128, 128, 128, 0.865);
+  padding: 0.5rem;
 }
 
 .subtotal-title {
@@ -277,6 +278,15 @@ th {
 .subtotal-price {
   padding-right: 1vh;
   padding-top: 1vh;
+}
+
+.purchuse-successful{
+  color: #73BE68;
+  margin: 1rem 0;
+}
+
+.none{
+  display: none;
 }
 
 .button-red-long {
