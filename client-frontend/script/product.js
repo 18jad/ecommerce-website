@@ -74,7 +74,6 @@ const fillProduct = () => {
 
 const addCartBtn = (id) => {
   cartBtnEl.addEventListener("click", () => {
-    // console.log(plusMinusInputEl.value);
 
     let product_id = [];
     let quantity_product = [];

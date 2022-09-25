@@ -64,7 +64,6 @@ const shoppingCartFetch = () => {
         const removebtnEl = document.querySelector(".close-icon svg");
 
         let price = Number(quantity[i] * response.data[0]["price"]);
-        // console.log(typeof price);
 
         subtotalPriceEl.textContent =
           Number(subtotalPriceEl.textContent) + price;
@@ -85,7 +84,6 @@ const shoppingCartFetch = () => {
           location.reload();
         });
 
-        // console.log(localStorageData[0], localStorageData[1]);
         if (subtotalPriceEl.textContent < userAmountEl.textContent) {
           buttonRedLongEl.addEventListener("click", () => {
             for (let i = 0; i < products.length; i++) {
@@ -103,7 +101,6 @@ const shoppingCartFetch = () => {
               })
                 .then(function (response) {
                   //handle success
-                  // console.log(response.data);
                   if (response.data) {
                     PurchuseSuccessfulEL.classList.remove("none");
                   }
@@ -133,7 +130,6 @@ axios({
 })
   .then(function (response) {
     //handle success
-    console.log(response.data[0]["money"]);
     userAmountEl.textContent = response.data[0]["money"];
   })
   .catch(function (response) {

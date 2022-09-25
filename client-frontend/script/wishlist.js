@@ -1,6 +1,5 @@
 const wishlistsEl = document.getElementById("wishlists");
 let localStorageData = JSON.parse(localStorage.getItem("auth"));
-// console.log(localStorageData);
 axios({
   method: "POST",
   url: "http://localhost/fswo5/jacht/authorized.php",
@@ -27,7 +26,6 @@ axios({
 let responseData;
 let imageRes;
 const fetchWishlistData = (id) => {
-  // console.log(id);
   axios({
     method: "POST",
     url: "http://localhost/fswo5/jacht/view_wishlist.php",
@@ -99,7 +97,6 @@ const removewishClickedBtn = () => {
         .then(function (response) {
           responseData.pop(removebtn.path[0].id);
           fillData(responseData);
-          // console.log(responseData);
         })
         .catch(function (response) {
           //handle error
@@ -118,7 +115,6 @@ const productIdQuantity = (productId, quantity) => {
   quantity_product = JSON.parse(localStorage.getItem("quantity")) || [];
   // Push the new data (whether it be an object or anything else) onto the array
 
-  // console.log(product_id);
   if (product_id.includes(productId)) {
     for (let i = 0; i < product_id.length; i++) {
       if (product_id[i] === productId) {

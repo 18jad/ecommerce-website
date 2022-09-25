@@ -15,7 +15,6 @@ chatEl.addEventListener("click", () => {
 closeEl.addEventListener("click", () => [chatPopupEl.classList.add("none")]);
 
 let localStorageData = JSON.parse(localStorage.getItem("auth"));
-// console.log(localStorageData[1]);
 
 axios({
   method: "POST",
@@ -41,8 +40,6 @@ axios({
   });
 
 const fetchingnavbarData = () => {
-  // console.log(localStorageData[0]);
-
   axios({
     method: "POST",
     url: "http://localhost/fswo5/jacht/client_navbar.php",
@@ -53,7 +50,6 @@ const fetchingnavbarData = () => {
   })
     .then(function (response) {
       //handle success
-      // console.log(response.data);
       userAmountEl.textContent = `${response.data[0]["money"]}$`;
     })
     .catch(function (response) {
@@ -87,7 +83,6 @@ searchDataEl.addEventListener("keyup", () => {
       }
 
       searchOutputEl.innerHTML = searchOutputs.join("");
-      // console.log(searchOutputs);
       const searchOutputOutputEl = document.querySelectorAll(
         ".search-output-output"
       );
@@ -113,13 +108,10 @@ axios({
 })
   .then(function (response) {
     //handle success
-    // console.log(response.data[1]);
-    // console.log(response.data[1][0]["price"]);
 
     const brandNewProductItemsArr = [];
 
     for (let i = 0; i < response.data[1].length; i++) {
-      // console.log(i);
       let brandNewItems = `
        <div class="brand-new-product-item">
                 <div class="carousel-img">
@@ -177,13 +169,10 @@ axios({
 })
   .then(function (response) {
     //handle success
-    // console.log(response.data[1]);
-    // console.log(response.data[1][0]["price"]);
 
     const brandNewProductItemsArr = [];
 
     for (let i = 0; i < response.data[0].length; i++) {
-      // console.log(i);
       let brandNewItems = `
        <div class="brand-new-product-item">
                 <div class="carousel-img">
@@ -241,7 +230,6 @@ axios({
 })
   .then(function (response) {
     //handle success
-    // console.log(response.data[1]);
     console.log(response.data[0][0]);
 
     let brandNewItems = `
