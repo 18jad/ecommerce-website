@@ -14,6 +14,9 @@
 //     DA1NTY4In0=.cbd142156784acb614a0ea4d7f29cc3489f8e884349dc5fc03bde3eaf90fe780"
 // }
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("connection.php");
 include("token.php");
 
@@ -24,40 +27,42 @@ $password = $_POST["password"];
 
 // Functions
 
-function checkAdmin($user, $mysql) {
-    $query = $mysql -> prepare(
+function checkAdmin($user, $mysql)
+{
+    $query = $mysql->prepare(
         "SELECT id FROM admins
         WHERE username = '$user'"
     );
 
-    $query -> execute();
-    $array = $query -> get_result();
+    $query->execute();
+    $array = $query->get_result();
 
     $response = [];
-    $response[] = $array -> fetch_assoc();
+    $response[] = $array->fetch_assoc();
 
-    if($response[0] == null) {
+    if ($response[0] == null) {
         die(json_encode("Incorrect Username!"));
     }
 
     return $response[0]["id"];
 };
 
-function checkPassword($user, $pass, $mysql) {
+function checkPassword($user, $pass, $mysql)
+{
     $hashedPassword = hash("sha256", $pass . "thcaj5445");
 
-    $query = $mysql -> prepare(
+    $query = $mysql->prepare(
         "SELECT username FROM admins
         WHERE username = '$user' AND password = '$hashedPassword'"
     );
 
-    $query -> execute();
-    $array = $query -> get_result();
+    $query->execute();
+    $array = $query->get_result();
 
     $response = [];
-    $response[] = $array -> fetch_assoc();
+    $response[] = $array->fetch_assoc();
 
-    if($response[0] == null) {
+    if ($response[0] == null) {
         die(json_encode("Incorrect Password!"));
     }
 
@@ -68,16 +73,14 @@ function checkPassword($user, $pass, $mysql) {
 
 $id = checkAdmin($userName, $mysql);
 
-if(checkPassword($userName, $password, $mysql)) {
+if (checkPassword($userName, $password, $mysql)) {
     $tokenPayload = payloadCreate($userName, "admin");
     $token = tokenEncode($tokenHeader, $tokenPayload, $SECRETKEY);
 
     $json = new stdClass();
-    $json -> id = $id;
-    $json -> userName = $userName;
-    $json -> token = $token;
+    $json->id = $id;
+    $json->userName = $userName;
+    $json->token = $token;
 
     die(json_encode($json));
 };
-
-?>

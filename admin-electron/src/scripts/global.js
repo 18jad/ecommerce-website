@@ -1,10 +1,19 @@
 
+/*
+Check if user is logged in or no
+*/
+
+if (!localStorage.getItem('admin_token')) {
+    window.location = "./index.html"
+}
+
 /**
  * Navbar:
  *  - Close and open
  *  - Shrink buttons, links, logo
  *  - Check if close
  */
+
 const closeBarBtn = document.getElementById('closeNav'),
     navbar = document.querySelector('.nav-header'),
     linkTexts = document.querySelectorAll('.link-text'),
