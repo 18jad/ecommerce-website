@@ -1,6 +1,7 @@
 // Init Variables
 const favoritesEl = document.querySelector(".favorite");
 const divLogo = document.querySelector(".logo");
+const removeButton = document.querySelector(".removeButton");
 let localStorageData = JSON.parse(localStorage.getItem("auth"));
 
 //Check if Authorized
@@ -52,6 +53,7 @@ const fillData = (data) => {
     for (let i = 0; i < data.length; i++) {
       let favoriteHtml = `<div class="items-showcase">
         <div class="product-container">
+        <button class="removeButton">X</button>
           <div class="product-image">
               <img class="product-image-size" src="${data[i]["photo"]}">
           </div>
@@ -72,4 +74,8 @@ const fillData = (data) => {
 
 divLogo.addEventListener("click", () => {
     window.location.href = "homepage.html";
+});
+
+removeButton.addEventListener("click", () => {
+    removeFavorite(productId);
 });
