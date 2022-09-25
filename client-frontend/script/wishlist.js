@@ -38,7 +38,7 @@ const fetchWishlistData = (id) => {
   })
     .then(function (response) {
       //handle success
-      // console.log(response.data);
+      console.log(response.data);
       fillData(response.data);
       responseData = response.data;
     })
@@ -51,7 +51,7 @@ const fetchWishlistData = (id) => {
 const fillData = (data) => {
   const wishlistArr = [];
   for (let i = 0; i < data.length; i++) {
-    // console.log(data[i]);
+    console.log(data);
     let wishlistHtml = `        <div class="wishlist">
                 <div class="wishlist-details">
                     <svg class="delete" id="${data[i]["id"]}" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
