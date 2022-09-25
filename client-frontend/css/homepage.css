@@ -23,6 +23,7 @@ button {
 }
 
 a{
+    text-decoration: none;
     cursor: pointer;
 }
 
@@ -330,7 +331,7 @@ nav .nav-items li a:hover {
 }
 
 .carousel-img img {
-    width: 250px;
+    width: 400px;
 }
 
 .carousel-btns {
@@ -392,6 +393,7 @@ nav .nav-items li a:hover {
     display: flex;
     justify-content: space-between;
     margin: 1rem 0;
+    /* width: 60%; */
 }
 
 .carousel-price {

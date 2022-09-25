@@ -112,34 +112,38 @@ axios({
   .then(function (response) {
     //handle success
     console.log(response.data[1]);
-    // console.log(response.data[1][0]["price"]);
+    console.log(response.data[1][0]["price"]);
 
     const brandNewProductItemsArr = [];
 
     for (let i = 0; i < response.data[1].length; i++) {
-      console.log(i);
+      // console.log(i);
       let brandNewItems = `
        <div class="brand-new-product-item">
                 <div class="carousel-img">
-                    <img src="assets/Screenshot from 2022-09-22 09-45-55.png" alt="">
+                    <img src=${response.data[1][i]["photo"]} alt="">
                     <div class="carousel-btns">
                         <button class="carousel-btn-new">new</button>
                     </div>
                     <div class="carousel-icons">
+                    <a href=cart.html?product_id=${response.data[1][i]["id"]}>
                         <div>
                             <!-- shopping cart icon -->
                             <i class="fa-solid fa-cart-shopping"></i>
                         </div>
+                        </a>
+                        <a href=product.html?product_id=${response.data[1][i]["id"]}>
                         <div>
                             <!-- eye icon -->
                             <i class="fa-solid fa-eye"></i>
                         </div>
+                        </a>
                     </div>
                 </div>
                 <div class="carousel-text">
-                    <p class="carousel-text-1">Decor, furniture</p>
+                    <p class="carousel-text-1">${response.data[1][i]["category"]}</p>
                     <div class="carousel-text-2">
-                        <b>Trauma furniture</b>
+                        <b>${response.data[1][i]["name"]}</b>
                         <a href="">
                             <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                                 stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
@@ -150,7 +154,7 @@ axios({
                             </svg>
                         </a>
                     </div>
-                    <p class="carousel-price">$119.00</p>
+                    <p class="carousel-price">$${response.data[1][i]["price"]}</p>
                 </div>
             </div>
     `;
