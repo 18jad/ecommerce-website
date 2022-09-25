@@ -115,6 +115,14 @@ nav .nav-items li a:hover {
     background: #f45e81;
 }
 
+.user-icon{
+    margin: 0 3rem;
+    cursor: pointer;
+    background-color: rgb(246, 65, 108);
+    border-radius: 50%;
+    padding: 0.4rem;
+}
+
 .search-icon {
     width: 18px;
     margin-left: -8px;
