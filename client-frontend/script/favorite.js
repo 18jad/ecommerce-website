@@ -54,14 +54,14 @@ const fillData = (data) => {
       let favoriteHtml = `<div class="items-showcase">
         <div class="product-container">
           <div class="product-image">
-              <img class="product-image-size" src="assets/Screenshot from 2022-09-22 09-45-55.png">
+              <img class="product-image-size" src="${data[i]["photo"]}">
           </div>
           <div class="product-text">
-              <p class="product-text-1">Decor, furniture</p>
+              <p class="product-text-1">${data[i]["category"]}</p>
               <div class="product-text-2">
-                  <b>Trauma furniture</b>
+                  <b>${data[i]["name"]}</b>
               </div>
-              <p class="product-price">$119.00</p>
+              <p class="product-price">$${data[i]["price"]}</p>
           </div>
       </div>
   </div>`;
