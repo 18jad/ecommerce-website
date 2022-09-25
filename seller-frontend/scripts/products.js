@@ -139,6 +139,8 @@ modalContainer.addEventListener('click', (e) => {
 const productSubmitForm = document.getElementById("productFormSubmit")
 const productInputName = document.getElementById("productNameInput")
 const descriptionInputData = document.getElementById("descriptionInput")
+const imageInputData = document.getElementById("uploadedProductImage")
+
 
 
 
@@ -150,8 +152,7 @@ const descriptionInputData = document.getElementById("descriptionInput")
             data: {
                 productName: productInputName.value,
                 description: descriptionInputData.value,
-                image: "",
-                price: ""
+                image: imageInputData.imageToBase64
             },
             headers: { "Content-Type": "multipart/form-data" },
         }).then((response) => {
@@ -208,8 +209,7 @@ const editProduct = () => {
         data: {
             productName: productInputName.value,
             description: descriptionInputData.value,
-            image: "",
-            price: ""
+            image: imageInputData.imageToBase64,
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
