@@ -216,3 +216,6 @@ const editProduct = () => {
         if (response.data == "success") {
             alert("Successfully created new product");
             window.location.reload();
+        } else {
+            alert(response.data);
+        }
