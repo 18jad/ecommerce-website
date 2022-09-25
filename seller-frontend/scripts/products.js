@@ -135,6 +135,11 @@ modalContainer.addEventListener('click', (e) => {
 // Product Api Linking
 
 //Adding Api Linking
-axios.get
-
+//
+axios.post('http://localhost/ecommerce-server/seller_add.php', {
+    name: "John",
+    job: "developer"
+})
+    .then((res) => console.log(res))
+    .catch((err) => console.log(err))
 
