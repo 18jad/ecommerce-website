@@ -168,8 +168,6 @@ const descriptionInputData = document.getElementById("descriptionInput")
 
 
 
-
-
    //Removing a product from seller list Api linking
     const deleteProduct = () => {
         const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_remove.php";
@@ -201,8 +199,11 @@ const descriptionInputData = document.getElementById("descriptionInput")
 
 
 
-
-
-
 // Editing a product data api linking
 
+const editProduct = () => {
+    const _URL = "http://localhost/ecommerce-website/ecommerce-server/product_edit.php";
+    axios({
+        method: "POST",
+        url: _URL,
+        
