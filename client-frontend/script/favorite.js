@@ -37,7 +37,6 @@ const fetchFavoriteData = (id) => {
     })
     .then(function (response) {
         //handle success
-        console.log(response.data);
         fillData(response.data);
         responseData = response.data;
     })
@@ -50,7 +49,6 @@ const fetchFavoriteData = (id) => {
 const fillData = (data) => {
     const favoriteArr = [];
     for (let i = 0; i < data.length; i++) {
-      console.log(data);
       let favoriteHtml = `<div class="items-showcase">
         <div class="product-container">
           <div class="product-image">
