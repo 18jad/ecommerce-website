@@ -1,6 +1,6 @@
 <?php
 
-//Takes in: userName / name / password /description /date joined
+//Takes in: userName / name / password /description 
 //Returns true if success
 //otherwise returns username already exist
 
@@ -18,7 +18,6 @@ $date_joined = date("d M Y @ " . "H" . ":i");
 $password = hash("sha256", $_POST["password"] . $date_joined . "thcaj5445");
 $description = $_POST["description"];
 $money = 0;
-
 
 //select the username from the database to check if exist
 $check_seller = $mysql -> prepare("SELECT username FROM sellers WHERE username = '$username'");

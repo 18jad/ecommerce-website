@@ -68,6 +68,10 @@ function imageRetrieve($id, $type, $mysql) {
         return null;
     };
 
+    if($response[0]["pic"] == null) {
+        return null;
+    };
+
     $photoAddress =  $response[0]["pic"];
     $image = file_get_contents($photoAddress);
     $imageEncoded = base64_encode($image);
