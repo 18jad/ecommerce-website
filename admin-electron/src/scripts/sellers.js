@@ -16,13 +16,14 @@ let selectedImageName, base64Image;
 // }
 
 // convert image to base64
-const imageToBase64 = (imageInput) => {
+const imageToBase64 = (imageInput, store) => {
     let filesSelected = imageInput.files;
     if (filesSelected.length > 0) {
         let fileToLoad = filesSelected[0];
         let fileReader = new FileReader();
         fileReader.onload = (fileLoadedEvent) => {
-            base64Image = fileLoadedEvent.target.result;
+            store = fileLoadedEvent.target.result;
+            console.log(store)
         }
         fileReader.readAsDataURL(fileToLoad);
     }
@@ -113,6 +114,7 @@ const imageToBase64 = (imageInput) => {
  *  - Set name in header and input field
  */
 
+
 const editSeller = (sellerID, newName = null, newDescription = null, newPhoto = null) => {
     const _URL = "http://localhost/ecommerce-website/ecommerce-server/seller_update_profile.php";
     axios({
@@ -126,6 +128,7 @@ const editSeller = (sellerID, newName = null, newDescription = null, newPhoto = 
         },
         headers: { "Content-Type": "multipart/form-data" },
     }).then((response) => {
+        console.log(sellerID, newName, newDescription, newPhoto);
         console.log(response);
     }).catch((error) => {
         alert(error)
@@ -141,7 +144,9 @@ setTimeout(() => {
         modalHeaderName = document.getElementById('sellerNameHeader'),
         oldSellerName = document.getElementById('oldSellerName'),
         oldDescription = document.getElementById('oldDescriptionInput'),
-        editForm = document.querySelector('.edit-modal-content');
+        editForm = document.querySelector('.edit-modal-content'),
+        newProfile = document.getElementById('newProfile');
+
 
 
     const openModal2 = (btn) => {
@@ -178,8 +183,16 @@ setTimeout(() => {
         e.preventDefault();
         let newDescription = oldDescription.value,
             newName = oldSellerName.value;
-
-        editSeller(e.target.dataset.id, newDescription, newName);
+        let filesSelected = newProfile.files;
+        if (filesSelected.length > 0) {
+            let fileToLoad = filesSelected[0];
+            let fileReader = new FileReader();
+            fileReader.onload = (fileLoadedEvent) => {
+                let base64 = fileLoadedEvent.target.result;
+                editSeller(e.target.dataset.id, newName, newDescription, base64);
+            }
+            fileReader.readAsDataURL(fileToLoad);
+        }
     })
 }, 100)
 
