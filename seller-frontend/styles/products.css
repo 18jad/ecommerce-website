@@ -111,6 +111,10 @@
     width: 88%;
 }
 
+.product-date-joined {
+    width: 50px;
+}
+
 .price-input {
     width: 80%;
     border-left: none;
