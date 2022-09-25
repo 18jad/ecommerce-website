@@ -198,7 +198,6 @@ const descriptionInputData = document.getElementById("descriptionInput")
     }
 
 
-
 // Editing a product data api linking
 
 const editProduct = () => {
@@ -213,13 +212,17 @@ const editProduct = () => {
             price: ""
         },
         headers: { "Content-Type": "multipart/form-data" },
+    }).then((response) => {
         if (response.data == "success") {
-            alert("Successfully created new product");
+            alert("Successfully edited product");
             window.location.reload();
         } else {
             alert(response.data);
         }
     }).catch((error) => {
         alert(error);
-        });
+    });
+}
+
+    
         
