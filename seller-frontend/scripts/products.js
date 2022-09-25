@@ -180,6 +180,7 @@ const descriptionInputData = document.getElementById("descriptionInput")
             data: {
                 product_id: productID,
             },
+            headers: { "Content-Type": "multipart/form-data" },
 
 
 
