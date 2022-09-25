@@ -135,13 +135,12 @@ modalContainer.addEventListener('click', (e) => {
 // Product Api Linking
 
 //Adding Api Linking
-//
+let productInputName = document.getElementById("productNameInput")
 const postData = () => {
 
 axios.post('http://localhost/ecommerce-server/seller_add.php', {
-    productName: productNameInput.value,
-    description: descriptionInput.value,
-    image: 
+    productName: productInputName.value,
+    
 })
     .then((res) => console.log(res))
     .catch((err) => console.log(err))
