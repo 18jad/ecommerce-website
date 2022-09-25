@@ -108,26 +108,29 @@ function WeekRevnenue($seller_id,$mysql) {
     $response = [];
 
 	while (strtotime($week_days) <= strtotime($today)) {
+        $regEx = "^" . $week_days;
 
-    $daily_revneue= $mysql -> prepare("SELECT Sum(price) FROM orders where seller_id=$seller_id and time='$week_days'");
-    
-    if ($daily_revneue === false) {
-        die(json_encode("error: " . $mysql -> error));
-    };
-    
-    //execute the select query
-    $daily_revneue -> execute();
-    $array = $daily_revneue -> get_result();
-    
-    
-    //put the data in the response array
-    while($info  = $array -> fetch_assoc()){
-        $response[] = $info;
-    };
+        $daily_revneue= $mysql -> prepare("SELECT Sum(price) FROM orders 
+        where seller_id=$seller_id and time REGEXP '$regEx'");
+        
+        if ($daily_revneue === false) {
+            die(json_encode("error: " . $mysql -> error));
+        };
+        
+        //execute the select query
+        $daily_revneue -> execute();
+        $array = $daily_revneue -> get_result();
+        
+        
+        //put the data in the response array
+        while($info  = $array -> fetch_assoc()){
+            $response[] = $info;
+        };
 
-    $week_days= date ("d M Y", strtotime("+1 day", strtotime($week_days)));
- }   
-      return $response;
+        $week_days= date ("d M Y", strtotime("+1 day", strtotime($week_days)));
+    }   
+
+    return $response;
 };
 
 
