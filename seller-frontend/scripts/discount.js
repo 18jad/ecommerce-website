@@ -14,7 +14,7 @@
         discountCodes.forEach((discountCode) => {
             let discountHTML = `
                 <div class="discount">
-                    <p class="discount-id">#1${discountCode.id}</p>
+                    <p class="discount-id">#${discountCode.id}</p>
                     <p class="discount-code">${discountCode.code}</p>
                     <p class="discount-percentage">${discountCode.percentage}%</p>
                     <button class="deleteBtn" data-id=${discountCode.id}>
@@ -29,10 +29,10 @@
     })
 })();
 
+const result = document.getElementById("responseResult");
 
 const createNewDiscount = (sellerID, percentage) => {
     const _URL = "http://localhost/ecommerce-website/ecommerce-server/discount_create.php";
-    const result = document.getElementById("responseResult");
     axios({
         method: "POST",
         url: _URL,
@@ -64,3 +64,34 @@ discountForm.addEventListener('submit', (event) => {
 
     createNewDiscount(sellerID, percentage);
 })
+
+setTimeout(() => {
+    const deleteDiscount = (discountID) => {
+        const _URL = "http://localhost/ecommerce-website/ecommerce-server/discount_delete.php";
+        axios({
+            method: "POST",
+            url: _URL,
+            data: {
+                discount_id: discountID,
+            },
+            headers: { "Content-Type": "multipart/form-data" },
+        }).then((response) => {
+            console.log(response)
+        }).catch((error) => {
+            console.log(error)
+        });
+    }
+
+    const deleteBtns = document.querySelectorAll('.deleteBtn');
+    deleteBtns.forEach((btns) => {
+        btns.addEventListener('click', () => {
+            deleteDiscount(btns.dataset.id);
+            result.textContent = `Discount ${btns.dataset.id} deleted`;
+            result.hidden = false;
+            setTimeout(() => {
+                result.hidden = true;
+                window.location.reload();
+            }, 1500);
+        })
+    })
+}, 200);
