@@ -19,7 +19,7 @@ authSubmitBtnEl.addEventListener("click", (e) => {
   } else {
     axios({
       method: "POST",
-      url: "http://localhost/jacht/client_register.php",
+      url: "http://localhost/fswo5/jacht/client_register.php",
       data: {
         userName: usernameInputEl.value,
         name: nameInputEl.value,

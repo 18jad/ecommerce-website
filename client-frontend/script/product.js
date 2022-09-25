@@ -25,7 +25,7 @@ let localStorageData = JSON.parse(localStorage.getItem("auth"));
 
 axios({
   method: "POST",
-  url: "http://localhost/jacht/authorized.php",
+  url: "http://localhost/fswo5/jacht/authorized.php",
   data: {
     userName: localStorageData[1],
     token: localStorageData[2],
@@ -51,7 +51,7 @@ const fillProduct = () => {
   let name = params.get("product_id");
   axios({
     method: "POST",
-    url: "http://localhost/jacht/product_retrieve.php",
+    url: "http://localhost/fswo5/jacht/product_retrieve.php",
     data: {
       prodId: name,
     },

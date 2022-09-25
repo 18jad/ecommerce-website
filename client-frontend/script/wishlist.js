@@ -3,7 +3,7 @@ let localStorageData = JSON.parse(localStorage.getItem("auth"));
 // console.log(localStorageData);
 axios({
   method: "POST",
-  url: "http://localhost/jacht/authorized.php",
+  url: "http://localhost/fswo5/jacht/authorized.php",
   data: {
     userName: localStorageData[1],
     token: localStorageData[2],
@@ -30,7 +30,7 @@ const fetchWishlistData = (id) => {
   // console.log(id);
   axios({
     method: "POST",
-    url: "http://localhost/jacht/view_wishlist.php",
+    url: "http://localhost/fswo5/jacht/view_wishlist.php",
     data: {
       user_id: id,
     },
@@ -89,7 +89,7 @@ const removewishClickedBtn = () => {
       console.log(removebtn.path[0].id);
       axios({
         method: "POST",
-        url: "http://localhost/jacht/wishlist_remove.php",
+        url: "http://localhost/fswo5/jacht/wishlist_remove.php",
         data: {
           user_id: localStorageData[0],
           product_id: removebtn.path[0].id,
