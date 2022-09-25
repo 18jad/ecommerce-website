@@ -22,6 +22,10 @@ button {
     cursor: pointer;
 }
 
+a{
+    cursor: pointer;
+}
+
 nav {
     background: white;
     display: flex;
