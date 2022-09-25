@@ -19,7 +19,7 @@ let localStorageData = JSON.parse(localStorage.getItem("auth"));
 
 axios({
   method: "POST",
-  url: "http://localhost/jacht/authorized.php",
+  url: "http://localhost/fswo5/jacht/authorized.php",
   data: {
     userName: localStorageData[1],
     token: localStorageData[2],
@@ -45,7 +45,7 @@ const fetchingnavbarData = () => {
 
   axios({
     method: "POST",
-    url: "http://localhost/jacht/client_navbar.php",
+    url: "http://localhost/fswo5/jacht/client_navbar.php",
     data: {
       user_id: localStorageData[0],
     },
@@ -67,7 +67,7 @@ searchDataEl.addEventListener("keyup", () => {
   searchOutputEl.classList.remove("none");
   axios({
     method: "POST",
-    url: "http://localhost/jacht/client_search.php",
+    url: "http://localhost/fswo5/jacht/client_search.php",
     data: {
       searchQuery: searchDataEl.value,
     },
@@ -108,7 +108,7 @@ searchDataEl.addEventListener("keyup", () => {
 
 axios({
   method: "POST",
-  url: "http://localhost/jacht/client_feed.php",
+  url: "http://localhost/fswo5/jacht/client_feed.php",
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
@@ -172,7 +172,7 @@ axios({
 
 axios({
   method: "POST",
-  url: "http://localhost/jacht/client_feed.php",
+  url: "http://localhost/fswo5/jacht/client_feed.php",
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
@@ -236,7 +236,7 @@ axios({
 
 axios({
   method: "POST",
-  url: "http://localhost/jacht/client_feed.php",
+  url: "http://localhostfswo5//jacht/client_feed.php",
   headers: { "Content-Type": "multipart/form-data" },
 })
   .then(function (response) {
