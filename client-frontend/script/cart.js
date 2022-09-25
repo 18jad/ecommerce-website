@@ -80,6 +80,7 @@ const shoppingCartFetch = () => {
 
           localStorage.setItem("product_id", JSON.stringify(products));
           localStorage.setItem("quantity", JSON.stringify(quantity));
+          location.reload();
         });
       })
       .catch(function (response) {
