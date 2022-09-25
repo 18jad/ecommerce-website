@@ -77,6 +77,9 @@ const shoppingCartFetch = () => {
           products.splice(productRemoved, 1);
           quantity.splice(productRemoved, 1);
           console.log(products, quantity);
+
+          localStorage.setItem("product_id", JSON.stringify(products));
+          localStorage.setItem("quantity", JSON.stringify(quantity));
         });
       })
       .catch(function (response) {
@@ -84,16 +87,4 @@ const shoppingCartFetch = () => {
         console.log(response);
       });
   }
-  // removecartClickedBtn();
 };
-
-// const removecartClickedBtn = () => {
-//   const removebtnEl = document.querySelector(".close-icon svg");
-//   console.log(removebtnEl);
-
-//   removebtnEl.forEach((removebtn) => {
-//     removebtn.addEventListener("click", (removebtn) => {
-//       console.log(removebtn.path[0].id);
-//     });
-//   });
-// };
