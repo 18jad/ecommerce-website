@@ -31,5 +31,15 @@ while($info  = $array -> fetch_assoc()){
 $json=json_encode($response);
 $amount=$response[0]['amount'];
 
+//udpate the user_id on the insert code
+$add_amount = $mysql -> prepare("UPDATE users set money= money+$amount where id = $user_id ");
+
+//execute the update query
+$add_amount -> execute();
+
+$delete_voucher = $mysql -> prepare("DELETE from vouchers where user_id = $user_id and code='$code'");
+$delete_voucher -> execute();
+
+echo json_encode("voucher applied");
 
 ?>
