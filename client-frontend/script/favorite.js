@@ -26,7 +26,6 @@ axios({
 });
   
 const fetchFavoriteData = (id) => {
-    // console.log(id);
     axios({
       method: "POST",
       url: "http://localhost/fswo5/jacht/view_favorites.php",
@@ -48,10 +47,10 @@ const fetchFavoriteData = (id) => {
 };
 
 const fillData = (data) => {
-    const wishlistArr = [];
+    const favoriteArr = [];
     for (let i = 0; i < data.length; i++) {
       console.log(data);
-      let wishlistHtml = `<div class="items-showcase">
+      let favoriteHtml = `<div class="items-showcase">
         <div class="product-container">
           <div class="product-image">
               <img class="product-image-size" src="assets/Screenshot from 2022-09-22 09-45-55.png">
@@ -65,8 +64,8 @@ const fillData = (data) => {
           </div>
       </div>
   </div>`;
-      wishlistArr.push(wishlistHtml);
+    favoriteArr.push(favoriteHtml);
     }
   
-    wishlistsEl.innerHTML = wishlistArr.join("");
+    wishlistsEl.innerHTML = favoriteArr.join("");
 };
