@@ -212,3 +212,4 @@ const editProduct = () => {
             image: "",
             price: ""
         },
+        headers: { "Content-Type": "multipart/form-data" },
