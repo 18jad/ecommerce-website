@@ -69,11 +69,10 @@ const imageToBase64 = (imageInput) => {
             let sellerName = seller.name,
                 sellerUsername = seller.username,
                 sellerDescription = seller.description,
-                sellerPhoto = (seller.photo == null || seller.photo == "" || seller.photo == "NULL") ? "./assets/empty-profile.jpg" : `../../ecommerce-server/${seller.photo}`,
+                sellerPhoto = (seller.photo == null || seller.photo == "" || seller.photo == "NULL") ? "./assets/empty-profile.jpg" : (seller.photo || `../../ecommerce-server/${seller.photo}`),
                 sellerId = seller.id,
                 sellerDate = seller.date_joined,
                 sellerMoney = seller.money;
-            console.log('%cMyProject%cline:72%csellerPhoto', 'color:#fff;background:#ee6f57;padding:3px;border-radius:2px', 'color:#fff;background:#1f3c88;padding:3px;border-radius:2px', 'color:#fff;background:rgb(252, 157, 154);padding:3px;border-radius:2px', sellerPhoto)
 
             let sellerHTML = `
                 <div class="client">
