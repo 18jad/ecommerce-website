@@ -17,3 +17,13 @@ img {
 a {
     text-decoration: none;
 }
+
+body {
+    font-family: 'Rubik', sans-serif;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 100vh;
+    place-items: center;
+    background-color:#fc013cae;
+}
