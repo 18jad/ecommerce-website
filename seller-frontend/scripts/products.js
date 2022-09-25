@@ -219,3 +219,7 @@ const editProduct = () => {
         } else {
             alert(response.data);
         }
+    }).catch((error) => {
+        alert(error);
+        });
+        
