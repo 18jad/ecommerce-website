@@ -27,6 +27,12 @@ while($info  = $array -> fetch_assoc()){
 $json=json_encode($response);
 $user_send=$response[0]['id'];
 
+//udpate the user_id in table users by id of the user send
+$send_voucher = $mysql -> prepare("UPDATE vouchers set user_id=$user_send where user_id = $user_id ");
 
+//execute the update query
+$send_voucher -> execute();
+
+echo json_encode("voucher sent");
 
 ?>
