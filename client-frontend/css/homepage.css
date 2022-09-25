@@ -338,6 +338,7 @@ nav .nav-items li a:hover {
 .carousel-img img {
     width: 400px;
     height: 500px;
+    object-fit: contain;
 }
 
 .carousel-btns {
