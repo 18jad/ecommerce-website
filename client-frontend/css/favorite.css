@@ -60,6 +60,7 @@ nav {
     margin-right: auto;
     border-color: rgb(232, 231, 231);
     padding: 4vh;
+    margin-bottom: 100px;
 }
 
 section {
@@ -79,7 +80,7 @@ footer {
     flex-wrap: wrap;
     align-items: center;
     justify-content: end;
-    height: 80px;
+    height: 70px;
     padding: 0 100px;
     background-color: #F6416C;
     flex-direction: row;
