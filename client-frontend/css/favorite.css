@@ -73,22 +73,6 @@ section {
     width: 30vh;
 }
 
-.removeButton {
-	background-color:#f6416b;
-	border-radius:28px;
-	border:1px solid #ffffff;
-	display:inline-block;
-	cursor:pointer;
-	color:#ffffff;
-	font-family:Arial;
-	font-size:11px;
-	padding:11px 16px;
-	text-decoration:none;
-    margin-bottom: 10px;
-}
-.removeButton:hover {
-	background-color:#73BE68;
-}
 
 footer {
     display: flex;
