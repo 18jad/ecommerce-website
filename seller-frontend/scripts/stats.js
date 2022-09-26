@@ -67,6 +67,20 @@
         };
 
         monthlyRevenueOption && monthlyRevenue.setOption(monthlyRevenueOption);
+        // total items sold / total revenue / total product listed
+        const itemSoldContainer = document.getElementById("itemSoldAmount"),
+            totalRevenueContainer = document.getElementById("totalRevenueAmount"),
+            totalProductContainer = document.getElementById("totalProductsListed");
+
+        let productListed = Object.values(response.data[1])[0],
+            itemSold = Object.values(response.data[2])[0],
+            totalRevenue = Object.values(response.data[3])[0];
+
+        itemSoldContainer.textContent = itemSold;
+        totalRevenueContainer.textContent = '$' + totalRevenue.toString();
+        totalProductContainer.textContent = productListed;
+
+        console.log(productListed, itemSold, totalRevenue)
     }).catch((error) => {
         console.error(error);
     })
