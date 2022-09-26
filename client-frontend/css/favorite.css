@@ -250,6 +250,10 @@ nav {
     background: none;
   }
 
+  .search-bar .search-data::placeholder {
+    color: lightgray;
+  }
+
   #submitSearch {
     padding: 0 17px;
     aspect-ratio: 1/1;
