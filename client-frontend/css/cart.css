@@ -261,6 +261,21 @@ th {
   background: #73BE68;
   border-radius: 6px;
   margin-top: 20px;
+  color: white;
+  font-weight: 600;
+}
+
+.user-amount,
+.dollar {
+  font-size: 1.3rem;
+  font-weight: 800;
+  color: #F6416C;
+}
+
+.exp {
+  color: #3337;
+  font-size: 12px;
+  margin-top: 5px;
 }
 
 .purchuse-successful {
