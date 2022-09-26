@@ -225,3 +225,28 @@ nav {
   nav .nav-items li a:hover {
     color: #F6416C;
   }
+
+  .search-bar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    padding: 2px;
+    background: white;
+    min-width: 18% !important;
+    border-radius: 2px;
+    border: 1.4px solid rgba(155, 155, 155, 0.2);
+    border-radius: 100px;
+  }
+  
+  .search-bar .search-data {
+    width: 100%;
+    height: 100%;
+    padding: 0 10px;
+    color: black;
+    font-size: 17px;
+    border: none;
+    font-weight: 500;
+    background: none;
+  }
+  
