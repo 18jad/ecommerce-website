@@ -235,11 +235,11 @@ label {
 
 .seller-input {
     padding: 13px;
-    border-radius: 13px;
+    background: white;
     outline: none;
     color: var(--black);
     font-size: 15px;
-    border: 1.5px solid var(--black);
+    border: 1.5px solid var(--border-color);
     font-weight: 500;
     transition: border 150ms ease-in-out, box-shadow 200ms ease-in-out;
 }
