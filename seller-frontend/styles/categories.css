@@ -14,6 +14,7 @@
     align-items: center;
     margin-bottom: 20px;
     justify-content: space-between;
+    margin-top: 30px;
 }
 
 .categorie-table {
@@ -108,6 +109,9 @@
     text-overflow: ellipsis;
     background: var(--blue-gray);
     transition: all 150ms ease-in-out;
+    position: absolute;
+    right: 20px;
+    bottom: 20px;
 }
 
 .res.success {
