@@ -24,8 +24,8 @@
     overflow-y: auto;
     margin-bottom: 55px;
     color: var(--black);
-    border: 1px solid var(--blue-gray);
-    box-shadow: 0 5px 15px 1px #3333;
+    border: 1px solid var(--border-color);
+    box-shadow: 0 5px 15px 1px #3332;
     font-weight: 500;
 }
 
@@ -38,7 +38,7 @@
     align-items: center;
     justify-content: space-between;
     padding: 10px 20px;
-    border-bottom: 1px solid var(--blue-gray);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .categorie-name {
@@ -83,7 +83,7 @@
     width: 100%;
     padding: 8px 14px;
     outline: 2px solid transparent;
-    border: 1px solid var(--blue-gray);
+    border: 1px solid var(--border-color);
     border-left: none;
     overflow: hidden;
     transition: outline 150ms ease-in-out;
