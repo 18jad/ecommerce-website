@@ -12,7 +12,7 @@ body {
   background: #f2f2f2;
 }
 
-button{
+button {
   cursor: pointer;
 }
 
@@ -164,11 +164,11 @@ th {
   padding-bottom: 10vh;
 }
 
-.close-icon svg{
+.close-icon svg {
   cursor: pointer;
 }
 
-.cart-image{
+.cart-image {
   width: 30%;
 }
 
@@ -208,20 +208,15 @@ th {
 
 .button-transparent {
   font-size: 2vh;
-  width: 30vh;
-  height: 6vh;
   color: rgba(0, 0, 0, 0.562);
-  font-weight: 300;
   border-radius: 6px;
-  border-style: groove;
   background-color: transparent;
-  border-color: rgba(128, 128, 128, 0.441);
-  border-width: 2px;
-
+  border: 1.4px solid #3335;
+  padding: 10px 15px;
 }
 
-.button-transparent:hover {
-  background-color: rgba(188, 186, 186, 0.648);
+.button-transparent:focus {
+  border: 1.4px solid #0005;
 }
 
 .button-red:hover {
@@ -259,33 +254,21 @@ th {
 
 .total {
   display: flex;
+  align-items: center;
   justify-content: space-between;
-  /* align-content: center; */
-  width: 30vh;
-  border-style: groove;
-  width: 50vh;
-  /* height: 5vh; */
-  margin-top: 2vh;
-  color: rgba(128, 128, 128, 0.865);
-  padding: 0.5rem;
+  width: 400px;
+  padding: 10px 15px;
+  background: #73BE68;
+  border-radius: 6px;
+  margin-top: 20px;
 }
 
-.subtotal-title {
-  padding-left: 1vh;
-  padding-top: 1vh;
-}
-
-.subtotal-price {
-  padding-right: 1vh;
-  padding-top: 1vh;
-}
-
-.purchuse-successful{
+.purchuse-successful {
   color: #73BE68;
   margin: 1rem 0;
 }
 
-.none{
+.none {
   display: none;
 }
 
