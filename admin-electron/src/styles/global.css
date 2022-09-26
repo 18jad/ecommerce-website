@@ -5,6 +5,7 @@
     --turquoise: #00ADB5;
     --black: #393E46;
     --dark-blue: #232831;
+    --border-color: #bfbfbf;
 }
 
 *:not(i) {
@@ -242,14 +243,14 @@ section {
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
-    box-shadow: 0 2px 5px #3333;
+    box-shadow: 0 2px 6px #3331;
 }
 
 .id-search {
     padding: 8px 10px;
     width: 14vw;
     outline: 2px solid transparent;
-    border: 1px solid var(--dark-blue);
+    border: 1px solid var(--border-color);
     border-left: none;
     overflow: hidden;
     transition: outline 150ms ease-in-out;
@@ -267,7 +268,7 @@ section {
     background: #e3ebf1;
     padding: 6px 14px;
     outline: 2px solid transparent;
-    border: 1px solid var(--dark-blue);
+    border: 1px solid var(--border-color);
     border-right: none;
     transition: outline 150ms ease-in-out;
     user-select: none;
@@ -297,7 +298,7 @@ section {
     scale: 0;
     opacity: 0;
     pointer-events: none;
-    border: 1px solid var(--dark-blue);
+    border: 1px solid rgba(51, 51, 51, 0.562);
     transition: all 400ms ease-in-out, opacity 300ms cubic-bezier(0.165, 0.84, 0.9, 1);
 }
 
@@ -308,7 +309,7 @@ section {
     position: sticky;
     top: 0;
     text-align: center;
-    border-bottom: 1px solid var(--dark-blue);
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -343,7 +344,7 @@ section {
     overflow-y: auto;
     margin-bottom: 55px;
     color: var(--black);
-    border: 1px solid var(--dark-blue);
+    border: 1px solid var(--border-color);
     box-shadow: 0 5px 15px 1px #3333;
     font-weight: 500;
 }
@@ -359,7 +360,7 @@ section {
     width: 100%;
     text-align: center;
     padding: 10px 20px;
-    border-bottom: 1px solid var(--dark-blue);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .table-info {
@@ -372,7 +373,7 @@ section {
     top: 0;
     color: var(--turquoise);
     background: var(--dark-blue);
-    border-bottom: 1px solid var(--dark-blue);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .client-image {

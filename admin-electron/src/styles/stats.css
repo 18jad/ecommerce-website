@@ -12,7 +12,7 @@
     height: 350px;
     width: 50vw;
     border: 1px solid var(--turquoise);
-    border-radius: 10px;
+    border-radius: 4px;
     overflow: hidden;
 }
 
@@ -24,7 +24,7 @@
     color: var(--white);
     padding: 5px;
     width: 100%;
-    border-radius: 10px 10px 0 0;
+    border-radius: 4px 4px 0 0;
     font-weight: 600;
 }
 
