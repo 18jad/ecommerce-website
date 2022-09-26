@@ -181,3 +181,25 @@ footer .footer-items li a:hover {
         width: 30px;
     }
 }
+
+
+/* add navbar css */
+
+nav {
+    background: white;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 10;
+    justify-content: space-between;
+    height: 70px;
+    box-shadow: 0 4px 7px #3331;
+    padding: 0 100px;
+  }
+  
+  .logo-image {
+    width: 150px;
+  
+  }
