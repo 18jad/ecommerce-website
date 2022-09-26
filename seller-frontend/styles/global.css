@@ -6,6 +6,7 @@
     --aqua: #418194;
     --black: #393e46;
     --dark-gray: #232831;
+    --border-color: #bfbfbf;
 }
 
 *:not(i) {
@@ -251,13 +252,13 @@ section {
     align-items: center;
     justify-content: center;
     flex-direction: row-reverse;
-    box-shadow: 0 2px 5px #3333;
+    box-shadow: 0 2px 5px #3331;
 }
 
 .id-search {
     padding: 8px 14px;
     outline: 2px solid transparent;
-    border: 1px solid var(--blue-gray);
+    border: 1px solid var(--border-color);
     border-left: none;
     overflow: hidden;
     transition: outline 150ms ease-in-out;
@@ -275,7 +276,7 @@ section {
     background: #e3ebf1;
     padding: 6px 14px;
     outline: 2px solid transparent;
-    border: 1px solid var(--blue-gray);
+    border: 1px solid var(--border-color);
     border-right: none;
     transition: outline 150ms ease-in-out;
     user-select: none;
@@ -305,7 +306,7 @@ section {
     scale: 0;
     opacity: 0;
     pointer-events: none;
-    border: 1px solid var(--blue-gray);
+    border: 1px solid var(--border-color);
     transition: all 400ms ease-in-out, opacity 300ms cubic-bezier(0.165, 0.84, 0.9, 1);
 }
 
@@ -316,7 +317,7 @@ section {
     position: sticky;
     top: 0;
     text-align: center;
-    border-bottom: 1px solid var(--blue-gray);
+    border-bottom: 1px solid var(--border-color);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -351,7 +352,7 @@ section {
     overflow-y: auto;
     margin-bottom: 55px;
     color: var(--black);
-    border: 1px solid var(--blue-gray);
+    border: 1px solid var(--border-color);
     box-shadow: 0 5px 15px 1px #3333;
     font-weight: 500;
 }
@@ -367,7 +368,7 @@ section {
     width: 100%;
     text-align: center;
     padding: 10px 20px;
-    border-bottom: 1px solid var(--blue-gray);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .table-info {
@@ -380,7 +381,7 @@ section {
     top: 0;
     color: var(--white);
     background: var(--blue-gray);
-    border-bottom: 1px solid var(--blue-gray);
+    border-bottom: 1px solid var(--border-color);
 }
 
 .product-image {
