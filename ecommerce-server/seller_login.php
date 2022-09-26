@@ -15,6 +15,9 @@
 //     34305abc616fcfe9f55f0eec6ac59257864af528c407ae8bb9e784ed8ac829"
 // }
 
+header("Access-Control-Allow-Origin: *");
+header("Access-Control-Allow-Headers: *");
+
 include("connection.php");
 include("token.php");
 
