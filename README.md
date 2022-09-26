@@ -1,5 +1,13 @@
 # JACHT
 
+# Contributors
+- Team Leader: 
+  - Jad Yahya (Frontend - Admin - Seller): [@18jad](https://github.com/18jad)
+- Team:
+  - Charbel Maroun (Frontend - Client): [@charbelmaroundev](https://github.com/charbelmaroundev)
+  - Hassan Khalil (Backend): [@hassankhalil33](https://github.com/hassankhalil33)
+  - Ali Obeid (Backend): [@AliObeid01](https://github.com/AliObeid01)
+  - Tarek Charif (Frontend - Client): [@TCHF25](https://github.com/TCHF25)
 
 # Screenshots
 
@@ -38,19 +46,19 @@
 <img src="https://imgpile.com/images/T2YOlS.png">
 
 -------
-## Seller
+## Client
 
-- Categories:
-<img src="https://imgpile.com/images/T2YXyL.png">
+- Log in:
+<img src="https://i.ibb.co/w4x8FF5/Screenshot-2022-09-26-170016.png">
 
-- Products:
-<img src="https://imgpile.com/images/T2YoGx.png">
+- Homepage 1:
+<img src="https://i.ibb.co/b7QtT6g/qq.png" width="100%">
 
-- Discounts:
-<img src="https://imgpile.com/images/T2YqXj.png">
+- Homepage 2:
+<img src="https://i.ibb.co/qssxJK4/Screenshot-2022-09-26-170149.png">
 
-- Ads:
-<img src="https://imgpile.com/images/T2YLbC.png">
+- Product:
+<img src="https://i.ibb.co/yqfhvbS/Screenshot-2022-09-26-170255.png">
 
-- Statistics:
-<img src="https://imgpile.com/images/T2YOlS.png">
+- Cart:
+<img src="https://i.ibb.co/x6GQBn0/Screenshot-2022-09-26-170340.png">
