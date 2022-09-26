@@ -207,17 +207,17 @@ th {
 }
 
 .button-transparent {
+  padding: 0.6rem;
   font-size: 2vh;
   width: 30vh;
   height: 6vh;
   color: rgba(0, 0, 0, 0.562);
   font-weight: 300;
-  border-radius: 6px;
+  border-radius: 8px;
   border-style: groove;
   background-color: transparent;
   border-color: rgba(128, 128, 128, 0.441);
   border-width: 2px;
-
 }
 
 .button-transparent:hover {
@@ -236,8 +236,8 @@ th {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
-  margin-right: 30vh;
-  margin-bottom: 20vh;
+  margin-right:9rem;
+  margin-bottom: 10rem;
 
 }
 
@@ -246,38 +246,41 @@ th {
   margin-bottom: 3vh;
 }
 
+.cart-totals-flex{
+  display: flex;
+}
+
 .subtotal {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 30vh;
+  align-content: center;
   border-style: groove;
   width: 50vh;
-  height: 5vh;
+  /* height: 5vh; */
   color: rgba(128, 128, 128, 0.865);
 }
 
 .total {
   display: flex;
   justify-content: space-between;
-  /* align-content: center; */
-  width: 30vh;
-  border-style: groove;
   width: 50vh;
-  /* height: 5vh; */
   margin-top: 2vh;
-  color: rgba(128, 128, 128, 0.865);
-  padding: 0.5rem;
+  color: #fff;
+  background-color: #73BE68;
 }
 
 .subtotal-title {
-  padding-left: 1vh;
-  padding-top: 1vh;
+  cursor: default;
 }
 
-.subtotal-price {
-  padding-right: 1vh;
-  padding-top: 1vh;
+.total:hover{
+  background-color: #73BE68;
+}
+
+.total {
+  padding: 0.8rem;
+  border-radius: 6px;
 }
 
 .purchuse-successful{
@@ -299,7 +302,7 @@ th {
   border-style: none;
   background-color: #F6416C;
   border-color: #F6416C;
-  margin-top: 3vh;
+  /* margin-top: 3vh; */
 }
 
 .button-red-long:hover {
@@ -311,12 +314,13 @@ footer {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
-  justify-content: end;
+  justify-content: space-between;
   height: 70px;
   padding: 0 100px;
   background-color: #F6416C;
   flex-direction: row;
-  position: absolute;
+  position: fixed;
+  bottom: 0;
   left: 0;
   width: 100%;
 }
