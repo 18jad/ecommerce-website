@@ -177,6 +177,10 @@ nav .nav-items li a:hover {
     background-color: #F5F5F5;
 }
 
+.brand-case {
+    grid-template-rows: repeat(1, 1fr) !important;
+}
+
 .hero-page {
     padding-top: 25rem;
     display: flex;
