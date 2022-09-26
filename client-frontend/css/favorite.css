@@ -203,3 +203,25 @@ nav {
     width: 150px;
   
   }
+
+  nav .nav-items {
+    display: flex;
+    flex: 1;
+    padding: 0 0 0 40px;
+  }
+  
+  nav .nav-items li {
+    list-style: none;
+    padding: 0 15px;
+  }
+  
+  nav .nav-items li a {
+    color: rgba(0, 0, 0, 0.559);
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+  }
+  
+  nav .nav-items li a:hover {
+    color: #F6416C;
+  }
