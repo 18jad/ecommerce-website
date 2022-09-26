@@ -7,18 +7,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Favorite products</title>
     <link href="css/favorite.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <link href="assets/" rel="images">
     <!-- <link href="assets/Logo.png" rel="images"> -->
 </head>
 
 <body>
-    <!--Header-->
-    <nav class="nav">
+    <!--Navigation bar-->
+    <nav>
         <div class="logo">
-            <img class="logo-image" src="assets/Logo.png" href="homepage.html">
+            <img class="logo-image" src="assets/Logo.png" alt="logo">
         </div>
-        <div class="title-div">
-            <h1 class="page-title">Favorite Items</h1>
+        <div class="nav-items">
+            <li><a href="homepage.html">Home</a></li>
+            <li><a href="cart.html">Cart</a></li>
         </div>
+        <div>
+            <form action="#" class="search-bar">
+                <input type="search" class="search-data" placeholder="Search" required>
+                <button type="submit" id="submitSearch"><i class="fa-solid fa-magnifying-glass search-icon"></i></button>
+            </form>
+            <div class="search-output none"></div>
+        </div>
+        <div class="user-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="white"
+                stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-user">
+                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
+                <circle cx="12" cy="7" r="4"></circle>
+            </svg>
+        </div>
+        <b class="user-amount">5000$</b>
     </nav>
     <!--Favorite items showcase-->
     <section class="favorite">
@@ -33,7 +54,6 @@
                         <b>Trauma furniture</b>
                     </div>
                     <p class="product-price">$119.00</p>
-                    <button class="removeButton"></button>
                 </div>
             </div>
         </div>

@@ -134,8 +134,8 @@ input[type=number] {
 
 .cart-btn {
     border: none;
-    margin: 5rem 0;
-    padding: 1.5rem 5rem;
+    margin-left:8vh;
+    padding: 1rem 4rem;
     color: white;
     cursor: pointer;
     background-color: #73bc6a;
@@ -200,6 +200,8 @@ img {
 .demo:hover {
     opacity: 1;
 }
+
+
 
 @media (max-width: 1200px) {
     .product-main {
@@ -388,4 +390,9 @@ footer .footer-items li a {
 
 footer .footer-items li a:hover {
     color: rgba(255, 255, 255, 0.534);
+}
+
+.flex-btns {
+    display: flex;
+    flex-direction: row;
 }
