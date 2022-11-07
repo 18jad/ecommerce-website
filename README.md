@@ -1,16 +1,3 @@
-# JACHT
-
-# Contributors
-- Team Leader: 
-  - Jad Yahya (Frontend - Admin - Seller): [@18jad](https://github.com/18jad)
-- Team:
-  - Charbel Maroun (Frontend - Client): [@charbelmaroundev](https://github.com/charbelmaroundev)
-  - Hassan Khalil (Backend): [@hassankhalil33](https://github.com/hassankhalil33)
-  - Ali Obeid (Backend): [@AliObeid01](https://github.com/AliObeid01)
-  - Tarek Charif (Frontend - Client): [@TCHF25](https://github.com/TCHF25)
-
-# Screenshots
-
 ## Admin
 - Log in:
 <img src="https://i.ibb.co/yhvrMHk/Screenshot-2022-09-26-164901.png">
